@@ -3344,6 +3344,12 @@ It is expected that v1.DomainSpec will be merged into this structure.</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">If labels are specified, only nodes marked with all of these labels are considered when scheduling the VM.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>terminationGracePeriodSeconds</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Grace period observed after signalling a VM to stop after which the VM is force terminated.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
+</tr>
 </tbody>
 </table>
 </div>
