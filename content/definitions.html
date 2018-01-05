@@ -495,7 +495,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_vmtemplatespec">v1.VMTemplateSpec</a></li>
 <li><a href="#_v1_virtualmachine">v1.VirtualMachine</a></li>
 <li><a href="#_v1_virtualmachinecondition">v1.VirtualMachineCondition</a></li>
-<li><a href="#_v1_virtualmachinegraphics">v1.VirtualMachineGraphics</a></li>
 <li><a href="#_v1_virtualmachinelist">v1.VirtualMachineList</a></li>
 <li><a href="#_v1_virtualmachinereplicaset">v1.VirtualMachineReplicaSet</a></li>
 <li><a href="#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></li>
@@ -3177,38 +3176,6 @@ selected by this will be the ones affected by this deployment.
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_virtualmachinegraphics">v1.VirtualMachineGraphics</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>host</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>port</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_virtualmachinelist">v1.VirtualMachineList</h3>
 <div class="paragraph">
 <p>VirtualMachineList is a list of VirtualMachines
@@ -3435,12 +3402,6 @@ state of a system.</p>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Conditions are specific points in VM&#8217;s pod runtime.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachinecondition">v1.VirtualMachineCondition</a> &gt; array</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>graphics</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Graphics represent the details of available graphical consoles.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachinegraphics">v1.VirtualMachineGraphics</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>migrationNodeName</strong><br>

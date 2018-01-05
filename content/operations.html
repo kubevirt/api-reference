@@ -457,8 +457,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_replacenamespacedvirtualmachine">Update a VirtualMachine object.</a></li>
 <li><a href="#_deletenamespacedvirtualmachine">Delete a VirtualMachine object.</a></li>
 <li><a href="#_updatenamespacedvirtualmachine">Patch a VirtualMachine object.</a></li>
-<li><a href="#_console">Open a websocket connection to a serial console on the specified VM.</a></li>
-<li><a href="#_spice">Returns a remote-viewer configuration file. Run <code>man 1 remote-viewer</code> to learn more about the configuration format.</a></li>
 <li><a href="#_listvirtualmachinereplicasetforallnamespaces">Get a list of all VirtualMachineReplicaSet objects.</a></li>
 <li><a href="#_listvirtualmachineforallnamespaces">Get a list of all VirtualMachine objects.</a></li>
 <li><a href="#_watchmigrationlistforallnamespaces">Watch a MigrationList object.</a></li>
@@ -2950,16 +2948,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_console">Open a websocket connection to a serial console on the specified VM.</h3>
+<h3 id="_listvirtualmachinereplicasetforallnamespaces">Get a list of all VirtualMachineReplicaSet objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachines/{name}/console</pre>
+<pre>GET /apis/kubevirt.io/v1alpha1/virtualmachinereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_26">Description</h4>
 <div class="paragraph">
-<p>Open a websocket connection to a serial console on the specified VM.</p>
+<p>Get a list of all VirtualMachineReplicaSet objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2981,25 +2979,39 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the resource</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>namespace</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Object name and auth scope, such as for teams and projects</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldSelector</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A selector to restrict the list of returned objects by their fields. Defaults to everything.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>console</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>labelSelector</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the serial console to connect to</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A selector to restrict the list of returned objects by their labels. Defaults to everything</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resourceVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timeoutSeconds</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TimeoutSeconds for the list/watch call.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>watch</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
 </table>
@@ -3023,23 +3035,49 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Not Found</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_produces_26">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+<li>
+<p><code>application/json;stream=watch</code></p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="sect2">
-<h3 id="_spice">Returns a remote-viewer configuration file. Run <code>man 1 remote-viewer</code> to learn more about the configuration format.</h3>
+<h3 id="_listvirtualmachineforallnamespaces">Get a list of all VirtualMachine objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachines/{name}/spice</pre>
+<pre>GET /apis/kubevirt.io/v1alpha1/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_27">Description</h4>
 <div class="paragraph">
-<p>Returns a remote-viewer configuration file. Run <code>man 1 remote-viewer</code> to learn more about the configuration format.</p>
+<p>Get a list of all VirtualMachine objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3061,18 +3099,39 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the resource</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldSelector</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A selector to restrict the list of returned objects by their fields. Defaults to everything.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>namespace</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Object name and auth scope, such as for teams and projects</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>labelSelector</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A selector to restrict the list of returned objects by their labels. Defaults to everything</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resourceVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timeoutSeconds</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TimeoutSeconds for the list/watch call.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>watch</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
 </table>
@@ -3095,45 +3154,50 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">remote-viewer configuration file</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinelist">v1.VirtualMachineList</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Not Found</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">remote-viewer configuration file</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinelist">v1.VirtualMachineList</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_26">Produces</h4>
+<h4 id="_produces_27">Produces</h4>
 <div class="ulist">
 <ul>
-<li>
-<p><code>text/plain</code></p>
-</li>
 <li>
 <p><code>application/json</code></p>
 </li>
 <li>
 <p><code>application/yaml</code></p>
 </li>
+<li>
+<p><code>application/json;stream=watch</code></p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listvirtualmachinereplicasetforallnamespaces">Get a list of all VirtualMachineReplicaSet objects.</h3>
+<h3 id="_watchmigrationlistforallnamespaces">Watch a MigrationList object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/virtualmachinereplicasets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha1/watch/migrations</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_28">Description</h4>
 <div class="paragraph">
-<p>Get a list of all VirtualMachineReplicaSet objects.</p>
+<p>Watch a MigrationList object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3182,13 +3246,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">TimeoutSeconds for the list/watch call.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>watch</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -3211,7 +3268,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_migrationlist">v1.MigrationList</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
@@ -3221,39 +3278,33 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_migrationlist">v1.MigrationList</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_27">Produces</h4>
+<h4 id="_produces_28">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
 <p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/yaml</code></p>
-</li>
-<li>
-<p><code>application/json;stream=watch</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listvirtualmachineforallnamespaces">Get a list of all VirtualMachine objects.</h3>
+<h3 id="_watchnamespacedmigration">Watch a Migration object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/virtualmachines</pre>
+<pre>GET /apis/kubevirt.io/v1alpha1/watch/namespaces/{namespace}/migrations</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_29">Description</h4>
 <div class="paragraph">
-<p>Get a list of all VirtualMachine objects.</p>
+<p>Watch a Migration object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3274,6 +3325,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>namespace</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Object name and auth scope, such as for teams and projects</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldSelector</strong><br>
@@ -3302,13 +3360,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">TimeoutSeconds for the list/watch call.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
 </tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>watch</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
 </tbody>
 </table>
 </div>
@@ -3331,7 +3382,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinelist">v1.VirtualMachineList</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_migration">v1.Migration</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
@@ -3341,39 +3392,33 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinelist">v1.VirtualMachineList</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_migration">v1.Migration</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_28">Produces</h4>
+<h4 id="_produces_29">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
 <p><code>application/json</code></p>
-</li>
-<li>
-<p><code>application/yaml</code></p>
-</li>
-<li>
-<p><code>application/json;stream=watch</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchmigrationlistforallnamespaces">Watch a MigrationList object.</h3>
+<h3 id="_watchnamespacedvirtualmachinereplicaset">Watch a VirtualMachineReplicaSet object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/watch/migrations</pre>
+<pre>GET /apis/kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_30">Description</h4>
 <div class="paragraph">
-<p>Watch a MigrationList object.</p>
+<p>Watch a VirtualMachineReplicaSet object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3394,6 +3439,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>namespace</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Object name and auth scope, such as for teams and projects</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldSelector</strong><br>
@@ -3444,7 +3496,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_migrationlist">v1.MigrationList</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicaset">v1.VirtualMachineReplicaSet</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
@@ -3454,13 +3506,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_migrationlist">v1.MigrationList</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicaset">v1.VirtualMachineReplicaSet</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_29">Produces</h4>
+<h4 id="_produces_30">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3471,16 +3523,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespacedmigration">Watch a Migration object.</h3>
+<h3 id="_watchnamespacedvirtualmachine">Watch a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/watch/namespaces/{namespace}/migrations</pre>
+<pre>GET /apis/kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_31">Description</h4>
 <div class="paragraph">
-<p>Watch a Migration object.</p>
+<p>Watch a VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3558,7 +3610,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_migration">v1.Migration</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachine">v1.VirtualMachine</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
@@ -3568,13 +3620,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_migration">v1.Migration</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachine">v1.VirtualMachine</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_30">Produces</h4>
+<h4 id="_produces_31">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3585,16 +3637,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespacedvirtualmachinereplicaset">Watch a VirtualMachineReplicaSet object.</h3>
+<h3 id="_watchvirtualmachinereplicasetlistforallnamespaces">Watch a VirtualMachineReplicaSetList object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinereplicasets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha1/watch/virtualmachinereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_32">Description</h4>
 <div class="paragraph">
-<p>Watch a VirtualMachineReplicaSet object.</p>
+<p>Watch a VirtualMachineReplicaSetList object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3615,13 +3667,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>namespace</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Object name and auth scope, such as for teams and projects</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldSelector</strong><br>
@@ -3672,7 +3717,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicaset">v1.VirtualMachineReplicaSet</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
@@ -3682,13 +3727,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicaset">v1.VirtualMachineReplicaSet</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_31">Produces</h4>
+<h4 id="_produces_32">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -3699,16 +3744,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespacedvirtualmachine">Watch a VirtualMachine object.</h3>
+<h3 id="_watchvirtualmachinelistforallnamespaces">Watch a VirtualMachineList object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachines</pre>
+<pre>GET /apis/kubevirt.io/v1alpha1/watch/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_description_33">Description</h4>
 <div class="paragraph">
-<p>Watch a VirtualMachine object.</p>
+<p>Watch a VirtualMachineList object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -3729,13 +3774,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Path</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>namespace</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Object name and auth scope, such as for teams and projects</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldSelector</strong><br>
@@ -3786,7 +3824,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachine">v1.VirtualMachine</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinelist">v1.VirtualMachineList</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
@@ -3796,227 +3834,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachine">v1.VirtualMachine</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_produces_32">Produces</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_watchvirtualmachinereplicasetlistforallnamespaces">Watch a VirtualMachineReplicaSetList object.</h3>
-<div class="literalblock">
-<div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/watch/virtualmachinereplicasets</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_34">Description</h4>
-<div class="paragraph">
-<p>Watch a VirtualMachineReplicaSetList object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_28">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldSelector</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A selector to restrict the list of returned objects by their fields. Defaults to everything.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>labelSelector</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A selector to restrict the list of returned objects by their labels. Defaults to everything</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resourceVersion</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timeoutSeconds</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TimeoutSeconds for the list/watch call.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_34">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Not Found</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinelist">v1.VirtualMachineList</a></p></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect3">
 <h4 id="_produces_33">Produces</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_watchvirtualmachinelistforallnamespaces">Watch a VirtualMachineList object.</h3>
-<div class="literalblock">
-<div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha1/watch/virtualmachines</pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_description_35">Description</h4>
-<div class="paragraph">
-<p>Watch a VirtualMachineList object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_29">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldSelector</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A selector to restrict the list of returned objects by their fields. Defaults to everything.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>labelSelector</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A selector to restrict the list of returned objects by their labels. Defaults to everything</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resourceVersion</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Query</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timeoutSeconds</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TimeoutSeconds for the list/watch call.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_35">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinelist">v1.VirtualMachineList</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Not Found</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="definitions.html#_v1_virtualmachinelist">v1.VirtualMachineList</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_produces_34">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
