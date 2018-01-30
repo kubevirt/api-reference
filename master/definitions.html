@@ -438,6 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_apiresourcelist">v1.APIResourceList</a></li>
 <li><a href="#_v1_affinity">v1.Affinity</a></li>
 <li><a href="#_v1_cdromtarget">v1.CDRomTarget</a></li>
+<li><a href="#_v1_cpu">v1.CPU</a></li>
 <li><a href="#_v1_clock">v1.Clock</a></li>
 <li><a href="#_v1_clockoffsetutc">v1.ClockOffsetUTC</a></li>
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
@@ -466,6 +467,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_listmeta">v1.ListMeta</a></li>
 <li><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></li>
 <li><a href="#_v1_luntarget">v1.LunTarget</a></li>
+<li><a href="#_v1_machine">v1.Machine</a></li>
 <li><a href="#_v1_migration">v1.Migration</a></li>
 <li><a href="#_v1_migrationlist">v1.MigrationList</a></li>
 <li><a href="#_v1_migrationspec">v1.MigrationSpec</a></li>
@@ -501,6 +503,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></li>
 <li><a href="#_v1_virtualmachinestatus">v1.VirtualMachineStatus</a></li>
 <li><a href="#_v1_volume">v1.Volume</a></li>
+<li><a href="#_v1_watchevent">v1.WatchEvent</a></li>
 <li><a href="#_v1_watchdog">v1.Watchdog</a></li>
 </ul>
 </li>
@@ -785,6 +788,35 @@ Allowed values are "open" and "closed"
 Defaults to closed
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_cpu">v1.CPU</h3>
+<div class="paragraph">
+<p>CPU allow specifying the CPU topology</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cores</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Cores specifies the number of cores inside the vm.
+Must be a value greater or equal 1.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
 </tr>
 </tbody>
 </table>
@@ -1100,6 +1132,13 @@ Defaults to false</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_clock">v1.Clock</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cpu</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CPU allow specified the detailed CPU topology inside the vm.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cpu">v1.CPU</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>devices</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Devices allows adding disks, network interfaces, …</p></td>
@@ -1118,6 +1157,13 @@ Defaults to false</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Firmware
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_firmware">v1.Firmware</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>machine</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Machine type
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_machine">v1.Machine</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resources</strong><br>
@@ -1904,6 +1950,31 @@ it as a device ordering hint.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly
 Defaults to false</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_machine">v1.Machine</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">QEMU machine type is the actual chipset of the VM.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -3483,6 +3554,33 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volum
 More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" class="bare">https://kubevirt.gitbooks.io/user-guide/registry-disk.html</a>
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_registrydisksource">v1.RegistryDiskSource</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_watchevent">v1.WatchEvent</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>object</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
