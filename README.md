@@ -5,4 +5,4 @@ Content of this repository is generated from OpenAPI specification of
 
 ## KubeVirt API References
 
-* [master](https://kubevirt-incubator.github.io/api-reference/master/index.html)
+* [master](https://kubevirt.github.io/api-reference/master/index.html)
