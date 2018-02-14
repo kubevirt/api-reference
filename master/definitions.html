@@ -755,11 +755,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dev</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Device indicates the "logical" device name. The actual device name
-specified is not guaranteed to map to the device name in the guest OS. Treat
-it as a device ordering hint.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
+supported values: virtio, sata, scsi, ide</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1080,11 +1079,10 @@ Must match the Name of a Volume.</p></td>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dev</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Device indicates the "logical" device name. The actual device name
-specified is not guaranteed to map to the device name in the guest OS. Treat
-it as a device ordering hint.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
+supported values: virtio, sata, scsi, ide</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1439,14 +1437,6 @@ Defaults to a random generated uid</p></td>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dev</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Device indicates the "logical" device name. The actual device name
-specified is not guaranteed to map to the device name in the guest OS. Treat
-it as a device ordering hint.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
@@ -1926,11 +1916,10 @@ Defaults to true
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dev</strong><br>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Device indicates the "logical" device name. The actual device name
-specified is not guaranteed to map to the device name in the guest OS. Treat
-it as a device ordering hint.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
+supported values: virtio, sata, scsi, ide</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
