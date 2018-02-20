@@ -492,6 +492,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachine">v1.VirtualMachine</a></li>
 <li><a href="#_v1_virtualmachinecondition">v1.VirtualMachineCondition</a></li>
 <li><a href="#_v1_virtualmachinelist">v1.VirtualMachineList</a></li>
+<li><a href="#_v1_virtualmachinenetworkinterface">v1.VirtualMachineNetworkInterface</a></li>
 <li><a href="#_v1_virtualmachinereplicaset">v1.VirtualMachineReplicaSet</a></li>
 <li><a href="#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></li>
 <li><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></li>
@@ -2977,6 +2978,37 @@ selected by this will be the ones affected by this deployment.
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachinenetworkinterface">v1.VirtualMachineNetworkInterface</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ipAddress</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">IP address of a Virtual Machine interface</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>mac</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Hardware address of a Virtual Machine interface</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachinereplicaset">v1.VirtualMachineReplicaSet</h3>
 <div class="paragraph">
 <p>VM is <em>the</em> VM Definition. It represents a virtual machine in the runtime environment of kubernetes.
@@ -3156,6 +3188,12 @@ state of a system.</p>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Conditions are specific points in VM&#8217;s pod runtime.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachinecondition">v1.VirtualMachineCondition</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>interfaces</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Interfaces represent the details of available network interfaces.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachinenetworkinterface">v1.VirtualMachineNetworkInterface</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>nodeName</strong><br>
