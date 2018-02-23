@@ -447,7 +447,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_disk">v1.Disk</a></li>
 <li><a href="#_v1_disktarget">v1.DiskTarget</a></li>
 <li><a href="#_v1_domainspec">v1.DomainSpec</a></li>
-<li><a href="#_v1_featureapic">v1.FeatureAPIC</a></li>
 <li><a href="#_v1_featurehyperv">v1.FeatureHyperv</a></li>
 <li><a href="#_v1_featurespinlocks">v1.FeatureSpinlocks</a></li>
 <li><a href="#_v1_featurestate">v1.FeatureState</a></li>
@@ -1163,41 +1162,6 @@ Defaults to false</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_featureapic">v1.FeatureAPIC</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest
-Defaults to true
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>endOfInterrupt</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">EndOfInterrupt enables the end of interrupt notification in the guest
-Defaults to false
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_featurehyperv">v1.FeatureHyperv</h3>
 <div class="paragraph">
 <p>Hyperv specific features</p>
@@ -1419,7 +1383,7 @@ Defaults to enabled
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting
 +optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featureapic">v1.FeatureAPIC</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hyperv</strong><br>
