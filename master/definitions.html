@@ -494,6 +494,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachinecondition">v1.VirtualMachineCondition</a></li>
 <li><a href="#_v1_virtualmachinelist">v1.VirtualMachineList</a></li>
 <li><a href="#_v1_virtualmachinenetworkinterface">v1.VirtualMachineNetworkInterface</a></li>
+<li><a href="#_v1_virtualmachinepreset">v1.VirtualMachinePreset</a></li>
+<li><a href="#_v1_virtualmachinepresetlist">v1.VirtualMachinePresetList</a></li>
+<li><a href="#_v1_virtualmachinepresetspec">v1.VirtualMachinePresetSpec</a></li>
 <li><a href="#_v1_virtualmachinereplicaset">v1.VirtualMachineReplicaSet</a></li>
 <li><a href="#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></li>
 <li><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></li>
@@ -523,6 +526,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <p><a href="#_v1_virtualmachinereplicasetlist">v1.VirtualMachineReplicaSetList</a></p>
+</li>
+<li>
+<p><a href="#_v1_virtualmachinepreset">v1.VirtualMachinePreset</a></p>
+</li>
+<li>
+<p><a href="#_v1_virtualmachinepresetlist">v1.VirtualMachinePresetList</a></p>
+</li>
+<li>
+<p><a href="#_v1_domainspec">v1.DomainSpec</a></p>
 </li>
 </ul>
 </div>
@@ -3055,6 +3067,131 @@ selected by this will be the ones affected by this deployment.
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Hardware address of a Virtual Machine interface</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachinepreset">v1.VirtualMachinePreset</h3>
+<div class="paragraph">
+<p>+k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>metadata</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_objectmeta">v1.ObjectMeta</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spec</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VM Spec contains the VM specification.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachinepresetspec">v1.VirtualMachinePresetSpec</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachinepresetlist">v1.VirtualMachinePresetList</h3>
+<div class="paragraph">
+<p>VirtualMachinePresetList is a list of VirtualMachinePresets
++k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>items</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachinepreset">v1.VirtualMachinePreset</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>metadata</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_listmeta">v1.ListMeta</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachinepresetspec">v1.VirtualMachinePresetSpec</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Domain is the same object type as contained in VirtualMachineSpec</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_domainspec">v1.DomainSpec</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>selector</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Selector is a label query over a set of VMs.
+Required.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_labelselector">v1.LabelSelector</a></p></td>
 </tr>
 </tbody>
 </table>
