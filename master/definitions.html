@@ -448,6 +448,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_disk">v1.Disk</a></li>
 <li><a href="#_v1_disktarget">v1.DiskTarget</a></li>
 <li><a href="#_v1_domainspec">v1.DomainSpec</a></li>
+<li><a href="#_v1_emptydisksource">v1.EmptyDiskSource</a></li>
 <li><a href="#_v1_ephemeralvolumesource">v1.EphemeralVolumeSource</a></li>
 <li><a href="#_v1_featureapic">v1.FeatureAPIC</a></li>
 <li><a href="#_v1_featurehyperv">v1.FeatureHyperv</a></li>
@@ -1230,6 +1231,34 @@ Defaults to false</p></td>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Resources describes the Compute Resources required by this vm.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_emptydisksource">v1.EmptyDiskSource</h3>
+<div class="paragraph">
+<p>EmptyDisk represents a temporary disk which shares the vms lifecycle</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>capacity</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Capacity of the sparse disk.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -3731,6 +3760,14 @@ The NoCloud data will be added as a disk to the vm. A proper cloud-init installa
 More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html" class="bare">http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html</a>
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>emptyDisk</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EmptyDisk represents a temporary disk which shares the vms lifecycle
+More info: <a href="https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.html" class="bare">https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.html</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_emptydisksource">v1.EmptyDiskSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ephemeral</strong><br>
