@@ -443,13 +443,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_replacenamespacedofflinevirtualmachine">Update a OfflineVirtualMachine object.</a></li>
 <li><a href="#_deletenamespacedofflinevirtualmachine">Delete a OfflineVirtualMachine object.</a></li>
 <li><a href="#_patchnamespacedofflinevirtualmachine">Patch a OfflineVirtualMachine object.</a></li>
-<li><a href="#_createnamespacedvirtualmachine">Create a VirtualMachine object.</a></li>
-<li><a href="#_listnamespacedvirtualmachine">Get a list of VirtualMachine objects.</a></li>
-<li><a href="#_deletecollectionnamespacedvirtualmachine">Delete a collection of VirtualMachine objects.</a></li>
-<li><a href="#_readnamespacedvirtualmachine">Get a VirtualMachine object.</a></li>
-<li><a href="#_replacenamespacedvirtualmachine">Update a VirtualMachine object.</a></li>
-<li><a href="#_deletenamespacedvirtualmachine">Delete a VirtualMachine object.</a></li>
-<li><a href="#_patchnamespacedvirtualmachine">Patch a VirtualMachine object.</a></li>
+<li><a href="#_createnamespacedvirtualmachinepreset">Create a VirtualMachinePreset object.</a></li>
+<li><a href="#_listnamespacedvirtualmachinepreset">Get a list of VirtualMachinePreset objects.</a></li>
+<li><a href="#_deletecollectionnamespacedvirtualmachinepreset">Delete a collection of VirtualMachinePreset objects.</a></li>
+<li><a href="#_readnamespacedvirtualmachinepreset">Get a VirtualMachinePreset object.</a></li>
+<li><a href="#_replacenamespacedvirtualmachinepreset">Update a VirtualMachinePreset object.</a></li>
+<li><a href="#_deletenamespacedvirtualmachinepreset">Delete a VirtualMachinePreset object.</a></li>
+<li><a href="#_patchnamespacedvirtualmachinepreset">Patch a VirtualMachinePreset object.</a></li>
 <li><a href="#_createnamespacedvirtualmachinereplicaset">Create a VirtualMachineReplicaSet object.</a></li>
 <li><a href="#_listnamespacedvirtualmachinereplicaset">Get a list of VirtualMachineReplicaSet objects.</a></li>
 <li><a href="#_deletecollectionnamespacedvirtualmachinereplicaset">Delete a collection of VirtualMachineReplicaSet objects.</a></li>
@@ -465,15 +465,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_deletenamespacedvirtualmachine">Delete a VirtualMachine object.</a></li>
 <li><a href="#_patchnamespacedvirtualmachine">Patch a VirtualMachine object.</a></li>
 <li><a href="#_listofflinevirtualmachineforallnamespaces">Get a list of all OfflineVirtualMachine objects.</a></li>
-<li><a href="#_listvirtualmachineforallnamespaces">Get a list of all VirtualMachine objects.</a></li>
+<li><a href="#_listvirtualmachinepresetforallnamespaces">Get a list of all VirtualMachinePreset objects.</a></li>
 <li><a href="#_listvirtualmachinereplicasetforallnamespaces">Get a list of all VirtualMachineReplicaSet objects.</a></li>
 <li><a href="#_listvirtualmachineforallnamespaces">Get a list of all VirtualMachine objects.</a></li>
 <li><a href="#_watchnamespacedofflinevirtualmachine">Watch a OfflineVirtualMachine object.</a></li>
-<li><a href="#_watchnamespacedvirtualmachine">Watch a VirtualMachine object.</a></li>
+<li><a href="#_watchnamespacedvirtualmachinepreset">Watch a VirtualMachinePreset object.</a></li>
 <li><a href="#_watchnamespacedvirtualmachinereplicaset">Watch a VirtualMachineReplicaSet object.</a></li>
 <li><a href="#_watchnamespacedvirtualmachine">Watch a VirtualMachine object.</a></li>
 <li><a href="#_watchofflinevirtualmachinelistforallnamespaces">Watch a OfflineVirtualMachineList object.</a></li>
-<li><a href="#_watchvirtualmachinelistforallnamespaces">Watch a VirtualMachineList object.</a></li>
+<li><a href="#_watchvirtualmachinepresetlistforallnamespaces">Watch a VirtualMachinePresetList object.</a></li>
 <li><a href="#_watchvirtualmachinereplicasetlistforallnamespaces">Watch a VirtualMachineReplicaSetList object.</a></li>
 <li><a href="#_watchvirtualmachinelistforallnamespaces">Watch a VirtualMachineList object.</a></li>
 <li><a href="#_getapigroup">Get a KubeVirt API Group</a></li>
@@ -1541,7 +1541,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_createnamespacedvirtualmachine">Create a VirtualMachine object.</h3>
+<h3 id="_createnamespacedvirtualmachinepreset">Create a VirtualMachinePreset object.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>POST /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepresets</pre>
@@ -1654,7 +1654,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listnamespacedvirtualmachine">Get a list of VirtualMachine objects.</h3>
+<h3 id="_listnamespacedvirtualmachinepreset">Get a list of VirtualMachinePreset objects.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>GET /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepresets</pre>
@@ -1797,7 +1797,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletecollectionnamespacedvirtualmachine">Delete a collection of VirtualMachine objects.</h3>
+<h3 id="_deletecollectionnamespacedvirtualmachinepreset">Delete a collection of VirtualMachinePreset objects.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>DELETE /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepresets</pre>
@@ -1930,7 +1930,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_readnamespacedvirtualmachine">Get a VirtualMachine object.</h3>
+<h3 id="_readnamespacedvirtualmachinepreset">Get a VirtualMachinePreset object.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>GET /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepresets/{name}</pre>
@@ -2037,7 +2037,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_replacenamespacedvirtualmachine">Update a VirtualMachine object.</h3>
+<h3 id="_replacenamespacedvirtualmachinepreset">Update a VirtualMachinePreset object.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>PUT /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepresets/{name}</pre>
@@ -2152,7 +2152,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletenamespacedvirtualmachine">Delete a VirtualMachine object.</h3>
+<h3 id="_deletenamespacedvirtualmachinepreset">Delete a VirtualMachinePreset object.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>DELETE /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepresets/{name}</pre>
@@ -2283,7 +2283,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_patchnamespacedvirtualmachine">Patch a VirtualMachine object.</h3>
+<h3 id="_patchnamespacedvirtualmachinepreset">Patch a VirtualMachinePreset object.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>PATCH /apis/kubevirt.io/v1alpha1/namespaces/{namespace}/virtualmachinepresets/{name}</pre>
@@ -4173,7 +4173,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listvirtualmachineforallnamespaces">Get a list of all VirtualMachine objects.</h3>
+<h3 id="_listvirtualmachinepresetforallnamespaces">Get a list of all VirtualMachinePreset objects.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>GET /apis/kubevirt.io/v1alpha1/virtualmachinepresets</pre>
@@ -4718,7 +4718,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespacedvirtualmachine">Watch a VirtualMachine object.</h3>
+<h3 id="_watchnamespacedvirtualmachinepreset">Watch a VirtualMachinePreset object.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>GET /apis/kubevirt.io/v1alpha1/watch/namespaces/{namespace}/virtualmachinepresets</pre>
@@ -5259,7 +5259,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchvirtualmachinelistforallnamespaces">Watch a VirtualMachineList object.</h3>
+<h3 id="_watchvirtualmachinepresetlistforallnamespaces">Watch a VirtualMachinePresetList object.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>GET /apis/kubevirt.io/v1alpha1/watch/virtualmachinepresets</pre>
