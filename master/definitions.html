@@ -3665,6 +3665,14 @@ Required.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_domainspec">v1.DomainSpec</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hostname</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the hostname of the vm
+If not specified, the hostname will be set to the name of the vm, if dhcp or cloud-init is configured properly.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>nodeSelector</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">NodeSelector is a selector which must be true for the vm to fit on a node.
@@ -3672,6 +3680,15 @@ Selector which must match a node&#8217;s labels for the vm to be scheduled on th
 More info: <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/" class="bare">https://kubernetes.io/docs/concepts/configuration/assign-pod-node/</a>
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>subdomain</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the fully qualified vm hostname will be "&lt;hostname&gt;.&lt;subdomain&gt;.&lt;pod namespace&gt;.svc.&lt;cluster domain&gt;".
+If not specified, the vm will not have a domainname at all. The DNS entry will resolve to the vm,
+no matter if the vm itself can pick up a hostname.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>terminationGracePeriodSeconds</strong><br>
