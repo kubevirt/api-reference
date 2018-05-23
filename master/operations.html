@@ -481,6 +481,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_console">Open a websocket connection to a serial console on the specified VM.</a></li>
 <li><a href="#_test">Test endpoint verifying apiserver connectivity.</a></li>
 <li><a href="#_vnc">Open a websocket connection to connect to VNC on the specified VM.</a></li>
+<li><a href="#_version">GET /apis/subresources.kubevirt.io/v1alpha1/version</a></li>
 </ul>
 </li>
 </ul>
@@ -5951,6 +5952,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_version">GET /apis/subresources.kubevirt.io/v1alpha1/version</h3>
+<div class="sect3">
+<h4 id="_responses_50">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_47">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
