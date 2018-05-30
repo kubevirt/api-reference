@@ -1097,6 +1097,15 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bootOrder</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BootOrder is an integer value &gt; 0, used to determine ordering of boot devices.
+Lower values take precedence.
+Disks without a boot order are not tried if a disk with a boot order exists.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (integer)</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cdrom</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a cdrom to the vm</p></td>
