@@ -460,6 +460,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
 <li><a href="#_v1_groupversionfordiscovery">v1.GroupVersionForDiscovery</a></li>
 <li><a href="#_v1_hpettimer">v1.HPETTimer</a></li>
+<li><a href="#_v1_hugepages">v1.Hugepages</a></li>
 <li><a href="#_v1_hypervtimer">v1.HypervTimer</a></li>
 <li><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></li>
 <li><a href="#_v1_initializer">v1.Initializer</a></li>
@@ -472,6 +473,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></li>
 <li><a href="#_v1_luntarget">v1.LunTarget</a></li>
 <li><a href="#_v1_machine">v1.Machine</a></li>
+<li><a href="#_v1_memory">v1.Memory</a></li>
 <li><a href="#_v1_network">v1.Network</a></li>
 <li><a href="#_v1_nodeaffinity">v1.NodeAffinity</a></li>
 <li><a href="#_v1_nodeselector">v1.NodeSelector</a></li>
@@ -1260,6 +1262,13 @@ Defaults to false</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_machine">v1.Machine</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>memory</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Memory allow specifying the VMI memory features.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_memory">v1.Memory</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resources</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Resources describes the Compute Resources required by this vmi.</p></td>
@@ -1723,6 +1732,34 @@ One of "delay", "catchup", "merge", "discard"</p></td>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_hugepages">v1.Hugepages</h3>
+<div class="paragraph">
+<p>Hugepages allow to use hugepages for the VirtualMachineInstance instead of regular memory.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>pageSize</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">PageSize specifies the hugepage size, for x86_64 architecture valid values are 1Gi and 2Mi.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_hypervtimer">v1.HypervTimer</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2095,6 +2132,35 @@ Defaults to false</p></td>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">QEMU machine type is the actual chipset of the VirtualMachineInstance.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_memory">v1.Memory</h3>
+<div class="paragraph">
+<p>Memory allow specifying the VirtualMachineInstance memory features</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hugepages</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Hugepages allow to use hugepages for the VirtualMachineInstance instead of regular memory.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_hugepages">v1.Hugepages</a></p></td>
 </tr>
 </tbody>
 </table>
