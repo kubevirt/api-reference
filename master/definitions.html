@@ -433,6 +433,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_top_level_api_objects">Top Level API Objects</a></li>
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
+<li><a href="#_big_int">big.Int</a></li>
+<li><a href="#_inf_dec">inf.Dec</a></li>
+<li><a href="#_resource_quantity">resource.Quantity</a></li>
+<li><a href="#_resource_infdecamount">resource.infDecAmount</a></li>
+<li><a href="#_resource_int64amount">resource.int64Amount</a></li>
 <li><a href="#_v1_apigroup">v1.APIGroup</a></li>
 <li><a href="#_v1_apigrouplist">v1.APIGroupList</a></li>
 <li><a href="#_v1_apiresource">v1.APIResource</a></li>
@@ -566,6 +571,146 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_big_int">big.Int</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>abs</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_big_word">big.Word</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>neg</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_inf_dec">inf.Dec</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>scale</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_inf_scale">inf.Scale</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>unscaled</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_big_int">big.Int</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_resource_quantity">resource.Quantity</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Format</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>d</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_resource_infdecamount">resource.infDecAmount</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>i</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_resource_int64amount">resource.int64Amount</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>s</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_resource_infdecamount">resource.infDecAmount</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>Dec</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_inf_dec">inf.Dec</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_resource_int64amount">resource.int64Amount</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>scale</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_resource_scale">resource.Scale</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>value</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="sect2">
 <h3 id="_v1_apigroup">v1.APIGroup</h3>
 <div class="paragraph">
@@ -2033,7 +2178,7 @@ Defaults to true
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>matchLabels</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 </tbody>
 </table>
@@ -2422,7 +2567,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>annotations</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: <a href="http://kubernetes.io/docs/user-guide/annotations" class="bare">http://kubernetes.io/docs/user-guide/annotations</a></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>clusterName</strong><br>
@@ -2481,7 +2626,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>labels</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: <a href="http://kubernetes.io/docs/user-guide/labels" class="bare">http://kubernetes.io/docs/user-guide/labels</a></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
@@ -2917,7 +3062,7 @@ One of "delay", "catchup"</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Limits describes the maximum amount of compute resources allowed.
 Valid resource keys are "memory" and "cpu".
 +optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>requests</strong><br>
@@ -2925,7 +3070,7 @@ Valid resource keys are "memory" and "cpu".
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Requests is a description of the initial vmi resources.
 Valid resource keys are "memory" and "cpu".
 +optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p></td>
 </tr>
 </tbody>
 </table>
@@ -3874,7 +4019,7 @@ If not specified, the hostname will be set to the name of the vmi, if dhcp or cl
 Selector which must match a node&#8217;s labels for the vmi to be scheduled on that node.
 More info: <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/" class="bare">https://kubernetes.io/docs/concepts/configuration/assign-pod-node/</a>
 +optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>subdomain</strong><br>
