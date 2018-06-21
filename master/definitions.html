@@ -994,22 +994,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
-supported values: virtio, sata, scsi, ide</p></td>
+supported values: virtio, sata, scsi, ide.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly
-Defaults to true</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly.
+Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tray</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Tray indicates if the tray of the device is open or closed.
-Allowed values are "open" and "closed"
-Defaults to closed
+Allowed values are "open" and "closed".
+Defaults to closed.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -1019,7 +1019,7 @@ Defaults to closed
 <div class="sect2">
 <h3 id="_v1_cpu">v1.CPU</h3>
 <div class="paragraph">
-<p>CPU allow specifying the CPU topology</p>
+<p>CPU allows specifying the CPU topology.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1048,7 +1048,7 @@ Must be a value greater or equal 1.</p></td>
 <div class="sect2">
 <h3 id="_v1_clock">v1.Clock</h3>
 <div class="paragraph">
-<p>Represents the clock and timers of a vmi</p>
+<p>Represents the clock and timers of a vmi.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1067,14 +1067,14 @@ Must be a value greater or equal 1.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timer</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Timer specifies whih timers are attached to the vmi</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Timer specifies whih timers are attached to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_timer">v1.Timer</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timezone</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Timezone sets the guest clock to the specified timezone.
-Zone name follows the TZ environment variable format (e.g. 'America/New_York')</p></td>
+Zone name follows the TZ environment variable format (e.g. 'America/New_York').</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_clockoffsettimezone">v1.ClockOffsetTimezone</a></p></td>
 </tr>
 <tr>
@@ -1119,7 +1119,7 @@ guest changes to the clock will be kept during reboots and not reset.</p></td>
 <div class="sect2">
 <h3 id="_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</h3>
 <div class="paragraph">
-<p>Represents a cloud-init nocloud user data source
+<p>Represents a cloud-init nocloud user data source.
 More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html" class="bare">http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html</a></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
@@ -1139,21 +1139,21 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataSecretRef references a k8s secret that contains NoCloud userdata
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataSecretRef references a k8s secret that contains NoCloud userdata.
 + optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userData</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserData contains NoCloud inline cloud-init userdata
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserData contains NoCloud inline cloud-init userdata.
 + optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userDataBase64</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains NoCloud cloud-init userdata as a base64 encoded string
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains NoCloud cloud-init userdata as a base64 encoded string.
 + optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -1237,19 +1237,19 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>disks</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Disks describes disks, cdroms, floppy and luns which are connected to the vmi</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Disks describes disks, cdroms, floppy and luns which are connected to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_disk">v1.Disk</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>interfaces</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Interfaces describe network interfaces which are added to the vm</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Interfaces describe network interfaces which are added to the vm.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_interface">v1.Interface</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>watchdog</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Watchdog describes a watchdog device which can be added to the vmi</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Watchdog describes a watchdog device which can be added to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_watchdog">v1.Watchdog</a></p></td>
 </tr>
 </tbody>
@@ -1283,25 +1283,25 @@ Disks without a boot order are not tried if a disk with a boot order exists.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cdrom</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a cdrom to the vmi</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a cdrom to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cdromtarget">v1.CDRomTarget</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>disk</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a disk to the vmi</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a disk to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_disktarget">v1.DiskTarget</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>floppy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a floppy to the vmi</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a floppy to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_floppytarget">v1.FloppyTarget</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>lun</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a LUN to the vmi</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a LUN to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_luntarget">v1.LunTarget</a></p></td>
 </tr>
 <tr>
@@ -1313,7 +1313,7 @@ Disks without a boot order are not tried if a disk with a boot order exists.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>volumeName</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the volume which is referenced
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the volume which is referenced.
 Must match the Name of a Volume.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -1340,14 +1340,14 @@ Must match the Name of a Volume.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
-supported values: virtio, sata, scsi, ide</p></td>
+supported values: virtio, sata, scsi, ide.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly
-Defaults to false</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly.
+Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
@@ -1393,21 +1393,21 @@ Defaults to false</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>features</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Features like acpi, apic, hyperv
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Features like acpi, apic, hyperv.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_features">v1.Features</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>firmware</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Firmware
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Firmware.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_firmware">v1.Firmware</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>machine</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Machine type
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Machine type.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_machine">v1.Machine</a></p></td>
 </tr>
@@ -1466,21 +1466,21 @@ Defaults to false</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>features</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Features like acpi, apic, hyperv
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Features like acpi, apic, hyperv.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_features">v1.Features</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>firmware</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Firmware
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Firmware.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_firmware">v1.Firmware</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>machine</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Machine type
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Machine type.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_machine">v1.Machine</a></p></td>
 </tr>
@@ -1503,7 +1503,7 @@ Defaults to false</p></td>
 <div class="sect2">
 <h3 id="_v1_emptydisksource">v1.EmptyDiskSource</h3>
 <div class="paragraph">
-<p>EmptyDisk represents a temporary disk which shares the vmis lifecycle</p>
+<p>EmptyDisk represents a temporary disk which shares the vmis lifecycle.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1575,16 +1575,16 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volum
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest
-Defaults to true
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest.
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>endOfInterrupt</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">EndOfInterrupt enables the end of interrupt notification in the guest
-Defaults to false
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EndOfInterrupt enables the end of interrupt notification in the guest.
+Defaults to false.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
@@ -1594,7 +1594,7 @@ Defaults to false
 <div class="sect2">
 <h3 id="_v1_featurehyperv">v1.FeatureHyperv</h3>
 <div class="paragraph">
-<p>Hyperv specific features</p>
+<p>Hyperv specific features.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1613,71 +1613,71 @@ Defaults to false
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>relaxed</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Relaxed relaxes constraints on timer
-Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Relaxed relaxes constraints on timer.
+Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reset</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reset enables Hyperv reboot/reset for the vmi
-Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reset enables Hyperv reboot/reset for the vmi.
+Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>runtime</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Runtime
-Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Runtime.
+Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spinlocks</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Spinlocks indicates if spinlocks should be made available to the guest
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Spinlocks indicates if spinlocks should be made available to the guest.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurespinlocks">v1.FeatureSpinlocks</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>synic</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNIC enable Synthetic Interrupt Controller
-Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNIC enable Synthetic Interrupt Controller.
+Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>synictimer</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNICTimer enable Synthetic Interrupt Controller timer
-Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNICTimer enable Synthetic Interrupt Controller timer.
+Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vapic</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VAPIC indicates whether virtual APIC is enabled
-Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VAPIC indicates whether virtual APIC is enabled.
+Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vendorid</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VendorID allows setting the hypervisor vendor id
-Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VendorID allows setting the hypervisor vendor id.
+Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurevendorid">v1.FeatureVendorID</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vpindex</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VPIndex enables the Virtual Processor Index to help windows identifying virtual processors
-Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VPIndex enables the Virtual Processor Index to help windows identifying virtual processors.
+Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
@@ -1703,17 +1703,17 @@ Defaults to the machine type setting
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest
-Defaults to true
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest.
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spinlocks</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Retries indicates the number of retries
-Must be a value greater or equal 4096
-Defaults to 4096
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retries indicates the number of retries.
+Must be a value greater or equal 4096.
+Defaults to 4096.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
 </tr>
@@ -1723,7 +1723,7 @@ Defaults to 4096
 <div class="sect2">
 <h3 id="_v1_featurestate">v1.FeatureState</h3>
 <div class="paragraph">
-<p>Represents if a feature is enabled or disabled</p>
+<p>Represents if a feature is enabled or disabled.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1742,8 +1742,8 @@ Defaults to 4096
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest
-Defaults to true
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest.
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
@@ -1769,16 +1769,16 @@ Defaults to true
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest
-Defaults to true
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest.
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vendorid</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VendorID sets the hypervisor vendor id, visible to the vmi
-String up to twelve characters</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VendorID sets the hypervisor vendor id, visible to the vmi.
+String up to twelve characters.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1803,22 +1803,22 @@ String up to twelve characters</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>acpi</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ACPI enables/disables ACPI insidejsondata guest
-Defaults to enabled
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ACPI enables/disables ACPI insidejsondata guest.
+Defaults to enabled.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apic</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featureapic">v1.FeatureAPIC</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hyperv</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurehyperv">v1.FeatureHyperv</a></p></td>
 </tr>
@@ -1844,8 +1844,8 @@ Defaults to enabled
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>uuid</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID reported by the vmi bios
-Defaults to a random generated uid</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID reported by the vmi bios.
+Defaults to a random generated uid.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1870,16 +1870,16 @@ Defaults to a random generated uid</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly
-Defaults to false</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly.
+Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tray</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Tray indicates if the tray of the device is open or closed.
-Allowed values are "open" and "closed"
-Defaults to closed
+Allowed values are "open" and "closed".
+Defaults to closed.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -1940,15 +1940,15 @@ Defaults to closed
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tickPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest
-One of "delay", "catchup", "merge", "discard"</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest.
+One of "delay", "catchup", "merge", "discard".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2002,7 +2002,7 @@ One of "delay", "catchup", "merge", "discard"</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
@@ -2012,7 +2012,7 @@ Defaults to true
 <div class="sect2">
 <h3 id="_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</h3>
 <div class="paragraph">
-<p>i6300esb watchdog device</p>
+<p>i6300esb watchdog device.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2032,7 +2032,7 @@ Defaults to true
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>action</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The action to take. Valid values are poweroff, reset, shutdown.
-Defaults to reset</p></td>
+Defaults to reset.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2191,7 +2191,7 @@ Must match the Name of a Network.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
@@ -2360,14 +2360,14 @@ Defaults to true
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
-supported values: virtio, sata, scsi, ide</p></td>
+supported values: virtio, sata, scsi, ide.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly
-Defaults to false</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly.
+Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
@@ -2401,7 +2401,7 @@ Defaults to false</p></td>
 <div class="sect2">
 <h3 id="_v1_memory">v1.Memory</h3>
 <div class="paragraph">
-<p>Memory allow specifying the VirtualMachineInstance memory features</p>
+<p>Memory allows specifying the VirtualMachineInstance memory features.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2797,15 +2797,15 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tickPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest
-One of "delay", "catchup", "discard"</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest.
+One of "delay", "catchup", "discard".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -3106,21 +3106,21 @@ Default port is PodPort.</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true
+Defaults to true.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tickPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest
-One of "delay", "catchup"</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest.
+One of "delay", "catchup".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>track</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Track the guest or the wall clock</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Track the guest or the wall clock.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -3129,7 +3129,7 @@ One of "delay", "catchup"</p></td>
 <div class="sect2">
 <h3 id="_v1_registrydisksource">v1.RegistryDiskSource</h3>
 <div class="paragraph">
-<p>Represents a docker image with an embedded disk</p>
+<p>Represents a docker image with an embedded disk.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3148,7 +3148,7 @@ One of "delay", "catchup"</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Image is the name of the image with the embedded disk</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Image is the name of the image with the embedded disk.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -3403,7 +3403,7 @@ Valid resource keys are "memory" and "cpu".
 <div class="sect2">
 <h3 id="_v1_timer">v1.Timer</h3>
 <div class="paragraph">
-<p>Represents all available timers in a vmi</p>
+<p>Represents all available timers in a vmi.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4396,7 +4396,7 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>emptyDisk</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">EmptyDisk represents a temporary disk which shares the vmis lifecycle
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EmptyDisk represents a temporary disk which shares the vmis lifecycle.
 More info: <a href="https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.html" class="bare">https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.html</a>
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_emptydisksource">v1.EmptyDiskSource</a></p></td>
@@ -4428,7 +4428,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volum
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>registryDisk</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">RegistryDisk references a docker image, embedding a qcow or raw disk
+<td class="tableblock halign-left valign-middle"><p class="tableblock">RegistryDisk references a docker image, embedding a qcow or raw disk.
 More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" class="bare">https://kubevirt.gitbooks.io/user-guide/registry-disk.html</a>
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_registrydisksource">v1.RegistryDiskSource</a></p></td>
@@ -4466,7 +4466,7 @@ More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" 
 <div class="sect2">
 <h3 id="_v1_watchdog">v1.Watchdog</h3>
 <div class="paragraph">
-<p>Named watchdog device</p>
+<p>Named watchdog device.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4485,14 +4485,14 @@ More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" 
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>i6300esb</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">i6300esb watchdog device
+<td class="tableblock halign-left valign-middle"><p class="tableblock">i6300esb watchdog device.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the watchdog</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the watchdog.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
