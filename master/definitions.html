@@ -472,7 +472,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_initializer">v1.Initializer</a></li>
 <li><a href="#_v1_initializers">v1.Initializers</a></li>
 <li><a href="#_v1_interface">v1.Interface</a></li>
-<li><a href="#_v1_interfaceslirp">v1.InterfaceSlirp</a></li>
 <li><a href="#_v1_kvmtimer">v1.KVMTimer</a></li>
 <li><a href="#_v1_labelselector">v1.LabelSelector</a></li>
 <li><a href="#_v1_labelselectorrequirement">v1.LabelSelectorRequirement</a></li>
@@ -2159,35 +2158,16 @@ Must match the Name of a Network.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>slirp</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_interfaceslirp">v1.InterfaceSlirp</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_v1_interfaceslirp">v1.InterfaceSlirp</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ports</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">List of ports to be forwarded to the virtual machine.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_port">v1.Port</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>slirp</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_interfaceslirp">v1.InterfaceSlirp</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -3008,16 +2988,18 @@ Default 10.0.2.0/24 if not specified.</p></td>
 <div class="paragraph">
 <p>Port repesents a port to expose from the virtual machine.
 Default protocol TCP.
-Default port is PodPort.</p>
+The port field is mandatory</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -3025,21 +3007,25 @@ Default port is PodPort.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
 <em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, this must be an IANA_SVC_NAME and unique within the pod. Each
+named port in a pod must have a unique name. Name for the port that can be
+referred to by services.
++optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>podPort</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>port</strong><br>
 <em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of port to expose for the virtual machine.
+This must be a valid port number, 0 &lt; x &lt; 65536.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>protocol</strong><br>
 <em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Protocol for port. Must be UDP or TCP.
+Defaults to "TCP".
++optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
