@@ -936,7 +936,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1_affinity">v1.Affinity</h3>
 <div class="paragraph">
-<p>Affinity groups all the affinity rules related to a VirtualMachineInstance</p>
+<p>Affinity is a group of affinity scheduling rules.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -955,19 +955,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>nodeAffinity</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Node affinity support</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Describes node affinity scheduling rules for the pod.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_nodeaffinity">v1.NodeAffinity</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>podAffinity</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Pod affinity support</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Describes pod affinity scheduling rules (e.g. co-locate this pod in the same node, zone, etc. as some other pod(s)).</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_podaffinity">v1.PodAffinity</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>podAntiAffinity</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Pod anti-affinity support</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_podantiaffinity">v1.PodAntiAffinity</a></p></td>
 </tr>
 </tbody>
