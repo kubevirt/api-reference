@@ -1046,6 +1046,10 @@ Must be a value greater or equal 1.</p></td>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Model specifies the CPU model inside the VMI.
 List of available models <a href="https://github.com/libvirt/libvirt/blob/master/src/cpu/cpu_map.xml" class="bare">https://github.com/libvirt/libvirt/blob/master/src/cpu/cpu_map.xml</a>.
+You also can specify special cases like "host-passthrough" to get the same CPU as the node
+and "host-model" to get CPU closest to the node one.
+You can find more information under <a href="https://libvirt.org/formatdomain.html#elementsCPU" class="bare">https://libvirt.org/formatdomain.html#elementsCPU</a>.
+Defaults to host-model.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
