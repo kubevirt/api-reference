@@ -1247,13 +1247,6 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>autoattachGraphicsDevice</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Wheater to attach the default graphics device or not.
-VNC will not be available if set to false. Defaults to true.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>autoattachPodInterface</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach a pod network interface. Defaults to true.</p></td>
@@ -3208,14 +3201,6 @@ One of "delay", "catchup".</p></td>
 Valid resource keys are "memory" and "cpu".
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>overcommitGuestOverhead</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Don&#8217;t ask the scheduler to take the guest-management overhead into account. Instead
-put the overhead only into the requested memory limits. This can lead to crashes if
-all memory is in use on a node. Defaults to false.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>requests</strong><br>
