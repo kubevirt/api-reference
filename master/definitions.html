@@ -2437,6 +2437,15 @@ Defaults to false.</p></td>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>guest</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Guest allows to specifying the amount of memory which is visible inside the Guest OS.
+The Guest must lie between Requests and Limits from the resources section.
+Defaults to the requested memory in the resources section if not specified.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hugepages</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Hugepages allow to use hugepages for the VirtualMachineInstance instead of regular memory.
