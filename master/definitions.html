@@ -1301,6 +1301,7 @@ VNC will not be available if set to false. Defaults to true.</p></td>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">BootOrder is an integer value &gt; 0, used to determine ordering of boot devices.
 Lower values take precedence.
+Each disk or interface that has a boot order must have a unique value.
 Disks without a boot order are not tried if a disk with a boot order exists.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (integer)</p></td>
@@ -2148,6 +2149,16 @@ Defaults to reset.</p></td>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bootOrder</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BootOrder is an integer value &gt; 0, used to determine ordering of boot devices.
+Lower values take precedence.
+Each interface or disk that has a boot order must have a unique value.
+Interfaces without a boot order are not tried.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (integer)</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bridge</strong><br>
 <em>optional</em></p></td>
