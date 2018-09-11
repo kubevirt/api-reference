@@ -443,6 +443,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_clock">v1.Clock</a></li>
 <li><a href="#_v1_clockoffsetutc">v1.ClockOffsetUTC</a></li>
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
+<li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
 <li><a href="#_v1_datavolumesource">v1.DataVolumeSource</a></li>
 <li><a href="#_v1_deleteoptions">v1.DeleteOptions</a></li>
 <li><a href="#_v1_devices">v1.Devices</a></li>
@@ -461,6 +462,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
 <li><a href="#_v1_groupversionfordiscovery">v1.GroupVersionForDiscovery</a></li>
 <li><a href="#_v1_hpettimer">v1.HPETTimer</a></li>
+<li><a href="#_v1_hostdisk">v1.HostDisk</a></li>
 <li><a href="#_v1_hugepages">v1.Hugepages</a></li>
 <li><a href="#_v1_hypervtimer">v1.HypervTimer</a></li>
 <li><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></li>
@@ -496,6 +498,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_rtctimer">v1.RTCTimer</a></li>
 <li><a href="#_v1_registrydisksource">v1.RegistryDiskSource</a></li>
 <li><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></li>
+<li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
 <li><a href="#_v1_serveraddressbyclientcidr">v1.ServerAddressByClientCIDR</a></li>
 <li><a href="#_v1_status">v1.Status</a></li>
 <li><a href="#_v1_statuscause">v1.StatusCause</a></li>
@@ -1031,6 +1034,42 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains NoCloud cloud-init userdata as a base64 encoded string.
 + optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_configmapvolumesource">v1.ConfigMapVolumeSource</h3>
+<div class="paragraph">
+<p>ConfigMapVolumeSource adapts a ConfigMap into a volume.
+More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configmap" class="bare">https://kubernetes.io/docs/concepts/storage/volumes/#configmap</a></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the referent. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>optional</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Specify whether the ConfigMap or it&#8217;s keys must be defined
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
 </table>
@@ -1803,6 +1842,48 @@ Defaults to true.
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest.
 One of "delay", "catchup", "merge", "discard".</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_hostdisk">v1.HostDisk</h3>
+<div class="paragraph">
+<p>Represents a disk created on the cluster level</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>capacity</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Capacity of the sparse disk
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>path</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The path to HostDisk image located on the cluster</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contains information if disk.img exists or should be created
+allowed options are 'Disk' and 'DiskOrCreate'</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -3169,6 +3250,43 @@ Valid resource keys are "memory" and "cpu".
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_secretvolumesource">v1.SecretVolumeSource</h3>
+<div class="paragraph">
+<p>SecretVolumeSource adapts a Secret into a volume.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>optional</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Specify whether the Secret or it&#8217;s keys must be defined
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretName</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the secret in the pod&#8217;s namespace to use.
+More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes#secret" class="bare">https://kubernetes.io/docs/concepts/storage/volumes#secret</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_serveraddressbyclientcidr">v1.ServerAddressByClientCIDR</h3>
 <div class="paragraph">
 <p>ServerAddressByClientCIDR helps the client to determine the server address that they should use, depending on the clientCIDR that they match.</p>
@@ -4432,6 +4550,14 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>configMap</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ConfigMapSource represents a reference to a ConfigMap in the same namespace.
+More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/" class="bare">https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dataVolume</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">DataVolume represents the dynamic creation a PVC for this volume as well as
@@ -4453,6 +4579,13 @@ More info: <a href="https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.ht
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Ephemeral is a special volume source that "wraps" specified source and provides copy-on-write image on top of it.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_ephemeralvolumesource">v1.EphemeralVolumeSource</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hostDisk</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">HostDisk represents a disk created on the cluster level
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_hostdisk">v1.HostDisk</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
@@ -4478,6 +4611,14 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volum
 More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" class="bare">https://kubevirt.gitbooks.io/user-guide/registry-disk.html</a>
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_registrydisksource">v1.RegistryDiskSource</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secret</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SecretVolumeSource represents a reference to a secret data in the same namespace.
+More info: <a href="https://kubernetes.io/docs/concepts/configuration/secret/" class="bare">https://kubernetes.io/docs/concepts/configuration/secret/</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></p></td>
 </tr>
 </tbody>
 </table>
