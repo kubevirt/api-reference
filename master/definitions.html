@@ -532,6 +532,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_datavolume">v1alpha1.DataVolume</a></li>
 <li><a href="#_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</a></li>
 <li><a href="#_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</a></li>
+<li><a href="#_v1alpha1_datavolumesourcepvc">v1alpha1.DataVolumeSourcePVC</a></li>
 <li><a href="#_v1alpha1_datavolumesources3">v1alpha1.DataVolumeSourceS3</a></li>
 <li><a href="#_v1alpha1_datavolumespec">v1alpha1.DataVolumeSpec</a></li>
 <li><a href="#_v1alpha1_datavolumestatus">v1alpha1.DataVolumeStatus</a></li>
@@ -4809,6 +4810,11 @@ More info: <a href="https://kubernetes.io/docs/concepts/configuration/secret/" c
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>pvc</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumesourcepvc">v1alpha1.DataVolumeSourcePVC</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>s3</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumesources3">v1alpha1.DataVolumeSourceS3</a></p></td>
@@ -4831,7 +4837,39 @@ More info: <a href="https://kubernetes.io/docs/concepts/configuration/secret/" c
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_datavolumesourcepvc">v1alpha1.DataVolumeSourcePVC</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>namespace</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
