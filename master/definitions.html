@@ -1185,7 +1185,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configm
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>autoattachGraphicsDevice</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Wheater to attach the default graphics device or not.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach the default graphics device or not.
 VNC will not be available if set to false. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
@@ -1204,7 +1204,7 @@ VNC will not be available if set to false. Defaults to true.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>interfaces</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Interfaces describe network interfaces which are added to the vm.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Interfaces describe network interfaces which are added to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_interface">v1.Interface</a> &gt; array</p></td>
 </tr>
 <tr>
@@ -1254,6 +1254,15 @@ Disks without a boot order are not tried if a disk with a boot order exists.
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a cdrom to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cdromtarget">v1.CDRomTarget</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dedicatedIOThread</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">dedicatedIOThread indicates this disk should have an exclusive IO Thread.
+Enabling this implies useIOThreads = true.
+Defaults to false.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>disk</strong><br>
@@ -1378,6 +1387,15 @@ Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Firmware.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_firmware">v1.Firmware</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ioThreadsPolicy</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Controls whether or not disks will share IOThreads.
+Omitting IOThreadsPolicy disables use of IOThreads.
+One of: shared, auto
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_iothreadspolicy">v1.IOThreadsPolicy</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>machine</strong><br>
