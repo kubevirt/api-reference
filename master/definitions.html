@@ -510,6 +510,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstance">v1.VirtualMachineInstance</a></li>
 <li><a href="#_v1_virtualmachineinstancecondition">v1.VirtualMachineInstanceCondition</a></li>
 <li><a href="#_v1_virtualmachineinstancelist">v1.VirtualMachineInstanceList</a></li>
+<li><a href="#_v1_virtualmachineinstancemigrationstate">v1.VirtualMachineInstanceMigrationState</a></li>
 <li><a href="#_v1_virtualmachineinstancenetworkinterface">v1.VirtualMachineInstanceNetworkInterface</a></li>
 <li><a href="#_v1_virtualmachineinstancepreset">v1.VirtualMachineInstancePreset</a></li>
 <li><a href="#_v1_virtualmachineinstancepresetlist">v1.VirtualMachineInstancePresetList</a></li>
@@ -3888,6 +3889,79 @@ about its associated VirtualMachineInstance</p></td>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachineinstancemigrationstate">v1.VirtualMachineInstanceMigrationState</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>completed</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates the migration completed</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>endTimestamp</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The time the migration action ended</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>failed</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates that the migration failed</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>migrationUid</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The VirtualMachineInstanceMigration object associated with this migration</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>sourceNode</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The source node that the VMI originated on</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>startTimestamp</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The time the migration action began</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>targetNode</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The target node that the VMI is moving to</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>targetNodeAddress</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The address of the target node to use for the migration</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>targetNodeDomainDetected</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The Target Node has seen the Domain Start Event</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachineinstancenetworkinterface">v1.VirtualMachineInstanceNetworkInterface</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4385,6 +4459,12 @@ state of a system.</p>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Interfaces represent the details of available network interfaces.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachineinstancenetworkinterface">v1.VirtualMachineInstanceNetworkInterface</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>migrationState</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Represents the status of a live migration</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachineinstancemigrationstate">v1.VirtualMachineInstanceMigrationState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>nodeName</strong><br>
