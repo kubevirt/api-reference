@@ -445,6 +445,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
 <li><a href="#_v1_cninetwork">v1.CniNetwork</a></li>
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
+<li><a href="#_v1_dhcpoptions">v1.DHCPOptions</a></li>
 <li><a href="#_v1_datavolumesource">v1.DataVolumeSource</a></li>
 <li><a href="#_v1_deleteoptions">v1.DeleteOptions</a></li>
 <li><a href="#_v1_devices">v1.Devices</a></li>
@@ -1120,6 +1121,39 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configm
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Specify whether the ConfigMap or it&#8217;s keys must be defined
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_dhcpoptions">v1.DHCPOptions</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bootFileName</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass option 67 to interface&#8217;s DHCP server
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tftpServerName</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass option 66 to interface&#8217;s DHCP server
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -2162,6 +2196,13 @@ Interfaces without a boot order are not tried.
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_interfacebridge">v1.InterfaceBridge</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dhcpOptions</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified the network interface will pass additional DHCP options to the VMI
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_dhcpoptions">v1.DHCPOptions</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>macAddress</strong><br>
