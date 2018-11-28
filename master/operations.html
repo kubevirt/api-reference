@@ -491,7 +491,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_console">Open a websocket connection to a serial console on the specified VirtualMachineInstance.</a></li>
 <li><a href="#_test">Test endpoint verifying apiserver connectivity.</a></li>
 <li><a href="#_vnc">Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.</a></li>
-<li><a href="#_restart">Restart a VM</a></li>
+<li><a href="#_restart">Restart a VirtualMachine object.</a></li>
 <li><a href="#_version">GET /apis/subresources.kubevirt.io/v1alpha2/version</a></li>
 </ul>
 </li>
@@ -7286,7 +7286,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_restart">Restart a VM</h3>
+<h3 id="_restart">Restart a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
 <pre>PUT /apis/subresources.kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines/{name}/restart</pre>
@@ -7345,6 +7345,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>404</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Not Found</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
 </tr>
