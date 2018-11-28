@@ -445,6 +445,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
 <li><a href="#_v1_cninetwork">v1.CniNetwork</a></li>
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
+<li><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></li>
 <li><a href="#_v1_dhcpoptions">v1.DHCPOptions</a></li>
 <li><a href="#_v1_datavolumesource">v1.DataVolumeSource</a></li>
 <li><a href="#_v1_deleteoptions">v1.DeleteOptions</a></li>
@@ -497,7 +498,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_preconditions">v1.Preconditions</a></li>
 <li><a href="#_v1_preferredschedulingterm">v1.PreferredSchedulingTerm</a></li>
 <li><a href="#_v1_rtctimer">v1.RTCTimer</a></li>
-<li><a href="#_v1_registrydisksource">v1.RegistryDiskSource</a></li>
 <li><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></li>
 <li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
 <li><a href="#_v1_serveraddressbyclientcidr">v1.ServerAddressByClientCIDR</a></li>
@@ -1121,6 +1121,46 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configm
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Specify whether the ConfigMap or it&#8217;s keys must be defined
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_containerdisksource">v1.ContainerDiskSource</h3>
+<div class="paragraph">
+<p>Represents a docker image with an embedded disk.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Image is the name of the image with the embedded disk.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>imagePullSecret</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ImagePullSecret is the name of the Docker registry secret required to pull the image. The secret must already exist.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>path</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Path defines the path to disk file in the container</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -3293,40 +3333,6 @@ One of "delay", "catchup".</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_registrydisksource">v1.RegistryDiskSource</h3>
-<div class="paragraph">
-<p>Represents a docker image with an embedded disk.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Image is the name of the image with the embedded disk.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>imagePullSecret</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ImagePullSecret is the name of the Docker registry secret required to pull the image. The secret must already exist.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_resourcerequirements">v1.ResourceRequirements</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4918,6 +4924,14 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>containerDisk</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ContainerDisk references a docker image, embedding a qcow or raw disk.
+More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" class="bare">https://kubevirt.gitbooks.io/user-guide/registry-disk.html</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dataVolume</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">DataVolume represents the dynamic creation a PVC for this volume as well as
@@ -4963,14 +4977,6 @@ Directly attached to the vmi via qemu.
 More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a>
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_persistentvolumeclaimvolumesource">v1.PersistentVolumeClaimVolumeSource</a></p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>registryDisk</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">RegistryDisk references a docker image, embedding a qcow or raw disk.
-More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" class="bare">https://kubevirt.gitbooks.io/user-guide/registry-disk.html</a>
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_registrydisksource">v1.RegistryDiskSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secret</strong><br>
