@@ -465,6 +465,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
 <li><a href="#_v1_groupversionfordiscovery">v1.GroupVersionForDiscovery</a></li>
 <li><a href="#_v1_hpettimer">v1.HPETTimer</a></li>
+<li><a href="#_v1_httpgetaction">v1.HTTPGetAction</a></li>
+<li><a href="#_v1_httpheader">v1.HTTPHeader</a></li>
 <li><a href="#_v1_hostdisk">v1.HostDisk</a></li>
 <li><a href="#_v1_hugepages">v1.Hugepages</a></li>
 <li><a href="#_v1_hypervtimer">v1.HypervTimer</a></li>
@@ -497,6 +499,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_port">v1.Port</a></li>
 <li><a href="#_v1_preconditions">v1.Preconditions</a></li>
 <li><a href="#_v1_preferredschedulingterm">v1.PreferredSchedulingTerm</a></li>
+<li><a href="#_v1_probe">v1.Probe</a></li>
 <li><a href="#_v1_rtctimer">v1.RTCTimer</a></li>
 <li><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></li>
 <li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
@@ -505,6 +508,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_status">v1.Status</a></li>
 <li><a href="#_v1_statuscause">v1.StatusCause</a></li>
 <li><a href="#_v1_statusdetails">v1.StatusDetails</a></li>
+<li><a href="#_v1_tcpsocketaction">v1.TCPSocketAction</a></li>
 <li><a href="#_v1_timer">v1.Timer</a></li>
 <li><a href="#_v1_toleration">v1.Toleration</a></li>
 <li><a href="#_v1_virtualmachine">v1.VirtualMachine</a></li>
@@ -2018,6 +2022,86 @@ One of "delay", "catchup", "merge", "discard".</p></td>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_httpgetaction">v1.HTTPGetAction</h3>
+<div class="paragraph">
+<p>HTTPGetAction describes an action based on HTTP Get requests.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>host</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>httpHeaders</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Custom headers to set in the request. HTTP allows repeated headers.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_httpheader">v1.HTTPHeader</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>path</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Path to access on the HTTP server.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>scheme</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Scheme to use for connecting to the host. Defaults to HTTP.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_httpheader">v1.HTTPHeader</h3>
+<div class="paragraph">
+<p>HTTPHeader describes a custom header to be used in HTTP probes</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The header field name</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>value</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The header field value</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_hostdisk">v1.HostDisk</h3>
 <div class="paragraph">
 <p>Represents a disk created on the cluster level</p>
@@ -3293,6 +3377,85 @@ Defaults to "TCP".
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_probe">v1.Probe</h3>
+<div class="paragraph">
+<p>Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is
+alive or ready to receive traffic.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>failureThreshold</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Minimum consecutive failures for the probe to be considered failed after having succeeded.
+Defaults to 3. Minimum value is 1.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>httpGet</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">HTTPGet specifies the http request to perform.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_httpgetaction">v1.HTTPGetAction</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>initialDelaySeconds</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of seconds after the VirtualMachineInstance has started before liveness probes are initiated.
+More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>periodSeconds</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">How often (in seconds) to perform the probe.
+Default to 10 seconds. Minimum value is 1.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>successThreshold</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Minimum consecutive successes for the probe to be considered successful after having failed.
+Defaults to 1. Must be 1 for liveness. Minimum value is 1.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tcpSocket</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TCPSocket specifies an action involving a TCP port.
+TCP hooks not yet supported
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_tcpsocketaction">v1.TCPSocketAction</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timeoutSeconds</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of seconds after which the probe times out.
+Defaults to 1 second. Minimum value is 1.
+More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_rtctimer">v1.RTCTimer</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3641,6 +3804,34 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>uid</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">UID of the resource. (when there is a single resource which can be described). More info: <a href="http://kubernetes.io/docs/user-guide/identifiers#uids" class="bare">http://kubernetes.io/docs/user-guide/identifiers#uids</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_tcpsocketaction">v1.TCPSocketAction</h3>
+<div class="paragraph">
+<p>TCPSocketAction describes an action based on opening a socket</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>host</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Optional: Host name to connect to, defaults to the pod IP.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -4623,6 +4814,16 @@ If not specified, the hostname will be set to the name of the vmi, if dhcp or cl
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>livenessProbe</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Periodic probe of VirtualMachineInstance liveness.
+VirtualmachineInstances will be stopped if the probe fails.
+Cannot be updated.
+More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_probe">v1.Probe</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networks</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">List of networks that can be attached to a vm&#8217;s virtual interface.</p></td>
@@ -4636,6 +4837,16 @@ Selector which must match a node&#8217;s labels for the vmi to be scheduled on t
 More info: <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/" class="bare">https://kubernetes.io/docs/concepts/configuration/assign-pod-node/</a>
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readinessProbe</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Periodic probe of VirtualMachineInstance service readiness.
+VirtualmachineInstances will be removed from service endpoints if the probe fails.
+Cannot be updated.
+More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_probe">v1.Probe</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>subdomain</strong><br>
