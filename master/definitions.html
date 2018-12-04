@@ -1086,7 +1086,9 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkName</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">References to a NetworkAttachmentDefinition CRD object in the same namespace.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">References to a NetworkAttachmentDefinition CRD object. Format:
+&lt;networkName&gt;, &lt;namespace&gt;/&lt;networkName&gt;. If namespace is not
+specified, VMI namespace is assumed.
 In case of genie, it references the CNI plugin name.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
