@@ -2136,6 +2136,12 @@ One of "delay", "catchup", "merge", "discard".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>shared</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Shared indicate whether the path is shared between nodes</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Contains information if disk.img exists or should be created
@@ -4917,6 +4923,12 @@ state of a system.</p>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Interfaces represent the details of available network interfaces.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachineinstancenetworkinterface">v1.VirtualMachineInstanceNetworkInterface</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>migrationMethod</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Represents the method using which the vmi can be migrated: live migration or block migration</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>migrationState</strong><br>
