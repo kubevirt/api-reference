@@ -544,6 +544,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</a></li>
 <li><a href="#_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</a></li>
 <li><a href="#_v1alpha1_datavolumesourcepvc">v1alpha1.DataVolumeSourcePVC</a></li>
+<li><a href="#_v1alpha1_datavolumesourceregistry">v1alpha1.DataVolumeSourceRegistry</a></li>
 <li><a href="#_v1alpha1_datavolumesources3">v1alpha1.DataVolumeSourceS3</a></li>
 <li><a href="#_v1alpha1_datavolumespec">v1alpha1.DataVolumeSpec</a></li>
 <li><a href="#_v1alpha1_datavolumestatus">v1alpha1.DataVolumeStatus</a></li>
@@ -1173,6 +1174,9 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configm
 </div>
 <div class="sect2">
 <h3 id="_v1_dhcpoptions">v1.DHCPOptions</h3>
+<div class="paragraph">
+<p>Extra DHCP options to use in the interface.</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -1193,6 +1197,13 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configm
 <td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass option 67 to interface&#8217;s DHCP server
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ntpServers</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass the configured NTP server to the VM via DHCP option 042.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tftpServerName</strong><br>
@@ -5339,6 +5350,11 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolume">v1alpha1.DataVolume</h3>
+<div class="paragraph">
+<p>DataVolume provides a representation of our data volume
++genclient
++k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 16.6666%;">
@@ -5388,6 +5404,9 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</h3>
+<div class="paragraph">
+<p>DataVolumeSource represents the source for our Data Volume, this can be HTTP, S3, Registry or an existing PVC</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 42.8571%;">
@@ -5401,6 +5420,11 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>blank</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumeblankimage">v1alpha1.DataVolumeBlankImage</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>http</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</a></p></td>
@@ -5409,6 +5433,11 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>pvc</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumesourcepvc">v1alpha1.DataVolumeSourcePVC</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>registry</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumesourceregistry">v1alpha1.DataVolumeSourceRegistry</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>s3</strong><br>
@@ -5425,14 +5454,19 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</h3>
+<div class="paragraph">
+<p>DataVolumeSourceHTTP provides the parameters to create a Data Volume from an HTTP source</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -5440,11 +5474,13 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
 <em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SecretRef provides the secret reference needed to access the HTTP source</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
 <em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">URL is the URL of the http source</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -5452,6 +5488,9 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumesourcepvc">v1alpha1.DataVolumeSourcePVC</h3>
+<div class="paragraph">
+<p>DataVolumeSourcePVC provides the parameters to create a Data Volume from an existing PVC</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 42.8571%;">
@@ -5478,15 +5517,20 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_datavolumesources3">v1alpha1.DataVolumeSourceS3</h3>
+<h3 id="_v1alpha1_datavolumesourceregistry">v1alpha1.DataVolumeSourceRegistry</h3>
+<div class="paragraph">
+<p>DataVolumeSourceRegistry provides the parameters to create a Data Volume from an registry source</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -5494,11 +5538,47 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
 <em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SecretRef provides the secret reference needed to access the Registry source</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
 <em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">URL is the url of the Registry source</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_datavolumesources3">v1alpha1.DataVolumeSourceS3</h3>
+<div class="paragraph">
+<p>DataVolumeSourceS3 provides the parameters to create a Data Volume from an S3 source</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SecretRef provides the secret reference needed to access the S3 source</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>url</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">URL is the url of the S3 source</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -5506,14 +5586,19 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumespec">v1alpha1.DataVolumeSpec</h3>
+<div class="paragraph">
+<p>DataVolumeSpec defines our specification for a DataVolume type</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -5521,11 +5606,13 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>pvc</strong><br>
 <em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">PVC is a pointer to the PVC Spec we want to use</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_persistentvolumeclaimspec">v1.PersistentVolumeClaimSpec</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>source</strong><br>
 <em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Source is the src of the data for the requested DataVolume</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</a></p></td>
 </tr>
 </tbody>
@@ -5533,14 +5620,19 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumestatus">v1alpha1.DataVolumeStatus</h3>
+<div class="paragraph">
+<p>DataVolumeStatus provides the parameters to store the phase of the Data Volume</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -5548,6 +5640,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>phase</strong><br>
 <em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Phase is the current phase of the data volume</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
