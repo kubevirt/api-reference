@@ -432,7 +432,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#_paths">Operations</a>
 <ul class="sectlevel2">
-<li><a href="#_getapigroup">Get a KubeVirt API GroupList</a></li>
+<li><a href="#_getapigrouplist">Get a KubeVirt API GroupList</a></li>
 <li><a href="#_getapigroup">Get a KubeVirt API group</a></li>
 <li><a href="#_getapiresources">Get KubeVirt API Resources</a></li>
 <li><a href="#_createnamespacedvirtualmachineinstancemigration">Create a VirtualMachineInstanceMigration object.</a></li>
@@ -493,6 +493,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_vnc">Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.</a></li>
 <li><a href="#_restart">Restart a VirtualMachine object.</a></li>
 <li><a href="#_version">GET /apis/subresources.kubevirt.io/v1alpha2/version</a></li>
+<li><a href="#_func7">GET /openapi/v2</a></li>
 </ul>
 </li>
 </ul>
@@ -503,7 +504,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_paths">Operations</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="_getapigroup">Get a KubeVirt API GroupList</h3>
+<h3 id="_getapigrouplist">Get a KubeVirt API GroupList</h3>
 <div class="literalblock">
 <div class="content">
 <pre>GET /apis</pre>
@@ -7390,6 +7391,53 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div class="sect3">
 <h4 id="_produces_57">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_func7">GET /openapi/v2</h3>
+<div class="sect3">
+<h4 id="_responses_62">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>200</strong></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OK</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">No Content</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_consumes_22">Consumes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_produces_58">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
