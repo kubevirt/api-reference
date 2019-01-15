@@ -492,7 +492,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_test">Test endpoint verifying apiserver connectivity.</a></li>
 <li><a href="#_vnc">Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.</a></li>
 <li><a href="#_restart">Restart a VirtualMachine object.</a></li>
-<li><a href="#_version">GET /apis/subresources.kubevirt.io/v1alpha2/version</a></li>
+<li><a href="#_version">GET /apis/subresources.kubevirt.io/v1alpha3/version</a></li>
 <li><a href="#_func7">GET /openapi/v2</a></li>
 </ul>
 </li>
@@ -611,7 +611,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_getapiresources">Get KubeVirt API Resources</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3</pre>
 </div>
 </div>
 <div class="sect3">
@@ -663,7 +663,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_createnamespacedvirtualmachineinstancemigration">Create a VirtualMachineInstanceMigration object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancemigrations</pre>
+<pre>POST /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancemigrations</pre>
 </div>
 </div>
 <div class="sect3">
@@ -776,7 +776,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listnamespacedvirtualmachineinstancemigration">Get a list of VirtualMachineInstanceMigration objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancemigrations</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancemigrations</pre>
 </div>
 </div>
 <div class="sect3">
@@ -919,7 +919,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletecollectionnamespacedvirtualmachineinstancemigration">Delete a collection of VirtualMachineInstanceMigration objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancemigrations</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancemigrations</pre>
 </div>
 </div>
 <div class="sect3">
@@ -1052,7 +1052,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_readnamespacedvirtualmachineinstancemigration">Get a VirtualMachineInstanceMigration object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancemigrations/{name}</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancemigrations/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -1159,7 +1159,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_replacenamespacedvirtualmachineinstancemigration">Update a VirtualMachineInstanceMigration object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancemigrations/{name}</pre>
+<pre>PUT /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancemigrations/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -1274,7 +1274,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletenamespacedvirtualmachineinstancemigration">Delete a VirtualMachineInstanceMigration object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancemigrations/{name}</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancemigrations/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -1405,7 +1405,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_patchnamespacedvirtualmachineinstancemigration">Patch a VirtualMachineInstanceMigration object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PATCH /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancemigrations/{name}</pre>
+<pre>PATCH /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancemigrations/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -1512,7 +1512,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_createnamespacedvirtualmachineinstancepreset">Create a VirtualMachineInstancePreset object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancepresets</pre>
+<pre>POST /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancepresets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -1625,7 +1625,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listnamespacedvirtualmachineinstancepreset">Get a list of VirtualMachineInstancePreset objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancepresets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancepresets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -1768,7 +1768,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletecollectionnamespacedvirtualmachineinstancepreset">Delete a collection of VirtualMachineInstancePreset objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancepresets</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancepresets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -1901,7 +1901,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_readnamespacedvirtualmachineinstancepreset">Get a VirtualMachineInstancePreset object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancepresets/{name}</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancepresets/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2008,7 +2008,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_replacenamespacedvirtualmachineinstancepreset">Update a VirtualMachineInstancePreset object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancepresets/{name}</pre>
+<pre>PUT /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancepresets/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2123,7 +2123,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletenamespacedvirtualmachineinstancepreset">Delete a VirtualMachineInstancePreset object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancepresets/{name}</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancepresets/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2254,7 +2254,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_patchnamespacedvirtualmachineinstancepreset">Patch a VirtualMachineInstancePreset object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PATCH /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancepresets/{name}</pre>
+<pre>PATCH /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancepresets/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2361,7 +2361,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_createnamespacedvirtualmachineinstancereplicaset">Create a VirtualMachineInstanceReplicaSet object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancereplicasets</pre>
+<pre>POST /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2474,7 +2474,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listnamespacedvirtualmachineinstancereplicaset">Get a list of VirtualMachineInstanceReplicaSet objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancereplicasets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2617,7 +2617,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletecollectionnamespacedvirtualmachineinstancereplicaset">Delete a collection of VirtualMachineInstanceReplicaSet objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancereplicasets</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2750,7 +2750,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_readnamespacedvirtualmachineinstancereplicaset">Get a VirtualMachineInstanceReplicaSet object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2857,7 +2857,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_replacenamespacedvirtualmachineinstancereplicaset">Update a VirtualMachineInstanceReplicaSet object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}</pre>
+<pre>PUT /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -2972,7 +2972,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletenamespacedvirtualmachineinstancereplicaset">Delete a VirtualMachineInstanceReplicaSet object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -3103,7 +3103,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_patchnamespacedvirtualmachineinstancereplicaset">Patch a VirtualMachineInstanceReplicaSet object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PATCH /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}</pre>
+<pre>PATCH /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstancereplicasets/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -3210,7 +3210,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_createnamespacedvirtualmachineinstance">Create a VirtualMachineInstance object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances</pre>
+<pre>POST /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances</pre>
 </div>
 </div>
 <div class="sect3">
@@ -3323,7 +3323,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listnamespacedvirtualmachineinstance">Get a list of VirtualMachineInstance objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances</pre>
 </div>
 </div>
 <div class="sect3">
@@ -3466,7 +3466,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletecollectionnamespacedvirtualmachineinstance">Delete a collection of VirtualMachineInstance objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances</pre>
 </div>
 </div>
 <div class="sect3">
@@ -3599,7 +3599,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_readnamespacedvirtualmachineinstance">Get a VirtualMachineInstance object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances/{name}</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -3706,7 +3706,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_replacenamespacedvirtualmachineinstance">Update a VirtualMachineInstance object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances/{name}</pre>
+<pre>PUT /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -3821,7 +3821,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletenamespacedvirtualmachineinstance">Delete a VirtualMachineInstance object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances/{name}</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -3952,7 +3952,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_patchnamespacedvirtualmachineinstance">Patch a VirtualMachineInstance object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PATCH /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances/{name}</pre>
+<pre>PATCH /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -4059,7 +4059,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_createnamespacedvirtualmachine">Create a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>POST /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines</pre>
+<pre>POST /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
@@ -4172,7 +4172,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listnamespacedvirtualmachine">Get a list of VirtualMachine objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
@@ -4315,7 +4315,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletecollectionnamespacedvirtualmachine">Delete a collection of VirtualMachine objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
@@ -4448,7 +4448,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_readnamespacedvirtualmachine">Get a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines/{name}</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -4555,7 +4555,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_replacenamespacedvirtualmachine">Update a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines/{name}</pre>
+<pre>PUT /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -4670,7 +4670,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_deletenamespacedvirtualmachine">Delete a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>DELETE /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines/{name}</pre>
+<pre>DELETE /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -4801,7 +4801,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_patchnamespacedvirtualmachine">Patch a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PATCH /apis/kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines/{name}</pre>
+<pre>PATCH /apis/kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}</pre>
 </div>
 </div>
 <div class="sect3">
@@ -4908,7 +4908,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listvirtualmachineinstancemigrationforallnamespaces">Get a list of all VirtualMachineInstanceMigration objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/virtualmachineinstancemigrations</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/virtualmachineinstancemigrations</pre>
 </div>
 </div>
 <div class="sect3">
@@ -5044,7 +5044,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listvirtualmachineinstancepresetforallnamespaces">Get a list of all VirtualMachineInstancePreset objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/virtualmachineinstancepresets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/virtualmachineinstancepresets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -5180,7 +5180,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listvirtualmachineinstancereplicasetforallnamespaces">Get a list of all VirtualMachineInstanceReplicaSet objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/virtualmachineinstancereplicasets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/virtualmachineinstancereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -5316,7 +5316,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listvirtualmachineinstanceforallnamespaces">Get a list of all VirtualMachineInstance objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/virtualmachineinstances</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/virtualmachineinstances</pre>
 </div>
 </div>
 <div class="sect3">
@@ -5452,7 +5452,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_listvirtualmachineforallnamespaces">Get a list of all VirtualMachine objects.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/virtualmachines</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
@@ -5588,7 +5588,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchnamespacedvirtualmachineinstancemigration">Watch a VirtualMachineInstanceMigration object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/namespaces/{namespace}/virtualmachineinstancemigrations</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/namespaces/{namespace}/virtualmachineinstancemigrations</pre>
 </div>
 </div>
 <div class="sect3">
@@ -5725,7 +5725,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchnamespacedvirtualmachineinstancepreset">Watch a VirtualMachineInstancePreset object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/namespaces/{namespace}/virtualmachineinstancepresets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/namespaces/{namespace}/virtualmachineinstancepresets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -5862,7 +5862,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchnamespacedvirtualmachineinstancereplicaset">Watch a VirtualMachineInstanceReplicaSet object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/namespaces/{namespace}/virtualmachineinstancereplicasets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/namespaces/{namespace}/virtualmachineinstancereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -5999,7 +5999,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchnamespacedvirtualmachineinstance">Watch a VirtualMachineInstance object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/namespaces/{namespace}/virtualmachineinstances</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/namespaces/{namespace}/virtualmachineinstances</pre>
 </div>
 </div>
 <div class="sect3">
@@ -6136,7 +6136,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchnamespacedvirtualmachine">Watch a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/namespaces/{namespace}/virtualmachines</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/namespaces/{namespace}/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
@@ -6273,7 +6273,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchvirtualmachineinstancemigrationlistforallnamespaces">Watch a VirtualMachineInstanceMigrationList object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/virtualmachineinstancemigrations</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/virtualmachineinstancemigrations</pre>
 </div>
 </div>
 <div class="sect3">
@@ -6403,7 +6403,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchvirtualmachineinstancepresetlistforallnamespaces">Watch a VirtualMachineInstancePresetList object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/virtualmachineinstancepresets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/virtualmachineinstancepresets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -6533,7 +6533,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchvirtualmachineinstancereplicasetlistforallnamespaces">Watch a VirtualMachineInstanceReplicaSetList object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/virtualmachineinstancereplicasets</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/virtualmachineinstancereplicasets</pre>
 </div>
 </div>
 <div class="sect3">
@@ -6663,7 +6663,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchvirtualmachineinstancelistforallnamespaces">Watch a VirtualMachineInstanceList object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/virtualmachineinstances</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/virtualmachineinstances</pre>
 </div>
 </div>
 <div class="sect3">
@@ -6793,7 +6793,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_watchvirtualmachinelistforallnamespaces">Watch a VirtualMachineList object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/kubevirt.io/v1alpha2/watch/virtualmachines</pre>
+<pre>GET /apis/kubevirt.io/v1alpha3/watch/virtualmachines</pre>
 </div>
 </div>
 <div class="sect3">
@@ -6975,7 +6975,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_getapiresources">Get a KubeVirt API resources</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/subresources.kubevirt.io/v1alpha2</pre>
+<pre>GET /apis/subresources.kubevirt.io/v1alpha3</pre>
 </div>
 </div>
 <div class="sect3">
@@ -7027,7 +7027,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_checkhealth">Health endpoint</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/subresources.kubevirt.io/v1alpha2/healthz</pre>
+<pre>GET /apis/subresources.kubevirt.io/v1alpha3/healthz</pre>
 </div>
 </div>
 <div class="sect3">
@@ -7089,7 +7089,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_console">Open a websocket connection to a serial console on the specified VirtualMachineInstance.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/subresources.kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances/{name}/console</pre>
+<pre>GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/console</pre>
 </div>
 </div>
 <div class="sect3">
@@ -7156,7 +7156,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_test">Test endpoint verifying apiserver connectivity.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/subresources.kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances/{name}/test</pre>
+<pre>GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/test</pre>
 </div>
 </div>
 <div class="sect3">
@@ -7223,7 +7223,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_vnc">Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>GET /apis/subresources.kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachineinstances/{name}/vnc</pre>
+<pre>GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachineinstances/{name}/vnc</pre>
 </div>
 </div>
 <div class="sect3">
@@ -7290,7 +7290,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h3 id="_restart">Restart a VirtualMachine object.</h3>
 <div class="literalblock">
 <div class="content">
-<pre>PUT /apis/subresources.kubevirt.io/v1alpha2/namespaces/{namespace}/virtualmachines/{name}/restart</pre>
+<pre>PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace}/virtualmachines/{name}/restart</pre>
 </div>
 </div>
 <div class="sect3">
@@ -7364,7 +7364,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_version">GET /apis/subresources.kubevirt.io/v1alpha2/version</h3>
+<h3 id="_version">GET /apis/subresources.kubevirt.io/v1alpha3/version</h3>
 <div class="sect3">
 <h4 id="_responses_61">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
