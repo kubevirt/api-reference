@@ -5437,7 +5437,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>status</strong><br>
-<em>required</em></p></td>
+<em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1alpha1_datavolumestatus">v1alpha1.DataVolumeStatus</a></p></td>
 </tr>
@@ -5645,6 +5645,12 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>contentType</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">DataVolumeContentType options: "kubevirt", "archive"</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>pvc</strong><br>
 <em>required</em></p></td>
