@@ -1096,6 +1096,27 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkData</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkData contains NoCloud inline cloud-init networkdata.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkDataBase64</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataBase64 contains NoCloud cloud-init networkdata as a base64 encoded string.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkDataSecretRef</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataSecretRef references a k8s secret that contains NoCloud networkdata.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataSecretRef references a k8s secret that contains NoCloud userdata.
