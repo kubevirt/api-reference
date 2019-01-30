@@ -438,6 +438,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_apiresource">v1.APIResource</a></li>
 <li><a href="#_v1_apiresourcelist">v1.APIResourceList</a></li>
 <li><a href="#_v1_affinity">v1.Affinity</a></li>
+<li><a href="#_v1_bootloader">v1.Bootloader</a></li>
 <li><a href="#_v1_cdromtarget">v1.CDRomTarget</a></li>
 <li><a href="#_v1_cpu">v1.CPU</a></li>
 <li><a href="#_v1_clock">v1.Clock</a></li>
@@ -857,6 +858,43 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Describes pod anti-affinity scheduling rules (e.g. avoid putting this pod in the same node, zone, etc. as some other pod(s)).</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_podantiaffinity">v1.PodAntiAffinity</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_bootloader">v1.Bootloader</h3>
+<div class="paragraph">
+<p>Represents the firmware blob used to assist in the domain creation process.
+Used for setting the QEMU BIOS file path for the libvirt domain.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bios</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If set (default), BIOS will be used.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_bios">v1.BIOS</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>efi</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If set, EFI will be used instead of BIOS.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_efi">v1.EFI</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1552,7 +1590,7 @@ Defaults to false.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>features</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Features like acpi, apic, hyperv.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Features like acpi, apic, hyperv, smm.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_features">v1.Features</a></p></td>
 </tr>
@@ -1917,6 +1955,14 @@ Defaults to enabled.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurehyperv">v1.FeatureHyperv</a></p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>smm</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SMM enables/disables System Management Mode.
+TSEG not yet implemented.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -1936,6 +1982,13 @@ Defaults to enabled.
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bootloader</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Settings to control the bootloader that is used.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_bootloader">v1.Bootloader</a></p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>uuid</strong><br>
 <em>optional</em></p></td>
