@@ -441,6 +441,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_bootloader">v1.Bootloader</a></li>
 <li><a href="#_v1_cdromtarget">v1.CDRomTarget</a></li>
 <li><a href="#_v1_cpu">v1.CPU</a></li>
+<li><a href="#_v1_cpufeature">v1.CPUFeature</a></li>
 <li><a href="#_v1_clock">v1.Clock</a></li>
 <li><a href="#_v1_clockoffsetutc">v1.ClockOffsetUTC</a></li>
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
@@ -980,13 +981,19 @@ with enough dedicated pCPUs and pin the vCPUs to it.
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>features</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Features specifies the CPU features list inside the VMI.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_cpufeature">v1.CPUFeature</a> &gt; array</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>model</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Model specifies the CPU model inside the VMI.
 List of available models <a href="https://github.com/libvirt/libvirt/blob/master/src/cpu/cpu_map.xml" class="bare">https://github.com/libvirt/libvirt/blob/master/src/cpu/cpu_map.xml</a>.
 It is possible to specify special cases like "host-passthrough" to get the same CPU as the node
 and "host-model" to get CPU closest to the node one.
-For more information see <a href="https://libvirt.org/formatdomain.html#elementsCPU" class="bare">https://libvirt.org/formatdomain.html#elementsCPU</a>.
 Defaults to host-model.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
@@ -1004,6 +1011,47 @@ Must be a value greater or equal 1.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Threads specifies the number of threads inside the vmi.
 Must be a value greater or equal 1.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_cpufeature">v1.CPUFeature</h3>
+<div class="paragraph">
+<p>CPUFeature allows specifying a CPU feature.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the CPU feature</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>policy</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Policy is the CPU feature attribute which can have the following attributes:
+force - The virtual CPU will claim the feature is supported regardless of it being supported by host CPU.
+require - Guest creation will fail unless the feature is supported by the host CPU or the hypervisor is able to emulate it.
+optional - The feature will be supported by virtual CPU if and only if it is supported by host CPU.
+disable - The feature will not be supported by virtual CPU.
+forbid - Guest creation will fail if the feature is supported by host CPU.
+Defaults to require
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
