@@ -526,6 +526,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancecondition">v1.VirtualMachineInstanceCondition</a></li>
 <li><a href="#_v1_virtualmachineinstancelist">v1.VirtualMachineInstanceList</a></li>
 <li><a href="#_v1_virtualmachineinstancemigration">v1.VirtualMachineInstanceMigration</a></li>
+<li><a href="#_v1_virtualmachineinstancemigrationcondition">v1.VirtualMachineInstanceMigrationCondition</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationlist">v1.VirtualMachineInstanceMigrationList</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationspec">v1.VirtualMachineInstanceMigrationSpec</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationstate">v1.VirtualMachineInstanceMigrationState</a></li>
@@ -4667,6 +4668,43 @@ to another host in the cluster</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachineinstancemigrationcondition">v1.VirtualMachineInstanceMigrationCondition</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>message</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reason</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>status</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachineinstancemigrationlist">v1.VirtualMachineInstanceMigrationList</h3>
 <div class="paragraph">
 <p>VirtualMachineInstanceMigrationList is a list of VirtualMachineMigrations</p>
@@ -4760,6 +4798,18 @@ to another host in the cluster</p>
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>abortRequested</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates that the migration has been requested to abort</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>abortStatus</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates the final status of the live migration abortion</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>completed</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates the migration completed</p></td>
@@ -4851,6 +4901,11 @@ to another host in the cluster</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>conditions</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachineinstancemigrationcondition">v1.VirtualMachineInstanceMigrationCondition</a> &gt; array</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>phase</strong><br>
 <em>optional</em></p></td>
