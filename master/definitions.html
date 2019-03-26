@@ -445,7 +445,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_clock">v1.Clock</a></li>
 <li><a href="#_v1_clockoffsetutc">v1.ClockOffsetUTC</a></li>
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
-<li><a href="#_v1_cninetwork">v1.CniNetwork</a></li>
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
 <li><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></li>
 <li><a href="#_v1_dhcpoptions">v1.DHCPOptions</a></li>
@@ -466,6 +465,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_features">v1.Features</a></li>
 <li><a href="#_v1_firmware">v1.Firmware</a></li>
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
+<li><a href="#_v1_genienetwork">v1.GenieNetwork</a></li>
 <li><a href="#_v1_groupversionfordiscovery">v1.GroupVersionForDiscovery</a></li>
 <li><a href="#_v1_hpettimer">v1.HPETTimer</a></li>
 <li><a href="#_v1_httpgetaction">v1.HTTPGetAction</a></li>
@@ -487,6 +487,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_machine">v1.Machine</a></li>
 <li><a href="#_v1_memory">v1.Memory</a></li>
 <li><a href="#_v1_migrationconfig">v1.MigrationConfig</a></li>
+<li><a href="#_v1_multusnetwork">v1.MultusNetwork</a></li>
 <li><a href="#_v1_network">v1.Network</a></li>
 <li><a href="#_v1_nodeaffinity">v1.NodeAffinity</a></li>
 <li><a href="#_v1_nodeselector">v1.NodeSelector</a></li>
@@ -1189,37 +1190,6 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains NoCloud cloud-init userdata as a base64 encoded string.
 + optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_v1_cninetwork">v1.CniNetwork</h3>
-<div class="paragraph">
-<p>Represents the cni network.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkName</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">References to a NetworkAttachmentDefinition CRD object. Format:
-&lt;networkName&gt;, &lt;namespace&gt;/&lt;networkName&gt;. If namespace is not
-specified, VMI namespace is assumed.
-In case of genie, it references the CNI plugin name.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2165,6 +2135,34 @@ Defaults to closed.
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_genienetwork">v1.GenieNetwork</h3>
+<div class="paragraph">
+<p>Represents the genie cni network.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkName</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">References the CNI plugin name.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_groupversionfordiscovery">v1.GroupVersionForDiscovery</h3>
 <div class="paragraph">
 <p>GroupVersion contains the "group/version" and "version" string of a version. It is made a struct to keep extensibility.</p>
@@ -2936,6 +2934,43 @@ Defaults to the requested memory in the resources section if not specified.
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_multusnetwork">v1.MultusNetwork</h3>
+<div class="paragraph">
+<p>Represents the multus cni network.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Select the default network and add it to the
+multus-cni.io/default-network annotation.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkName</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">References to a NetworkAttachmentDefinition CRD object. Format:
+&lt;networkName&gt;, &lt;namespace&gt;/&lt;networkName&gt;. If namespace is not
+specified, VMI namespace is assumed.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_network">v1.Network</h3>
 <div class="paragraph">
 <p>Network represents a network type and a resource that should be connected to the vm.</p>
@@ -2958,13 +2993,13 @@ Defaults to the requested memory in the resources section if not specified.
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>genie</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cninetwork">v1.CniNetwork</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_genienetwork">v1.GenieNetwork</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>multus</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cninetwork">v1.CniNetwork</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_multusnetwork">v1.MultusNetwork</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
