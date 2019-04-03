@@ -5399,6 +5399,13 @@ explicitly to 'ClusterFirstWithHostNet'.
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_domainspec">v1.DomainSpec</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>evictionStrategy</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EvictionStrategy can be set to "LiveMigrate" if the VirtualMachineInstance should be
+migrated instead of shut-off in case of a node drain.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_evictionstrategy">v1.EvictionStrategy</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hostname</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the hostname of the vmi
