@@ -486,7 +486,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_luntarget">v1.LunTarget</a></li>
 <li><a href="#_v1_machine">v1.Machine</a></li>
 <li><a href="#_v1_memory">v1.Memory</a></li>
-<li><a href="#_v1_migrationconfig">v1.MigrationConfig</a></li>
 <li><a href="#_v1_multusnetwork">v1.MultusNetwork</a></li>
 <li><a href="#_v1_network">v1.Network</a></li>
 <li><a href="#_v1_nodeaffinity">v1.NodeAffinity</a></li>
@@ -2903,37 +2902,6 @@ Defaults to the requested memory in the resources section if not specified.
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_migrationconfig">v1.MigrationConfig</h3>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>completionTimeoutPerGiB</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The time for GiB of data to wait for the migration to be completed before aborting it</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>progressTimeout</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The time to wait for live migration to make progress in transferring data.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_multusnetwork">v1.MultusNetwork</h3>
 <div class="paragraph">
 <p>Represents the multus cni network.</p>
@@ -4802,12 +4770,6 @@ to another host in the cluster</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>configuration</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_migrationconfig">v1.MigrationConfig</a></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vmiName</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The name of the VMI to perform the migration on. VMI must exist in the migration objects namespace</p></td>
@@ -4861,12 +4823,6 @@ to another host in the cluster</p>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates that the migration failed</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>migrationConfig</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Config contains migration configuration options</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_migrationconfig">v1.MigrationConfig</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>migrationUid</strong><br>
