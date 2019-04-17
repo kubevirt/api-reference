@@ -1837,6 +1837,38 @@ Defaults to false.
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>evmcs</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EVMCS Speeds up L2 vmexits, but disables other virtualization features. Requires vapic.
+Defaults to the machine type setting.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>frequencies</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Frequencies improve Hyper-V on KVM (TSC clock source).
+Defaults to the machine type setting.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ipi</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">IPI improves performances in overcommited environments. Requires vpindex.
+Defaults to the machine type setting.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reenlightenment</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reenlightenment improve Hyper-V on KVM (TSC clock source).
+Defaults to the machine type setting.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>relaxed</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Relaxed relaxes constraints on timer.
@@ -1847,7 +1879,7 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reset</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reset enables Hyperv reboot/reset for the vmi.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reset enables Hyperv reboot/reset for the vmi. Requires synic.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
@@ -1879,6 +1911,14 @@ Defaults to the machine type setting.
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>synictimer</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">SyNICTimer enable Synthetic Interrupt Controller timer.
+Defaults to the machine type setting.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tlbflush</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TLBFlush improves performances in overcommited environments. Requires vpindex.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
