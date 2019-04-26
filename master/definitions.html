@@ -545,6 +545,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancetemplatespec">v1.VirtualMachineInstanceTemplateSpec</a></li>
 <li><a href="#_v1_virtualmachinelist">v1.VirtualMachineList</a></li>
 <li><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></li>
+<li><a href="#_v1_virtualmachinestatechangerequest">v1.VirtualMachineStateChangeRequest</a></li>
 <li><a href="#_v1_virtualmachinestatus">v1.VirtualMachineStatus</a></li>
 <li><a href="#_v1_volume">v1.Volume</a></li>
 <li><a href="#_v1_watchevent">v1.WatchEvent</a></li>
@@ -5645,9 +5646,17 @@ DataVolumes in this list are dynamically created for the VirtualMachine and are 
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1alpha1_datavolume">v1alpha1.DataVolume</a> &gt; array</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>runStrategy</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Running state indicates the requested running state of the VirtualMachineInstance
+mutually exclusive with Running</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachinerunstrategy">v1.VirtualMachineRunStrategy</a></p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>running</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Running controls whether the associatied VirtualMachineInstance is created or not</p></td>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Running controls whether the associatied VirtualMachineInstance is created or not
+Mutually exclusive with RunStrategy</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
@@ -5655,6 +5664,37 @@ DataVolumes in this list are dynamically created for the VirtualMachine and are 
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Template is the direct specification of VirtualMachineInstance</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachineinstancetemplatespec">v1.VirtualMachineInstanceTemplateSpec</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachinestatechangerequest">v1.VirtualMachineStateChangeRequest</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>action</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates the type of action that is requested. e.g. Start or Stop</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>uid</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates the UUID of an existing Virtual Machine Instance that this change request applies to – if applicable</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_types_uid">types.UID</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -5696,6 +5736,13 @@ controller to describe how the VirtualMachine is doing</p>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Ready indicates if the virtual machine is running and ready</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>stateChangeRequests</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">StateChangeRequests indicates a list of actions that should be taken on a VMI
+e.g. stop a specific VMI then start a new one.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachinestatechangerequest">v1.VirtualMachineStateChangeRequest</a> &gt; array</p></td>
 </tr>
 </tbody>
 </table>
