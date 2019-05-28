@@ -3285,7 +3285,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <div class="sect2">
 <h3 id="_v1_ownerreference">v1.OwnerReference</h3>
 <div class="paragraph">
-<p>OwnerReference contains enough information to let you identify an owning object. Currently, an owning object must be in the same namespace, so there is no namespace field.</p>
+<p>OwnerReference contains enough information to let you identify an owning object. An owning object must be in the same namespace as the dependent, or be cluster-scoped, so there is no namespace field.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3426,7 +3426,7 @@ One of "delay", "catchup", "discard".</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>volumeMode</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is an alpha feature and may change in the future.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_persistentvolumemode">v1.PersistentVolumeMode</a></p></td>
 </tr>
 <tr>
