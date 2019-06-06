@@ -444,6 +444,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_cpufeature">v1.CPUFeature</a></li>
 <li><a href="#_v1_clock">v1.Clock</a></li>
 <li><a href="#_v1_clockoffsetutc">v1.ClockOffsetUTC</a></li>
+<li><a href="#_v1_cloudinitconfigdrivesource">v1.CloudInitConfigDriveSource</a></li>
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
 <li><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></li>
@@ -1126,6 +1127,71 @@ guest changes to the clock will be kept during reboots and are not reset.</p></t
 <td class="tableblock halign-left valign-middle"><p class="tableblock">OffsetSeconds specifies an offset in seconds, relative to UTC. If set,
 guest changes to the clock will be kept during reboots and not reset.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_cloudinitconfigdrivesource">v1.CloudInitConfigDriveSource</h3>
+<div class="paragraph">
+<p>Represents a cloud-init config drive user data source.
+More info: <a href="https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html" class="bare">https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html</a></p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkData</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkData contains config drive inline cloud-init networkdata.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkDataBase64</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataBase64 contains config drive cloud-init networkdata as a base64 encoded string.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkDataSecretRef</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataSecretRef references a k8s secret that contains config drive networkdata.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataSecretRef references a k8s secret that contains config drive userdata.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userData</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserData contains config drive inline cloud-init userdata.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userDataBase64</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains config drive cloud-init userdata as a base64 encoded string.
++ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -5766,6 +5832,15 @@ e.g. stop a specific VMI then start a new one.</p></td>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cloudInitConfigDrive</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CloudInitConfigDrive represents a cloud-init Config Drive user-data source.
+The Config Drive data will be added as a disk to the vmi. A proper cloud-init installation is required inside the guest.
+More info: <a href="https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html" class="bare">https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cloudinitconfigdrivesource">v1.CloudInitConfigDriveSource</a></p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cloudInitNoCloud</strong><br>
 <em>optional</em></p></td>
