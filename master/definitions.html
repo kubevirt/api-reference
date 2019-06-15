@@ -995,7 +995,7 @@ with enough dedicated pCPUs and pin the vCPUs to it.
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>model</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Model specifies the CPU model inside the VMI.
-List of available models <a href="https://github.com/libvirt/libvirt/blob/master/src/cpu/cpu_map.xml" class="bare">https://github.com/libvirt/libvirt/blob/master/src/cpu/cpu_map.xml</a>.
+List of available models <a href="https://github.com/libvirt/libvirt/tree/master/src/cpu_map" class="bare">https://github.com/libvirt/libvirt/tree/master/src/cpu_map</a>.
 It is possible to specify special cases like "host-passthrough" to get the same CPU as the node
 and "host-model" to get CPU closest to the node one.
 Defaults to host-model.
@@ -1320,6 +1320,17 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configm
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>image</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Image is the name of the image with the embedded disk.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>imagePullPolicy</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Image pull policy.
+One of Always, Never, IfNotPresent.
+Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.
+Cannot be updated.
+More info: <a href="https://kubernetes.io/docs/concepts/containers/images#updating-images" class="bare">https://kubernetes.io/docs/concepts/containers/images#updating-images</a>
++optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
