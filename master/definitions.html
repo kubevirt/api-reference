@@ -1925,7 +1925,7 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>frequencies</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Frequencies improve Hyper-V on KVM (TSC clock source).
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Frequencies improves the TSC clock source handling for Hyper-V on KVM.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
@@ -1941,7 +1941,7 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reenlightenment</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reenlightenment improve Hyper-V on KVM (TSC clock source).
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reenlightenment enables the notifications on TSC frequency changes.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
@@ -1949,7 +1949,7 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>relaxed</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Relaxed relaxes constraints on timer.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Relaxed instructs the guest OS to disable watchdog timeouts.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
@@ -1965,7 +1965,7 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>runtime</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Runtime.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Runtime improves the time accounting to improve scheduling in the guest.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
@@ -1973,14 +1973,14 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spinlocks</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Spinlocks indicates if spinlocks should be made available to the guest.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Spinlocks allows to configure the spinlock retry attempts.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurespinlocks">v1.FeatureSpinlocks</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>synic</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNIC enable Synthetic Interrupt Controller.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNIC enables the Synthetic Interrupt Controller.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
@@ -1988,7 +1988,7 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>synictimer</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNICTimer enable Synthetic Interrupt Controller timer.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNICTimer enables Synthetic Interrupt Controller Timers, reducing CPU load.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
@@ -2004,7 +2004,7 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vapic</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VAPIC indicates whether virtual APIC is enabled.
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VAPIC improves the paravirtualized handling of interrupts.
 Defaults to the machine type setting.
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
