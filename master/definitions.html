@@ -4017,7 +4017,7 @@ Valid resource keys are "memory" and "cpu".
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>overcommitGuestOverhead</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Don&#8217;t ask the scheduler to take the guest-management overhead into account. Instead
-put the overhead only into the requested memory limits. This can lead to crashes if
+put the overhead only into the container&#8217;s memory limit. This can lead to crashes if
 all memory is in use on a node. Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
@@ -5607,6 +5607,15 @@ state of a system.</p>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Phase is the status of the VirtualMachineInstance in kubernetes world. It is not the VirtualMachineInstance status, but partially correlates to it.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>qosClass</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The Quality of Service (QOS) classification assigned to the virtual machine instance based on resource requirements
+See PodQOSClass type for available QOS classes
+More info: <a href="https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md" class="bare">https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_podqosclass">v1.PodQOSClass</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reason</strong><br>
