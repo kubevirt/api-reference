@@ -467,6 +467,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_features">v1.Features</a></li>
 <li><a href="#_v1_firmware">v1.Firmware</a></li>
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
+<li><a href="#_v1_gpu">v1.GPU</a></li>
 <li><a href="#_v1_genienetwork">v1.GenieNetwork</a></li>
 <li><a href="#_v1_groupversionfordiscovery">v1.GroupVersionForDiscovery</a></li>
 <li><a href="#_v1_hpettimer">v1.HPETTimer</a></li>
@@ -1612,6 +1613,13 @@ VNC will not be available if set to false. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_disk">v1.Disk</a> &gt; array</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>gpus</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach a GPU device to the vmi.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_gpu">v1.GPU</a> &gt; array</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>inputs</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Inputs describe input devices</p></td>
@@ -2299,6 +2307,37 @@ Defaults to false.</p></td>
 Allowed values are "open" and "closed".
 Defaults to closed.
 +optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_gpu">v1.GPU</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deviceName</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the GPU device as exposed by a device plugin</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
