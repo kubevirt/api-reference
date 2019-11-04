@@ -575,36 +575,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#_v1_virtualmachineinstance">v1.VirtualMachineInstance</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachineinstancelist">v1.VirtualMachineInstanceList</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachineinstancereplicaset">v1.VirtualMachineInstanceReplicaSet</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachineinstancereplicasetlist">v1.VirtualMachineInstanceReplicaSetList</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachineinstancepreset">v1.VirtualMachineInstancePreset</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachineinstancepresetlist">v1.VirtualMachineInstancePresetList</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachineinstancemigration">v1.VirtualMachineInstanceMigration</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachineinstancemigrationlist">v1.VirtualMachineInstanceMigrationList</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachine">v1.VirtualMachine</a></p>
-</li>
-<li>
-<p><a href="#_v1_virtualmachinelist">v1.VirtualMachineList</a></p>
-</li>
-<li>
 <p><a href="#_v1_domainspec">v1.DomainSpec</a></p>
 </li>
 </ul>
@@ -4639,7 +4609,7 @@ VirtualMachineInstance in its status.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spec</strong><br>
-<em>optional</em></p></td>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Spec contains the specification of VirtualMachineInstance created</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></p></td>
 </tr>
@@ -4732,7 +4702,7 @@ about its associated VirtualMachineInstance</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spec</strong><br>
-<em>optional</em></p></td>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">VirtualMachineInstance Spec contains the VirtualMachineInstance specification.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachineinstancespec">v1.VirtualMachineInstanceSpec</a></p></td>
 </tr>
@@ -4935,7 +4905,7 @@ to another host in the cluster</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spec</strong><br>
-<em>optional</em></p></td>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachineinstancemigrationspec">v1.VirtualMachineInstanceMigrationSpec</a></p></td>
 </tr>
@@ -5392,7 +5362,7 @@ Required.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spec</strong><br>
-<em>optional</em></p></td>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">VirtualMachineInstance Spec contains the VirtualMachineInstance specification.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachineinstancereplicasetspec">v1.VirtualMachineInstanceReplicaSetSpec</a></p></td>
 </tr>
@@ -5852,7 +5822,7 @@ More info: <a href="https://git.k8s.io/community/contributors/design-proposals/n
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>items</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Items is a list of VirtualMachines</p></td>
+<td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachine">v1.VirtualMachine</a> &gt; array</p></td>
 </tr>
 <tr>
@@ -5863,7 +5833,7 @@ More info: <a href="https://git.k8s.io/community/contributors/design-proposals/n
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>metadata</strong><br>
-<em>required</em></p></td>
+<em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_listmeta">v1.ListMeta</a></p></td>
 </tr>
