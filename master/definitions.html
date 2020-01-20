@@ -477,8 +477,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_hugepages">v1.Hugepages</a></li>
 <li><a href="#_v1_hypervtimer">v1.HypervTimer</a></li>
 <li><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></li>
-<li><a href="#_v1_initializer">v1.Initializer</a></li>
-<li><a href="#_v1_initializers">v1.Initializers</a></li>
 <li><a href="#_v1_input">v1.Input</a></li>
 <li><a href="#_v1_interface">v1.Interface</a></li>
 <li><a href="#_v1_kvmtimer">v1.KVMTimer</a></li>
@@ -488,6 +486,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></li>
 <li><a href="#_v1_luntarget">v1.LunTarget</a></li>
 <li><a href="#_v1_machine">v1.Machine</a></li>
+<li><a href="#_v1_managedfieldsentry">v1.ManagedFieldsEntry</a></li>
 <li><a href="#_v1_memory">v1.Memory</a></li>
 <li><a href="#_v1_multusnetwork">v1.MultusNetwork</a></li>
 <li><a href="#_v1_network">v1.Network</a></li>
@@ -607,13 +606,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -665,7 +664,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -677,7 +676,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -745,6 +744,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>storageVersionHash</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The hash value of the storage version, the version this resource is converted to when written to the data store. Value must be treated as opaque by clients. Only equality comparison on the value is valid. This is an alpha feature and may change or be removed in the future. The field is populated by the apiserver only if the StorageVersionHash feature gate is enabled. This field will remain optional even if it graduates.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>verbs</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">verbs is a list of supported kube verbs (this includes get, list, watch, create, update, patch, delete, deletecollection, and proxy)</p></td>
@@ -781,7 +786,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -793,7 +798,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1508,7 +1513,7 @@ Required.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1526,7 +1531,7 @@ Required.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -2632,68 +2637,6 @@ Defaults to reset.</p></td>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_initializer">v1.Initializer</h3>
-<div class="paragraph">
-<p>Initializer is information about an initializer that has not yet completed.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">name of the process that is responsible for initializing this object.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_v1_initializers">v1.Initializers</h3>
-<div class="paragraph">
-<p>Initializers tracks the progress of initialization.</p>
-</div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>pending</strong><br>
-<em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Pending is a list of initializers that must execute in order before this object is visible. When the last pending initializer is removed, and no failing result is set, the initializers struct will be set to nil and the object is considered as initialized and visible to all clients.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_initializer">v1.Initializer</a> &gt; array</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>result</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If result is set with the Failure field, the object will be persisted to storage and then deleted, ensuring that other clients can observe the deletion.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_status">v1.Status</a></p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_input">v1.Input</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2953,15 +2896,22 @@ Defaults to true.
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>remainingItemCount</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">remainingItemCount is the number of subsequent items in the list which are not included in this list response. If the list request contained label or field selectors, then the number of remaining items is unknown and the field will be left unset and omitted during serialization. If the list is complete (either because it is not chunking or because this is the last chunk), then there are no more remaining items and this field will be left unset and omitted during serialization. Servers older than v1.15 do not set this field. The intended use of the remainingItemCount is <em>estimating</em> the size of a collection. Clients should not rely on the remainingItemCount to be set or to be exact.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resourceVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">String that identifies the server&#8217;s internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">String that identifies the server&#8217;s internal version of this object that can be used by clients to determine when objects have changed. Value must be treated as opaque by clients and passed unmodified back to the server. Populated by the system. Read-only. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>selfLink</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">selfLink is a URL representing this object. Populated by the system. Read-only.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">selfLink is a URL representing this object. Populated by the system. Read-only.</p>
+<p class="tableblock">DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -3048,6 +2998,64 @@ Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">QEMU machine type is the actual chipset of the VirtualMachineInstance.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_managedfieldsentry">v1.ManagedFieldsEntry</h3>
+<div class="paragraph">
+<p>ManagedFieldsEntry is a workflow-id, a FieldSet and the group version of the resource that the fieldset applies to.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the version of this resource that this field set applies to. The format is "group/version" just like the top-level APIVersion field. It is necessary to track the version of a field set because it cannot be automatically converted.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldsType</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FieldsType is the discriminator for the different fields format and version. There is currently only one possible value: "FieldsV1"</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldsV1</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FieldsV1 holds the first JSON version format as described in the "FieldsV1" type.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>manager</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Manager is an identifier of the workflow managing these fields.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>operation</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Operation is the type of operation which lead to this ManagedFieldsEntry being created. The only valid values for this field are 'Apply' and 'Update'.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>time</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -3353,7 +3361,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>deletionTimestamp</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This field is set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The resource is expected to be deleted (no longer visible from resource lists, and not reachable by name) after the time in this field, once the finalizers list is empty. As long as the finalizers list contains items, deletion is blocked. Once the deletionTimestamp is set, this value may not be unset or be set further into the future, although it may be shortened or the resource may be deleted prior to this time. For example, a user may request that a pod is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. After that 30 seconds, the Kubelet will send a hard termination signal (SIGKILL) to the container and after cleanup, remove the pod from the API. In the presence of network partitions, this object may still exist after this timestamp, until an administrator or automated process can determine the resource is fully terminated. If not set, graceful deletion of the object has not been requested.</p>
-<p class="tableblock">Populated by the system when a graceful deletion is requested. Read-only. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#metadata</a></p></td>
+<p class="tableblock">Populated by the system when a graceful deletion is requested. Read-only. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -3367,7 +3375,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.</p>
 <p class="tableblock">If this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).</p>
-<p class="tableblock">Applied only if Name is not specified. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#idempotency</a></p></td>
+<p class="tableblock">Applied only if Name is not specified. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -3377,17 +3385,16 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>initializers</strong><br>
-<em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">An initializer is a controller which enforces some system invariant at object creation time. This field is a list of initializers that have not yet acted on this object. If nil or empty, this object has been completely initialized. Otherwise, the object is considered uninitialized and is hidden (in list/watch and get calls) from clients that haven&#8217;t explicitly asked to observe uninitialized objects.</p>
-<p class="tableblock">When an object is created, the system will populate this list with the current set of initializers. Only privileged users may set or modify this list. Once it is empty, it may not be modified further by any user.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_initializers">v1.Initializers</a></p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>labels</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: <a href="http://kubernetes.io/docs/user-guide/labels" class="bare">http://kubernetes.io/docs/user-guide/labels</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>managedFields</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ManagedFields maps workflow-id and version to the set of fields that are managed by that workflow. This is mostly for internal housekeeping, and users typically shouldn&#8217;t need to set or understand this field. A workflow can be the user&#8217;s name, a controller&#8217;s name, or the name of a specific apply path like "ci-cd". The set of fields is always in the version that the workflow used when modifying the object.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_managedfieldsentry">v1.ManagedFieldsEntry</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
@@ -3412,13 +3419,14 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resourceVersion</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">An opaque value that represents the internal version of this object that can be used by clients to determine when objects have changed. May be used for optimistic concurrency, change detection, and the watch operation on a resource or set of resources. Clients must treat these values as opaque and passed unmodified back to the server. They may only be valid for a particular resource or set of resources.</p>
-<p class="tableblock">Populated by the system. Read-only. Value must be treated as opaque by clients and . More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#concurrency-control-and-consistency</a></p></td>
+<p class="tableblock">Populated by the system. Read-only. Value must be treated as opaque by clients and . More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#concurrency-control-and-consistency</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>selfLink</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SelfLink is a URL representing this object. Populated by the system. Read-only.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SelfLink is a URL representing this object. Populated by the system. Read-only.</p>
+<p class="tableblock">DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -3471,7 +3479,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind of the referent. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind of the referent. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -3900,6 +3908,12 @@ Defaults to "TCP".
 </thead>
 <tbody>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>resourceVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the target ResourceVersion</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>uid</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the target UID.</p></td>
@@ -4126,7 +4140,7 @@ Valid resource keys are "memory" and "cpu".
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4143,7 +4157,7 @@ Allowed Values: nil and 0
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -4299,7 +4313,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4317,7 +4331,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4329,7 +4343,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>metadata</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Standard list metadata. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Standard list metadata. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_listmeta">v1.ListMeta</a></p></td>
 </tr>
 <tr>
@@ -4341,7 +4355,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>status</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Status of the operation. One of: "Success" or "Failure". More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#spec-and-status</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Status of the operation. One of: "Success" or "Failure". More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#spec-and-status</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -4424,7 +4438,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The kind attribute of the resource associated with the status StatusReason. On some operations may differ from the requested resource Kind. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4646,13 +4660,13 @@ VirtualMachineInstance in its status.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4739,13 +4753,13 @@ about its associated VirtualMachineInstance</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4895,7 +4909,7 @@ about its associated VirtualMachineInstance</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4907,7 +4921,7 @@ about its associated VirtualMachineInstance</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4942,13 +4956,13 @@ to another host in the cluster</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5031,7 +5045,7 @@ to another host in the cluster</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5043,7 +5057,7 @@ to another host in the cluster</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5275,13 +5289,13 @@ to another host in the cluster</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5321,7 +5335,7 @@ to another host in the cluster</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5333,7 +5347,7 @@ to another host in the cluster</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5399,13 +5413,13 @@ Required.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5488,7 +5502,7 @@ Required.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5500,7 +5514,7 @@ Required.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5870,7 +5884,7 @@ More info: <a href="https://git.k8s.io/community/contributors/design-proposals/n
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5882,7 +5896,7 @@ More info: <a href="https://git.k8s.io/community/contributors/design-proposals/n
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -6263,13 +6277,13 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
