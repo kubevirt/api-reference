@@ -527,7 +527,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachinecondition">v1.VirtualMachineCondition</a></li>
 <li><a href="#_v1_virtualmachineinstance">v1.VirtualMachineInstance</a></li>
 <li><a href="#_v1_virtualmachineinstancecondition">v1.VirtualMachineInstanceCondition</a></li>
+<li><a href="#_v1_virtualmachineinstancefilesystem">v1.VirtualMachineInstanceFileSystem</a></li>
+<li><a href="#_v1_virtualmachineinstancefilesysteminfo">v1.VirtualMachineInstanceFileSystemInfo</a></li>
+<li><a href="#_v1_virtualmachineinstanceguestagentinfo">v1.VirtualMachineInstanceGuestAgentInfo</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestosinfo">v1.VirtualMachineInstanceGuestOSInfo</a></li>
+<li><a href="#_v1_virtualmachineinstanceguestosuser">v1.VirtualMachineInstanceGuestOSUser</a></li>
 <li><a href="#_v1_virtualmachineinstancelist">v1.VirtualMachineInstanceList</a></li>
 <li><a href="#_v1_virtualmachineinstancemigration">v1.VirtualMachineInstanceMigration</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationcondition">v1.VirtualMachineInstanceMigrationCondition</a></li>
@@ -4828,6 +4832,146 @@ about its associated VirtualMachineInstance</p></td>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachineinstancefilesystem">v1.VirtualMachineInstanceFileSystem</h3>
+<div class="paragraph">
+<p>VirtualMachineInstanceFileSystem represents guest os disk</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>diskName</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fileSystemType</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>mountPoint</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>totalBytes</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>usedBytes</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachineinstancefilesysteminfo">v1.VirtualMachineInstanceFileSystemInfo</h3>
+<div class="paragraph">
+<p>VirtualMachineInstanceFileSystemInfo represents information regarding single guest os filesystem</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>disks</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachineinstancefilesystem">v1.VirtualMachineInstanceFileSystem</a> &gt; array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachineinstanceguestagentinfo">v1.VirtualMachineInstanceGuestAgentInfo</h3>
+<div class="paragraph">
+<p>VirtualMachineInstanceGuestAgentInfo represents information from the installed guest agent</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fsInfo</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">FSInfo is a guest os filesystem information containing the disk mapping and disk mounts with usage</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachineinstancefilesysteminfo">v1.VirtualMachineInstanceFileSystemInfo</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>guestAgentVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">GAVersion is a version of currently installed guest agent</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hostname</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Hostname represents FQDN of a guest</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>os</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OS contains the guest operating system information</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachineinstanceguestosinfo">v1.VirtualMachineInstanceGuestOSInfo</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timezone</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Timezone is guest os current timezone</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userList</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserList is a list of active guest OS users</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachineinstanceguestosuser">v1.VirtualMachineInstanceGuestOSUser</a> &gt; array</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachineinstanceguestosinfo">v1.VirtualMachineInstanceGuestOSInfo</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4889,6 +5033,41 @@ about its associated VirtualMachineInstance</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>versionId</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Version ID of the Guest OS</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachineinstanceguestosuser">v1.VirtualMachineInstanceGuestOSUser</h3>
+<div class="paragraph">
+<p>VirtualMachineInstanceGuestOSUser is the single user of the guest os</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>domain</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>loginTime</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userName</strong><br>
+<em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
