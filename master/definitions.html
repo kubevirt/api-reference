@@ -529,9 +529,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancecondition">v1.VirtualMachineInstanceCondition</a></li>
 <li><a href="#_v1_virtualmachineinstancefilesystem">v1.VirtualMachineInstanceFileSystem</a></li>
 <li><a href="#_v1_virtualmachineinstancefilesysteminfo">v1.VirtualMachineInstanceFileSystemInfo</a></li>
+<li><a href="#_v1_virtualmachineinstancefilesystemlist">v1.VirtualMachineInstanceFileSystemList</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestagentinfo">v1.VirtualMachineInstanceGuestAgentInfo</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestosinfo">v1.VirtualMachineInstanceGuestOSInfo</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestosuser">v1.VirtualMachineInstanceGuestOSUser</a></li>
+<li><a href="#_v1_virtualmachineinstanceguestosuserlist">v1.VirtualMachineInstanceGuestOSUserList</a></li>
 <li><a href="#_v1_virtualmachineinstancelist">v1.VirtualMachineInstanceList</a></li>
 <li><a href="#_v1_virtualmachineinstancemigration">v1.VirtualMachineInstanceMigration</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationcondition">v1.VirtualMachineInstanceMigrationCondition</a></li>
@@ -4902,6 +4904,52 @@ about its associated VirtualMachineInstance</p></td>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachineinstancefilesystemlist">v1.VirtualMachineInstanceFileSystemList</h3>
+<div class="paragraph">
+<p>VirtualMachineInstanceFileSystemList comprises the list of all filesystems on guest machine</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>items</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachineinstancefilesystem">v1.VirtualMachineInstanceFileSystem</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>metadata</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_listmeta">v1.ListMeta</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachineinstanceguestagentinfo">v1.VirtualMachineInstanceGuestAgentInfo</h3>
 <div class="paragraph">
 <p>VirtualMachineInstanceGuestAgentInfo represents information from the installed guest agent</p>
@@ -5041,7 +5089,7 @@ about its associated VirtualMachineInstance</p></td>
 <div class="sect2">
 <h3 id="_v1_virtualmachineinstanceguestosuser">v1.VirtualMachineInstanceGuestOSUser</h3>
 <div class="paragraph">
-<p>VirtualMachineInstanceGuestOSUser is the single user of the guest os</p>
+<p>VirtualMachineGuestOSUser is the single user of the guest os</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5063,12 +5111,58 @@ about its associated VirtualMachineInstance</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>loginTime</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">number (double)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userName</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachineinstanceguestosuserlist">v1.VirtualMachineInstanceGuestOSUserList</h3>
+<div class="paragraph">
+<p>VirtualMachineInstanceGuestOSUserList comprises the list of all active users on guest machine</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiVersion</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>items</strong><br>
+<em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachineinstanceguestosuser">v1.VirtualMachineInstanceGuestOSUser</a> &gt; array</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>kind</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>metadata</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_listmeta">v1.ListMeta</a></p></td>
 </tr>
 </tbody>
 </table>
