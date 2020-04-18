@@ -5989,6 +5989,14 @@ More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifec
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_probe">v1.Probe</a></p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>schedulerName</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the VMI will be dispatched by specified scheduler.
+If not specified, the VMI will be dispatched by default scheduler.
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>subdomain</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the fully qualified vmi hostname will be "&lt;hostname&gt;.&lt;subdomain&gt;.&lt;pod namespace&gt;.svc.&lt;cluster domain&gt;".
