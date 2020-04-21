@@ -1331,6 +1331,15 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configm
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>volumeLabel</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The volume label of the resulting disk inside the VMI.
+Different bootstrapping mechanisms require different values.
+Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -4214,6 +4223,15 @@ Allowed Values: nil and 0
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the secret in the pod&#8217;s namespace to use.
 More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes#secret" class="bare">https://kubernetes.io/docs/concepts/storage/volumes#secret</a>
++optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>volumeLabel</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The volume label of the resulting disk inside the VMI.
+Different bootstrapping mechanisms require different values.
+Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).
 +optional</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
