@@ -433,11 +433,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_top_level_api_objects">Top Level API Objects</a></li>
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
+<li><a href="#_intstr_intorstring">intstr.IntOrString</a></li>
+<li><a href="#_resource_quantity">resource.Quantity</a></li>
+<li><a href="#_runtime_rawextension">runtime.RawExtension</a></li>
 <li><a href="#_v1_apigroup">v1.APIGroup</a></li>
 <li><a href="#_v1_apigrouplist">v1.APIGroupList</a></li>
 <li><a href="#_v1_apiresource">v1.APIResource</a></li>
 <li><a href="#_v1_apiresourcelist">v1.APIResourceList</a></li>
 <li><a href="#_v1_affinity">v1.Affinity</a></li>
+<li><a href="#_v1_bios">v1.BIOS</a></li>
 <li><a href="#_v1_bootloader">v1.Bootloader</a></li>
 <li><a href="#_v1_cdromtarget">v1.CDRomTarget</a></li>
 <li><a href="#_v1_cpu">v1.CPU</a></li>
@@ -457,6 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_disk">v1.Disk</a></li>
 <li><a href="#_v1_disktarget">v1.DiskTarget</a></li>
 <li><a href="#_v1_domainspec">v1.DomainSpec</a></li>
+<li><a href="#_v1_efi">v1.EFI</a></li>
 <li><a href="#_v1_emptydisksource">v1.EmptyDiskSource</a></li>
 <li><a href="#_v1_ephemeralvolumesource">v1.EphemeralVolumeSource</a></li>
 <li><a href="#_v1_featureapic">v1.FeatureAPIC</a></li>
@@ -465,6 +470,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_featurestate">v1.FeatureState</a></li>
 <li><a href="#_v1_featurevendorid">v1.FeatureVendorID</a></li>
 <li><a href="#_v1_features">v1.Features</a></li>
+<li><a href="#_v1_fieldsv1">v1.FieldsV1</a></li>
 <li><a href="#_v1_firmware">v1.Firmware</a></li>
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
 <li><a href="#_v1_gpu">v1.GPU</a></li>
@@ -478,6 +484,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></li>
 <li><a href="#_v1_input">v1.Input</a></li>
 <li><a href="#_v1_interface">v1.Interface</a></li>
+<li><a href="#_v1_interfacebridge">v1.InterfaceBridge</a></li>
+<li><a href="#_v1_interfacemasquerade">v1.InterfaceMasquerade</a></li>
+<li><a href="#_v1_interfacesriov">v1.InterfaceSRIOV</a></li>
+<li><a href="#_v1_interfaceslirp">v1.InterfaceSlirp</a></li>
 <li><a href="#_v1_kvmtimer">v1.KVMTimer</a></li>
 <li><a href="#_v1_labelselector">v1.LabelSelector</a></li>
 <li><a href="#_v1_labelselectorrequirement">v1.LabelSelectorRequirement</a></li>
@@ -496,6 +506,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_objectmeta">v1.ObjectMeta</a></li>
 <li><a href="#_v1_ownerreference">v1.OwnerReference</a></li>
 <li><a href="#_v1_pittimer">v1.PITTimer</a></li>
+<li><a href="#_v1_patch">v1.Patch</a></li>
 <li><a href="#_v1_persistentvolumeclaimspec">v1.PersistentVolumeClaimSpec</a></li>
 <li><a href="#_v1_persistentvolumeclaimvolumesource">v1.PersistentVolumeClaimVolumeSource</a></li>
 <li><a href="#_v1_podaffinity">v1.PodAffinity</a></li>
@@ -511,6 +522,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_rtctimer">v1.RTCTimer</a></li>
 <li><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></li>
 <li><a href="#_v1_restartoptions">v1.RestartOptions</a></li>
+<li><a href="#_v1_rng">v1.Rng</a></li>
 <li><a href="#_v1_rootpaths">v1.RootPaths</a></li>
 <li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
 <li><a href="#_v1_serveraddressbyclientcidr">v1.ServerAddressByClientCIDR</a></li>
@@ -519,6 +531,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_statuscause">v1.StatusCause</a></li>
 <li><a href="#_v1_statusdetails">v1.StatusDetails</a></li>
 <li><a href="#_v1_tcpsocketaction">v1.TCPSocketAction</a></li>
+<li><a href="#_v1_time">v1.Time</a></li>
 <li><a href="#_v1_timer">v1.Timer</a></li>
 <li><a href="#_v1_toleration">v1.Toleration</a></li>
 <li><a href="#_v1_typedlocalobjectreference">v1.TypedLocalObjectReference</a></li>
@@ -561,11 +574,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_watchdog">v1.Watchdog</a></li>
 <li><a href="#_v1_weightedpodaffinityterm">v1.WeightedPodAffinityTerm</a></li>
 <li><a href="#_v1alpha1_datavolume">v1alpha1.DataVolume</a></li>
+<li><a href="#_v1alpha1_datavolumeblankimage">v1alpha1.DataVolumeBlankImage</a></li>
 <li><a href="#_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</a></li>
 <li><a href="#_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</a></li>
 <li><a href="#_v1alpha1_datavolumesourcepvc">v1alpha1.DataVolumeSourcePVC</a></li>
 <li><a href="#_v1alpha1_datavolumesourceregistry">v1alpha1.DataVolumeSourceRegistry</a></li>
 <li><a href="#_v1alpha1_datavolumesources3">v1alpha1.DataVolumeSourceS3</a></li>
+<li><a href="#_v1alpha1_datavolumesourceupload">v1alpha1.DataVolumeSourceUpload</a></li>
 <li><a href="#_v1alpha1_datavolumespec">v1alpha1.DataVolumeSpec</a></li>
 <li><a href="#_v1alpha1_datavolumestatus">v1alpha1.DataVolumeStatus</a></li>
 </ul>
@@ -589,6 +604,107 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_intstr_intorstring">intstr.IntOrString</h3>
+<div class="paragraph">
+<p>IntOrString is a type that can hold an int32 or a string. When used in JSON or YAML marshalling and unmarshalling, it produces or consumes the inner type. This allows you to have, for example, a JSON field that can accept a name or number.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : string (int-or-string)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_resource_quantity">resource.Quantity</h3>
+<div class="paragraph">
+<p>Quantity is a fixed-point representation of a number. It provides convenient marshaling/unmarshaling in JSON and YAML, in addition to String() and AsInt64() accessors.</p>
+</div>
+<div class="paragraph">
+<p>The serialization format is:</p>
+</div>
+<div class="paragraph">
+<p>&lt;quantity&gt; ::= &lt;signedNumber&gt;&lt;suffix&gt;
+ (Note that &lt;suffix&gt; may be empty, from the &quot;" case in &lt;decimalSI&gt;.)
+&lt;digit&gt; ::= 0 | 1 | … | 9 &lt;digits&gt; ::= &lt;digit&gt; | &lt;digit&gt;&lt;digits&gt; &lt;number&gt; ::= &lt;digits&gt; | &lt;digits&gt;.&lt;digits&gt; | &lt;digits&gt;. | .&lt;digits&gt; &lt;sign&gt; ::= "+" | "-" &lt;signedNumber&gt; ::= &lt;number&gt; | &lt;sign&gt;&lt;number&gt; &lt;suffix&gt; ::= &lt;binarySI&gt; | &lt;decimalExponent&gt; | &lt;decimalSI&gt; &lt;binarySI&gt; ::= Ki | Mi | Gi | Ti | Pi | Ei
+ (International System of units; See: <a href="http://physics.nist.gov/cuu/Units/binary.html" class="bare">http://physics.nist.gov/cuu/Units/binary.html</a>)
+&lt;decimalSI&gt; ::= m | "" | k | M | G | T | P | E
+ (Note that 1024 = 1Ki but 1000 = 1k; I didn&#8217;t choose the capitalization.)
+&lt;decimalExponent&gt; ::= "e" &lt;signedNumber&gt; | "E&quot; &lt;signedNumber&gt;</p>
+</div>
+<div class="paragraph">
+<p>No matter which of the three exponent forms is used, no quantity may represent a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal places. Numbers larger or more precise will be capped or rounded up. (E.g.: 0.1m will rounded up to 1m.) This may be extended in the future if we require larger or smaller quantities.</p>
+</div>
+<div class="paragraph">
+<p>When a Quantity is parsed from a string, it will remember the type of suffix it had, and will use the same type again when it is serialized.</p>
+</div>
+<div class="paragraph">
+<p>Before serializing, Quantity will be put in "canonical form". This means that Exponent/suffix will be adjusted up or down (with a corresponding increase or decrease in Mantissa) such that:
+ a. No precision is lost
+ b. No fractional digits will be emitted
+ c. The exponent (or suffix) is as large as possible.
+The sign will be omitted unless the number is negative.</p>
+</div>
+<div class="paragraph">
+<p>Examples:
+ 1.5 will be serialized as "1500m"
+ 1.5Gi will be serialized as "1536Mi"</p>
+</div>
+<div class="paragraph">
+<p>Note that the quantity will NEVER be internally represented by a floating point number. That is the whole point of this exercise.</p>
+</div>
+<div class="paragraph">
+<p>Non-canonical values will still parse as long as they are well formed, but will be re-emitted in their canonical form. (So always use canonical form, or don&#8217;t diff.)</p>
+</div>
+<div class="paragraph">
+<p>This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : string</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_runtime_rawextension">runtime.RawExtension</h3>
+<div class="paragraph">
+<p>RawExtension is used to hold extensions in external versions.</p>
+</div>
+<div class="paragraph">
+<p>To use this, make a field which has RawExtension as its type in your external, versioned struct, and Object in your internal struct. You also need to register your various plugin types.</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> runtime.TypeMeta `json:&amp;quot;,inline&amp;quot;`
+ MyPlugin runtime.Object `json:&amp;quot;myPlugin&amp;quot;`
+} type PluginA struct {
+ AOption string `json:&amp;quot;aOption&amp;quot;`
+}</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> runtime.TypeMeta `json:&amp;quot;,inline&amp;quot;`
+ MyPlugin runtime.RawExtension `json:&amp;quot;myPlugin&amp;quot;`
+} type PluginA struct {
+ AOption string `json:&amp;quot;aOption&amp;quot;`
+}</pre>
+</div>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre> "kind":"MyAPIObject",
+ "apiVersion":"v1",
+ "myPlugin": {
+ "kind":"PluginA",
+ "aOption":"foo",
+ },
+}</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>So what happens? Decode first uses json or yaml to unmarshal the serialized data into your external MyAPIObject. That causes the raw JSON to be stored, but not unpacked. The next step is to copy (using pkg/conversion) into the internal struct. The runtime package&#8217;s DefaultScheme has conversion functions installed which will unpack the JSON stored in RawExtension, turning it into the correct object type, and storing it in the Object. (TODO: In the case where the object is of an unknown type, a runtime.Unknown object will be created and stored.)</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
 <div class="sect2">
 <h3 id="_v1_apigroup">v1.APIGroup</h3>
 <div class="paragraph">
@@ -856,10 +972,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_bios">v1.BIOS</h3>
+<div class="paragraph">
+<p>If set (default), BIOS will be used.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1_bootloader">v1.Bootloader</h3>
 <div class="paragraph">
-<p>Represents the firmware blob used to assist in the domain creation process.
-Used for setting the QEMU BIOS file path for the libvirt domain.</p>
+<p>Represents the firmware blob used to assist in the domain creation process. Used for setting the QEMU BIOS file path for the libvirt domain.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -878,15 +1002,13 @@ Used for setting the QEMU BIOS file path for the libvirt domain.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bios</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If set (default), BIOS will be used.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If set (default), BIOS will be used.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_bios">v1.BIOS</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>efi</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If set, EFI will be used instead of BIOS.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If set, EFI will be used instead of BIOS.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_efi">v1.EFI</a></p></td>
 </tr>
 </tbody>
@@ -911,24 +1033,19 @@ Used for setting the QEMU BIOS file path for the libvirt domain.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
-supported values: virtio, sata, scsi.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly.
-Defaults to true.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tray</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Tray indicates if the tray of the device is open or closed.
-Allowed values are "open" and "closed".
-Defaults to closed.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tray indicates if the tray of the device is open or closed. Allowed values are "open" and "closed". Defaults to closed.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -956,57 +1073,44 @@ Defaults to closed.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cores</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Cores specifies the number of cores inside the vmi.
-Must be a value greater or equal 1.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Cores specifies the number of cores inside the vmi. Must be a value greater or equal 1.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dedicatedCpuPlacement</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">DedicatedCPUPlacement requests the scheduler to place the VirtualMachineInstance on a node
-with enough dedicated pCPUs and pin the vCPUs to it.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">DedicatedCPUPlacement requests the scheduler to place the VirtualMachineInstance on a node with enough dedicated pCPUs and pin the vCPUs to it.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>features</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Features specifies the CPU features list inside the VMI.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Features specifies the CPU features list inside the VMI.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_cpufeature">v1.CPUFeature</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>isolateEmulatorThread</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">IsolateEmulatorThread requests one more dedicated pCPU to be allocated for the VMI to place
-the emulator thread on it.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">IsolateEmulatorThread requests one more dedicated pCPU to be allocated for the VMI to place the emulator thread on it.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>model</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Model specifies the CPU model inside the VMI.
-List of available models <a href="https://github.com/libvirt/libvirt/tree/master/src/cpu_map" class="bare">https://github.com/libvirt/libvirt/tree/master/src/cpu_map</a>.
-It is possible to specify special cases like "host-passthrough" to get the same CPU as the node
-and "host-model" to get CPU closest to the node one.
-Defaults to host-model.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Model specifies the CPU model inside the VMI. List of available models <a href="https://github.com/libvirt/libvirt/tree/master/src/cpu_map" class="bare">https://github.com/libvirt/libvirt/tree/master/src/cpu_map</a>. It is possible to specify special cases like "host-passthrough" to get the same CPU as the node and "host-model" to get CPU closest to the node one. Defaults to host-model.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>sockets</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Sockets specifies the number of sockets inside the vmi.
-Must be a value greater or equal 1.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Sockets specifies the number of sockets inside the vmi. Must be a value greater or equal 1.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>threads</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Threads specifies the number of threads inside the vmi.
-Must be a value greater or equal 1.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Threads specifies the number of threads inside the vmi. Must be a value greater or equal 1.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
 </tr>
 </tbody>
 </table>
@@ -1039,14 +1143,7 @@ Must be a value greater or equal 1.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>policy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Policy is the CPU feature attribute which can have the following attributes:
-force - The virtual CPU will claim the feature is supported regardless of it being supported by host CPU.
-require - Guest creation will fail unless the feature is supported by the host CPU or the hypervisor is able to emulate it.
-optional - The feature will be supported by virtual CPU if and only if it is supported by host CPU.
-disable - The feature will not be supported by virtual CPU.
-forbid - Guest creation will fail if the feature is supported by host CPU.
-Defaults to require
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Policy is the CPU feature attribute which can have the following attributes: force - The virtual CPU will claim the feature is supported regardless of it being supported by host CPU. require - Guest creation will fail unless the feature is supported by the host CPU or the hypervisor is able to emulate it. optional - The feature will be supported by virtual CPU if and only if it is supported by host CPU. disable - The feature will not be supported by virtual CPU. forbid - Guest creation will fail if the feature is supported by host CPU. Defaults to require</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1118,22 +1215,20 @@ Defaults to require
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timer</strong><br>
-<em>required</em></p></td>
+<em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Timer specifies whih timers are attached to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_timer">v1.Timer</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timezone</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Timezone sets the guest clock to the specified timezone.
-Zone name follows the TZ environment variable format (e.g. 'America/New_York').</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_clockoffsettimezone">v1.ClockOffsetTimezone</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Timezone sets the guest clock to the specified timezone. Zone name follows the TZ environment variable format (e.g. 'America/New_York').</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>utc</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UTC sets the guest clock to UTC on each boot. If an offset is specified,
-guest changes to the clock will be kept during reboots and are not reset.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UTC sets the guest clock to UTC on each boot. If an offset is specified, guest changes to the clock will be kept during reboots and are not reset.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_clockoffsetutc">v1.ClockOffsetUTC</a></p></td>
 </tr>
 </tbody>
@@ -1161,8 +1256,7 @@ guest changes to the clock will be kept during reboots and are not reset.</p></t
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>offsetSeconds</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">OffsetSeconds specifies an offset in seconds, relative to UTC. If set,
-guest changes to the clock will be kept during reboots and not reset.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">OffsetSeconds specifies an offset in seconds, relative to UTC. If set, guest changes to the clock will be kept during reboots and not reset.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 </tbody>
@@ -1171,8 +1265,7 @@ guest changes to the clock will be kept during reboots and not reset.</p></td>
 <div class="sect2">
 <h3 id="_v1_cloudinitconfigdrivesource">v1.CloudInitConfigDriveSource</h3>
 <div class="paragraph">
-<p>Represents a cloud-init config drive user data source.
-More info: <a href="https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html" class="bare">https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html</a></p>
+<p>Represents a cloud-init config drive user data source. More info: <a href="https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html" class="bare">https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html</a></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1191,43 +1284,37 @@ More info: <a href="https://cloudinit.readthedocs.io/en/latest/topics/datasource
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkData</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkData contains config drive inline cloud-init networkdata.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkData contains config drive inline cloud-init networkdata.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkDataBase64</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataBase64 contains config drive cloud-init networkdata as a base64 encoded string.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataBase64 contains config drive cloud-init networkdata as a base64 encoded string.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkDataSecretRef</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataSecretRef references a k8s secret that contains config drive networkdata.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataSecretRef references a k8s secret that contains config drive networkdata.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataSecretRef references a k8s secret that contains config drive userdata.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataSecretRef references a k8s secret that contains config drive userdata.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userData</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserData contains config drive inline cloud-init userdata.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserData contains config drive inline cloud-init userdata.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userDataBase64</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains config drive cloud-init userdata as a base64 encoded string.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains config drive cloud-init userdata as a base64 encoded string.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1236,8 +1323,7 @@ More info: <a href="https://cloudinit.readthedocs.io/en/latest/topics/datasource
 <div class="sect2">
 <h3 id="_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</h3>
 <div class="paragraph">
-<p>Represents a cloud-init nocloud user data source.
-More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html" class="bare">http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html</a></p>
+<p>Represents a cloud-init nocloud user data source. More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html" class="bare">http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html</a></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1256,43 +1342,37 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkData</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkData contains NoCloud inline cloud-init networkdata.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkData contains NoCloud inline cloud-init networkdata.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkDataBase64</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataBase64 contains NoCloud cloud-init networkdata as a base64 encoded string.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataBase64 contains NoCloud cloud-init networkdata as a base64 encoded string.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkDataSecretRef</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataSecretRef references a k8s secret that contains NoCloud networkdata.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NetworkDataSecretRef references a k8s secret that contains NoCloud networkdata.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretRef</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataSecretRef references a k8s secret that contains NoCloud userdata.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataSecretRef references a k8s secret that contains NoCloud userdata.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_localobjectreference">v1.LocalObjectReference</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userData</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserData contains NoCloud inline cloud-init userdata.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserData contains NoCloud inline cloud-init userdata.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>userDataBase64</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains NoCloud cloud-init userdata as a base64 encoded string.
-+ optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UserDataBase64 contains NoCloud cloud-init userdata as a base64 encoded string.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1301,8 +1381,7 @@ More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources
 <div class="sect2">
 <h3 id="_v1_configmapvolumesource">v1.ConfigMapVolumeSource</h3>
 <div class="paragraph">
-<p>ConfigMapVolumeSource adapts a ConfigMap into a volume.
-More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configmap" class="bare">https://kubernetes.io/docs/concepts/storage/volumes/#configmap</a></p>
+<p>ConfigMapVolumeSource adapts a ConfigMap into a volume. More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configmap" class="bare">https://kubernetes.io/docs/concepts/storage/volumes/#configmap</a></p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -1327,17 +1406,13 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes/#configm
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>optional</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Specify whether the ConfigMap or it&#8217;s keys must be defined
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Specify whether the ConfigMap or it&#8217;s keys must be defined</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>volumeLabel</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The volume label of the resulting disk inside the VMI.
-Different bootstrapping mechanisms require different values.
-Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The volume label of the resulting disk inside the VMI. Different bootstrapping mechanisms require different values. Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1371,12 +1446,7 @@ Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (k
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>imagePullPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Image pull policy.
-One of Always, Never, IfNotPresent.
-Defaults to Always if :latest tag is specified, or IfNotPresent otherwise.
-Cannot be updated.
-More info: <a href="https://kubernetes.io/docs/concepts/containers/images#updating-images" class="bare">https://kubernetes.io/docs/concepts/containers/images#updating-images</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: <a href="https://kubernetes.io/docs/concepts/containers/images#updating-images" class="bare">https://kubernetes.io/docs/concepts/containers/images#updating-images</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1416,29 +1486,25 @@ More info: <a href="https://kubernetes.io/docs/concepts/containers/images#updati
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bootFileName</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass option 67 to interface&#8217;s DHCP server
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass option 67 to interface&#8217;s DHCP server</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ntpServers</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass the configured NTP server to the VM via DHCP option 042.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass the configured NTP server to the VM via DHCP option 042.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>privateOptions</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass extra DHCP options for private use, range: 224-254
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass extra DHCP options for private use, range: 224-254</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_dhcpprivateoptions">v1.DHCPPrivateOptions</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tftpServerName</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass option 66 to interface&#8217;s DHCP server
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified will pass option 66 to interface&#8217;s DHCP server</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1466,15 +1532,13 @@ More info: <a href="https://kubernetes.io/docs/concepts/containers/images#updati
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>option</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Option is an Integer value from 224-254
-Required.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Option is an Integer value from 224-254 Required.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>value</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Value is a String value for the Option provided
-Required.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Value is a String value for the Option provided Required.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1564,7 +1628,7 @@ Required.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>propagationPolicy</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_deletionpropagation">v1.DeletionPropagation</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -1588,8 +1652,7 @@ Required.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>autoattachGraphicsDevice</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach the default graphics device or not.
-VNC will not be available if set to false. Defaults to true.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach the default graphics device or not. VNC will not be available if set to false. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
@@ -1601,15 +1664,13 @@ VNC will not be available if set to false. Defaults to true.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>autoattachSerialConsole</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach the default serial console or not.
-Serial console access will not be available if set to false. Defaults to true.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach the default serial console or not. Serial console access will not be available if set to false. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>blockMultiQueue</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether or not to enable virtio multi-queue for block devices
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether or not to enable virtio multi-queue for block devices</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
@@ -1621,8 +1682,7 @@ Serial console access will not be available if set to false. Defaults to true.</
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>gpus</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach a GPU device to the vmi.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach a GPU device to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_gpu">v1.GPU</a> &gt; array</p></td>
 </tr>
 <tr>
@@ -1640,15 +1700,13 @@ Serial console access will not be available if set to false. Defaults to true.</
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkInterfaceMultiqueue</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, virtual network interfaces configured with a virtio bus will also enable the vhost multiqueue feature
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, virtual network interfaces configured with a virtio bus will also enable the vhost multiqueue feature</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>rng</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to have random number generator from host
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to have random number generator from host</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_rng">v1.Rng</a></p></td>
 </tr>
 <tr>
@@ -1679,18 +1737,13 @@ Serial console access will not be available if set to false. Defaults to true.</
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bootOrder</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">BootOrder is an integer value &gt; 0, used to determine ordering of boot devices.
-Lower values take precedence.
-Each disk or interface that has a boot order must have a unique value.
-Disks without a boot order are not tried if a disk with a boot order exists.
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (integer)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BootOrder is an integer value &gt; 0, used to determine ordering of boot devices. Lower values take precedence. Each disk or interface that has a boot order must have a unique value. Disks without a boot order are not tried if a disk with a boot order exists.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cache</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Cache specifies which kvm disk cache mode should be used.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Cache specifies which kvm disk cache mode should be used.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -1702,10 +1755,7 @@ Disks without a boot order are not tried if a disk with a boot order exists.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dedicatedIOThread</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">dedicatedIOThread indicates this disk should have an exclusive IO Thread.
-Enabling this implies useIOThreads = true.
-Defaults to false.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">dedicatedIOThread indicates this disk should have an exclusive IO Thread. Enabling this implies useIOThreads = true. Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
@@ -1735,15 +1785,13 @@ Defaults to false.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>serial</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Serial provides the ability to specify a serial number for the disk device.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Serial provides the ability to specify a serial number for the disk device.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tag</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, disk address and its tag will be provided to the guest via config drive metadata
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, disk address and its tag will be provided to the guest via config drive metadata</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -1768,22 +1816,19 @@ Defaults to false.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
-supported values: virtio, sata, scsi.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>pciAddress</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the virtual disk will be placed on the guests pci address with the specifed PCI address. For example: 0000:81:01.10
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the virtual disk will be placed on the guests pci address with the specifed PCI address. For example: 0000:81:01.10</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly.
-Defaults to false.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly. Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
@@ -1808,65 +1853,55 @@ Defaults to false.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>chassis</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Chassis specifies the chassis info passed to the domain.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Chassis specifies the chassis info passed to the domain.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_chassis">v1.Chassis</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>clock</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Clock sets the clock and timers of the vmi.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Clock sets the clock and timers of the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_clock">v1.Clock</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cpu</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">CPU allow specified the detailed CPU topology inside the vmi.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CPU allow specified the detailed CPU topology inside the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cpu">v1.CPU</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>devices</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Devices allows adding disks, network interfaces, …</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Devices allows adding disks, network interfaces, and others</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_devices">v1.Devices</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>features</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Features like acpi, apic, hyperv, smm.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Features like acpi, apic, hyperv, smm.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_features">v1.Features</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>firmware</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Firmware.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Firmware.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_firmware">v1.Firmware</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ioThreadsPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Controls whether or not disks will share IOThreads.
-Omitting IOThreadsPolicy disables use of IOThreads.
-One of: shared, auto
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_iothreadspolicy">v1.IOThreadsPolicy</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Controls whether or not disks will share IOThreads. Omitting IOThreadsPolicy disables use of IOThreads. One of: shared, auto</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>machine</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Machine type.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Machine type.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_machine">v1.Machine</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>memory</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Memory allow specifying the VMI memory features.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Memory allow specifying the VMI memory features.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_memory">v1.Memory</a></p></td>
 </tr>
 <tr>
@@ -1877,6 +1912,15 @@ One of: shared, auto
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_efi">v1.EFI</h3>
+<div class="paragraph">
+<p>If set, EFI will be used instead of BIOS.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_emptydisksource">v1.EmptyDiskSource</h3>
@@ -1901,7 +1945,7 @@ One of: shared, auto
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>capacity</strong><br>
 <em>required</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Capacity of the sparse disk.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_resource_quantity">resource.Quantity</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -1925,10 +1969,7 @@ One of: shared, auto
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>persistentVolumeClaim</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace.
-Directly attached to the vmi via qemu.
-More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. Directly attached to the vmi via qemu. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_persistentvolumeclaimvolumesource">v1.PersistentVolumeClaimVolumeSource</a></p></td>
 </tr>
 </tbody>
@@ -1953,17 +1994,13 @@ More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volum
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>endOfInterrupt</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">EndOfInterrupt enables the end of interrupt notification in the guest.
-Defaults to false.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EndOfInterrupt enables the end of interrupt notification in the guest. Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
@@ -1991,112 +2028,85 @@ Defaults to false.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>evmcs</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">EVMCS Speeds up L2 vmexits, but disables other virtualization features. Requires vapic.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EVMCS Speeds up L2 vmexits, but disables other virtualization features. Requires vapic. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>frequencies</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Frequencies improves the TSC clock source handling for Hyper-V on KVM.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Frequencies improves the TSC clock source handling for Hyper-V on KVM. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ipi</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">IPI improves performances in overcommited environments. Requires vpindex.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">IPI improves performances in overcommited environments. Requires vpindex. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reenlightenment</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reenlightenment enables the notifications on TSC frequency changes.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reenlightenment enables the notifications on TSC frequency changes. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>relaxed</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Relaxed instructs the guest OS to disable watchdog timeouts.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Relaxed instructs the guest OS to disable watchdog timeouts. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reset</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Reset enables Hyperv reboot/reset for the vmi. Requires synic.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Reset enables Hyperv reboot/reset for the vmi. Requires synic. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>runtime</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Runtime improves the time accounting to improve scheduling in the guest.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Runtime improves the time accounting to improve scheduling in the guest. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spinlocks</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Spinlocks allows to configure the spinlock retry attempts.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Spinlocks allows to configure the spinlock retry attempts.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurespinlocks">v1.FeatureSpinlocks</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>synic</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNIC enables the Synthetic Interrupt Controller.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNIC enables the Synthetic Interrupt Controller. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>synictimer</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNICTimer enables Synthetic Interrupt Controller Timers, reducing CPU load.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SyNICTimer enables Synthetic Interrupt Controller Timers, reducing CPU load. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tlbflush</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TLBFlush improves performances in overcommited environments. Requires vpindex.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TLBFlush improves performances in overcommited environments. Requires vpindex. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vapic</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VAPIC improves the paravirtualized handling of interrupts.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VAPIC improves the paravirtualized handling of interrupts. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vendorid</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VendorID allows setting the hypervisor vendor id.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VendorID allows setting the hypervisor vendor id. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurevendorid">v1.FeatureVendorID</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vpindex</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VPIndex enables the Virtual Processor Index to help windows identifying virtual processors.
-Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VPIndex enables the Virtual Processor Index to help windows identifying virtual processors. Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 </tbody>
@@ -2121,19 +2131,14 @@ Defaults to the machine type setting.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>spinlocks</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Retries indicates the number of retries.
-Must be a value greater or equal 4096.
-Defaults to 4096.
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Retries indicates the number of retries. Must be a value greater or equal 4096. Defaults to 4096.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
 </tr>
 </tbody>
 </table>
@@ -2160,9 +2165,7 @@ Defaults to 4096.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
@@ -2187,16 +2190,13 @@ Defaults to true.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>enabled</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vendorid</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">VendorID sets the hypervisor vendor id, visible to the vmi.
-String up to twelve characters.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">VendorID sets the hypervisor vendor id, visible to the vmi. String up to twelve characters.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2221,35 +2221,44 @@ String up to twelve characters.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>acpi</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ACPI enables/disables ACPI insidejsondata guest.
-Defaults to enabled.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ACPI enables/disables ACPI insidejsondata guest. Defaults to enabled.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apic</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featureapic">v1.FeatureAPIC</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hyperv</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Defaults to the machine type setting.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurehyperv">v1.FeatureHyperv</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>smm</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SMM enables/disables System Management Mode.
-TSEG not yet implemented.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SMM enables/disables System Management Mode. TSEG not yet implemented.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_featurestate">v1.FeatureState</a></p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_fieldsv1">v1.FieldsV1</h3>
+<div class="paragraph">
+<p>FieldsV1 stores a set of fields in a data structure like a Trie, in JSON format.</p>
+</div>
+<div class="paragraph">
+<p>Each key is either a '.' representing the field itself, and will always map to an empty set, or a string representing a sub-field or item. The string will follow one of these four formats: 'f:&lt;name&gt;', where &lt;name&gt; is the name of a field in a struct, or key in a map 'v:&lt;value&gt;', where &lt;value&gt; is the exact json formatted value of a list item 'i:&lt;index&gt;', where &lt;index&gt; is position of a item in a list 'k:&lt;keys&gt;', where &lt;keys&gt; is a map of a list item&#8217;s key fields to their unique values If a key maps to an empty Fields value, the field that key represents is part of the set.</p>
+</div>
+<div class="paragraph">
+<p>The exact format is defined in sigs.k8s.io/structured-merge-diff</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_firmware">v1.Firmware</h3>
@@ -2270,8 +2279,7 @@ TSEG not yet implemented.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bootloader</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Settings to control the bootloader that is used.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Settings to control the bootloader that is used.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_bootloader">v1.Bootloader</a></p></td>
 </tr>
 <tr>
@@ -2283,8 +2291,7 @@ TSEG not yet implemented.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>uuid</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID reported by the vmi bios.
-Defaults to a random generated uid.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">UUID reported by the vmi bios. Defaults to a random generated uid.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2309,17 +2316,13 @@ Defaults to a random generated uid.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly.
-Defaults to false.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly. Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tray</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Tray indicates if the tray of the device is open or closed.
-Allowed values are "open" and "closed".
-Defaults to closed.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Tray indicates if the tray of the device is open or closed. Allowed values are "open" and "closed". Defaults to closed.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2409,16 +2412,13 @@ Defaults to closed.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tickPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest.
-One of "delay", "catchup", "merge", "discard".</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest. One of "delay", "catchup", "merge", "discard".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2526,9 +2526,8 @@ One of "delay", "catchup", "merge", "discard".</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>capacity</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Capacity of the sparse disk
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Capacity of the sparse disk</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_resource_quantity">resource.Quantity</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>path</strong><br>
@@ -2545,8 +2544,7 @@ One of "delay", "catchup", "merge", "discard".</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Contains information if disk.img exists or should be created
-allowed options are 'Disk' and 'DiskOrCreate'</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Contains information if disk.img exists or should be created allowed options are 'Disk' and 'DiskOrCreate'</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2599,9 +2597,7 @@ allowed options are 'Disk' and 'DiskOrCreate'</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
@@ -2629,8 +2625,7 @@ Defaults to true.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>action</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The action to take. Valid values are poweroff, reset, shutdown.
-Defaults to reset.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The action to take. Valid values are poweroff, reset, shutdown. Defaults to reset.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2655,8 +2650,7 @@ Defaults to reset.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the bus of input device to emulate.
-Supported values: virtio, usb.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the bus of input device to emulate. Supported values: virtio, usb.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -2668,8 +2662,7 @@ Supported values: virtio, usb.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Type indicated the type of input device.
-Supported values: tablet.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Type indicated the type of input device. Supported values: tablet.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -2694,12 +2687,8 @@ Supported values: tablet.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bootOrder</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">BootOrder is an integer value &gt; 0, used to determine ordering of boot devices.
-Lower values take precedence.
-Each interface or disk that has a boot order must have a unique value.
-Interfaces without a boot order are not tried.
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (integer)</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">BootOrder is an integer value &gt; 0, used to determine ordering of boot devices. Lower values take precedence. Each interface or disk that has a boot order must have a unique value. Interfaces without a boot order are not tried.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bridge</strong><br>
@@ -2710,8 +2699,7 @@ Interfaces without a boot order are not tried.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dhcpOptions</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified the network interface will pass additional DHCP options to the VMI
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified the network interface will pass additional DHCP options to the VMI</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_dhcpoptions">v1.DHCPOptions</a></p></td>
 </tr>
 <tr>
@@ -2729,23 +2717,19 @@ Interfaces without a boot order are not tried.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>model</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Interface model.
-One of: e1000, e1000e, ne2k_pci, pcnet, rtl8139, virtio.
-Defaults to virtio.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Interface model. One of: e1000, e1000e, ne2k_pci, pcnet, rtl8139, virtio. Defaults to virtio.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Logical name of the interface as well as a reference to the associated networks.
-Must match the Name of a Network.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Logical name of the interface as well as a reference to the associated networks. Must match the Name of a Network.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>pciAddress</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the virtual network interface will be placed on the guests pci address with the specifed PCI address. For example: 0000:81:01.10
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the virtual network interface will be placed on the guests pci address with the specifed PCI address. For example: 0000:81:01.10</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -2769,12 +2753,35 @@ Must match the Name of a Network.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tag</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the virtual network interface address and its tag will be provided to the guest via config drive
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the virtual network interface address and its tag will be provided to the guest via config drive</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_interfacebridge">v1.InterfaceBridge</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1_interfacemasquerade">v1.InterfaceMasquerade</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1_interfacesriov">v1.InterfaceSRIOV</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1_interfaceslirp">v1.InterfaceSlirp</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_kvmtimer">v1.KVMTimer</h3>
@@ -2795,9 +2802,7 @@ Must match the Name of a Network.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
@@ -2832,7 +2837,7 @@ Defaults to true.
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>matchLabels</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 </tbody>
 </table>
@@ -2971,15 +2976,13 @@ Defaults to true.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>bus</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate.
-supported values: virtio, sata, scsi.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Bus indicates the type of disk device to emulate. supported values: virtio, sata, scsi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readonly</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly.
-Defaults to false.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ReadOnly. Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 </tbody>
@@ -3045,7 +3048,7 @@ Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>fieldsV1</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">FieldsV1 holds the first JSON version format as described in the "FieldsV1" type.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_fieldsv1">v1.FieldsV1</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>manager</strong><br>
@@ -3063,7 +3066,7 @@ Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>time</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_time">v1.Time</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -3090,17 +3093,13 @@ Defaults to false.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>guest</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Guest allows to specifying the amount of memory which is visible inside the Guest OS.
-The Guest must lie between Requests and Limits from the resources section.
-Defaults to the requested memory in the resources section if not specified.
-+ optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Guest allows to specifying the amount of memory which is visible inside the Guest OS. The Guest must lie between Requests and Limits from the resources section. Defaults to the requested memory in the resources section if not specified.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_resource_quantity">resource.Quantity</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hugepages</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Hugepages allow to use hugepages for the VirtualMachineInstance instead of regular memory.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Hugepages allow to use hugepages for the VirtualMachineInstance instead of regular memory.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_hugepages">v1.Hugepages</a></p></td>
 </tr>
 </tbody>
@@ -3128,16 +3127,13 @@ Defaults to the requested memory in the resources section if not specified.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>default</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Select the default network and add it to the
-multus-cni.io/default-network annotation.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Select the default network and add it to the multus-cni.io/default-network annotation.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>networkName</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">References to a NetworkAttachmentDefinition CRD object. Format:
-&lt;networkName&gt;, &lt;namespace&gt;/&lt;networkName&gt;. If namespace is not
-specified, VMI namespace is assumed.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">References to a NetworkAttachmentDefinition CRD object. Format: &lt;networkName&gt;, &lt;namespace&gt;/&lt;networkName&gt;. If namespace is not specified, VMI namespace is assumed.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -3171,9 +3167,7 @@ specified, VMI namespace is assumed.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Network name.
-Must be a DNS_LABEL and unique within the vm.
-More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Network name. Must be a DNS_LABEL and unique within the vm. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -3344,7 +3338,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>annotations</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Annotations is an unstructured key value map stored with a resource that may be set by external tools to store and retrieve arbitrary metadata. They are not queryable and should be preserved when modifying objects. More info: <a href="http://kubernetes.io/docs/user-guide/annotations" class="bare">http://kubernetes.io/docs/user-guide/annotations</a></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>clusterName</strong><br>
@@ -3363,7 +3357,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">DeletionTimestamp is RFC 3339 date and time at which this resource will be deleted. This field is set by the server when a graceful deletion is requested by the user, and is not directly settable by a client. The resource is expected to be deleted (no longer visible from resource lists, and not reachable by name) after the time in this field, once the finalizers list is empty. As long as the finalizers list contains items, deletion is blocked. Once the deletionTimestamp is set, this value may not be unset or be set further into the future, although it may be shortened or the resource may be deleted prior to this time. For example, a user may request that a pod is deleted in 30 seconds. The Kubelet will react by sending a graceful termination signal to the containers in the pod. After that 30 seconds, the Kubelet will send a hard termination signal (SIGKILL) to the container and after cleanup, remove the pod from the API. In the presence of network partitions, this object may still exist after this timestamp, until an administrator or automated process can determine the resource is fully terminated. If not set, graceful deletion of the object has not been requested.</p>
 <p class="tableblock">Populated by the system when a graceful deletion is requested. Read-only. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#metadata</a></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_time">v1.Time</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>finalizers</strong><br>
@@ -3389,7 +3383,7 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>labels</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Map of string keys and values that can be used to organize and categorize (scope and select) objects. May match selectors of replication controllers and services. More info: <a href="http://kubernetes.io/docs/user-guide/labels" class="bare">http://kubernetes.io/docs/user-guide/labels</a></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>managedFields</strong><br>
@@ -3517,20 +3511,26 @@ More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-ob
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tickPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest.
-One of "delay", "catchup", "discard".</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest. One of "delay", "catchup", "discard".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_patch">v1.Patch</h3>
+<div class="paragraph">
+<p>Patch is provided to give a concrete name and type to the Kubernetes PATCH request body.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_persistentvolumeclaimspec">v1.PersistentVolumeClaimSpec</h3>
@@ -3555,7 +3555,7 @@ One of "delay", "catchup", "discard".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>accessModes</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">AccessModes contains the desired access modes the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1</a></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_persistentvolumeaccessmode">v1.PersistentVolumeAccessMode</a> &gt; array</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dataSource</strong><br>
@@ -3585,7 +3585,7 @@ One of "delay", "catchup", "discard".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>volumeMode</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec. This is a beta feature.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_persistentvolumemode">v1.PersistentVolumeMode</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>volumeName</strong><br>
@@ -3834,8 +3834,7 @@ One of "delay", "catchup", "discard".</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>vmNetworkCIDR</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">CIDR for vm network.
-Default 10.0.2.0/24 if not specified.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CIDR for vm network. Default 10.0.2.0/24 if not specified.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -3844,9 +3843,7 @@ Default 10.0.2.0/24 if not specified.</p></td>
 <div class="sect2">
 <h3 id="_v1_port">v1.Port</h3>
 <div class="paragraph">
-<p>Port repesents a port to expose from the virtual machine.
-Default protocol TCP.
-The port field is mandatory</p>
+<p>Port repesents a port to expose from the virtual machine. Default protocol TCP. The port field is mandatory</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3865,25 +3862,19 @@ The port field is mandatory</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, this must be an IANA_SVC_NAME and unique within the pod. Each
-named port in a pod must have a unique name. Name for the port that can be
-referred to by services.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, this must be an IANA_SVC_NAME and unique within the pod. Each named port in a pod must have a unique name. Name for the port that can be referred to by services.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>port</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of port to expose for the virtual machine.
-This must be a valid port number, 0 &lt; x &lt; 65536.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of port to expose for the virtual machine. This must be a valid port number, 0 &lt; x &lt; 65536.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>protocol</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Protocol for port. Must be UDP or TCP.
-Defaults to "TCP".
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Protocol for port. Must be UDP or TCP. Defaults to "TCP".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -3918,7 +3909,7 @@ Defaults to "TCP".
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>uid</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the target UID.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_types_uid">types.UID</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -3960,8 +3951,7 @@ Defaults to "TCP".
 <div class="sect2">
 <h3 id="_v1_probe">v1.Probe</h3>
 <div class="paragraph">
-<p>Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is
-alive or ready to receive traffic.</p>
+<p>Probe describes a health check to be performed against a VirtualMachineInstance to determine whether it is alive or ready to receive traffic.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -3980,57 +3970,43 @@ alive or ready to receive traffic.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>failureThreshold</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Minimum consecutive failures for the probe to be considered failed after having succeeded.
-Defaults to 3. Minimum value is 1.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Minimum consecutive failures for the probe to be considered failed after having succeeded. Defaults to 3. Minimum value is 1.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>httpGet</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">HTTPGet specifies the http request to perform.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">HTTPGet specifies the http request to perform.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_httpgetaction">v1.HTTPGetAction</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>initialDelaySeconds</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of seconds after the VirtualMachineInstance has started before liveness probes are initiated.
-More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of seconds after the VirtualMachineInstance has started before liveness probes are initiated. More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>periodSeconds</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">How often (in seconds) to perform the probe.
-Default to 10 seconds. Minimum value is 1.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">How often (in seconds) to perform the probe. Default to 10 seconds. Minimum value is 1.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>successThreshold</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Minimum consecutive successes for the probe to be considered successful after having failed.
-Defaults to 1. Must be 1 for liveness. Minimum value is 1.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Minimum consecutive successes for the probe to be considered successful after having failed. Defaults to 1. Must be 1 for liveness. Minimum value is 1.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tcpSocket</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TCPSocket specifies an action involving a TCP port.
-TCP hooks not yet supported
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TCPSocket specifies an action involving a TCP port. TCP hooks not yet supported</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_tcpsocketaction">v1.TCPSocketAction</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>timeoutSeconds</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of seconds after which the probe times out.
-Defaults to 1 second. Minimum value is 1.
-More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 </tbody>
@@ -4055,16 +4031,13 @@ More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifec
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>present</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer.
-Defaults to true.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Enabled set to false makes sure that the machine type or a preset can&#8217;t add the timer. Defaults to true.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>tickPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest.
-One of "delay", "catchup".</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">TickPolicy determines what happens when QEMU misses a deadline for injecting a tick to the guest. One of "delay", "catchup".</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -4095,26 +4068,20 @@ One of "delay", "catchup".</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>limits</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Limits describes the maximum amount of compute resources allowed.
-Valid resource keys are "memory" and "cpu".
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Limits describes the maximum amount of compute resources allowed. Valid resource keys are "memory" and "cpu".</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>overcommitGuestOverhead</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Don&#8217;t ask the scheduler to take the guest-management overhead into account. Instead
-put the overhead only into the container&#8217;s memory limit. This can lead to crashes if
-all memory is in use on a node. Defaults to false.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Don&#8217;t ask the scheduler to take the guest-management overhead into account. Instead put the overhead only into the container&#8217;s memory limit. This can lead to crashes if all memory is in use on a node. Defaults to false.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>requests</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Requests is a description of the initial vmi resources.
-Valid resource keys are "memory" and "cpu".
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Requests is a description of the initial vmi resources. Valid resource keys are "memory" and "cpu".</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, <a href="#_resource_quantity">resource.Quantity</a> &gt; map</p></td>
 </tr>
 </tbody>
 </table>
@@ -4147,12 +4114,7 @@ Valid resource keys are "memory" and "cpu".
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>gracePeriodSeconds</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The duration in seconds before the object should be force-restared. Value must be non-negative integer.
-The value zero indicates, restart immediately. If this value is nil, the default grace period for deletion of the corresponding VMI for the
-specified type will be used to determine on how much time to give the VMI to restart.
-Defaults to a per object value if not specified. zero means restart immediately.
-Allowed Values: nil and 0
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The duration in seconds before the object should be force-restared. Value must be non-negative integer. The value zero indicates, restart immediately. If this value is nil, the default grace period for deletion of the corresponding VMI for the specified type will be used to determine on how much time to give the VMI to restart. Defaults to a per object value if not specified. zero means restart immediately. Allowed Values: nil and 0</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int64)</p></td>
 </tr>
 <tr>
@@ -4163,6 +4125,15 @@ Allowed Values: nil and 0
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_rng">v1.Rng</h3>
+<div class="paragraph">
+<p>Rng represents the random device passed from host</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_rootpaths">v1.RootPaths</h3>
@@ -4214,25 +4185,19 @@ Allowed Values: nil and 0
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>optional</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Specify whether the Secret or it&#8217;s keys must be defined
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Specify whether the Secret or it&#8217;s keys must be defined</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secretName</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the secret in the pod&#8217;s namespace to use.
-More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes#secret" class="bare">https://kubernetes.io/docs/concepts/storage/volumes#secret</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the secret in the pod&#8217;s namespace to use. More info: <a href="https://kubernetes.io/docs/concepts/storage/volumes#secret" class="bare">https://kubernetes.io/docs/concepts/storage/volumes#secret</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>volumeLabel</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The volume label of the resulting disk inside the VMI.
-Different bootstrapping mechanisms require different values.
-Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The volume label of the resulting disk inside the VMI. Different bootstrapping mechanisms require different values. Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (kickstart).</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -4294,8 +4259,7 @@ Typical values are "cidata" (cloud-init), "config-2" (cloud-init) or "OEMDRV" (k
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>serviceAccountName</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the service account in the pod&#8217;s namespace to use.
-More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/" class="bare">https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Name of the service account in the pod&#8217;s namespace to use. More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/" class="bare">https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -4501,6 +4465,15 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_time">v1.Time</h3>
+<div class="paragraph">
+<p>Time is a wrapper around time.Time which supports correct marshaling to YAML and JSON. Wrappers are provided for many of the factory methods that the time package offers.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : string (date-time)</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1_timer">v1.Timer</h3>
 <div class="paragraph">
 <p>Represents all available timers in a vmi.</p>
@@ -4625,7 +4598,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>apiGroup</strong><br>
-<em>required</em></p></td>
+<em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
@@ -4647,11 +4620,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <div class="sect2">
 <h3 id="_v1_virtualmachine">v1.VirtualMachine</h3>
 <div class="paragraph">
-<p>VirtualMachine handles the VirtualMachines that are not running
-or are in a stopped state
-The VirtualMachine contains the template to create the
-VirtualMachineInstance. It also mirrors the running state of the created
-VirtualMachineInstance in its status.</p>
+<p>VirtualMachine handles the VirtualMachines that are not running or are in a stopped state The VirtualMachine contains the template to create the VirtualMachineInstance. It also mirrors the running state of the created VirtualMachineInstance in its status.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -4694,8 +4663,7 @@ VirtualMachineInstance in its status.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>status</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Status holds the current state of the controller and brief information
-about its associated VirtualMachineInstance</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Status holds the current state of the controller and brief information about its associated VirtualMachineInstance</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachinestatus">v1.VirtualMachineStatus</a></p></td>
 </tr>
 </tbody>
@@ -5213,8 +5181,7 @@ about its associated VirtualMachineInstance</p></td>
 <div class="sect2">
 <h3 id="_v1_virtualmachineinstancemigration">v1.VirtualMachineInstanceMigration</h3>
 <div class="paragraph">
-<p>VirtualMachineInstanceMigration represents the object tracking a VMI&#8217;s migration
-to another host in the cluster</p>
+<p>VirtualMachineInstanceMigration represents the object tracking a VMI&#8217;s migration to another host in the cluster</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5409,7 +5376,7 @@ to another host in the cluster</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>endTimestamp</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The time the migration action ended</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_time">v1.Time</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>failed</strong><br>
@@ -5433,13 +5400,13 @@ to another host in the cluster</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>startTimestamp</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The time the migration action began</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_time">v1.Time</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>targetDirectMigrationNodePorts</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">The list of ports opened for live migration on the destination node</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, integer (int32) &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>targetNode</strong><br>
@@ -5661,8 +5628,7 @@ to another host in the cluster</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>selector</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Selector is a label query over a set of VMIs.
-Required.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Selector is a label query over a set of VMIs. Required.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_labelselector">v1.LabelSelector</a></p></td>
 </tr>
 </tbody>
@@ -5822,23 +5788,19 @@ Required.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>paused</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates that the replica set is paused.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates that the replica set is paused.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>replicas</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of desired pods. This is a pointer to distinguish between explicit
-zero and not specified. Defaults to 1.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Number of desired pods. This is a pointer to distinguish between explicit zero and not specified. Defaults to 1.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>selector</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Label selector for pods. Existing ReplicaSets whose pods are
-selected by this will be the ones affected by this deployment.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Label selector for pods. Existing ReplicaSets whose pods are selected by this will be the ones affected by this deployment.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_labelselector">v1.LabelSelector</a></p></td>
 </tr>
 <tr>
@@ -5881,15 +5843,13 @@ selected by this will be the ones affected by this deployment.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readyReplicas</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The number of ready replicas for this replica set.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The number of ready replicas for this replica set.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>replicas</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Total number of non-terminated pods targeted by this deployment (their labels match the selector).
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Total number of non-terminated pods targeted by this deployment (their labels match the selector).</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 </tbody>
@@ -5923,22 +5883,13 @@ selected by this will be the ones affected by this deployment.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dnsConfig</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the DNS parameters of a pod.
-Parameters specified here will be merged to the generated DNS
-configuration based on DNSPolicy.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the DNS parameters of a pod. Parameters specified here will be merged to the generated DNS configuration based on DNSPolicy.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_poddnsconfig">v1.PodDNSConfig</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dnsPolicy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Set DNS policy for the pod.
-Defaults to "ClusterFirst".
-Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'.
-DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy.
-To have DNS options set along with hostNetwork, you have to specify DNS policy
-explicitly to 'ClusterFirstWithHostNet'.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Set DNS policy for the pod. Defaults to "ClusterFirst". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -5950,26 +5901,19 @@ explicitly to 'ClusterFirstWithHostNet'.
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>evictionStrategy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">EvictionStrategy can be set to "LiveMigrate" if the VirtualMachineInstance should be
-migrated instead of shut-off in case of a node drain.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_evictionstrategy">v1.EvictionStrategy</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EvictionStrategy can be set to "LiveMigrate" if the VirtualMachineInstance should be migrated instead of shut-off in case of a node drain.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hostname</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the hostname of the vmi
-If not specified, the hostname will be set to the name of the vmi, if dhcp or cloud-init is configured properly.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Specifies the hostname of the vmi If not specified, the hostname will be set to the name of the vmi, if dhcp or cloud-init is configured properly.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>livenessProbe</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Periodic probe of VirtualMachineInstance liveness.
-VirtualmachineInstances will be stopped if the probe fails.
-Cannot be updated.
-More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Periodic probe of VirtualMachineInstance liveness. VirtualmachineInstances will be stopped if the probe fails. Cannot be updated. More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_probe">v1.Probe</a></p></td>
 </tr>
 <tr>
@@ -5981,46 +5925,31 @@ More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifec
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>nodeSelector</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">NodeSelector is a selector which must be true for the vmi to fit on a node.
-Selector which must match a node&#8217;s labels for the vmi to be scheduled on that node.
-More info: <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/" class="bare">https://kubernetes.io/docs/concepts/configuration/assign-pod-node/</a>
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">NodeSelector is a selector which must be true for the vmi to fit on a node. Selector which must match a node&#8217;s labels for the vmi to be scheduled on that node. More info: <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/" class="bare">https://kubernetes.io/docs/concepts/configuration/assign-pod-node/</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>priorityClassName</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, indicates the pod&#8217;s priority.
-If not specified, the pod priority will be default or zero if there is no
-default.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, indicates the pod&#8217;s priority. If not specified, the pod priority will be default or zero if there is no default.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>readinessProbe</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Periodic probe of VirtualMachineInstance service readiness.
-VirtualmachineInstances will be removed from service endpoints if the probe fails.
-Cannot be updated.
-More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Periodic probe of VirtualMachineInstance service readiness. VirtualmachineInstances will be removed from service endpoints if the probe fails. Cannot be updated. More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_probe">v1.Probe</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>schedulerName</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the VMI will be dispatched by specified scheduler.
-If not specified, the VMI will be dispatched by default scheduler.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the VMI will be dispatched by specified scheduler. If not specified, the VMI will be dispatched by default scheduler.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>subdomain</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the fully qualified vmi hostname will be "&lt;hostname&gt;.&lt;subdomain&gt;.&lt;pod namespace&gt;.svc.&lt;cluster domain&gt;".
-If not specified, the vmi will not have a domainname at all. The DNS entry will resolve to the vmi,
-no matter if the vmi itself can pick up a hostname.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">If specified, the fully qualified vmi hostname will be "&lt;hostname&gt;.&lt;subdomain&gt;.&lt;pod namespace&gt;.svc.&lt;cluster domain&gt;". If not specified, the vmi will not have a domainname at all. The DNS entry will resolve to the vmi, no matter if the vmi itself can pick up a hostname.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
@@ -6047,8 +5976,7 @@ no matter if the vmi itself can pick up a hostname.
 <div class="sect2">
 <h3 id="_v1_virtualmachineinstancestatus">v1.VirtualMachineInstanceStatus</h3>
 <div class="paragraph">
-<p>VirtualMachineInstanceStatus represents information about the status of a VirtualMachineInstance. Status may trail the actual
-state of a system.</p>
+<p>VirtualMachineInstanceStatus represents information about the status of a VirtualMachineInstance. Status may trail the actual state of a system.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -6067,9 +5995,8 @@ state of a system.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>activePods</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ActivePods is a mapping of pod UID to node name.
-It is possible for multiple pods to be running for a single VMI during migration.</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ActivePods is a mapping of pod UID to node name. It is possible for multiple pods to be running for a single VMI during migration.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>conditions</strong><br>
@@ -6116,17 +6043,13 @@ It is possible for multiple pods to be running for a single VMI during migration
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>qosClass</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">The Quality of Service (QOS) classification assigned to the virtual machine instance based on resource requirements
-See PodQOSClass type for available QOS classes
-More info: <a href="https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md" class="bare">https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md</a>
-+optional</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_podqosclass">v1.PodQOSClass</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">The Quality of Service (QOS) classification assigned to the virtual machine instance based on resource requirements See PodQOSClass type for available QOS classes More info: <a href="https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md" class="bare">https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>reason</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">A brief CamelCase message indicating details about why the VMI is in this state. e.g. 'NodeUnresponsive'
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">A brief CamelCase message indicating details about why the VMI is in this state. e.g. 'NodeUnresponsive'</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -6212,8 +6135,7 @@ More info: <a href="https://git.k8s.io/community/contributors/design-proposals/n
 <div class="sect2">
 <h3 id="_v1_virtualmachinespec">v1.VirtualMachineSpec</h3>
 <div class="paragraph">
-<p>VirtualMachineSpec describes how the proper VirtualMachine
-should look like</p>
+<p>VirtualMachineSpec describes how the proper VirtualMachine should look like</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -6232,22 +6154,19 @@ should look like</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dataVolumeTemplates</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">dataVolumeTemplates is a list of dataVolumes that the VirtualMachineInstance template can reference.
-DataVolumes in this list are dynamically created for the VirtualMachine and are tied to the VirtualMachine&#8217;s life-cycle.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">dataVolumeTemplates is a list of dataVolumes that the VirtualMachineInstance template can reference. DataVolumes in this list are dynamically created for the VirtualMachine and are tied to the VirtualMachine&#8217;s life-cycle.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1alpha1_datavolume">v1alpha1.DataVolume</a> &gt; array</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>runStrategy</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Running state indicates the requested running state of the VirtualMachineInstance
-mutually exclusive with Running</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_virtualmachinerunstrategy">v1.VirtualMachineRunStrategy</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Running state indicates the requested running state of the VirtualMachineInstance mutually exclusive with Running</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>running</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Running controls whether the associatied VirtualMachineInstance is created or not
-Mutually exclusive with RunStrategy</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Running controls whether the associatied VirtualMachineInstance is created or not Mutually exclusive with RunStrategy</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
@@ -6285,13 +6204,13 @@ Mutually exclusive with RunStrategy</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>data</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Provides additional data in order to perform the Action</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">object</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; string, string &gt; map</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>uid</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Indicates the UUID of an existing Virtual Machine Instance that this change request applies to – if applicable</p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_types_uid">types.UID</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
 </table>
@@ -6299,8 +6218,7 @@ Mutually exclusive with RunStrategy</p></td>
 <div class="sect2">
 <h3 id="_v1_virtualmachinestatus">v1.VirtualMachineStatus</h3>
 <div class="paragraph">
-<p>VirtualMachineStatus represents the status returned by the
-controller to describe how the VirtualMachine is doing</p>
+<p>VirtualMachineStatus represents the status returned by the controller to describe how the VirtualMachine is doing</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -6337,8 +6255,7 @@ controller to describe how the VirtualMachine is doing</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>stateChangeRequests</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">StateChangeRequests indicates a list of actions that should be taken on a VMI
-e.g. stop a specific VMI then start a new one.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">StateChangeRequests indicates a list of actions that should be taken on a VMI e.g. stop a specific VMI then start a new one.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">&lt; <a href="#_v1_virtualmachinestatechangerequest">v1.VirtualMachineStateChangeRequest</a> &gt; array</p></td>
 </tr>
 </tbody>
@@ -6366,99 +6283,73 @@ e.g. stop a specific VMI then start a new one.</p></td>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cloudInitConfigDrive</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">CloudInitConfigDrive represents a cloud-init Config Drive user-data source.
-The Config Drive data will be added as a disk to the vmi. A proper cloud-init installation is required inside the guest.
-More info: <a href="https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html" class="bare">https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CloudInitConfigDrive represents a cloud-init Config Drive user-data source. The Config Drive data will be added as a disk to the vmi. A proper cloud-init installation is required inside the guest. More info: <a href="https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html" class="bare">https://cloudinit.readthedocs.io/en/latest/topics/datasources/configdrive.html</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cloudinitconfigdrivesource">v1.CloudInitConfigDriveSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>cloudInitNoCloud</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">CloudInitNoCloud represents a cloud-init NoCloud user-data source.
-The NoCloud data will be added as a disk to the vmi. A proper cloud-init installation is required inside the guest.
-More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html" class="bare">http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">CloudInitNoCloud represents a cloud-init NoCloud user-data source. The NoCloud data will be added as a disk to the vmi. A proper cloud-init installation is required inside the guest. More info: <a href="http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html" class="bare">http://cloudinit.readthedocs.io/en/latest/topics/datasources/nocloud.html</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>configMap</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ConfigMapSource represents a reference to a ConfigMap in the same namespace.
-More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/" class="bare">https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ConfigMapSource represents a reference to a ConfigMap in the same namespace. More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/" class="bare">https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>containerDisk</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ContainerDisk references a docker image, embedding a qcow or raw disk.
-More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" class="bare">https://kubevirt.gitbooks.io/user-guide/registry-disk.html</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ContainerDisk references a docker image, embedding a qcow or raw disk. More info: <a href="https://kubevirt.gitbooks.io/user-guide/registry-disk.html" class="bare">https://kubevirt.gitbooks.io/user-guide/registry-disk.html</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>dataVolume</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">DataVolume represents the dynamic creation a PVC for this volume as well as
-the process of populating that PVC with a disk image.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">DataVolume represents the dynamic creation a PVC for this volume as well as the process of populating that PVC with a disk image.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_datavolumesource">v1.DataVolumeSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>emptyDisk</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">EmptyDisk represents a temporary disk which shares the vmis lifecycle.
-More info: <a href="https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.html" class="bare">https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.html</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">EmptyDisk represents a temporary disk which shares the vmis lifecycle. More info: <a href="https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.html" class="bare">https://kubevirt.gitbooks.io/user-guide/disks-and-volumes.html</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_emptydisksource">v1.EmptyDiskSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>ephemeral</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Ephemeral is a special volume source that "wraps" specified source and provides copy-on-write image on top of it.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Ephemeral is a special volume source that "wraps" specified source and provides copy-on-write image on top of it.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_ephemeralvolumesource">v1.EphemeralVolumeSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>hostDisk</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">HostDisk represents a disk created on the cluster level
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">HostDisk represents a disk created on the cluster level</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_hostdisk">v1.HostDisk</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>name</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">Volume&#8217;s name.
-Must be a DNS_LABEL and unique within the vmi.
-More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Volume&#8217;s name. Must be a DNS_LABEL and unique within the vmi. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>persistentVolumeClaim</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace.
-Directly attached to the vmi via qemu.
-More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">PersistentVolumeClaimVolumeSource represents a reference to a PersistentVolumeClaim in the same namespace. Directly attached to the vmi via qemu. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_persistentvolumeclaimvolumesource">v1.PersistentVolumeClaimVolumeSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>secret</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">SecretVolumeSource represents a reference to a secret data in the same namespace.
-More info: <a href="https://kubernetes.io/docs/concepts/configuration/secret/" class="bare">https://kubernetes.io/docs/concepts/configuration/secret/</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">SecretVolumeSource represents a reference to a secret data in the same namespace. More info: <a href="https://kubernetes.io/docs/concepts/configuration/secret/" class="bare">https://kubernetes.io/docs/concepts/configuration/secret/</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>serviceAccount</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">ServiceAccountVolumeSource represents a reference to a service account.
-There can only be one volume of this type!
-More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/" class="bare">https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</a>
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">ServiceAccountVolumeSource represents a reference to a service account. There can only be one volume of this type! More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/" class="bare">https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/</a></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_serviceaccountvolumesource">v1.ServiceAccountVolumeSource</a></p></td>
 </tr>
 </tbody>
@@ -6466,14 +6357,19 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </div>
 <div class="sect2">
 <h3 id="_v1_watchevent">v1.WatchEvent</h3>
+<div class="paragraph">
+<p>Event represents a single event to a watched resource.</p>
+</div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -6481,11 +6377,17 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>object</strong><br>
 <em>required</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Object is:
+ * If Type is Added or Modified: the new state of the object.
+ * If Type is Deleted: the state of the object immediately before deletion.
+ * If Type is Error: *Status is recommended; other types may make sense
+ depending on context.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_runtime_rawextension">runtime.RawExtension</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>type</strong><br>
 <em>required</em></p></td>
+<td class="tableblock halign-left valign-middle"></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 </tbody>
@@ -6513,8 +6415,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>i6300esb</strong><br>
 <em>optional</em></p></td>
-<td class="tableblock halign-left valign-middle"><p class="tableblock">i6300esb watchdog device.
-+optional</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">i6300esb watchdog device.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></p></td>
 </tr>
 <tr>
@@ -6563,9 +6464,7 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 <div class="sect2">
 <h3 id="_v1alpha1_datavolume">v1alpha1.DataVolume</h3>
 <div class="paragraph">
-<p>DataVolume provides a representation of our data volume
-+genclient
-+k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object</p>
+<p>DataVolume provides a representation of our data volume</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -6613,6 +6512,15 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_datavolumeblankimage">v1alpha1.DataVolumeBlankImage</h3>
+<div class="paragraph">
+<p>DataVolumeBlankImage provides the parameters to create a new raw blank image for the PVC</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</h3>
@@ -6807,6 +6715,15 @@ More info: <a href="https://kubernetes.io/docs/tasks/configure-pod-container/con
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_datavolumesourceupload">v1alpha1.DataVolumeSourceUpload</h3>
+<div class="paragraph">
+<p>DataVolumeSourceUpload provides the parameters to create a Data Volume by uploading the source</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumespec">v1alpha1.DataVolumeSpec</h3>
