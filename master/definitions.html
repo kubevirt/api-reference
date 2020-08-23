@@ -1730,6 +1730,12 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>autoattachMemBalloon</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach the Memory balloon device with default period. Period can be adjusted in virt-config. Defaults to true.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">boolean</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>autoattachPodInterface</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Whether to attach a pod network interface. Defaults to true.</p></td>
@@ -1843,6 +1849,12 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">Attach a volume as a floppy to the vmi.</p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><a href="#_v1_floppytarget">v1.FloppyTarget</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>io</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">IO specifies which QEMU disk IO mode should be used. Supported values are: native, default, threads.</p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>lun</strong><br>
@@ -3070,6 +3082,11 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>machineType</strong><br>
 <em>optional</em></p></td>
 <td class="tableblock halign-left valign-middle"><p class="tableblock">string</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>memBalloonStatsPeriod</strong><br>
+<em>optional</em></p></td>
+<td class="tableblock halign-left valign-middle"><p class="tableblock">integer (int32)</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><p class="tableblock"><strong>migrations</strong><br>
