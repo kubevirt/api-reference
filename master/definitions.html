@@ -592,8 +592,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_weightedpodaffinityterm">v1.WeightedPodAffinityTerm</a></li>
 <li><a href="#_v1alpha1_datavolume">v1alpha1.DataVolume</a></li>
 <li><a href="#_v1alpha1_datavolumeblankimage">v1alpha1.DataVolumeBlankImage</a></li>
+<li><a href="#_v1alpha1_datavolumecondition">v1alpha1.DataVolumeCondition</a></li>
 <li><a href="#_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</a></li>
 <li><a href="#_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</a></li>
+<li><a href="#_v1alpha1_datavolumesourceimageio">v1alpha1.DataVolumeSourceImageIO</a></li>
 <li><a href="#_v1alpha1_datavolumesourcepvc">v1alpha1.DataVolumeSourcePVC</a></li>
 <li><a href="#_v1alpha1_datavolumesourceregistry">v1alpha1.DataVolumeSourceRegistry</a></li>
 <li><a href="#_v1alpha1_datavolumesources3">v1alpha1.DataVolumeSourceS3</a></li>
@@ -10659,7 +10661,7 @@ The sign will be omitted unless the number is negative.</p>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolume">v1alpha1.DataVolume</h3>
 <div class="paragraph">
-<p>DataVolume provides a representation of our data volume</p>
+<p>DataVolume is an abstraction on top of PersistentVolumeClaims to allow easy population of those PersistentVolumeClaims with relation to VirtualMachines</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -10742,9 +10744,74 @@ The sign will be omitted unless the number is negative.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_datavolumecondition">v1alpha1.DataVolumeCondition</h3>
+<div class="paragraph">
+<p>DataVolumeCondition represents the state of a data volume condition.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>lastHeartbeatTime</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_time">v1.Time</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>reason</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>status</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>type</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</h3>
 <div class="paragraph">
-<p>DataVolumeSource represents the source for our Data Volume, this can be HTTP, S3, Registry or an existing PVC</p>
+<p>DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, Registry or an existing PVC</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -10774,6 +10841,15 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>imageio</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1alpha1_datavolumesourceimageio">v1alpha1.DataVolumeSourceImageIO</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -10818,7 +10894,7 @@ The sign will be omitted unless the number is negative.</p>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</h3>
 <div class="paragraph">
-<p>DataVolumeSourceHTTP provides the parameters to create a Data Volume from an HTTP source</p>
+<p>DataVolumeSourceHTTP can be either an http or https endpoint, with an optional basic auth user name and password, and an optional configmap containing additional CAs</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -10840,7 +10916,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>CertConfigMap provides a reference to the Registry certs</p>
+<p>CertConfigMap is a configmap reference, containing a Certificate Authority(CA) public key, and a base64 encoded pem certificate</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -10852,7 +10928,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>SecretRef provides the secret reference needed to access the HTTP source</p>
+<p>SecretRef A Secret reference, the secret should contain accessKeyId (user name) base64 encoded, and secretKey (password) also base64 encoded</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -10861,10 +10937,80 @@ The sign will be omitted unless the number is negative.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>url</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>URL is the URL of the http(s) endpoint</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_datavolumesourceimageio">v1alpha1.DataVolumeSourceImageIO</h3>
+<div class="paragraph">
+<p>DataVolumeSourceImageIO provides the parameters to create a Data Volume from an imageio source</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>certConfigMap</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>URL is the URL of the http source</p>
+<p>CertConfigMap provides a reference to the CA cert</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>diskId</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>DiskID provides id of a disk to be imported</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>secretRef</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>SecretRef provides the secret reference needed to access the ovirt-engine</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>url</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>URL is the URL of the ovirt-engine</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -10880,12 +11026,14 @@ The sign will be omitted unless the number is negative.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -10893,7 +11041,10 @@ The sign will be omitted unless the number is negative.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>name</strong><br>
-<em>optional</em></p>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The name of the source PVC</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -10902,7 +11053,10 @@ The sign will be omitted unless the number is negative.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>namespace</strong><br>
-<em>optional</em></p>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The namespace of the source PVC</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -10957,10 +11111,10 @@ The sign will be omitted unless the number is negative.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>url</strong><br>
-<em>optional</em></p>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>URL is the url of the Registry source</p>
+<p>URL is the url of the Docker registry source</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -11003,7 +11157,7 @@ The sign will be omitted unless the number is negative.</p>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>url</strong><br>
-<em>optional</em></p>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>URL is the url of the S3 source</p>
@@ -11027,7 +11181,7 @@ The sign will be omitted unless the number is negative.</p>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumespec">v1alpha1.DataVolumeSpec</h3>
 <div class="paragraph">
-<p>DataVolumeSpec defines our specification for a DataVolume type</p>
+<p>DataVolumeSpec defines the DataVolume type specification</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -11061,7 +11215,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>PVC is a pointer to the PVC Spec we want to use</p>
+<p>PVC is the PVC specification</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_persistentvolumeclaimspec">v1.PersistentVolumeClaimSpec</a></p>
@@ -11085,7 +11239,7 @@ The sign will be omitted unless the number is negative.</p>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumestatus">v1alpha1.DataVolumeStatus</h3>
 <div class="paragraph">
-<p>DataVolumeStatus provides the parameters to store the phase of the Data Volume</p>
+<p>DataVolumeStatus contains the current status of the DataVolume</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -11101,6 +11255,16 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>conditions</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1alpha1_datavolumecondition">v1alpha1.DataVolumeCondition</a> &gt; array</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>phase</strong><br>
@@ -11121,6 +11285,18 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>restartCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>RestartCount is the number of times the pod populating the DataVolume has restarted</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
 </div></div></td>
 </tr>
 </tbody>
