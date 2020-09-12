@@ -498,6 +498,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_watchvirtualmachinelistforallnamespaces">GET /apis/kubevirt.io/v1alpha3/watch/virtualmachines</a></li>
 <li><a href="#_getapigroup-snapshot_kubevirt_io">GET /apis/snapshot.kubevirt.io/</a></li>
 <li><a href="#_getapiresources-snapshot_kubevirt_io-v1alpha1">GET /apis/snapshot.kubevirt.io/v1alpha1/</a></li>
+<li><a href="#_createnamespacedvirtualmachinerestore">POST /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores</a></li>
+<li><a href="#_listnamespacedvirtualmachinerestore">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores</a></li>
+<li><a href="#_deletecollectionnamespacedvirtualmachinerestore">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores</a></li>
+<li><a href="#_readnamespacedvirtualmachinerestore">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]</strong>}</a></li>
+<li><a href="#_replacenamespacedvirtualmachinerestore">PUT /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]</strong>}</a></li>
+<li><a href="#_deletenamespacedvirtualmachinerestore">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]</strong>}</a></li>
+<li><a href="#_patchnamespacedvirtualmachinerestore">PATCH /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]</strong>}</a></li>
 <li><a href="#_createnamespacedvirtualmachinesnapshotcontent">POST /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</a></li>
 <li><a href="#_listnamespacedvirtualmachinesnapshotcontent">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</a></li>
 <li><a href="#_deletecollectionnamespacedvirtualmachinesnapshotcontent">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</a></li>
@@ -512,10 +519,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_replacenamespacedvirtualmachinesnapshot">PUT /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</a></li>
 <li><a href="#_deletenamespacedvirtualmachinesnapshot">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</a></li>
 <li><a href="#_patchnamespacedvirtualmachinesnapshot">PATCH /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</a></li>
+<li><a href="#_listvirtualmachinerestoreforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/virtualmachinerestores</a></li>
 <li><a href="#_listvirtualmachinesnapshotcontentforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/virtualmachinesnapshotcontents</a></li>
 <li><a href="#_listvirtualmachinesnapshotforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/virtualmachinesnapshots</a></li>
+<li><a href="#_watchnamespacedvirtualmachinerestore">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores</a></li>
 <li><a href="#_watchnamespacedvirtualmachinesnapshotcontent">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</a></li>
 <li><a href="#_watchnamespacedvirtualmachinesnapshot">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</a></li>
+<li><a href="#_watchvirtualmachinerestorelistforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/virtualmachinerestores</a></li>
 <li><a href="#_watchvirtualmachinesnapshotcontentlistforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/virtualmachinesnapshotcontents</a></li>
 <li><a href="#_watchvirtualmachinesnapshotlistforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/virtualmachinesnapshots</a></li>
 <li><a href="#_getsubapigroup">GET /apis/subresources.kubevirt.io</a></li>
@@ -11965,11 +11975,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_createnamespacedvirtualmachinesnapshotcontent">POST /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</h3>
+<h3 id="_createnamespacedvirtualmachinerestore">POST /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores</h3>
 <div class="sect3">
 <h4 id="_description_67">Description</h4>
 <div class="paragraph">
-<p>Create a VirtualMachineSnapshotContent object.</p>
+<p>Create a VirtualMachineRestore object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12015,7 +12025,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -12045,7 +12055,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12056,7 +12066,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Created</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12067,7 +12077,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Accepted</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12112,11 +12122,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listnamespacedvirtualmachinesnapshotcontent">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</h3>
+<h3 id="_listnamespacedvirtualmachinerestore">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores</h3>
 <div class="sect3">
 <h4 id="_description_68">Description</h4>
 <div class="paragraph">
-<p>Get a list of VirtualMachineSnapshotContent objects.</p>
+<p>Get a list of VirtualMachineRestore objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12302,7 +12312,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontentlist">v1alpha1.VirtualMachineSnapshotContentList</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestorelist">v1alpha1.VirtualMachineRestoreList</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12337,11 +12347,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletecollectionnamespacedvirtualmachinesnapshotcontent">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</h3>
+<h3 id="_deletecollectionnamespacedvirtualmachinerestore">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores</h3>
 <div class="sect3">
 <h4 id="_description_69">Description</h4>
 <div class="paragraph">
-<p>Delete a collection of VirtualMachineSnapshotContent objects.</p>
+<p>Delete a collection of VirtualMachineRestore objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12544,11 +12554,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_readnamespacedvirtualmachinesnapshotcontent">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<h3 id="_readnamespacedvirtualmachinerestore">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_70">Description</h4>
 <div class="paragraph">
-<p>Get a VirtualMachineSnapshotContent object.</p>
+<p>Get a VirtualMachineRestore object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12656,7 +12666,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12691,11 +12701,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_replacenamespacedvirtualmachinesnapshotcontent">PUT /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<h3 id="_replacenamespacedvirtualmachinerestore">PUT /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_71">Description</h4>
 <div class="paragraph">
-<p>Update a VirtualMachineSnapshotContent object.</p>
+<p>Update a VirtualMachineRestore object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -12756,7 +12766,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -12786,7 +12796,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12797,7 +12807,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Create</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -12842,11 +12852,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletenamespacedvirtualmachinesnapshotcontent">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<h3 id="_deletenamespacedvirtualmachinerestore">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_72">Description</h4>
 <div class="paragraph">
-<p>Delete a VirtualMachineSnapshotContent object.</p>
+<p>Delete a VirtualMachineRestore object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -13027,11 +13037,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_patchnamespacedvirtualmachinesnapshotcontent">PATCH /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<h3 id="_patchnamespacedvirtualmachinerestore">PATCH /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinerestores/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_73">Description</h4>
 <div class="paragraph">
-<p>Patch a VirtualMachineSnapshotContent object.</p>
+<p>Patch a VirtualMachineRestore object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -13122,7 +13132,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestore">v1alpha1.VirtualMachineRestore</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13164,11 +13174,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_createnamespacedvirtualmachinesnapshot">POST /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</h3>
+<h3 id="_createnamespacedvirtualmachinesnapshotcontent">POST /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</h3>
 <div class="sect3">
 <h4 id="_description_74">Description</h4>
 <div class="paragraph">
-<p>Create a VirtualMachineSnapshot object.</p>
+<p>Create a VirtualMachineSnapshotContent object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -13214,7 +13224,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -13244,7 +13254,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13255,7 +13265,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Created</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13266,7 +13276,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Accepted</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13311,11 +13321,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listnamespacedvirtualmachinesnapshot">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</h3>
+<h3 id="_listnamespacedvirtualmachinesnapshotcontent">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</h3>
 <div class="sect3">
 <h4 id="_description_75">Description</h4>
 <div class="paragraph">
-<p>Get a list of VirtualMachineSnapshot objects.</p>
+<p>Get a list of VirtualMachineSnapshotContent objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -13501,7 +13511,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotlist">v1alpha1.VirtualMachineSnapshotList</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontentlist">v1alpha1.VirtualMachineSnapshotContentList</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13536,11 +13546,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletecollectionnamespacedvirtualmachinesnapshot">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</h3>
+<h3 id="_deletecollectionnamespacedvirtualmachinesnapshotcontent">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</h3>
 <div class="sect3">
 <h4 id="_description_76">Description</h4>
 <div class="paragraph">
-<p>Delete a collection of VirtualMachineSnapshot objects.</p>
+<p>Delete a collection of VirtualMachineSnapshotContent objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -13743,11 +13753,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_readnamespacedvirtualmachinesnapshot">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<h3 id="_readnamespacedvirtualmachinesnapshotcontent">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_77">Description</h4>
 <div class="paragraph">
-<p>Get a VirtualMachineSnapshot object.</p>
+<p>Get a VirtualMachineSnapshotContent object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -13855,7 +13865,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13890,11 +13900,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_replacenamespacedvirtualmachinesnapshot">PUT /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<h3 id="_replacenamespacedvirtualmachinesnapshotcontent">PUT /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_78">Description</h4>
 <div class="paragraph">
-<p>Update a VirtualMachineSnapshot object.</p>
+<p>Update a VirtualMachineSnapshotContent object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -13955,7 +13965,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -13985,7 +13995,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -13996,7 +14006,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Create</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14041,11 +14051,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletenamespacedvirtualmachinesnapshot">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<h3 id="_deletenamespacedvirtualmachinesnapshotcontent">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_79">Description</h4>
 <div class="paragraph">
-<p>Delete a VirtualMachineSnapshot object.</p>
+<p>Delete a VirtualMachineSnapshotContent object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -14226,11 +14236,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_patchnamespacedvirtualmachinesnapshot">PATCH /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<h3 id="_patchnamespacedvirtualmachinesnapshotcontent">PATCH /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshotcontents/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_80">Description</h4>
 <div class="paragraph">
-<p>Patch a VirtualMachineSnapshot object.</p>
+<p>Patch a VirtualMachineSnapshotContent object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -14321,7 +14331,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontent">v1alpha1.VirtualMachineSnapshotContent</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14363,11 +14373,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listvirtualmachinesnapshotcontentforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/virtualmachinesnapshotcontents</h3>
+<h3 id="_createnamespacedvirtualmachinesnapshot">POST /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</h3>
 <div class="sect3">
 <h4 id="_description_81">Description</h4>
 <div class="paragraph">
-<p>Get a list of all VirtualMachineSnapshotContent objects.</p>
+<p>Create a VirtualMachineSnapshot object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -14390,29 +14400,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
+<p><strong>Path</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>continue</strong><br>
-<em>optional</em></p>
+<p><strong>namespace</strong><br>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>fieldSelector</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+<p>Object name and auth scope, such as for teams and projects</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
@@ -14420,95 +14415,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
+<p><strong>Body</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>includeUninitialized</strong><br>
-<em>optional</em></p>
+<p><strong>body</strong><br>
+<em>required</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>If true, partially initialized resources are included in the response.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>labelSelector</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>limit</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
-</div>
-<div class="paragraph">
-<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>integer</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>resourceVersion</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>timeoutSeconds</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>TimeoutSeconds for the list/watch call.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>integer</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Query</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>watch</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>boolean</p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -14538,7 +14453,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontentlist">v1alpha1.VirtualMachineSnapshotContentList</a></p>
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>201</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Created</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>202</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Accepted</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14556,6 +14493,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
+<h4 id="_consumes_33">Consumes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
 <h4 id="_produces_81">Produces</h4>
 <div class="ulist">
 <ul>
@@ -14565,19 +14515,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><code>application/yaml</code></p>
 </li>
-<li>
-<p><code>application/json;stream=watch</code></p>
-</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listvirtualmachinesnapshotforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/virtualmachinesnapshots</h3>
+<h3 id="_listnamespacedvirtualmachinesnapshot">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</h3>
 <div class="sect3">
 <h4 id="_description_82">Description</h4>
 <div class="paragraph">
-<p>Get a list of all VirtualMachineSnapshot objects.</p>
+<p>Get a list of VirtualMachineSnapshot objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -14598,6 +14545,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>Query</strong></p>
@@ -14783,11 +14745,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespacedvirtualmachinesnapshotcontent">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</h3>
+<h3 id="_deletecollectionnamespacedvirtualmachinesnapshot">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</h3>
 <div class="sect3">
 <h4 id="_description_83">Description</h4>
 <div class="paragraph">
-<p>Watch a VirtualMachineSnapshotContent object.</p>
+<p>Delete a collection of VirtualMachineSnapshot objects.</p>
 </div>
 </div>
 <div class="sect3">
@@ -14808,21 +14770,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </thead>
 <tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>namespace</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Object name and auth scope, such as for teams and projects</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>Query</strong></p>
@@ -14973,7 +14920,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1_watchevent">v1.WatchEvent</a></p>
+<p><a href="definitions.html#_v1_status">v1.Status</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14997,20 +14944,1273 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><code>application/json</code></p>
 </li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchnamespacedvirtualmachinesnapshot">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</h3>
+<h3 id="_readnamespacedvirtualmachinesnapshot">GET /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
 <div class="sect3">
 <h4 id="_description_84">Description</h4>
 <div class="paragraph">
-<p>Watch a VirtualMachineSnapshot object.</p>
+<p>Get a VirtualMachineSnapshot object.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="_parameters_78">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name of the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>exact</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Should the export be exact. Exact export maintains cluster-specific fields like 'Namespace'.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>export</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Should this value be exported. Export strips fields that a user can not specify.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_84">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_84">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+<li>
+<p><code>application/json;stream=watch</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_replacenamespacedvirtualmachinesnapshot">PUT /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<div class="sect3">
+<h4 id="_description_85">Description</h4>
+<div class="paragraph">
+<p>Update a VirtualMachineSnapshot object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_79">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name of the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>body</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_85">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>201</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Create</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_consumes_34">Consumes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_produces_85">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_deletenamespacedvirtualmachinesnapshot">DELETE /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<div class="sect3">
+<h4 id="_description_86">Description</h4>
+<div class="paragraph">
+<p>Delete a VirtualMachineSnapshot object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_80">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name of the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>gracePeriodSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The duration in seconds before the object should be deleted. Value must be non-negative integer. The value zero indicates delete immediately. If this value is nil, the default grace period for the specified type will be used. Defaults to a per object value if not specified. zero means delete immediately.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>orphanDependents</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Deprecated: please use the PropagationPolicy, this field will be deprecated in 1.7. Should the dependent objects be orphaned. If true/false, the "orphan" finalizer will be added to/removed from the object&#8217;s finalizers list. Either this field or PropagationPolicy may be set, but not both.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>propagationPolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Whether and how garbage collection will be performed. Either this field or OrphanDependents may be set, but not both. The default policy is decided by the existing finalizer set in the metadata.finalizers and the resource-specific default policy. Acceptable values are: 'Orphan' - orphan the dependents; 'Background' - allow the garbage collector to delete the dependents in the background; 'Foreground' - a cascading policy that deletes all dependents in the foreground.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>body</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_deleteoptions">v1.DeleteOptions</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_86">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_status">v1.Status</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_consumes_35">Consumes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_produces_86">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_patchnamespacedvirtualmachinesnapshot">PATCH /apis/snapshot.kubevirt.io/v1alpha1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachinesnapshots/{name:[a-z0-9][a-z0-9\-]</strong>}</h3>
+<div class="sect3">
+<h4 id="_description_87">Description</h4>
+<div class="paragraph">
+<p>Patch a VirtualMachineSnapshot object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_81">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name of the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>body</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_patch">v1.Patch</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_87">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshot">v1alpha1.VirtualMachineSnapshot</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_consumes_36">Consumes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json-patch+json</code></p>
+</li>
+<li>
+<p><code>application/merge-patch+json</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_produces_87">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listvirtualmachinerestoreforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/virtualmachinerestores</h3>
+<div class="sect3">
+<h4 id="_description_88">Description</h4>
+<div class="paragraph">
+<p>Get a list of all VirtualMachineRestore objects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_82">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>continue</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>fieldSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>includeUninitialized</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If true, partially initialized resources are included in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limit</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
+</div>
+<div class="paragraph">
+<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>timeoutSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>TimeoutSeconds for the list/watch call.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>watch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_88">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinerestorelist">v1alpha1.VirtualMachineRestoreList</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_88">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+<li>
+<p><code>application/json;stream=watch</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listvirtualmachinesnapshotcontentforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/virtualmachinesnapshotcontents</h3>
+<div class="sect3">
+<h4 id="_description_89">Description</h4>
+<div class="paragraph">
+<p>Get a list of all VirtualMachineSnapshotContent objects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_83">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>continue</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>fieldSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>includeUninitialized</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If true, partially initialized resources are included in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limit</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
+</div>
+<div class="paragraph">
+<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>timeoutSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>TimeoutSeconds for the list/watch call.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>watch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_89">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotcontentlist">v1alpha1.VirtualMachineSnapshotContentList</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_89">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+<li>
+<p><code>application/json;stream=watch</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_listvirtualmachinesnapshotforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/virtualmachinesnapshots</h3>
+<div class="sect3">
+<h4 id="_description_90">Description</h4>
+<div class="paragraph">
+<p>Get a list of all VirtualMachineSnapshot objects.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_84">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>continue</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>fieldSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>includeUninitialized</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If true, partially initialized resources are included in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limit</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
+</div>
+<div class="paragraph">
+<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>timeoutSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>TimeoutSeconds for the list/watch call.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>watch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_90">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1alpha1_virtualmachinesnapshotlist">v1alpha1.VirtualMachineSnapshotList</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_90">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+<li>
+<p><code>application/yaml</code></p>
+</li>
+<li>
+<p><code>application/json;stream=watch</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_watchnamespacedvirtualmachinerestore">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinerestores</h3>
+<div class="sect3">
+<h4 id="_description_91">Description</h4>
+<div class="paragraph">
+<p>Watch a VirtualMachineRestore object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_85">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -15169,7 +16369,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_84">Responses</h4>
+<h4 id="_responses_91">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -15210,7 +16410,649 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_84">Produces</h4>
+<h4 id="_produces_91">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_watchnamespacedvirtualmachinesnapshotcontent">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshotcontents</h3>
+<div class="sect3">
+<h4 id="_description_92">Description</h4>
+<div class="paragraph">
+<p>Watch a VirtualMachineSnapshotContent object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_86">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>continue</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>fieldSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>includeUninitialized</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If true, partially initialized resources are included in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limit</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
+</div>
+<div class="paragraph">
+<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>timeoutSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>TimeoutSeconds for the list/watch call.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>watch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_92">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_watchevent">v1.WatchEvent</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_92">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_watchnamespacedvirtualmachinesnapshot">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/namespaces/{namespace:[a-z0-9][a-z0-9\-]*}/virtualmachinesnapshots</h3>
+<div class="sect3">
+<h4 id="_description_93">Description</h4>
+<div class="paragraph">
+<p>Watch a VirtualMachineSnapshot object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_87">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>continue</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>fieldSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>includeUninitialized</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If true, partially initialized resources are included in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limit</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
+</div>
+<div class="paragraph">
+<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>timeoutSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>TimeoutSeconds for the list/watch call.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>watch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_93">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_watchevent">v1.WatchEvent</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_93">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_watchvirtualmachinerestorelistforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/virtualmachinerestores</h3>
+<div class="sect3">
+<h4 id="_description_94">Description</h4>
+<div class="paragraph">
+<p>Watch a VirtualMachineRestoreList object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_88">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>continue</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The continue option should be set when retrieving more results from the server. Since this value is server defined, clients may only use the continue value from a previous query result with identical query parameters (except for the value of continue) and the server may reject a continue value it does not recognize. If the specified continue value is no longer valid whether due to expiration (generally five to fifteen minutes) or a configuration change on the server the server will respond with a 410 ResourceExpired error indicating the client must restart their list without the continue field. This field is not supported when watch is true. Clients may start a watch from the last resourceVersion value returned by the server and not miss any modifications.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>fieldSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their fields. Defaults to everything.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>includeUninitialized</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If true, partially initialized resources are included in the response.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>A selector to restrict the list of returned objects by their labels. Defaults to everything</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>limit</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>limit is a maximum number of responses to return for a list call. If more items exist, the server will set the <code>continue</code> field on the list metadata to a value that can be used with the same initial query to retrieve the next set of results. Setting a limit may return fewer than the requested amount of items (up to zero items) in the event all requested objects are filtered out and clients should only use the presence of the continue field to determine whether more results are available. Servers may choose not to support the limit argument and will return all of the available results. If limit is specified and the continue field is empty, clients may assume that no more results are available. This field is not supported if watch is true.</p>
+</div>
+<div class="paragraph">
+<p>The server guarantees that the objects returned when using continue will be identical to issuing a single list call without a limit - that is, no objects created, modified, or deleted after the first request is issued will be included in any subsequent continued requests. This is sometimes referred to as a consistent snapshot, and ensures that a client that is using limit to receive smaller chunks of a very large result can ensure they see all possible objects. If objects are updated during a chunked list the version of the object that was present at the time the first list result was calculated is returned.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>When specified with a watch call, shows changes that occur after that particular version of a resource. Defaults to changes from the beginning of history.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>timeoutSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>TimeoutSeconds for the list/watch call.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Query</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>watch</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Watch for changes to the described resources and return them as a stream of add, update, and remove notifications. Specify resourceVersion.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_94">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_watchevent">v1.WatchEvent</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_94">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -15223,13 +17065,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_watchvirtualmachinesnapshotcontentlistforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/virtualmachinesnapshotcontents</h3>
 <div class="sect3">
-<h4 id="_description_85">Description</h4>
+<h4 id="_description_95">Description</h4>
 <div class="paragraph">
 <p>Watch a VirtualMachineSnapshotContentList object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_79">Parameters</h4>
+<h4 id="_parameters_89">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -15373,7 +17215,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_85">Responses</h4>
+<h4 id="_responses_95">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -15414,7 +17256,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_85">Produces</h4>
+<h4 id="_produces_95">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -15427,13 +17269,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_watchvirtualmachinesnapshotlistforallnamespaces">GET /apis/snapshot.kubevirt.io/v1alpha1/watch/virtualmachinesnapshots</h3>
 <div class="sect3">
-<h4 id="_description_86">Description</h4>
+<h4 id="_description_96">Description</h4>
 <div class="paragraph">
 <p>Watch a VirtualMachineSnapshotList object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_80">Parameters</h4>
+<h4 id="_parameters_90">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -15577,7 +17419,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_86">Responses</h4>
+<h4 id="_responses_96">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -15618,7 +17460,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_86">Produces</h4>
+<h4 id="_produces_96">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -15631,13 +17473,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_getsubapigroup">GET /apis/subresources.kubevirt.io</h3>
 <div class="sect3">
-<h4 id="_description_87">Description</h4>
+<h4 id="_description_97">Description</h4>
 <div class="paragraph">
 <p>Get a KubeVirt API Group</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_87">Responses</h4>
+<h4 id="_responses_97">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -15689,7 +17531,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_87">Produces</h4>
+<h4 id="_produces_97">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -15702,13 +17544,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_getapisubresources">GET /apis/subresources.kubevirt.io/v1alpha3/</h3>
 <div class="sect3">
-<h4 id="_description_88">Description</h4>
+<h4 id="_description_98">Description</h4>
 <div class="paragraph">
 <p>Get a KubeVirt API resources</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_88">Responses</h4>
+<h4 id="_responses_98">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -15760,7 +17602,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_88">Produces</h4>
+<h4 id="_produces_98">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -15773,13 +17615,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_checkhealth">GET /apis/subresources.kubevirt.io/v1alpha3/healthz</h3>
 <div class="sect3">
-<h4 id="_description_89">Description</h4>
+<h4 id="_description_99">Description</h4>
 <div class="paragraph">
 <p>Health endpoint</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_89">Responses</h4>
+<h4 id="_responses_99">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -15831,7 +17673,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_consumes_33">Consumes</h4>
+<h4 id="_consumes_37">Consumes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -15841,7 +17683,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_89">Produces</h4>
+<h4 id="_produces_99">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -15854,13 +17696,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_console">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/console</h3>
 <div class="sect3">
-<h4 id="_description_90">Description</h4>
+<h4 id="_description_100">Description</h4>
 <div class="paragraph">
 <p>Open a websocket connection to a serial console on the specified VirtualMachineInstance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_81">Parameters</h4>
+<h4 id="_parameters_91">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -15911,7 +17753,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_90">Responses</h4>
+<h4 id="_responses_100">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -15944,13 +17786,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_filesystemlist">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/filesystemlist</h3>
 <div class="sect3">
-<h4 id="_description_91">Description</h4>
+<h4 id="_description_101">Description</h4>
 <div class="paragraph">
 <p>Get list of active filesystems on guest machine via guest agent</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_91">Responses</h4>
+<h4 id="_responses_101">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -15991,7 +17833,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_consumes_34">Consumes</h4>
+<h4 id="_consumes_38">Consumes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -16001,7 +17843,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_90">Produces</h4>
+<h4 id="_produces_100">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -16014,13 +17856,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_guestosinfo">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/guestosinfo</h3>
 <div class="sect3">
-<h4 id="_description_92">Description</h4>
+<h4 id="_description_102">Description</h4>
 <div class="paragraph">
 <p>Get guest agent os information</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_82">Parameters</h4>
+<h4 id="_parameters_92">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -16071,7 +17913,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_92">Responses</h4>
+<h4 id="_responses_102">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -16112,7 +17954,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_consumes_35">Consumes</h4>
+<h4 id="_consumes_39">Consumes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -16122,7 +17964,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_91">Produces</h4>
+<h4 id="_produces_101">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -16135,13 +17977,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_pause">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/pause</h3>
 <div class="sect3">
-<h4 id="_description_93">Description</h4>
+<h4 id="_description_103">Description</h4>
 <div class="paragraph">
 <p>Pause a VirtualMachineInstance object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_83">Parameters</h4>
+<h4 id="_parameters_93">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -16192,7 +18034,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_93">Responses</h4>
+<h4 id="_responses_103">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -16258,13 +18100,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_test">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/test</h3>
 <div class="sect3">
-<h4 id="_description_94">Description</h4>
+<h4 id="_description_104">Description</h4>
 <div class="paragraph">
 <p>Test endpoint verifying apiserver connectivity.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_84">Parameters</h4>
+<h4 id="_parameters_94">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -16315,7 +18157,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_94">Responses</h4>
+<h4 id="_responses_104">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -16348,13 +18190,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_unpause">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/unpause</h3>
 <div class="sect3">
-<h4 id="_description_95">Description</h4>
+<h4 id="_description_105">Description</h4>
 <div class="paragraph">
 <p>Unpause a VirtualMachineInstance object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_85">Parameters</h4>
+<h4 id="_parameters_95">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -16405,7 +18247,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_95">Responses</h4>
+<h4 id="_responses_105">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -16471,13 +18313,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_userlist">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/userlist</h3>
 <div class="sect3">
-<h4 id="_description_96">Description</h4>
+<h4 id="_description_106">Description</h4>
 <div class="paragraph">
 <p>Get list of active users via guest agent</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_96">Responses</h4>
+<h4 id="_responses_106">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -16518,7 +18360,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_consumes_36">Consumes</h4>
+<h4 id="_consumes_40">Consumes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -16528,7 +18370,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_92">Produces</h4>
+<h4 id="_produces_102">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -16541,13 +18383,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_vnc">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/vnc</h3>
 <div class="sect3">
-<h4 id="_description_97">Description</h4>
+<h4 id="_description_107">Description</h4>
 <div class="paragraph">
 <p>Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_86">Parameters</h4>
+<h4 id="_parameters_96">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -16598,7 +18440,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_97">Responses</h4>
+<h4 id="_responses_107">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -16631,13 +18473,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_migrate">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/migrate</h3>
 <div class="sect3">
-<h4 id="_description_98">Description</h4>
+<h4 id="_description_108">Description</h4>
 <div class="paragraph">
 <p>Migrate a running VirtualMachine to another node.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_87">Parameters</h4>
+<h4 id="_parameters_97">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -16688,7 +18530,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_98">Responses</h4>
+<h4 id="_responses_108">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -16754,13 +18596,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_rename">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/rename</h3>
 <div class="sect3">
-<h4 id="_description_99">Description</h4>
+<h4 id="_description_109">Description</h4>
 <div class="paragraph">
 <p>Rename a stopped VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_88">Parameters</h4>
+<h4 id="_parameters_98">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -16811,7 +18653,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_99">Responses</h4>
+<h4 id="_responses_109">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -16888,13 +18730,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_restart">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/restart</h3>
 <div class="sect3">
-<h4 id="_description_100">Description</h4>
+<h4 id="_description_110">Description</h4>
 <div class="paragraph">
 <p>Restart a VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_89">Parameters</h4>
+<h4 id="_parameters_99">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -16958,7 +18800,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_100">Responses</h4>
+<h4 id="_responses_110">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -17024,13 +18866,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_start">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/start</h3>
 <div class="sect3">
-<h4 id="_description_101">Description</h4>
+<h4 id="_description_111">Description</h4>
 <div class="paragraph">
 <p>Start a VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_90">Parameters</h4>
+<h4 id="_parameters_100">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -17081,7 +18923,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_101">Responses</h4>
+<h4 id="_responses_111">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -17147,13 +18989,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_stop">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/stop</h3>
 <div class="sect3">
-<h4 id="_description_102">Description</h4>
+<h4 id="_description_112">Description</h4>
 <div class="paragraph">
 <p>Stop a VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_91">Parameters</h4>
+<h4 id="_parameters_101">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -17204,7 +19046,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_102">Responses</h4>
+<h4 id="_responses_112">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -17270,7 +19112,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_version">GET /apis/subresources.kubevirt.io/v1alpha3/version</h3>
 <div class="sect3">
-<h4 id="_responses_103">Responses</h4>
+<h4 id="_responses_113">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -17300,7 +19142,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_produces_93">Produces</h4>
+<h4 id="_produces_103">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -17313,13 +19155,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_func1">GET /healthz</h3>
 <div class="sect3">
-<h4 id="_description_103">Description</h4>
+<h4 id="_description_113">Description</h4>
 <div class="paragraph">
 <p>Health endpoint</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_104">Responses</h4>
+<h4 id="_responses_114">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -17352,7 +19194,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_func7">GET /openapi/v2</h3>
 <div class="sect3">
-<h4 id="_responses_105">Responses</h4>
+<h4 id="_responses_115">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -17382,7 +19224,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_consumes_37">Consumes</h4>
+<h4 id="_consumes_41">Consumes</h4>
 <div class="ulist">
 <ul>
 <li>
@@ -17392,7 +19234,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect3">
-<h4 id="_produces_94">Produces</h4>
+<h4 id="_produces_104">Produces</h4>
 <div class="ulist">
 <ul>
 <li>
