@@ -515,6 +515,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_featurestate">v1.FeatureState</a></li>
 <li><a href="#_v1_featurevendorid">v1.FeatureVendorID</a></li>
 <li><a href="#_v1_features">v1.Features</a></li>
+<li><a href="#_v1_filesystem">v1.Filesystem</a></li>
+<li><a href="#_v1_filesystemvirtiofs">v1.FilesystemVirtiofs</a></li>
 <li><a href="#_v1_firmware">v1.Firmware</a></li>
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
 <li><a href="#_v1_gpu">v1.GPU</a></li>
@@ -4782,6 +4784,18 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>filesystems</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Filesystems describes filesystem which is connected to the vmi.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1_filesystem">v1.Filesystem</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>gpus</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -5761,6 +5775,53 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_filesystem">v1.Filesystem</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name is the device name</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>virtiofs</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_filesystemvirtiofs">v1.FilesystemVirtiofs</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_filesystemvirtiofs">v1.FilesystemVirtiofs</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_firmware">v1.Firmware</h3>
