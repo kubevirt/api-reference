@@ -607,6 +607,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_datavolumesourceregistry">v1alpha1.DataVolumeSourceRegistry</a></li>
 <li><a href="#_v1alpha1_datavolumesources3">v1alpha1.DataVolumeSourceS3</a></li>
 <li><a href="#_v1alpha1_datavolumesourceupload">v1alpha1.DataVolumeSourceUpload</a></li>
+<li><a href="#_v1alpha1_datavolumesourcevddk">v1alpha1.DataVolumeSourceVDDK</a></li>
 <li><a href="#_v1alpha1_datavolumespec">v1alpha1.DataVolumeSpec</a></li>
 <li><a href="#_v1alpha1_error">v1alpha1.Error</a></li>
 <li><a href="#_v1alpha1_sourcespec">v1alpha1.SourceSpec</a></li>
@@ -11189,6 +11190,15 @@ The sign will be omitted unless the number is negative.</p>
 <p><a href="#_v1alpha1_datavolumesourceupload">v1alpha1.DataVolumeSourceUpload</a></p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>vddk</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1alpha1_datavolumesourcevddk">v1alpha1.DataVolumeSourceVDDK</a></p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -11478,6 +11488,88 @@ The sign will be omitted unless the number is negative.</p>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_datavolumesourcevddk">v1alpha1.DataVolumeSourceVDDK</h3>
+<div class="paragraph">
+<p>DataVolumeSourceVDDK provides the parameters to create a Data Volume from a Vmware source</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>backingFile</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>BackingFile is the path to the virtual hard disk to migrate from vCenter/ESXi</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>secretRef</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>SecretRef provides a reference to a secret containing the username and password needed to access the vCenter or ESXi host</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>thumbprint</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Thumbprint is the certificate thumbprint of the vCenter or ESXi host</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>url</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>URL is the URL of the vCenter or ESXi host with the VM to migrate</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>uuid</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>UUID is the UUID of the virtual machine that the backing file is attached to in vCenter/ESXi</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_v1alpha1_datavolumespec">v1alpha1.DataVolumeSpec</h3>
