@@ -528,6 +528,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
 <li><a href="#_v1_gpu">v1.GPU</a></li>
 <li><a href="#_v1_hpettimer">v1.HPETTimer</a></li>
+<li><a href="#_v1_hostdevice">v1.HostDevice</a></li>
 <li><a href="#_v1_hostdisk">v1.HostDisk</a></li>
 <li><a href="#_v1_hugepages">v1.Hugepages</a></li>
 <li><a href="#_v1_hypervtimer">v1.HypervTimer</a></li>
@@ -550,6 +551,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_kubevirtstatus">v1.KubeVirtStatus</a></li>
 <li><a href="#_v1_luntarget">v1.LunTarget</a></li>
 <li><a href="#_v1_machine">v1.Machine</a></li>
+<li><a href="#_v1_mediatedhostdevice">v1.MediatedHostDevice</a></li>
 <li><a href="#_v1_memory">v1.Memory</a></li>
 <li><a href="#_v1_migrationconfiguration">v1.MigrationConfiguration</a></li>
 <li><a href="#_v1_multusnetwork">v1.MultusNetwork</a></li>
@@ -557,6 +559,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_networkconfiguration">v1.NetworkConfiguration</a></li>
 <li><a href="#_v1_nodeplacement">v1.NodePlacement</a></li>
 <li><a href="#_v1_pittimer">v1.PITTimer</a></li>
+<li><a href="#_v1_pcihostdevice">v1.PciHostDevice</a></li>
+<li><a href="#_v1_permittedhostdevices">v1.PermittedHostDevices</a></li>
 <li><a href="#_v1_podnetwork">v1.PodNetwork</a></li>
 <li><a href="#_v1_port">v1.Port</a></li>
 <li><a href="#_v1_probe">v1.Probe</a></li>
@@ -5138,6 +5142,18 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>hostDevices</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Whether to attach a host device to the vmi.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1_hostdevice">v1.HostDevice</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>inputs</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6384,6 +6400,47 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_hostdevice">v1.HostDevice</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>deviceName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>DeviceName is the resource name of the host device exposed by a device plugin</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_hostdisk">v1.HostDisk</h3>
 <div class="paragraph">
 <p>Represents a disk created on the cluster level</p>
@@ -7100,6 +7157,15 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>permittedHostDevices</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_permittedhostdevices">v1.PermittedHostDevices</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>selinuxLauncherType</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -7603,6 +7669,53 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_mediatedhostdevice">v1.MediatedHostDevice</h3>
+<div class="paragraph">
+<p>MediatedHostDevice represents a host mediated device allowed for passthrough</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>externalResourceProvider</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>mdevNameSelector</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_memory">v1.Memory</h3>
 <div class="paragraph">
 <p>Memory allows specifying the VirtualMachineInstance memory features.</p>
@@ -7992,6 +8105,91 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_pcihostdevice">v1.PciHostDevice</h3>
+<div class="paragraph">
+<p>PciHostDevice represents a host PCI device allowed for passthrough</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>externalResourceProvider</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>pciVendorSelector</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resourceName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_permittedhostdevices">v1.PermittedHostDevices</h3>
+<div class="paragraph">
+<p>PermittedHostDevices holds inforamtion about devices allowed for passthrough</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>mediatedDevices</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1_mediatedhostdevice">v1.MediatedHostDevice</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>pciHostDevices</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1_pcihostdevice">v1.PciHostDevice</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
