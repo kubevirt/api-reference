@@ -483,6 +483,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_watchevent">k8s.io.apimachinery.pkg.apis.meta.v1.WatchEvent</a></li>
 <li><a href="#_k8s_io_apimachinery_pkg_runtime_rawextension">k8s.io.apimachinery.pkg.runtime.RawExtension</a></li>
 <li><a href="#_k8s_io_apimachinery_pkg_util_intstr_intorstring">k8s.io.apimachinery.pkg.util.intstr.IntOrString</a></li>
+<li><a href="#_v1_accesscredential">v1.AccessCredential</a></li>
+<li><a href="#_v1_accesscredentialsecretsource">v1.AccessCredentialSecretSource</a></li>
 <li><a href="#_v1_bios">v1.BIOS</a></li>
 <li><a href="#_v1_bootloader">v1.Bootloader</a></li>
 <li><a href="#_v1_cdromtarget">v1.CDRomTarget</a></li>
@@ -494,6 +496,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_cloudinitconfigdrivesource">v1.CloudInitConfigDriveSource</a></li>
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
 <li><a href="#_v1_componentconfig">v1.ComponentConfig</a></li>
+<li><a href="#_v1_configdrivesshpublickeyaccesscredentialpropagation">v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation</a></li>
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
 <li><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></li>
 <li><a href="#_v1_customizecomponents">v1.CustomizeComponents</a></li>
@@ -561,14 +564,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_podnetwork">v1.PodNetwork</a></li>
 <li><a href="#_v1_port">v1.Port</a></li>
 <li><a href="#_v1_probe">v1.Probe</a></li>
+<li><a href="#_v1_qemuguestagentsshpublickeyaccesscredentialpropagation">v1.QemuGuestAgentSSHPublicKeyAccessCredentialPropagation</a></li>
+<li><a href="#_v1_qemuguestagentuserpasswordaccesscredentialpropagation">v1.QemuGuestAgentUserPasswordAccessCredentialPropagation</a></li>
 <li><a href="#_v1_rtctimer">v1.RTCTimer</a></li>
 <li><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></li>
 <li><a href="#_v1_restartoptions">v1.RestartOptions</a></li>
 <li><a href="#_v1_rng">v1.Rng</a></li>
 <li><a href="#_v1_smbiosconfiguration">v1.SMBiosConfiguration</a></li>
+<li><a href="#_v1_sshpublickeyaccesscredential">v1.SSHPublicKeyAccessCredential</a></li>
+<li><a href="#_v1_sshpublickeyaccesscredentialpropagationmethod">v1.SSHPublicKeyAccessCredentialPropagationMethod</a></li>
+<li><a href="#_v1_sshpublickeyaccesscredentialsource">v1.SSHPublicKeyAccessCredentialSource</a></li>
 <li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
 <li><a href="#_v1_serviceaccountvolumesource">v1.ServiceAccountVolumeSource</a></li>
 <li><a href="#_v1_timer">v1.Timer</a></li>
+<li><a href="#_v1_userpasswordaccesscredential">v1.UserPasswordAccessCredential</a></li>
+<li><a href="#_v1_userpasswordaccesscredentialpropagationmethod">v1.UserPasswordAccessCredentialPropagationMethod</a></li>
+<li><a href="#_v1_userpasswordaccesscredentialsource">v1.UserPasswordAccessCredentialSource</a></li>
 <li><a href="#_v1_virtualmachine">v1.VirtualMachine</a></li>
 <li><a href="#_v1_virtualmachinecondition">v1.VirtualMachineCondition</a></li>
 <li><a href="#_v1_virtualmachineinstance">v1.VirtualMachineInstance</a></li>
@@ -3635,6 +3646,83 @@ The sign will be omitted unless the number is negative.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="_v1_accesscredential">v1.AccessCredential</h3>
+<div class="paragraph">
+<p>AccessCredential represents a credential source that can be used to authorize remote access to the vm guest Only one of its members may be specified.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sshPublicKey</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>SSHPublicKey represents the source and method of applying a ssh public key into a guest virtual machine.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_sshpublickeyaccesscredential">v1.SSHPublicKeyAccessCredential</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>userPassword</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>UserPassword represents the source and method for applying a guest user&#8217;s password</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_userpasswordaccesscredential">v1.UserPasswordAccessCredential</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_accesscredentialsecretsource">v1.AccessCredentialSecretSource</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>secretName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>SecretName represents the name of the secret in the VMI&#8217;s namespace</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_bios">v1.BIOS</h3>
 <div class="paragraph">
 <p>If set (default), BIOS will be used.</p>
@@ -4296,6 +4384,12 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_configdrivesshpublickeyaccesscredentialpropagation">v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_configmapvolumesource">v1.ConfigMapVolumeSource</h3>
@@ -8174,6 +8268,43 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_qemuguestagentsshpublickeyaccesscredentialpropagation">v1.QemuGuestAgentSSHPublicKeyAccessCredentialPropagation</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>users</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Users represents a list of guest users that should have the ssh public keys added to their authorized_keys file.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_qemuguestagentuserpasswordaccesscredentialpropagation">v1.QemuGuestAgentUserPasswordAccessCredentialPropagation</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1_rtctimer">v1.RTCTimer</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -8413,6 +8544,132 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_sshpublickeyaccesscredential">v1.SSHPublicKeyAccessCredential</h3>
+<div class="paragraph">
+<p>SSHPublicKeyAccessCredential represents a source and propagation method for injecting ssh public keys into a vm guest</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>propagationMethod</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>PropagationMethod represents how the public key is injected into the vm guest.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_sshpublickeyaccesscredentialpropagationmethod">v1.SSHPublicKeyAccessCredentialPropagationMethod</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>source</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Source represents where the public keys are pulled from</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_sshpublickeyaccesscredentialsource">v1.SSHPublicKeyAccessCredentialSource</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_sshpublickeyaccesscredentialpropagationmethod">v1.SSHPublicKeyAccessCredentialPropagationMethod</h3>
+<div class="paragraph">
+<p>SSHPublicKeyAccessCredentialPropagationMethod represents the method used to inject a ssh public key into the vm guest. Only one of its members may be specified.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>configDrive</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>ConfigDrivePropagation means that the ssh public keys are injected into the VM using metadata using the configDrive cloud-init provider</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_configdrivesshpublickeyaccesscredentialpropagation">v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>qemuGuestAgent</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>QemuGuestAgentAccessCredentailPropagation means ssh public keys are dynamically injected into the vm at runtime via the qemu guest agent. This feature requires the qemu guest agent to be running within the guest.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_qemuguestagentsshpublickeyaccesscredentialpropagation">v1.QemuGuestAgentSSHPublicKeyAccessCredentialPropagation</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_sshpublickeyaccesscredentialsource">v1.SSHPublicKeyAccessCredentialSource</h3>
+<div class="paragraph">
+<p>SSHPublicKeyAccessCredentialSource represents where to retrieve the ssh key credentials Only one of its members may be specified.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>secret</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Secret means that the access credential is pulled from a kubernetes secret</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_accesscredentialsecretsource">v1.AccessCredentialSecretSource</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_secretvolumesource">v1.SecretVolumeSource</h3>
 <div class="paragraph">
 <p>SecretVolumeSource adapts a Secret into a volume.</p>
@@ -8581,6 +8838,120 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_rtctimer">v1.RTCTimer</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_userpasswordaccesscredential">v1.UserPasswordAccessCredential</h3>
+<div class="paragraph">
+<p>UserPasswordAccessCredential represents a source and propagation method for injecting user passwords into a vm guest Only one of its members may be specified.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>propagationMethod</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>propagationMethod represents how the user passwords are injected into the vm guest.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_userpasswordaccesscredentialpropagationmethod">v1.UserPasswordAccessCredentialPropagationMethod</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>source</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Source represents where the user passwords are pulled from</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_userpasswordaccesscredentialsource">v1.UserPasswordAccessCredentialSource</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_userpasswordaccesscredentialpropagationmethod">v1.UserPasswordAccessCredentialPropagationMethod</h3>
+<div class="paragraph">
+<p>UserPasswordAccessCredentialPropagationMethod represents the method used to inject a user passwords into the vm guest. Only one of its members may be specified.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>qemuGuestAgent</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>QemuGuestAgentAccessCredentailPropagation means passwords are dynamically injected into the vm at runtime via the qemu guest agent. This feature requires the qemu guest agent to be running within the guest.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_qemuguestagentuserpasswordaccesscredentialpropagation">v1.QemuGuestAgentUserPasswordAccessCredentialPropagation</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_userpasswordaccesscredentialsource">v1.UserPasswordAccessCredentialSource</h3>
+<div class="paragraph">
+<p>UserPasswordAccessCredentialSource represents where to retrieve the user password credentials Only one of its members may be specified.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>secret</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Secret means that the access credential is pulled from a kubernetes secret</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_accesscredentialsecretsource">v1.AccessCredentialSecretSource</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -10481,6 +10852,18 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>accessCredentials</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Specifies a set of public keys to inject into the vm guest</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1_accesscredential">v1.AccessCredential</a> &gt; array</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>affinity</strong><br>
