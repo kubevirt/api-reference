@@ -581,6 +581,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_sshpublickeyaccesscredentialsource">v1.SSHPublicKeyAccessCredentialSource</a></li>
 <li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
 <li><a href="#_v1_serviceaccountvolumesource">v1.ServiceAccountVolumeSource</a></li>
+<li><a href="#_v1_sysprepsource">v1.SysprepSource</a></li>
 <li><a href="#_v1_timer">v1.Timer</a></li>
 <li><a href="#_v1_userpasswordaccesscredential">v1.UserPasswordAccessCredential</a></li>
 <li><a href="#_v1_userpasswordaccesscredentialpropagationmethod">v1.UserPasswordAccessCredentialPropagationMethod</a></li>
@@ -9082,6 +9083,52 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_sysprepsource">v1.SysprepSource</h3>
+<div class="paragraph">
+<p>Represents a Sysprep volume source.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>configMap</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>ConfigMap references a ConfigMap that contains Sysprep answer file named autounattend.xml that should be attached as disk of CDROM type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_k8s_io_api_core_v1_localobjectreference">k8s.io.api.core.v1.LocalObjectReference</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>secret</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Secret references a k8s Secret that contains Sysprep answer file named autounattend.xml that should be attached as disk of CDROM type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_k8s_io_api_core_v1_localobjectreference">k8s.io.api.core.v1.LocalObjectReference</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_timer">v1.Timer</h3>
 <div class="paragraph">
 <p>Represents all available timers in a vmi.</p>
@@ -12099,6 +12146,18 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_serviceaccountvolumesource">v1.ServiceAccountVolumeSource</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>sysprep</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Represents a Sysprep volume source.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_sysprepsource">v1.SysprepSource</a></p>
 </div></div></td>
 </tr>
 </tbody>
