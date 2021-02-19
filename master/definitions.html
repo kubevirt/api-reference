@@ -552,6 +552,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_kubevirtselfsignconfiguration">v1.KubeVirtSelfSignConfiguration</a></li>
 <li><a href="#_v1_kubevirtspec">v1.KubeVirtSpec</a></li>
 <li><a href="#_v1_kubevirtstatus">v1.KubeVirtStatus</a></li>
+<li><a href="#_v1_kubevirtworkloadupdatestrategy">v1.KubeVirtWorkloadUpdateStrategy</a></li>
 <li><a href="#_v1_logverbosity">v1.LogVerbosity</a></li>
 <li><a href="#_v1_luntarget">v1.LunTarget</a></li>
 <li><a href="#_v1_machine">v1.Machine</a></li>
@@ -7539,6 +7540,18 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>workloadUpdateStrategy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>WorkloadUpdateStrategy defines at the cluster level how to handle automated workload updates</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_kubevirtworkloadupdatestrategy">v1.KubeVirtWorkloadUpdateStrategy</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>workloads</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -7625,6 +7638,15 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>outdatedVirtualMachineInstanceWorkloads</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>phase</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -7666,6 +7688,73 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_kubevirtworkloadupdatestrategy">v1.KubeVirtWorkloadUpdateStrategy</h3>
+<div class="paragraph">
+<p>KubeVirtWorkloadUpdateStrategy defines options related to updating a KubeVirt install</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>batchEvictionInterval</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>BatchEvictionInterval Represents the interval to wait before issuing the next batch of shutdowns</p>
+</div>
+<div class="paragraph">
+<p>Defaults to 1 minute</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_duration">k8s.io.apimachinery.pkg.apis.meta.v1.Duration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>batchEvictionSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>BatchEvictionSize Represents the number of VMIs that can be forced updated per the BatchShutdownInteral interval</p>
+</div>
+<div class="paragraph">
+<p>Defaults to 10</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>workloadUpdateMethods</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>WorkloadUpdateMethods defines the methods that can be used to disrupt workloads during automated workload updates. When multiple methods are present, the least disruptive method takes precedence over more disruptive methods. For example if both LiveMigrate and Shutdown methods are listed, only VMs which are not live migratable will be restarted/shutdown</p>
+</div>
+<div class="paragraph">
+<p>An empty list defaults to no automated workload updating</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -11503,6 +11592,18 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; <a href="#_v1_virtualmachineinstancenetworkinterface">v1.VirtualMachineInstanceNetworkInterface</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>launcherContainerImageVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>LauncherContainerImageVersion indicates what container image is currently active for the vmi.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
