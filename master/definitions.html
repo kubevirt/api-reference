@@ -628,6 +628,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_watchdog">v1.Watchdog</a></li>
 <li><a href="#_v1alpha1_condition">v1alpha1.Condition</a></li>
 <li><a href="#_v1alpha1_datavolumeblankimage">v1alpha1.DataVolumeBlankImage</a></li>
+<li><a href="#_v1alpha1_datavolumecheckpoint">v1alpha1.DataVolumeCheckpoint</a></li>
 <li><a href="#_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</a></li>
 <li><a href="#_v1alpha1_datavolumesourcehttp">v1alpha1.DataVolumeSourceHTTP</a></li>
 <li><a href="#_v1alpha1_datavolumesourceimageio">v1alpha1.DataVolumeSourceImageIO</a></li>
@@ -12525,6 +12526,52 @@ The sign will be omitted unless the number is negative.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_datavolumecheckpoint">v1alpha1.DataVolumeCheckpoint</h3>
+<div class="paragraph">
+<p>DataVolumeCheckpoint defines a stage in a warm migration.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>current</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Current is the identifier of the snapshot created for this checkpoint.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>previous</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Previous is the identifier of the snapshot from the previous checkpoint.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_datavolumesource">v1alpha1.DataVolumeSource</h3>
 <div class="paragraph">
 <p>DataVolumeSource represents the source for our Data Volume, this can be HTTP, Imageio, S3, Registry or an existing PVC</p>
@@ -12869,6 +12916,18 @@ The sign will be omitted unless the number is negative.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>certConfigMap</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>CertConfigMap is a configmap reference, containing a Certificate Authority(CA) public key, and a base64 encoded pem certificate</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>secretRef</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -13006,6 +13065,18 @@ The sign will be omitted unless the number is negative.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>checkpoints</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Checkpoints is a list of DataVolumeCheckpoints, representing stages in a multistage import.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1alpha1_datavolumecheckpoint">v1alpha1.DataVolumeCheckpoint</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>contentType</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -13014,6 +13085,30 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>finalCheckpoint</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>FinalCheckpoint indicates whether the current DataVolumeCheckpoint is the final checkpoint.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>preallocation</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Preallocation controls whether storage for DataVolumes should be allocated in advance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 <tr>
