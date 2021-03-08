@@ -582,6 +582,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_sshpublickeyaccesscredentialsource">v1.SSHPublicKeyAccessCredentialSource</a></li>
 <li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
 <li><a href="#_v1_serviceaccountvolumesource">v1.ServiceAccountVolumeSource</a></li>
+<li><a href="#_v1_synictimer">v1.SyNICTimer</a></li>
 <li><a href="#_v1_sysprepsource">v1.SysprepSource</a></li>
 <li><a href="#_v1_timer">v1.Timer</a></li>
 <li><a href="#_v1_userpasswordaccesscredential">v1.UserPasswordAccessCredential</a></li>
@@ -5859,7 +5860,7 @@ The sign will be omitted unless the number is negative.</p>
 <p>SyNICTimer enables Synthetic Interrupt Controller Timers, reducing CPU load. Defaults to the machine type setting.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="#_v1_featurestate">v1.FeatureState</a></p>
+<p><a href="#_v1_synictimer">v1.SyNICTimer</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -9167,6 +9168,41 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_synictimer">v1.SyNICTimer</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>direct</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_featurestate">v1.FeatureState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>enabled</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 </tbody>
