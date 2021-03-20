@@ -433,6 +433,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_top_level_api_objects">Top Level API Objects</a></li>
 <li><a href="#_definitions">Definitions</a>
 <ul class="sectlevel2">
+<li><a href="#_github_com_openshift_api_operator_v1_generationstatus">github.com.openshift.api.operator.v1.GenerationStatus</a></li>
 <li><a href="#_k8s_io_api_core_v1_affinity">k8s.io.api.core.v1.Affinity</a></li>
 <li><a href="#_k8s_io_api_core_v1_downwardapivolumefile">k8s.io.api.core.v1.DownwardAPIVolumeFile</a></li>
 <li><a href="#_k8s_io_api_core_v1_httpgetaction">k8s.io.api.core.v1.HTTPGetAction</a></li>
@@ -678,6 +679,100 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect1">
 <h2 id="_definitions">Definitions</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="_github_com_openshift_api_operator_v1_generationstatus">github.com.openshift.api.operator.v1.GenerationStatus</h3>
+<div class="paragraph">
+<p>GenerationStatus keeps track of the generation for a given resource so that decisions about forced updates can be made.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>group</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>group is the group of the thing you&#8217;re tracking</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>hash</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>hash is an optional field set for resources without generation that are content sensitive like secrets and configmaps</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>lastGeneration</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>lastGeneration is the last generation of the workload controller involved</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>name is the name of the thing you&#8217;re tracking</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>namespace is where the thing you&#8217;re tracking is</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>resource</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>resource is the resource type of the thing you&#8217;re tracking</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="sect2">
 <h3 id="_k8s_io_api_core_v1_affinity">k8s.io.api.core.v1.Affinity</h3>
 <div class="paragraph">
@@ -7591,6 +7686,15 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; <a href="#_v1_kubevirtcondition">v1.KubeVirtCondition</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>generations</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_github_com_openshift_api_operator_v1_generationstatus">github.com.openshift.api.operator.v1.GenerationStatus</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
