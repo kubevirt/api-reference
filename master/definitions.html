@@ -492,6 +492,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_cdromtarget">v1.CDRomTarget</a></li>
 <li><a href="#_v1_cpu">v1.CPU</a></li>
 <li><a href="#_v1_cpufeature">v1.CPUFeature</a></li>
+<li><a href="#_v1_certconfig">v1.CertConfig</a></li>
 <li><a href="#_v1_chassis">v1.Chassis</a></li>
 <li><a href="#_v1_clock">v1.Clock</a></li>
 <li><a href="#_v1_clockoffsetutc">v1.ClockOffsetUTC</a></li>
@@ -4174,6 +4175,52 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_certconfig">v1.CertConfig</h3>
+<div class="paragraph">
+<p>CertConfig contains the tunables for TLS certificates</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>duration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The requested 'duration' (i.e. lifetime) of the Certificate.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_duration">k8s.io.apimachinery.pkg.apis.meta.v1.Duration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>renewBefore</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>The amount of time before the currently issued certificate&#8217;s "notAfter" time that we will begin to attempt to renew the certificate.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_duration">k8s.io.apimachinery.pkg.apis.meta.v1.Duration</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_chassis">v1.Chassis</h3>
 <div class="paragraph">
 <p>Chassis specifies the chassis info passed to the domain.</p>
@@ -7457,20 +7504,37 @@ The sign will be omitted unless the number is negative.</p>
 <h3 id="_v1_kubevirtselfsignconfiguration">v1.KubeVirtSelfSignConfiguration</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>ca</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>CA configuration CA certs are kept in the CA bundle as long as they are valid</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_certconfig">v1.CertConfig</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>caOverlapInterval</strong><br>
 <em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Deprecated. Use CA.Duration and CA.RenewBefore instead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_duration">k8s.io.apimachinery.pkg.apis.meta.v1.Duration</a></p>
@@ -7482,6 +7546,9 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Deprecated. Use CA.Duration instead</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_duration">k8s.io.apimachinery.pkg.apis.meta.v1.Duration</a></p>
 </div></div></td>
 </tr>
@@ -7491,7 +7558,22 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Deprecated. Use Server.Duration instead</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_duration">k8s.io.apimachinery.pkg.apis.meta.v1.Duration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>server</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Server configuration Certs are rotated and discarded</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_certconfig">v1.CertConfig</a></p>
 </div></div></td>
 </tr>
 </tbody>
