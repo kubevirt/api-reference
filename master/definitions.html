@@ -530,6 +530,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_firmware">v1.Firmware</a></li>
 <li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
 <li><a href="#_v1_gpu">v1.GPU</a></li>
+<li><a href="#_v1_guestagentcommandinfo">v1.GuestAgentCommandInfo</a></li>
 <li><a href="#_v1_hpettimer">v1.HPETTimer</a></li>
 <li><a href="#_v1_hostdevice">v1.HostDevice</a></li>
 <li><a href="#_v1_hostdisk">v1.HostDisk</a></li>
@@ -6487,6 +6488,44 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_guestagentcommandinfo">v1.GuestAgentCommandInfo</h3>
+<div class="paragraph">
+<p>List of commands that QEMU guest agent supports</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>enabled</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_hpettimer">v1.HPETTimer</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -7277,12 +7316,14 @@ The sign will be omitted unless the number is negative.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -7292,6 +7333,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>cpuModel</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -7301,6 +7343,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>cpuRequest</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a></p>
 </div></div></td>
@@ -7310,6 +7353,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>developerConfiguration</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_developerconfiguration">v1.DeveloperConfiguration</a></p>
 </div></div></td>
@@ -7319,6 +7363,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>emulatedMachines</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; string &gt; array</p>
 </div></div></td>
@@ -7328,6 +7373,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>imagePullPolicy</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -7337,6 +7383,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>machineType</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -7346,6 +7393,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>memBalloonStatsPeriod</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int64)</p>
 </div></div></td>
@@ -7355,6 +7403,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>migrations</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_migrationconfiguration">v1.MigrationConfiguration</a></p>
 </div></div></td>
@@ -7364,6 +7413,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>minCPUModel</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -7373,6 +7423,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>network</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_networkconfiguration">v1.NetworkConfiguration</a></p>
 </div></div></td>
@@ -7382,6 +7433,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>obsoleteCPUModels</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; string, boolean &gt; map</p>
 </div></div></td>
@@ -7391,6 +7443,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>ovmfPath</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -7400,6 +7453,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>permittedHostDevices</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_permittedhostdevices">v1.PermittedHostDevices</a></p>
 </div></div></td>
@@ -7409,6 +7463,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>selinuxLauncherType</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -7418,6 +7473,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>smbios</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_smbiosconfiguration">v1.SMBiosConfiguration</a></p>
 </div></div></td>
@@ -7426,6 +7482,9 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>supportedGuestAgentVersions</strong><br>
 <em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>deprecated</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -10184,6 +10243,18 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_virtualmachineinstanceguestosinfo">v1.VirtualMachineInstanceGuestOSInfo</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>supportedCommands</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Return command list the guest agent supports</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1_guestagentcommandinfo">v1.GuestAgentCommandInfo</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
