@@ -488,6 +488,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_accesscredentialsecretsource">v1.AccessCredentialSecretSource</a></li>
 <li><a href="#_v1_addvolumeoptions">v1.AddVolumeOptions</a></li>
 <li><a href="#_v1_bios">v1.BIOS</a></li>
+<li><a href="#_v1_blocksize">v1.BlockSize</a></li>
 <li><a href="#_v1_bootloader">v1.Bootloader</a></li>
 <li><a href="#_v1_cdromtarget">v1.CDRomTarget</a></li>
 <li><a href="#_v1_cpu">v1.CPU</a></li>
@@ -502,6 +503,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_configdrivesshpublickeyaccesscredentialpropagation">v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation</a></li>
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
 <li><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></li>
+<li><a href="#_v1_customblocksize">v1.CustomBlockSize</a></li>
 <li><a href="#_v1_customizecomponents">v1.CustomizeComponents</a></li>
 <li><a href="#_v1_customizecomponentspatch">v1.CustomizeComponentsPatch</a></li>
 <li><a href="#_v1_dhcpoptions">v1.DHCPOptions</a></li>
@@ -3923,6 +3925,44 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_blocksize">v1.BlockSize</h3>
+<div class="paragraph">
+<p>BlockSize provides the option to change the block size presented to the VM for a disk. Only one of its members may be specified.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>custom</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_customblocksize">v1.CustomBlockSize</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>matchVolume</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_featurestate">v1.FeatureState</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_bootloader">v1.Bootloader</h3>
 <div class="paragraph">
 <p>Represents the firmware blob used to assist in the domain creation process. Used for setting the QEMU BIOS file path for the libvirt domain.</p>
@@ -4732,6 +4772,44 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_customblocksize">v1.CustomBlockSize</h3>
+<div class="paragraph">
+<p>CustomBlockSize represents the desired logical and physical block size for a VM disk.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>logical</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>physical</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_customizecomponents">v1.CustomizeComponents</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -5350,6 +5428,18 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>blockSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>If specified, the virtual disk will be presented with the given block sizes.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_blocksize">v1.BlockSize</a></p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>bootOrder</strong><br>
