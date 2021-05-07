@@ -544,7 +544,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1vm-addvolume">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/addvolume</a></li>
 <li><a href="#_v1migrate">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/migrate</a></li>
 <li><a href="#_v1vm-removevolume">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/removevolume</a></li>
-<li><a href="#_v1rename">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/rename</a></li>
 <li><a href="#_v1restart">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/restart</a></li>
 <li><a href="#_v1start">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/start</a></li>
 <li><a href="#_v1stop">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/stop</a></li>
@@ -564,7 +563,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha3vm-addvolume">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/addvolume</a></li>
 <li><a href="#_v1alpha3migrate">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/migrate</a></li>
 <li><a href="#_v1alpha3vm-removevolume">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/removevolume</a></li>
-<li><a href="#_v1alpha3rename">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/rename</a></li>
 <li><a href="#_v1alpha3restart">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/restart</a></li>
 <li><a href="#_v1alpha3start">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/start</a></li>
 <li><a href="#_v1alpha3stop">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/stop</a></li>
@@ -19118,149 +19116,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_v1rename">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/rename</h3>
-<div class="sect3">
-<h4 id="_description_113">Description</h4>
-<div class="paragraph">
-<p>Rename a stopped VirtualMachine object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_102">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Name of the resource</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>namespace</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Object name and auth scope, such as for teams and projects</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_113">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>202</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Accepted</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>400</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Bad Request</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>No Content</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>404</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Not Found</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_v1restart">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/restart</h3>
 <div class="sect3">
-<h4 id="_description_114">Description</h4>
+<h4 id="_description_113">Description</h4>
 <div class="paragraph">
 <p>Restart a VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_103">Parameters</h4>
+<h4 id="_parameters_102">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -19318,6 +19182,129 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="definitions.html#_v1_restartoptions">v1.RestartOptions</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_113">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>400</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Bad Request</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>No Content</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>404</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Not Found</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1start">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/start</h3>
+<div class="sect3">
+<h4 id="_description_114">Description</h4>
+<div class="paragraph">
+<p>Start a VirtualMachine object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_103">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name of the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -19388,11 +19375,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_v1start">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/start</h3>
+<h3 id="_v1stop">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/stop</h3>
 <div class="sect3">
 <h4 id="_description_115">Description</h4>
 <div class="paragraph">
-<p>Start a VirtualMachine object.</p>
+<p>Stop a VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -19511,132 +19498,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_v1stop">PUT /apis/subresources.kubevirt.io/v1/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/stop</h3>
-<div class="sect3">
-<h4 id="_description_116">Description</h4>
-<div class="paragraph">
-<p>Stop a VirtualMachine object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_105">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Name of the resource</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>namespace</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Object name and auth scope, such as for teams and projects</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_116">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>400</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Bad Request</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>No Content</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>404</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Not Found</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_v1version">GET /apis/subresources.kubevirt.io/v1/version</h3>
 <div class="sect3">
-<h4 id="_responses_117">Responses</h4>
+<h4 id="_responses_116">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -19679,13 +19543,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3getapisubresources">GET /apis/subresources.kubevirt.io/v1alpha3/</h3>
 <div class="sect3">
-<h4 id="_description_117">Description</h4>
+<h4 id="_description_116">Description</h4>
 <div class="paragraph">
 <p>Get a KubeVirt API resources</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_118">Responses</h4>
+<h4 id="_responses_117">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -19750,13 +19614,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3checkhealth">GET /apis/subresources.kubevirt.io/v1alpha3/healthz</h3>
 <div class="sect3">
-<h4 id="_description_118">Description</h4>
+<h4 id="_description_117">Description</h4>
 <div class="paragraph">
 <p>Health endpoint</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_119">Responses</h4>
+<h4 id="_responses_118">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -19831,13 +19695,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3vmi-addvolume">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/addvolume</h3>
 <div class="sect3">
-<h4 id="_description_119">Description</h4>
+<h4 id="_description_118">Description</h4>
 <div class="paragraph">
 <p>Add a volume and disk to a running Virtual Machine Instance</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_106">Parameters</h4>
+<h4 id="_parameters_105">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -19901,7 +19765,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_120">Responses</h4>
+<h4 id="_responses_119">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -19956,13 +19820,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3console">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/console</h3>
 <div class="sect3">
-<h4 id="_description_120">Description</h4>
+<h4 id="_description_119">Description</h4>
 <div class="paragraph">
 <p>Open a websocket connection to a serial console on the specified VirtualMachineInstance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_107">Parameters</h4>
+<h4 id="_parameters_106">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -20013,7 +19877,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_121">Responses</h4>
+<h4 id="_responses_120">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -20046,13 +19910,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3filesystemlist">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/filesystemlist</h3>
 <div class="sect3">
-<h4 id="_description_121">Description</h4>
+<h4 id="_description_120">Description</h4>
 <div class="paragraph">
 <p>Get list of active filesystems on guest machine via guest agent</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_122">Responses</h4>
+<h4 id="_responses_121">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -20116,9 +19980,130 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3guestosinfo">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/guestosinfo</h3>
 <div class="sect3">
-<h4 id="_description_122">Description</h4>
+<h4 id="_description_121">Description</h4>
 <div class="paragraph">
 <p>Get guest agent os information</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_107">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name of the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_122">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_virtualmachineinstanceguestagentinfo">v1.VirtualMachineInstanceGuestAgentInfo</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>No Content</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_consumes_43">Consumes</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_produces_107">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha3pause">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/pause</h3>
+<div class="sect3">
+<h4 id="_description_122">Description</h4>
+<div class="paragraph">
+<p>Pause a VirtualMachineInstance object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -20196,127 +20181,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1_virtualmachineinstanceguestagentinfo">v1.VirtualMachineInstanceGuestAgentInfo</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>No Content</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_consumes_43">Consumes</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_produces_107">Produces</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>application/json</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_v1alpha3pause">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/pause</h3>
-<div class="sect3">
-<h4 id="_description_123">Description</h4>
-<div class="paragraph">
-<p>Pause a VirtualMachineInstance object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_109">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Name of the resource</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>namespace</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Object name and auth scope, such as for teams and projects</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_124">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -20360,13 +20224,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3vmi-removevolume">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/removevolume</h3>
 <div class="sect3">
-<h4 id="_description_124">Description</h4>
+<h4 id="_description_123">Description</h4>
 <div class="paragraph">
 <p>Removes a volume and disk from a running Virtual Machine Instance</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_110">Parameters</h4>
+<h4 id="_parameters_109">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -20430,7 +20294,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_125">Responses</h4>
+<h4 id="_responses_124">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -20485,9 +20349,99 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3test">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/test</h3>
 <div class="sect3">
-<h4 id="_description_125">Description</h4>
+<h4 id="_description_124">Description</h4>
 <div class="paragraph">
 <p>Test endpoint verifying apiserver connectivity.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_110">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name of the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_125">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>No Content</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha3unpause">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/unpause</h3>
+<div class="sect3">
+<h4 id="_description_125">Description</h4>
+<div class="paragraph">
+<p>Unpause a VirtualMachineInstance object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -20559,96 +20513,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>No Content</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_v1alpha3unpause">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/unpause</h3>
-<div class="sect3">
-<h4 id="_description_126">Description</h4>
-<div class="paragraph">
-<p>Unpause a VirtualMachineInstance object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_112">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Name of the resource</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>namespace</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Object name and auth scope, such as for teams and projects</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_127">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>200</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
@@ -20698,13 +20562,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3userlist">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/userlist</h3>
 <div class="sect3">
-<h4 id="_description_127">Description</h4>
+<h4 id="_description_126">Description</h4>
 <div class="paragraph">
 <p>Get list of active users via guest agent</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_128">Responses</h4>
+<h4 id="_responses_127">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -20768,13 +20632,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3vnc">GET /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachineinstances/{name:[a-z0-9][a-z0-9\-]</strong>}/vnc</h3>
 <div class="sect3">
-<h4 id="_description_128">Description</h4>
+<h4 id="_description_127">Description</h4>
 <div class="paragraph">
 <p>Open a websocket connection to connect to VNC on the specified VirtualMachineInstance.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_113">Parameters</h4>
+<h4 id="_parameters_112">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -20825,7 +20689,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_129">Responses</h4>
+<h4 id="_responses_128">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -20858,13 +20722,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3vm-addvolume">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/addvolume</h3>
 <div class="sect3">
-<h4 id="_description_129">Description</h4>
+<h4 id="_description_128">Description</h4>
 <div class="paragraph">
 <p>Add a volume and disk to a running Virtual Machine.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_114">Parameters</h4>
+<h4 id="_parameters_113">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -20928,7 +20792,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_130">Responses</h4>
+<h4 id="_responses_129">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -20983,13 +20847,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3migrate">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/migrate</h3>
 <div class="sect3">
-<h4 id="_description_130">Description</h4>
+<h4 id="_description_129">Description</h4>
 <div class="paragraph">
 <p>Migrate a running VirtualMachine to another node.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_115">Parameters</h4>
+<h4 id="_parameters_114">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -21040,7 +20904,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_131">Responses</h4>
+<h4 id="_responses_130">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -21106,13 +20970,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_v1alpha3vm-removevolume">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/removevolume</h3>
 <div class="sect3">
-<h4 id="_description_131">Description</h4>
+<h4 id="_description_130">Description</h4>
 <div class="paragraph">
 <p>Removes a volume and disk from a running Virtual Machine.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_parameters_116">Parameters</h4>
+<h4 id="_parameters_115">Parameters</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 11.1111%;">
@@ -21176,7 +21040,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect3">
-<h4 id="_responses_132">Responses</h4>
+<h4 id="_responses_131">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -21229,11 +21093,147 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha3rename">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/rename</h3>
+<h3 id="_v1alpha3restart">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/restart</h3>
+<div class="sect3">
+<h4 id="_description_131">Description</h4>
+<div class="paragraph">
+<p>Restart a VirtualMachine object.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_parameters_116">Parameters</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 11.1111%;">
+<col style="width: 16.6666%;">
+<col style="width: 50%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Type</th>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Name of the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Path</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Object name and auth scope, such as for teams and projects</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>Body</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>body</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="definitions.html#_v1_restartoptions">v1.RestartOptions</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_responses_132">Responses</h4>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>400</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Bad Request</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>No Content</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>404</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Not Found</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha3start">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/start</h3>
 <div class="sect3">
 <h4 id="_description_132">Description</h4>
 <div class="paragraph">
-<p>Rename a stopped VirtualMachine object.</p>
+<p>Start a VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -21316,17 +21316,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>202</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Accepted</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>400</strong></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
@@ -21363,11 +21352,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha3restart">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/restart</h3>
+<h3 id="_v1alpha3stop">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/stop</h3>
 <div class="sect3">
 <h4 id="_description_133">Description</h4>
 <div class="paragraph">
-<p>Restart a VirtualMachine object.</p>
+<p>Stop a VirtualMachine object.</p>
 </div>
 </div>
 <div class="sect3">
@@ -21416,19 +21405,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Body</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>body</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><a href="definitions.html#_v1_restartoptions">v1.RestartOptions</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -21499,255 +21475,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha3start">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/start</h3>
-<div class="sect3">
-<h4 id="_description_134">Description</h4>
-<div class="paragraph">
-<p>Start a VirtualMachine object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_119">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Name of the resource</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>namespace</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Object name and auth scope, such as for teams and projects</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_135">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>400</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Bad Request</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>No Content</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>404</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Not Found</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_v1alpha3stop">PUT /apis/subresources.kubevirt.io/v1alpha3/namespaces/{namespace:[a-z0-9]<strong class="a-z0-9\-">}/virtualmachines/{name:[a-z0-9][a-z0-9\-]</strong>}/stop</h3>
-<div class="sect3">
-<h4 id="_description_135">Description</h4>
-<div class="paragraph">
-<p>Stop a VirtualMachine object.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_parameters_120">Parameters</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 11.1111%;">
-<col style="width: 16.6666%;">
-<col style="width: 50%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Type</th>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Name of the resource</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>Path</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>namespace</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Object name and auth scope, such as for teams and projects</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_responses_136">Responses</h4>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 10%;">
-<col style="width: 70%;">
-<col style="width: 20%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">HTTP Code</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>200</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>OK</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>400</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Bad Request</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>401</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Unauthorized</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>No Content</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p><strong>404</strong></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Not Found</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<div class="sect2">
 <h3 id="_v1alpha3version">GET /apis/subresources.kubevirt.io/v1alpha3/version</h3>
 <div class="sect3">
-<h4 id="_responses_137">Responses</h4>
+<h4 id="_responses_135">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -21790,13 +21520,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_func1">GET /healthz</h3>
 <div class="sect3">
-<h4 id="_description_136">Description</h4>
+<h4 id="_description_134">Description</h4>
 <div class="paragraph">
 <p>Health endpoint</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_138">Responses</h4>
+<h4 id="_responses_136">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
@@ -21829,7 +21559,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_func7">GET /openapi/v2</h3>
 <div class="sect3">
-<h4 id="_responses_139">Responses</h4>
+<h4 id="_responses_137">Responses</h4>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 10%;">
