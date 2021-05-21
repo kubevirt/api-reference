@@ -516,6 +516,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_disktarget">v1.DiskTarget</a></li>
 <li><a href="#_v1_domainspec">v1.DomainSpec</a></li>
 <li><a href="#_v1_downwardapivolumesource">v1.DownwardAPIVolumeSource</a></li>
+<li><a href="#_v1_downwardmetricsvolumesource">v1.DownwardMetricsVolumeSource</a></li>
 <li><a href="#_v1_efi">v1.EFI</a></li>
 <li><a href="#_v1_emptydisksource">v1.EmptyDiskSource</a></li>
 <li><a href="#_v1_ephemeralvolumesource">v1.EphemeralVolumeSource</a></li>
@@ -5737,6 +5738,15 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_downwardmetricsvolumesource">v1.DownwardMetricsVolumeSource</h3>
+<div class="paragraph">
+<p>DownwardMetricsVolumeSource adds a very small disk to VMIs which contains a limited view of host and guest metrics. The disk content is compatible with vhostmd (<a href="https://github.com/vhostmd/vhostmd" class="bare">https://github.com/vhostmd/vhostmd</a>) and vm-dump-metrics.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_efi">v1.EFI</h3>
@@ -12668,6 +12678,18 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_v1_downwardapivolumesource">v1.DownwardAPIVolumeSource</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>downwardMetrics</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>DownwardMetrics adds a very small disk to VMIs which contains a limited view of host and guest metrics. The disk content is compatible with vhostmd (<a href="https://github.com/vhostmd/vhostmd" class="bare">https://github.com/vhostmd/vhostmd</a>) and vm-dump-metrics.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_v1_downwardmetricsvolumesource">v1.DownwardMetricsVolumeSource</a></p>
 </div></div></td>
 </tr>
 <tr>
