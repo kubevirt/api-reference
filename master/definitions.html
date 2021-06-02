@@ -435,6 +435,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#_k8s_io_api_core_v1_affinity">k8s.io.api.core.v1.Affinity</a></li>
 <li><a href="#_k8s_io_api_core_v1_downwardapivolumefile">k8s.io.api.core.v1.DownwardAPIVolumeFile</a></li>
+<li><a href="#_k8s_io_api_core_v1_execaction">k8s.io.api.core.v1.ExecAction</a></li>
 <li><a href="#_k8s_io_api_core_v1_httpgetaction">k8s.io.api.core.v1.HTTPGetAction</a></li>
 <li><a href="#_k8s_io_api_core_v1_httpheader">k8s.io.api.core.v1.HTTPHeader</a></li>
 <li><a href="#_k8s_io_api_core_v1_localobjectreference">k8s.io.api.core.v1.LocalObjectReference</a></li>
@@ -811,6 +812,40 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><a href="#_k8s_io_api_core_v1_resourcefieldselector">k8s.io.api.core.v1.ResourceFieldSelector</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_k8s_io_api_core_v1_execaction">k8s.io.api.core.v1.ExecAction</h3>
+<div class="paragraph">
+<p>ExecAction describes a "run in container" action.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>command</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>Command is the command line to execute inside the container, the working directory for the command is root ('/') in the container&#8217;s filesystem. The command is simply exec&#8217;d, it is not run inside a shell, so traditional shell instructions ('|', etc) won&#8217;t work. To use a shell, you need to explicitly call out to that shell. Exit status of 0 is treated as live/healthy and non-zero is unhealthy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -9141,6 +9176,18 @@ The sign will be omitted unless the number is negative.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>exec</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>One and only one of the following should be specified. Exec specifies the action to take, it will be executed on the guest through the qemu-guest-agent. If the guest agent is not available, this probe will fail.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><a href="#_k8s_io_api_core_v1_execaction">k8s.io.api.core.v1.ExecAction</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p><strong>failureThreshold</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -9217,7 +9264,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
-<p>Number of seconds after which the probe times out. Defaults to 1 second. Minimum value is 1. More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a></p>
+<p>Number of seconds after which the probe times out. For exec probes the timeout fails the probe but does not terminate the command running on the guest. This means a blocking command can result in an increasing load on the guest. A small buffer will be added to the resulting workload exec probe to compensate for delays caused by the qemu guest exec mechanism. Defaults to 1 second. Minimum value is 1. More info: <a href="https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes" class="bare">https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle#container-probes</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>integer (int32)</p>
