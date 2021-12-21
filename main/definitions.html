@@ -581,6 +581,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_numaguestmappingpassthrough">v1.NUMAGuestMappingPassthrough</a></li>
 <li><a href="#_v1_network">v1.Network</a></li>
 <li><a href="#_v1_networkconfiguration">v1.NetworkConfiguration</a></li>
+<li><a href="#_v1_nodemediateddevicetypesconfig">v1.NodeMediatedDeviceTypesConfig</a></li>
 <li><a href="#_v1_nodeplacement">v1.NodePlacement</a></li>
 <li><a href="#_v1_pittimer">v1.PITTimer</a></li>
 <li><a href="#_v1_pauseoptions">v1.PauseOptions</a></li>
@@ -8949,6 +8950,15 @@ The sign will be omitted unless the number is negative.</p>
 <p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>nodeMediatedDeviceTypes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; <a href="#_v1_nodemediateddevicetypesconfig">v1.NodeMediatedDeviceTypesConfig</a> &gt; array</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -9404,6 +9414,50 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div><div class="paragraph">
 <p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_nodemediateddevicetypesconfig">v1.NodeMediatedDeviceTypesConfig</h3>
+<div class="paragraph">
+<p>NodeMediatedDeviceTypesConfig holds inforamtion about MDEV types to be defined in a specifc node that matches the NodeSelector field.</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>mediatedDevicesTypes</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p><strong>nodeSelector</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>NodeSelector is a selector which must be true for the vmi to fit on a node. Selector which must match a node&#8217;s labels for the vmi to be scheduled on that node. More info: <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/" class="bare">https://kubernetes.io/docs/concepts/configuration/assign-pod-node/</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
 </div></div></td>
 </tr>
 </tbody>
