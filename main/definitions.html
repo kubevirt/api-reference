@@ -546,7 +546,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_firmware">v1.Firmware</a></li>
 <li><a href="#_v1_flags">v1.Flags</a></li>
 <li><a href="#_v1_flavormatcher">v1.FlavorMatcher</a></li>
-<li><a href="#_v1_floppytarget">v1.FloppyTarget</a></li>
 <li><a href="#_v1_freezeunfreezetimeout">v1.FreezeUnfreezeTimeout</a></li>
 <li><a href="#_v1_gpu">v1.GPU</a></li>
 <li><a href="#_v1_generationstatus">v1.GenerationStatus</a></li>
@@ -5481,7 +5480,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Disks describes disks, cdroms, floppy and luns which are connected to the vmi.</p>
+<p>Disks describes disks, cdroms and luns which are connected to the vmi.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1_disk">v1.Disk</a> &gt; array</p>
@@ -5696,18 +5695,6 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_disktarget">v1.DiskTarget</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>floppy</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Attach a volume as a floppy to the vmi.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_floppytarget">v1.FloppyTarget</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -6862,49 +6849,6 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Profile is the name of a custom profile in the flavor. If left empty, the default profile is used.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_v1_floppytarget">v1.FloppyTarget</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>readonly</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ReadOnly. Defaults to false.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>tray</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Tray indicates if the tray of the device is open or closed. Allowed values are "open" and "closed". Defaults to closed.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
