@@ -16206,6 +16206,21 @@ otherwise we will use the monitoring namespace.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>patches</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>If the target for the restore does not exist, it will be created. Patches holds JSON patches that would be applied to the target manifest before it&#8217;s created. Patches should fit the target&#8217;s Kind.</p>
+</div>
+<div class="paragraph">
+<p>Example for a patch: {"op": "replace", "path": "/metadata/name", "value": "new-vm-name"}</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>target</strong><br>
 <em>required</em></p>
 </div></div></td>
