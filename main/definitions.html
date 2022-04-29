@@ -686,6 +686,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_persistentvolumeclaim">v1alpha1.PersistentVolumeClaim</a></li>
 <li><a href="#_v1alpha1_selectors">v1alpha1.Selectors</a></li>
 <li><a href="#_v1alpha1_sourcespec">v1alpha1.SourceSpec</a></li>
+<li><a href="#_v1alpha1_virtualmachine">v1alpha1.VirtualMachine</a></li>
 <li><a href="#_v1alpha1_virtualmachineclusterflavor">v1alpha1.VirtualMachineClusterFlavor</a></li>
 <li><a href="#_v1alpha1_virtualmachineclusterflavorlist">v1alpha1.VirtualMachineClusterFlavorList</a></li>
 <li><a href="#_v1alpha1_virtualmachineflavor">v1alpha1.VirtualMachineFlavor</a></li>
@@ -15404,7 +15405,60 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_virtualmachine">v1.VirtualMachine</a></p>
+<p><a href="#_v1alpha1_virtualmachine">v1alpha1.VirtualMachine</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_virtualmachine">v1alpha1.VirtualMachine</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>metadata</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_objectmeta">k8s.io.apimachinery.pkg.apis.meta.v1.ObjectMeta</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>spec</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VirtualMachineSpec contains the VirtualMachine specification.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>status</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Status holds the current state of the controller and brief information about its associated VirtualMachineInstance</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_virtualmachinestatus">v1.VirtualMachineStatus</a></p>
 </div></div></td>
 </tr>
 </tbody>
