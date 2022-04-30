@@ -691,7 +691,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_virtualmachineclusterflavorlist">v1alpha1.VirtualMachineClusterFlavorList</a></li>
 <li><a href="#_v1alpha1_virtualmachineflavor">v1alpha1.VirtualMachineFlavor</a></li>
 <li><a href="#_v1alpha1_virtualmachineflavorlist">v1alpha1.VirtualMachineFlavorList</a></li>
-<li><a href="#_v1alpha1_virtualmachineflavorprofile">v1alpha1.VirtualMachineFlavorProfile</a></li>
+<li><a href="#_v1alpha1_virtualmachineflavorspec">v1alpha1.VirtualMachineFlavorSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachinepool">v1alpha1.VirtualMachinePool</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoollist">v1alpha1.VirtualMachinePoolList</a></li>
@@ -6851,18 +6851,6 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Name is the name of the VirtualMachineFlavor or VirtualMachineClusterFlavor</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>profile</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Profile is the name of a custom profile in the flavor. If left empty, the default profile is used.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -15519,12 +15507,14 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>profiles</strong><br>
+<p><strong>spec</strong><br>
 <em>required</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_v1alpha1_virtualmachineflavorprofile">v1alpha1.VirtualMachineFlavorProfile</a> &gt; array</p>
+<p>VirtualMachineFlavorSpec for the flavor</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachineflavorspec">v1alpha1.VirtualMachineFlavorSpec</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -15651,12 +15641,14 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>profiles</strong><br>
+<p><strong>spec</strong><br>
 <em>required</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_v1alpha1_virtualmachineflavorprofile">v1alpha1.VirtualMachineFlavorProfile</a> &gt; array</p>
+<p>VirtualMachineFlavorSpec for the flavor</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachineflavorspec">v1alpha1.VirtualMachineFlavorSpec</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -15729,20 +15721,18 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_virtualmachineflavorprofile">v1alpha1.VirtualMachineFlavorProfile</h3>
+<h3 id="_v1alpha1_virtualmachineflavorspec">v1alpha1.VirtualMachineFlavorSpec</h3>
 <div class="paragraph">
-<p>VirtualMachineFlavorProfile contains definitions that will be applied to VirtualMachine.</p>
+<p>VirtualMachineFlavorSpec</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -15752,33 +15742,8 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>cpu</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_cpu">v1.CPU</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>default</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Default specifies if this VirtualMachineFlavorProfile is the default for the VirtualMachineFlavor. Zero or one profile can be set to default.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name specifies the name of this custom profile.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
