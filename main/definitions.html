@@ -529,6 +529,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_disk">v1.Disk</a></li>
 <li><a href="#_v1_disktarget">v1.DiskTarget</a></li>
 <li><a href="#_v1_diskverification">v1.DiskVerification</a></li>
+<li><a href="#_v1_domainmemorydumpinfo">v1.DomainMemoryDumpInfo</a></li>
 <li><a href="#_v1_domainspec">v1.DomainSpec</a></li>
 <li><a href="#_v1_downwardapivolumesource">v1.DownwardAPIVolumeSource</a></li>
 <li><a href="#_v1_downwardmetricsvolumesource">v1.DownwardMetricsVolumeSource</a></li>
@@ -586,6 +587,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_mediateddevicesconfiguration">v1.MediatedDevicesConfiguration</a></li>
 <li><a href="#_v1_mediatedhostdevice">v1.MediatedHostDevice</a></li>
 <li><a href="#_v1_memory">v1.Memory</a></li>
+<li><a href="#_v1_memorydumpvolumesource">v1.MemoryDumpVolumeSource</a></li>
 <li><a href="#_v1_migrateoptions">v1.MigrateOptions</a></li>
 <li><a href="#_v1_migrationconfiguration">v1.MigrationConfiguration</a></li>
 <li><a href="#_v1_multusnetwork">v1.MultusNetwork</a></li>
@@ -670,6 +672,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancestatus">v1.VirtualMachineInstanceStatus</a></li>
 <li><a href="#_v1_virtualmachineinstancetemplatespec">v1.VirtualMachineInstanceTemplateSpec</a></li>
 <li><a href="#_v1_virtualmachinelist">v1.VirtualMachineList</a></li>
+<li><a href="#_v1_virtualmachinememorydumprequest">v1.VirtualMachineMemoryDumpRequest</a></li>
 <li><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></li>
 <li><a href="#_v1_virtualmachinestartfailure">v1.VirtualMachineStartFailure</a></li>
 <li><a href="#_v1_virtualmachinestatechangerequest">v1.VirtualMachineStateChangeRequest</a></li>
@@ -5932,6 +5935,76 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_domainmemorydumpinfo">v1.DomainMemoryDumpInfo</h3>
+<div class="paragraph">
+<p>DomainMemoryDumpInfo represents the memory dump information</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>claimName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ClaimName is the name of the pvc the memory was dumped to</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>endTimestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>EndTimestamp is the time when the memory dump completed</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>startTimestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>StartTimestamp is the time when the memory dump started</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>targetFileName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>TargetFileName is the name of the memory dump output</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_domainspec">v1.DomainSpec</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -9240,6 +9313,61 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_hugepages">v1.Hugepages</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_memorydumpvolumesource">v1.MemoryDumpVolumeSource</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>claimName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hotpluggable</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Hotpluggable indicates whether the volume can be hotplugged and hotunplugged.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>readOnly</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Will force the ReadOnly setting in VolumeMounts. Default false.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -14306,6 +14434,100 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachinememorydumprequest">v1.VirtualMachineMemoryDumpRequest</h3>
+<div class="paragraph">
+<p>VirtualMachineMemoryDumpRequest represent the memory dump request phase and info</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>claimName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ClaimName is the name of the pvc that will contain the memory dump</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>endTimestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>EndTimestamp represents the time the memory dump was completed</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>fileName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>FileName represents the name of the output file</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Message is a detailed message about failure of the memory dump</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>phase</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Phase represents the memory dump phase</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>startTimestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>StartTimestamp represents the time the memory dump started</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachinespec">v1.VirtualMachineSpec</h3>
 <div class="paragraph">
 <p>VirtualMachineSpec describes how the proper VirtualMachine should look like</p>
@@ -14542,6 +14764,18 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memoryDumpRequest</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>MemoryDumpRequest tracks memory dump request phase and info of getting a memory dump to the given pvc</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_virtualmachinememorydumprequest">v1.VirtualMachineMemoryDumpRequest</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14827,6 +15061,18 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memoryDump</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>MemoryDump is attached to the virt launcher and is populated with a memory dump of the vmi</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_memorydumpvolumesource">v1.MemoryDumpVolumeSource</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>name</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -14972,6 +15218,18 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_hotplugvolumestatus">v1.HotplugVolumeStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memoryDumpVolume</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>If the volume is memorydump volume, this will contain the memorydump info.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_domainmemorydumpinfo">v1.DomainMemoryDumpInfo</a></p>
 </div></div></td>
 </tr>
 <tr>
