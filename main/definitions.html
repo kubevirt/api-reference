@@ -655,6 +655,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancemigration">v1.VirtualMachineInstanceMigration</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationcondition">v1.VirtualMachineInstanceMigrationCondition</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationlist">v1.VirtualMachineInstanceMigrationList</a></li>
+<li><a href="#_v1_virtualmachineinstancemigrationphasetransitiontimestamp">v1.VirtualMachineInstanceMigrationPhaseTransitionTimestamp</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationspec">v1.VirtualMachineInstanceMigrationSpec</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationstate">v1.VirtualMachineInstanceMigrationState</a></li>
 <li><a href="#_v1_virtualmachineinstancemigrationstatus">v1.VirtualMachineInstanceMigrationStatus</a></li>
@@ -12888,6 +12889,52 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachineinstancemigrationphasetransitiontimestamp">v1.VirtualMachineInstanceMigrationPhaseTransitionTimestamp</h3>
+<div class="paragraph">
+<p>VirtualMachineInstanceMigrationPhaseTransitionTimestamp gives a timestamp in relation to when a phase is set on a vmi</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>phase</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Phase is the status of the VirtualMachineInstanceMigrationPhase in kubernetes world. It is not the VirtualMachineInstanceMigrationPhase status, but partially correlates to it.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>phaseTransitionTimestamp</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>PhaseTransitionTimestamp is the timestamp of when the phase change occurred</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachineinstancemigrationspec">v1.VirtualMachineInstanceMigrationSpec</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -13172,12 +13219,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -13187,6 +13236,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>conditions</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1_virtualmachineinstancemigrationcondition">v1.VirtualMachineInstanceMigrationCondition</a> &gt; array</p>
 </div></div></td>
@@ -13196,8 +13246,21 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>phase</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>phaseTransitionTimestamps</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>PhaseTransitionTimestamp is the timestamp of when the last phase change occurred</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1_virtualmachineinstancemigrationphasetransitiontimestamp">v1.VirtualMachineInstanceMigrationPhaseTransitionTimestamp</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
