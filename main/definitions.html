@@ -547,7 +547,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_filesystemvirtiofs">v1.FilesystemVirtiofs</a></li>
 <li><a href="#_v1_firmware">v1.Firmware</a></li>
 <li><a href="#_v1_flags">v1.Flags</a></li>
-<li><a href="#_v1_flavormatcher">v1.FlavorMatcher</a></li>
 <li><a href="#_v1_freezeunfreezetimeout">v1.FreezeUnfreezeTimeout</a></li>
 <li><a href="#_v1_gpu">v1.GPU</a></li>
 <li><a href="#_v1_generationstatus">v1.GenerationStatus</a></li>
@@ -562,6 +561,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_hypervtimer">v1.HypervTimer</a></li>
 <li><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></li>
 <li><a href="#_v1_input">v1.Input</a></li>
+<li><a href="#_v1_instancetypematcher">v1.InstancetypeMatcher</a></li>
 <li><a href="#_v1_interface">v1.Interface</a></li>
 <li><a href="#_v1_interfacebridge">v1.InterfaceBridge</a></li>
 <li><a href="#_v1_interfacemacvtap">v1.InterfaceMacvtap</a></li>
@@ -683,7 +683,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_volumesnapshotstatus">v1.VolumeSnapshotStatus</a></li>
 <li><a href="#_v1_volumestatus">v1.VolumeStatus</a></li>
 <li><a href="#_v1_watchdog">v1.Watchdog</a></li>
-<li><a href="#_v1alpha1_cpuflavor">v1alpha1.CPUFlavor</a></li>
+<li><a href="#_v1alpha1_cpuinstancetype">v1alpha1.CPUInstancetype</a></li>
 <li><a href="#_v1alpha1_cpupreferences">v1alpha1.CPUPreferences</a></li>
 <li><a href="#_v1alpha1_clockpreferences">v1alpha1.ClockPreferences</a></li>
 <li><a href="#_v1alpha1_condition">v1alpha1.Condition</a></li>
@@ -692,7 +692,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_featurepreferences">v1alpha1.FeaturePreferences</a></li>
 <li><a href="#_v1alpha1_firmwarepreferences">v1alpha1.FirmwarePreferences</a></li>
 <li><a href="#_v1alpha1_machinepreferences">v1alpha1.MachinePreferences</a></li>
-<li><a href="#_v1alpha1_memoryflavor">v1alpha1.MemoryFlavor</a></li>
+<li><a href="#_v1alpha1_memoryinstancetype">v1alpha1.MemoryInstancetype</a></li>
 <li><a href="#_v1alpha1_migrationpolicy">v1alpha1.MigrationPolicy</a></li>
 <li><a href="#_v1alpha1_migrationpolicylist">v1alpha1.MigrationPolicyList</a></li>
 <li><a href="#_v1alpha1_migrationpolicyspec">v1alpha1.MigrationPolicySpec</a></li>
@@ -705,8 +705,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_virtualmachineclonelist">v1alpha1.VirtualMachineCloneList</a></li>
 <li><a href="#_v1alpha1_virtualmachineclonespec">v1alpha1.VirtualMachineCloneSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachineclonestatus">v1alpha1.VirtualMachineCloneStatus</a></li>
-<li><a href="#_v1alpha1_virtualmachineclusterflavor">v1alpha1.VirtualMachineClusterFlavor</a></li>
-<li><a href="#_v1alpha1_virtualmachineclusterflavorlist">v1alpha1.VirtualMachineClusterFlavorList</a></li>
+<li><a href="#_v1alpha1_virtualmachineclusterinstancetype">v1alpha1.VirtualMachineClusterInstancetype</a></li>
+<li><a href="#_v1alpha1_virtualmachineclusterinstancetypelist">v1alpha1.VirtualMachineClusterInstancetypeList</a></li>
 <li><a href="#_v1alpha1_virtualmachineclusterpreference">v1alpha1.VirtualMachineClusterPreference</a></li>
 <li><a href="#_v1alpha1_virtualmachineclusterpreferencelist">v1alpha1.VirtualMachineClusterPreferenceList</a></li>
 <li><a href="#_v1alpha1_virtualmachineexport">v1alpha1.VirtualMachineExport</a></li>
@@ -717,9 +717,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_virtualmachineexportstatus">v1alpha1.VirtualMachineExportStatus</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportvolume">v1alpha1.VirtualMachineExportVolume</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportvolumeformat">v1alpha1.VirtualMachineExportVolumeFormat</a></li>
-<li><a href="#_v1alpha1_virtualmachineflavor">v1alpha1.VirtualMachineFlavor</a></li>
-<li><a href="#_v1alpha1_virtualmachineflavorlist">v1alpha1.VirtualMachineFlavorList</a></li>
-<li><a href="#_v1alpha1_virtualmachineflavorspec">v1alpha1.VirtualMachineFlavorSpec</a></li>
+<li><a href="#_v1alpha1_virtualmachineinstancetype">v1alpha1.VirtualMachineInstancetype</a></li>
+<li><a href="#_v1alpha1_virtualmachineinstancetypelist">v1alpha1.VirtualMachineInstancetypeList</a></li>
+<li><a href="#_v1alpha1_virtualmachineinstancetypespec">v1alpha1.VirtualMachineInstancetypeSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachinepool">v1alpha1.VirtualMachinePool</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoollist">v1alpha1.VirtualMachinePoolList</a></li>
@@ -6961,64 +6961,6 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_flavormatcher">v1.FlavorMatcher</h3>
-<div class="paragraph">
-<p>FlavorMatcher references a flavor that is used to fill fields in the VMI template.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>kind</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Kind specifies which flavor resource is referenced. Allowed values are: "VirtualMachineFlavor" and "VirtualMachineClusterFlavor". If not specified, "VirtualMachineClusterFlavor" is used by default.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name is the name of the VirtualMachineFlavor or VirtualMachineClusterFlavor</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>revisionName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachineFlavor or VirtualMachineClusterFlavor to be used. This is initially captured the first time the flavor is applied to the VirtualMachineInstance.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_freezeunfreezetimeout">v1.FreezeUnfreezeTimeout</h3>
 <div class="paragraph">
 <p>FreezeUnfreezeTimeout represent the time unfreeze will be triggered if guest was not unfrozen by unfreeze command</p>
@@ -7655,6 +7597,64 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Type indicated the type of input device. Supported values: tablet.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_instancetypematcher">v1.InstancetypeMatcher</h3>
+<div class="paragraph">
+<p>InstancetypeMatcher references a instancetype that is used to fill fields in the VMI template.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>kind</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Kind specifies which instancetype resource is referenced. Allowed values are: "VirtualMachineInstancetype" and "VirtualMachineClusterInstancetype". If not specified, "VirtualMachineClusterInstancetype" is used by default.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name is the name of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>revisionName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype to be used. This is initially captured the first time the instancetype is applied to the VirtualMachineInstance.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10366,7 +10366,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachinePreference or VirtualMachineClusterPreference to be used. This is initially captured the first time the flavor is applied to the VirtualMachineInstance.</p>
+<p>RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachinePreference or VirtualMachineClusterPreference to be used. This is initially captured the first time the instancetype is applied to the VirtualMachineInstance.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -14659,14 +14659,14 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>flavor</strong><br>
+<p><strong>instancetype</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>FlavorMatcher references a flavor that is used to fill fields in Template</p>
+<p>InstancetypeMatcher references a instancetype that is used to fill fields in Template</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_flavormatcher">v1.FlavorMatcher</a></p>
+<p><a href="#_v1_instancetypematcher">v1.InstancetypeMatcher</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -15465,12 +15465,12 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_cpuflavor">v1alpha1.CPUFlavor</h3>
+<h3 id="_v1alpha1_cpuinstancetype">v1alpha1.CPUInstancetype</h3>
 <div class="paragraph">
-<p>CPUFlavor contains the CPU related configuration of a given VirtualMachineFlavorSpec.</p>
+<p>CPUInstancetype contains the CPU related configuration of a given VirtualMachineInstancetypeSpec.</p>
 </div>
 <div class="paragraph">
-<p>Guest is a required attribute and defines the number of vCPUs to be exposed to the guest by the flavor.</p>
+<p>Guest is a required attribute and defines the number of vCPUs to be exposed to the guest by the instancetype.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -16229,12 +16229,12 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_memoryflavor">v1alpha1.MemoryFlavor</h3>
+<h3 id="_v1alpha1_memoryinstancetype">v1alpha1.MemoryInstancetype</h3>
 <div class="paragraph">
-<p>MemoryFlavor contains the Memory related configuration of a given VirtualMachineFlavorSpec.</p>
+<p>MemoryInstancetype contains the Memory related configuration of a given VirtualMachineInstancetypeSpec.</p>
 </div>
 <div class="paragraph">
-<p>Guest is a required attribute and defines the amount of RAM to be exposed to the guest by the flavor.</p>
+<p>Guest is a required attribute and defines the amount of RAM to be exposed to the guest by the instancetype.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -16946,9 +16946,9 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_virtualmachineclusterflavor">v1alpha1.VirtualMachineClusterFlavor</h3>
+<h3 id="_v1alpha1_virtualmachineclusterinstancetype">v1alpha1.VirtualMachineClusterInstancetype</h3>
 <div class="paragraph">
-<p>VirtualMachineClusterFlavor is a cluster scoped version of VirtualMachineFlavor resource.</p>
+<p>VirtualMachineClusterInstancetype is a cluster scoped version of VirtualMachineInstancetype resource.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -17004,19 +17004,19 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Required spec describing the flavor</p>
+<p>Required spec describing the instancetype</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineflavorspec">v1alpha1.VirtualMachineFlavorSpec</a></p>
+<p><a href="#_v1alpha1_virtualmachineinstancetypespec">v1alpha1.VirtualMachineInstancetypeSpec</a></p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_virtualmachineclusterflavorlist">v1alpha1.VirtualMachineClusterFlavorList</h3>
+<h3 id="_v1alpha1_virtualmachineclusterinstancetypelist">v1alpha1.VirtualMachineClusterInstancetypeList</h3>
 <div class="paragraph">
-<p>VirtualMachineClusterFlavorList is a list of VirtualMachineClusterFlavor resources.</p>
+<p>VirtualMachineClusterInstancetypeList is a list of VirtualMachineClusterInstancetype resources.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -17051,7 +17051,7 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_v1alpha1_virtualmachineclusterflavor">v1alpha1.VirtualMachineClusterFlavor</a> &gt; array</p>
+<p>&lt; <a href="#_v1alpha1_virtualmachineclusterinstancetype">v1alpha1.VirtualMachineClusterInstancetype</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -17638,9 +17638,9 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_virtualmachineflavor">v1alpha1.VirtualMachineFlavor</h3>
+<h3 id="_v1alpha1_virtualmachineinstancetype">v1alpha1.VirtualMachineInstancetype</h3>
 <div class="paragraph">
-<p>VirtualMachineFlavor resource contains quantitative and resource related VirtualMachine configuration that can be used by multiple VirtualMachine resources.</p>
+<p>VirtualMachineInstancetype resource contains quantitative and resource related VirtualMachine configuration that can be used by multiple VirtualMachine resources.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -17696,19 +17696,19 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Required spec describing the flavor</p>
+<p>Required spec describing the instancetype</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineflavorspec">v1alpha1.VirtualMachineFlavorSpec</a></p>
+<p><a href="#_v1alpha1_virtualmachineinstancetypespec">v1alpha1.VirtualMachineInstancetypeSpec</a></p>
 </div></div></td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_virtualmachineflavorlist">v1alpha1.VirtualMachineFlavorList</h3>
+<h3 id="_v1alpha1_virtualmachineinstancetypelist">v1alpha1.VirtualMachineInstancetypeList</h3>
 <div class="paragraph">
-<p>VirtualMachineFlavorList is a list of VirtualMachineFlavor resources.</p>
+<p>VirtualMachineInstancetypeList is a list of VirtualMachineInstancetype resources.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -17743,7 +17743,7 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_v1alpha1_virtualmachineflavor">v1alpha1.VirtualMachineFlavor</a> &gt; array</p>
+<p>&lt; <a href="#_v1alpha1_virtualmachineinstancetype">v1alpha1.VirtualMachineInstancetype</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -17772,12 +17772,12 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1alpha1_virtualmachineflavorspec">v1alpha1.VirtualMachineFlavorSpec</h3>
+<h3 id="_v1alpha1_virtualmachineinstancetypespec">v1alpha1.VirtualMachineInstancetypeSpec</h3>
 <div class="paragraph">
-<p>VirtualMachineFlavorSpec is a description of the VirtualMachineFlavor or VirtualMachineClusterFlavor.</p>
+<p>VirtualMachineInstancetypeSpec is a description of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype.</p>
 </div>
 <div class="paragraph">
-<p>CPU and Memory are required attributes with both requiring that their Guest attribute is defined, ensuring a number of vCPUs and amount of RAM is always provided by each flavor.</p>
+<p>CPU and Memory are required attributes with both requiring that their Guest attribute is defined, ensuring a number of vCPUs and amount of RAM is always provided by each instancetype.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -17799,10 +17799,10 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Required CPU related attributes of the flavor.</p>
+<p>Required CPU related attributes of the instancetype.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_cpuflavor">v1alpha1.CPUFlavor</a></p>
+<p><a href="#_v1alpha1_cpuinstancetype">v1alpha1.CPUInstancetype</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -17811,7 +17811,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally defines any GPU devices associated with the flavor.</p>
+<p>Optionally defines any GPU devices associated with the instancetype.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1_gpu">v1.GPU</a> &gt; array</p>
@@ -17823,7 +17823,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally defines any HostDevices associated with the flavor.</p>
+<p>Optionally defines any HostDevices associated with the instancetype.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1_hostdevice">v1.HostDevice</a> &gt; array</p>
@@ -17835,7 +17835,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally defines the IOThreadsPolicy to be used by the flavor.</p>
+<p>Optionally defines the IOThreadsPolicy to be used by the instancetype.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17847,7 +17847,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Optionally defines the LaunchSecurity to be used by the flavor.</p>
+<p>Optionally defines the LaunchSecurity to be used by the instancetype.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_launchsecurity">v1.LaunchSecurity</a></p>
@@ -17859,10 +17859,10 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Required Memory related attributes of the flavor.</p>
+<p>Required Memory related attributes of the instancetype.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_memoryflavor">v1alpha1.MemoryFlavor</a></p>
+<p><a href="#_v1alpha1_memoryinstancetype">v1alpha1.MemoryInstancetype</a></p>
 </div></div></td>
 </tr>
 </tbody>
