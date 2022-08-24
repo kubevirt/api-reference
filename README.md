@@ -16,6 +16,7 @@ Content of this repository is generated from OpenAPI specification of
 * [v0.52.0](https://kubevirt.github.io/api-reference/v0.52.0/index.html)
 * [v0.51.0](https://kubevirt.github.io/api-reference/v0.51.0/index.html)
 * [v0.50.0](https://kubevirt.github.io/api-reference/v0.50.0/index.html)
+* [v0.49.1](https://kubevirt.github.io/api-reference/v0.49.1/index.html)
 * [v0.49.0](https://kubevirt.github.io/api-reference/v0.49.0/index.html)
 * [v0.48.1](https://kubevirt.github.io/api-reference/v0.48.1/index.html)
 * [v0.48.0](https://kubevirt.github.io/api-reference/v0.48.0/index.html)
