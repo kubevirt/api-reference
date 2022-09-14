@@ -632,6 +632,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_stopoptions">v1.StopOptions</a></li>
 <li><a href="#_v1_synictimer">v1.SyNICTimer</a></li>
 <li><a href="#_v1_sysprepsource">v1.SysprepSource</a></li>
+<li><a href="#_v1_tlsconfiguration">v1.TLSConfiguration</a></li>
 <li><a href="#_v1_tpmdevice">v1.TPMDevice</a></li>
 <li><a href="#_v1_timer">v1.Timer</a></li>
 <li><a href="#_v1_tokenbucketratelimiter">v1.TokenBucketRateLimiter</a></li>
@@ -8541,6 +8542,16 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tlsConfiguration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_tlsconfiguration">v1.TLSConfiguration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>virtualMachineInstancesPerNode</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -11559,6 +11570,56 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_api_core_v1_localobjectreference">k8s.io.api.core.v1.LocalObjectReference</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_tlsconfiguration">v1.TLSConfiguration</h3>
+<div class="paragraph">
+<p>TLSConfiguration holds TLS options</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>ciphers</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>minTLSVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>MinTLSVersion is a way to specify the minimum protocol version that is acceptable for TLS connections. Protocol versions are based on the following most common TLS configurations:</p>
+</div>
+<div class="paragraph">
+<p><a href="https://ssl-config.mozilla.org/" class="bare">https://ssl-config.mozilla.org/</a></p>
+</div>
+<div class="paragraph">
+<p>Note that SSLv3.0 is not a supported protocol version due to well known vulnerabilities such as POODLE: <a href="https://en.wikipedia.org/wiki/POODLE" class="bare">https://en.wikipedia.org/wiki/POODLE</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
