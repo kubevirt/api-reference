@@ -694,6 +694,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_migrationpolicystatus">v1alpha1.MigrationPolicyStatus</a></li>
 <li><a href="#_v1alpha1_persistentvolumeclaim">v1alpha1.PersistentVolumeClaim</a></li>
 <li><a href="#_v1alpha1_selectors">v1alpha1.Selectors</a></li>
+<li><a href="#_v1alpha1_snapshotvolumeslists">v1alpha1.SnapshotVolumesLists</a></li>
 <li><a href="#_v1alpha1_sourcespec">v1alpha1.SourceSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachine">v1alpha1.VirtualMachine</a></li>
 <li><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></li>
@@ -16164,6 +16165,44 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_snapshotvolumeslists">v1alpha1.SnapshotVolumesLists</h3>
+<div class="paragraph">
+<p>SnapshotVolumesLists includes the list of volumes which were included in the snapshot and volumes which were excluded from the snapshot</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>excludedVolumes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>includedVolumes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_sourcespec">v1alpha1.SourceSpec</h3>
 <div class="paragraph">
 <p>SourceSpec contains the appropriate spec for the resource being snapshotted</p>
@@ -18092,6 +18131,15 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>snapshotVolumes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_snapshotvolumeslists">v1alpha1.SnapshotVolumesLists</a></p>
 </div></div></td>
 </tr>
 <tr>
