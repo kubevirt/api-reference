@@ -748,6 +748,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha2_virtualmachinepreference">v1alpha2.VirtualMachinePreference</a></li>
 <li><a href="#_v1alpha2_virtualmachinepreferencelist">v1alpha2.VirtualMachinePreferenceList</a></li>
 <li><a href="#_v1alpha2_virtualmachinepreferencespec">v1alpha2.VirtualMachinePreferenceSpec</a></li>
+<li><a href="#_v1alpha2_volumepreferences">v1alpha2.VolumePreferences</a></li>
 <li><a href="#_v1beta1_datavolumeblankimage">v1beta1.DataVolumeBlankImage</a></li>
 <li><a href="#_v1beta1_datavolumecheckpoint">v1beta1.DataVolumeCheckpoint</a></li>
 <li><a href="#_v1beta1_datavolumesource">v1beta1.DataVolumeSource</a></li>
@@ -19816,6 +19817,49 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1alpha2_machinepreferences">v1alpha2.MachinePreferences</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Volumes optionally defines preferences associated with the Volumes attribute of a VirtualMachineInstace DomainSpec</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha2_volumepreferences">v1alpha2.VolumePreferences</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha2_volumepreferences">v1alpha2.VolumePreferences</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>preferredStorageClassName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>PreffereedStorageClassName optionally defines the preferred storageClass</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
