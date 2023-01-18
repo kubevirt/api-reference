@@ -705,6 +705,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_virtualmachineexportlink">v1alpha1.VirtualMachineExportLink</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportlinks">v1alpha1.VirtualMachineExportLinks</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportlist">v1alpha1.VirtualMachineExportList</a></li>
+<li><a href="#_v1alpha1_virtualmachineexportmanifest">v1alpha1.VirtualMachineExportManifest</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportspec">v1alpha1.VirtualMachineExportSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportstatus">v1alpha1.VirtualMachineExportStatus</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportvolume">v1alpha1.VirtualMachineExportVolume</a></li>
@@ -16728,6 +16729,18 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>manifests</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Manifests is a list of available manifests for the export</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1alpha1_virtualmachineexportmanifest">v1alpha1.VirtualMachineExportManifest</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>volumes</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -16840,6 +16853,52 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_listmeta">k8s.io.apimachinery.pkg.apis.meta.v1.ListMeta</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_virtualmachineexportmanifest">v1alpha1.VirtualMachineExportManifest</h3>
+<div class="paragraph">
+<p>VirtualMachineExportManifest contains the type and URL of the exported manifest</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>type</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Type is the type of manifest returned</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>url</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Url is the url of the endpoint that returns the manifest</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
