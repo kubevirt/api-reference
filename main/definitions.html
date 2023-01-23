@@ -518,6 +518,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
 <li><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></li>
 <li><a href="#_v1_customblocksize">v1.CustomBlockSize</a></li>
+<li><a href="#_v1_customprofile">v1.CustomProfile</a></li>
 <li><a href="#_v1_customizecomponents">v1.CustomizeComponents</a></li>
 <li><a href="#_v1_customizecomponentspatch">v1.CustomizeComponentsPatch</a></li>
 <li><a href="#_v1_dhcpoptions">v1.DHCPOptions</a></li>
@@ -625,6 +626,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_sshpublickeyaccesscredential">v1.SSHPublicKeyAccessCredential</a></li>
 <li><a href="#_v1_sshpublickeyaccesscredentialpropagationmethod">v1.SSHPublicKeyAccessCredentialPropagationMethod</a></li>
 <li><a href="#_v1_sshpublickeyaccesscredentialsource">v1.SSHPublicKeyAccessCredentialSource</a></li>
+<li><a href="#_v1_seccompconfiguration">v1.SeccompConfiguration</a></li>
 <li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
 <li><a href="#_v1_serviceaccountvolumesource">v1.ServiceAccountVolumeSource</a></li>
 <li><a href="#_v1_sounddevice">v1.SoundDevice</a></li>
@@ -667,6 +669,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancepreset">v1.VirtualMachineInstancePreset</a></li>
 <li><a href="#_v1_virtualmachineinstancepresetlist">v1.VirtualMachineInstancePresetList</a></li>
 <li><a href="#_v1_virtualmachineinstancepresetspec">v1.VirtualMachineInstancePresetSpec</a></li>
+<li><a href="#_v1_virtualmachineinstanceprofile">v1.VirtualMachineInstanceProfile</a></li>
 <li><a href="#_v1_virtualmachineinstancereplicaset">v1.VirtualMachineInstanceReplicaSet</a></li>
 <li><a href="#_v1_virtualmachineinstancereplicasetcondition">v1.VirtualMachineInstanceReplicaSetCondition</a></li>
 <li><a href="#_v1_virtualmachineinstancereplicasetlist">v1.VirtualMachineInstanceReplicaSetList</a></li>
@@ -5071,6 +5074,41 @@ The sign will be omitted unless the number is negative.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_customprofile">v1.CustomProfile</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>localhostProfile</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>runtimeDefaultProfile</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_customizecomponents">v1.CustomizeComponents</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -8549,6 +8587,16 @@ The sign will be omitted unless the number is negative.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>seccompConfiguration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_seccompconfiguration">v1.SeccompConfiguration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>selinuxLauncherType</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -11343,6 +11391,40 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_seccompconfiguration">v1.SeccompConfiguration</h3>
+<div class="paragraph">
+<p>SeccompConfiguration holds Seccomp configuration for Kubevirt components</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>virtualMachineInstanceProfile</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VirtualMachineInstanceProfile defines what profile should be used with virt-launcher. Defaults to none</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_virtualmachineinstanceprofile">v1.VirtualMachineInstanceProfile</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_secretvolumesource">v1.SecretVolumeSource</h3>
 <div class="paragraph">
 <p>SecretVolumeSource adapts a Secret into a volume.</p>
@@ -13923,6 +14005,37 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_labelselector">k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachineinstanceprofile">v1.VirtualMachineInstanceProfile</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>customProfile</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CustomProfile allows to request arbitrary profile for virt-launcher</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_customprofile">v1.CustomProfile</a></p>
 </div></div></td>
 </tr>
 </tbody>
