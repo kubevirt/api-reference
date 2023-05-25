@@ -463,12 +463,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_k8s_io_api_core_v1_poddnsconfig">k8s.io.api.core.v1.PodDNSConfig</a></li>
 <li><a href="#_k8s_io_api_core_v1_poddnsconfigoption">k8s.io.api.core.v1.PodDNSConfigOption</a></li>
 <li><a href="#_k8s_io_api_core_v1_preferredschedulingterm">k8s.io.api.core.v1.PreferredSchedulingTerm</a></li>
+<li><a href="#_k8s_io_api_core_v1_resourceclaim">k8s.io.api.core.v1.ResourceClaim</a></li>
 <li><a href="#_k8s_io_api_core_v1_resourcefieldselector">k8s.io.api.core.v1.ResourceFieldSelector</a></li>
 <li><a href="#_k8s_io_api_core_v1_resourcerequirements">k8s.io.api.core.v1.ResourceRequirements</a></li>
 <li><a href="#_k8s_io_api_core_v1_tcpsocketaction">k8s.io.api.core.v1.TCPSocketAction</a></li>
 <li><a href="#_k8s_io_api_core_v1_toleration">k8s.io.api.core.v1.Toleration</a></li>
 <li><a href="#_k8s_io_api_core_v1_topologyspreadconstraint">k8s.io.api.core.v1.TopologySpreadConstraint</a></li>
 <li><a href="#_k8s_io_api_core_v1_typedlocalobjectreference">k8s.io.api.core.v1.TypedLocalObjectReference</a></li>
+<li><a href="#_k8s_io_api_core_v1_typedobjectreference">k8s.io.api.core.v1.TypedObjectReference</a></li>
 <li><a href="#_k8s_io_api_core_v1_weightedpodaffinityterm">k8s.io.api.core.v1.WeightedPodAffinityTerm</a></li>
 <li><a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a></li>
 <li><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_apigroup">k8s.io.apimachinery.pkg.apis.meta.v1.APIGroup</a></li>
@@ -899,7 +901,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Required: Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'</p>
+<p>Required: Path is the relative path name of the file to be created. Must not be absolute or contain the '..' path. Must be utf-8 encoded. The first item of the relative path must not start with '..'<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1016,9 +1019,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Scheme to use for connecting to the host. Defaults to HTTP.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;HTTP&quot;</code> means that the scheme used will be http://
+ - <code>&quot;HTTPS&quot;</code> means that the scheme used will be https://</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (HTTP, HTTPS)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1049,7 +1057,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The header field name</p>
+<p>The header field name<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1061,7 +1070,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The header field value</p>
+<p>The header field value<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1209,7 +1219,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The label key that the selector applies to.</p>
+<p>The label key that the selector applies to.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1222,9 +1233,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Represents a key&#8217;s relationship to a set of values. Valid operators are In, NotIn, Exists, DoesNotExist. Gt, and Lt.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;DoesNotExist&quot;</code>
+ - <code>&quot;Exists&quot;</code>
+ - <code>&quot;Gt&quot;</code>
+ - <code>&quot;In&quot;</code>
+ - <code>&quot;Lt&quot;</code>
+ - <code>&quot;NotIn&quot;</code><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (DoesNotExist, Exists, Gt, In, Lt, NotIn)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1325,7 +1346,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Path of the field to select in the specified API version.</p>
+<p>Path of the field to select in the specified API version.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1359,7 +1381,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>AccessModes contains the desired access modes the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1</a></p>
+<p>accessModes contains the desired access modes the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -1371,7 +1393,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>This field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. If the AnyVolumeDataSource feature gate is enabled, this field will always have the same contents as the DataSourceRef field.</p>
+<p>dataSource field can be used to specify either: * An existing VolumeSnapshot object (snapshot.storage.k8s.io/VolumeSnapshot) * An existing PVC (PersistentVolumeClaim) If the provisioner or an external controller can support the specified data source, it will create a new volume based on the contents of the specified data source. When the AnyVolumeDataSource feature gate is enabled, dataSource contents will be copied to dataSourceRef, and dataSourceRef contents will be copied to dataSource when dataSourceRef.namespace is not specified. If the namespace is specified, then dataSourceRef will not be copied to dataSource.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_api_core_v1_typedlocalobjectreference">k8s.io.api.core.v1.TypedLocalObjectReference</a></p>
@@ -1383,15 +1405,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any local object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the DataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, both fields (DataSource and DataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. There are two important differences between DataSource and DataSourceRef: * While DataSource only allows two specific types of objects, DataSourceRef
+<p>dataSourceRef specifies the object from which to populate the volume with data, if a non-empty volume is desired. This may be any object from a non-empty API group (non core object) or a PersistentVolumeClaim object. When this field is specified, volume binding will only succeed if the type of the specified object matches some installed volume populator or dynamic provisioner. This field will replace the functionality of the dataSource field and as such if both fields are non-empty, they must have the same value. For backwards compatibility, when namespace isn&#8217;t specified in dataSourceRef, both fields (dataSource and dataSourceRef) will be set to the same value automatically if one of them is empty and the other is non-empty. When namespace is specified in dataSourceRef, dataSource isn&#8217;t set to the same value and must be empty. There are three important differences between dataSource and dataSourceRef: * While dataSource only allows two specific types of objects, dataSourceRef
  allows any non-core object, as well as PersistentVolumeClaim objects.
-* While DataSource ignores disallowed values (dropping them), DataSourceRef
+* While dataSource ignores disallowed values (dropping them), dataSourceRef
  preserves all values, and generates an error if a disallowed value is
  specified.
-(Alpha) Using this field requires the AnyVolumeDataSource feature gate to be enabled.</p>
+* While dataSource only allows local objects, dataSourceRef allows objects
+ in any namespaces.
+(Beta) Using this field requires the AnyVolumeDataSource feature gate to be enabled. (Alpha) Using the namespace field of dataSourceRef requires the CrossNamespaceVolumeDataSource feature gate to be enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_k8s_io_api_core_v1_typedlocalobjectreference">k8s.io.api.core.v1.TypedLocalObjectReference</a></p>
+<p><a href="#_k8s_io_api_core_v1_typedobjectreference">k8s.io.api.core.v1.TypedObjectReference</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1400,7 +1424,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources</a></p>
+<p>resources represents the minimum resources the volume should have. If RecoverVolumeExpansionFailure feature is enabled users are allowed to specify resource requirements that are lower than previous value but must still be higher than capacity recorded in the status field of the claim. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_api_core_v1_resourcerequirements">k8s.io.api.core.v1.ResourceRequirements</a></p>
@@ -1412,7 +1436,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A label query over volumes to consider for binding.</p>
+<p>selector is a label query over volumes to consider for binding.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_labelselector">k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector</a></p>
@@ -1424,7 +1448,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the StorageClass required by the claim. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1</a></p>
+<p>storageClassName is the name of the StorageClass required by the claim. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#class-1</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1437,9 +1461,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Block&quot;</code> means the volume will not be formatted with a filesystem and will remain a raw block device.
+ - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (Block, Filesystem)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1448,7 +1477,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>VolumeName is the binding reference to the PersistentVolume backing this claim.</p>
+<p>volumeName is the binding reference to the PersistentVolume backing this claim.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1482,7 +1511,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a></p>
+<p>claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1494,7 +1524,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Will force the ReadOnly setting in VolumeMounts. Default false.</p>
+<p>readOnly Will force the ReadOnly setting in VolumeMounts. Default false.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -1586,7 +1616,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod&#8217;s namespace". An empty selector ({}) matches all namespaces. This field is beta-level and is only honored when PodAffinityNamespaceSelector feature is enabled.</p>
+<p>A label query over the set of namespaces that the term applies to. The term is applied to the union of the namespaces selected by this field and the ones listed in the namespaces field. null selector and null or empty namespaces list means "this pod&#8217;s namespace". An empty selector ({}) matches all namespaces.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_labelselector">k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector</a></p>
@@ -1598,7 +1628,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod&#8217;s namespace"</p>
+<p>namespaces specifies a static list of namespace names that the term applies to. The term is applied to the union of the namespaces listed in this field and the ones selected by namespaceSelector. null or empty namespaces list and null namespaceSelector means "this pod&#8217;s namespace".</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -1610,7 +1640,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.</p>
+<p>This pod should be co-located (affinity) or not co-located (anti-affinity) with the pods matching the labelSelector in the specified namespaces, where co-located is defined as running on a node whose value of the label with key topologyKey matches that of any node on which any of the selected pods is running. Empty topologyKey is not allowed.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1804,10 +1835,46 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.</p>
+<p>Weight associated with matching the corresponding nodeSelectorTerm, in the range 1-100.<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_k8s_io_api_core_v1_resourceclaim">k8s.io.api.core.v1.ResourceClaim</h3>
+<div class="paragraph">
+<p>ResourceClaim references one entry in PodSpec.ResourceClaims.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1862,7 +1929,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Required: resource to select</p>
+<p>Required: resource to select<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1890,6 +1958,24 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>claims</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.</p>
+</div>
+<div class="paragraph">
+<p>This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.</p>
+</div>
+<div class="paragraph">
+<p>This field is immutable. It can only be set for containers.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_k8s_io_api_core_v1_resourceclaim">k8s.io.api.core.v1.ResourceClaim</a> &gt; array</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>limits</strong><br>
@@ -1977,9 +2063,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Effect indicates the taint effect to match. Empty means match all taint effects. When specified, allowed values are NoSchedule, PreferNoSchedule and NoExecute.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;NoExecute&quot;</code> Evict any already-running pods that do not tolerate the taint. Currently enforced by NodeController.
+ - <code>&quot;NoSchedule&quot;</code> Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.
+ - <code>&quot;PreferNoSchedule&quot;</code> Like TaintEffectNoSchedule, but the scheduler tries not to schedule new pods onto the node, rather than prohibiting new pods from scheduling onto the node entirely. Enforced by the scheduler.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (NoExecute, NoSchedule, PreferNoSchedule)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2001,9 +2093,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Operator represents a key&#8217;s relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a pod can tolerate all taints of a particular category.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Equal&quot;</code>
+ - <code>&quot;Exists&quot;</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (Equal, Exists)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2066,14 +2163,85 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>matchLabelKeys</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>MatchLabelKeys is a set of pod label keys to select the pods over which spreading will be calculated. The keys are used to lookup values from the incoming pod labels, those key-value labels are ANDed with labelSelector to select the group of existing pods over which spreading will be calculated for the incoming pod. Keys that don&#8217;t exist in the incoming pod labels will be ignored. A null or empty list means only match against labelSelector.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>maxSkew</strong><br>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>MaxSkew describes the degree to which pods may be unevenly distributed. When <code>whenUnsatisfiable=DoNotSchedule</code>, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 1/1/0: | zone1 | zone2 | zone3 | | P | P | | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 1/1/1; scheduling it onto zone1(zone2) would make the ActualSkew(2-0) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When <code>whenUnsatisfiable=ScheduleAnyway</code>, it is used to give higher precedence to topologies that satisfy it. It&#8217;s a required field. Default value is 1 and 0 is not allowed.</p>
+<p>MaxSkew describes the degree to which pods may be unevenly distributed. When <code>whenUnsatisfiable=DoNotSchedule</code>, it is the maximum permitted difference between the number of matching pods in the target topology and the global minimum. The global minimum is the minimum number of matching pods in an eligible domain or zero if the number of eligible domains is less than MinDomains. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 2/2/1: In this case, the global minimum is 1. | zone1 | zone2 | zone3 | | P P | P P | P | - if MaxSkew is 1, incoming pod can only be scheduled to zone3 to become 2/2/2; scheduling it onto zone1(zone2) would make the ActualSkew(3-1) on zone1(zone2) violate MaxSkew(1). - if MaxSkew is 2, incoming pod can be scheduled onto any zone. When <code>whenUnsatisfiable=ScheduleAnyway</code>, it is used to give higher precedence to topologies that satisfy it. It&#8217;s a required field. Default value is 1 and 0 is not allowed.<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>minDomains</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>MinDomains indicates a minimum number of eligible domains. When the number of eligible domains with matching topology keys is less than minDomains, Pod Topology Spread treats "global minimum" as 0, and then the calculation of Skew is performed. And when the number of eligible domains with matching topology keys equals or greater than minDomains, this value has no effect on scheduling. As a result, when the number of eligible domains is less than minDomains, scheduler won&#8217;t schedule more than maxSkew Pods to those domains. If value is nil, the constraint behaves as if MinDomains is equal to 1. Valid values are integers greater than 0. When value is not nil, WhenUnsatisfiable must be DoNotSchedule.</p>
+</div>
+<div class="paragraph">
+<p>For example, in a 3-zone cluster, MaxSkew is set to 2, MinDomains is set to 5 and pods with the same labelSelector spread as 2/2/2: | zone1 | zone2 | zone3 | | P P | P P | P P | The number of domains is less than 5(MinDomains), so "global minimum" is treated as 0. In this situation, new pod with the same labelSelector cannot be scheduled, because computed skew will be 3(3 - 0) if new Pod is scheduled to any of the three zones, it will violate MaxSkew.</p>
+</div>
+<div class="paragraph">
+<p>This is a beta field and requires the MinDomainsInPodTopologySpread feature gate to be enabled (enabled by default).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>nodeAffinityPolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>NodeAffinityPolicy indicates how we will treat Pod&#8217;s nodeAffinity/nodeSelector when calculating pod topology spread skew. Options are: - Honor: only nodes matching nodeAffinity/nodeSelector are included in the calculations. - Ignore: nodeAffinity/nodeSelector are ignored. All nodes are included in the calculations.</p>
+</div>
+<div class="paragraph">
+<p>If this value is nil, the behavior is equivalent to the Honor policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Honor&quot;</code> means use this scheduling directive when calculating pod topology spread skew.
+ - <code>&quot;Ignore&quot;</code> means ignore this scheduling directive when calculating pod topology spread skew.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (Honor, Ignore)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>nodeTaintsPolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>NodeTaintsPolicy indicates how we will treat node taints when calculating pod topology spread skew. Options are: - Honor: nodes without taints, along with tainted nodes for which the incoming pod has a toleration, are included. - Ignore: node taints are ignored. All nodes are included.</p>
+</div>
+<div class="paragraph">
+<p>If this value is nil, the behavior is equivalent to the Ignore policy. This is a beta-level feature default enabled by the NodeInclusionPolicyInPodTopologySpread feature flag.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Honor&quot;</code> means use this scheduling directive when calculating pod topology spread skew.
+ - <code>&quot;Ignore&quot;</code> means ignore this scheduling directive when calculating pod topology spread skew.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (Honor, Ignore)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -2082,7 +2250,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each &lt;key, value&gt; as a "bucket", and try to put balanced number of pods into each bucket. It&#8217;s a required field.</p>
+<p>TopologyKey is the key of node labels. Nodes that have a label with this key and identical values are considered to be in the same topology. We consider each &lt;key, value&gt; as a "bucket", and try to put balanced number of pods into each bucket. We define a domain as a particular instance of a topology. Also, we define an eligible domain as a domain whose nodes meet the requirements of nodeAffinityPolicy and nodeTaintsPolicy. e.g. If TopologyKey is "kubernetes.io/hostname", each Node is a domain of that topology. And, if TopologyKey is "topology.kubernetes.io/zone", each zone is a domain of that topology. It&#8217;s a required field.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2098,9 +2267,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
  but giving higher precedence to topologies that would help reduce the
  skew.
 A constraint is considered "Unsatisfiable" for an incoming pod if and only if every possible node assignment for that pod would violate "MaxSkew" on some topology. For example, in a 3-zone cluster, MaxSkew is set to 1, and pods with the same labelSelector spread as 3/1/1: | zone1 | zone2 | zone3 | | P P P | P | P | If WhenUnsatisfiable is set to DoNotSchedule, incoming pod can only be scheduled to zone2(zone3) to become 3/2/1(3/1/2) as ActualSkew(2-1) on zone2(zone3) satisfies MaxSkew(1). In other words, the cluster can still be imbalanced, but scheduler won&#8217;t make it <em>more</em> imbalanced. It&#8217;s a required field.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;DoNotSchedule&quot;</code> instructs the scheduler not to schedule the pod when constraints are not satisfied.
+ - <code>&quot;ScheduleAnyway&quot;</code> instructs the scheduler to schedule the pod even if constraints are not satisfied.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (DoNotSchedule, ScheduleAnyway)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -2143,7 +2318,8 @@ A constraint is considered "Unsatisfiable" for an incoming pod if and only if ev
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Kind is the type of resource being referenced</p>
+<p>Kind is the type of resource being referenced<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2155,7 +2331,77 @@ A constraint is considered "Unsatisfiable" for an incoming pod if and only if ev
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name is the name of resource being referenced</p>
+<p>Name is the name of resource being referenced<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_k8s_io_api_core_v1_typedobjectreference">k8s.io.api.core.v1.TypedObjectReference</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>apiGroup</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>APIGroup is the group for the resource being referenced. If APIGroup is not specified, the specified Kind must be in the core API group. For any other third-party types, APIGroup is required.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>kind</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Kind is the type of resource being referenced<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name is the name of resource being referenced<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>namespace</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Namespace is the namespace of resource being referenced Note that when a namespace is specified, a gateway.networking.k8s.io/ReferenceGrant object is required in the referent namespace to allow that namespace&#8217;s owner to accept the reference. See the ReferenceGrant documentation for details. (Alpha) This field requires the CrossNamespaceVolumeDataSource feature gate to be enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2201,7 +2447,8 @@ A constraint is considered "Unsatisfiable" for an incoming pod if and only if ev
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>weight associated with matching the corresponding podAffinityTerm, in the range 1-100.</p>
+<p>weight associated with matching the corresponding podAffinityTerm, in the range 1-100.<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -2218,14 +2465,34 @@ A constraint is considered "Unsatisfiable" for an incoming pod if and only if ev
 <div class="paragraph">
 <p>The serialization format is:</p>
 </div>
+<div class="literalblock">
+<div class="content">
+<pre>&lt;quantity&gt; ::= &lt;signedNumber&gt;&lt;suffix&gt;</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Note that &lt;suffix&gt; may be empty, from the "" case in &lt;decimalSI&gt;.)</pre>
+</div>
+</div>
 <div class="paragraph">
-<p>&lt;quantity&gt; ::= &lt;signedNumber&gt;&lt;suffix&gt;
- (Note that &lt;suffix&gt; may be empty, from the &quot;" case in &lt;decimalSI&gt;.)
-&lt;digit&gt; ::= 0 | 1 | … | 9 &lt;digits&gt; ::= &lt;digit&gt; | &lt;digit&gt;&lt;digits&gt; &lt;number&gt; ::= &lt;digits&gt; | &lt;digits&gt;.&lt;digits&gt; | &lt;digits&gt;. | .&lt;digits&gt; &lt;sign&gt; ::= "+" | "-" &lt;signedNumber&gt; ::= &lt;number&gt; | &lt;sign&gt;&lt;number&gt; &lt;suffix&gt; ::= &lt;binarySI&gt; | &lt;decimalExponent&gt; | &lt;decimalSI&gt; &lt;binarySI&gt; ::= Ki | Mi | Gi | Ti | Pi | Ei
- (International System of units; See: <a href="http://physics.nist.gov/cuu/Units/binary.html" class="bare">http://physics.nist.gov/cuu/Units/binary.html</a>)
-&lt;decimalSI&gt; ::= m | "" | k | M | G | T | P | E
- (Note that 1024 = 1Ki but 1000 = 1k; I didn&#8217;t choose the capitalization.)
-&lt;decimalExponent&gt; ::= "e" &lt;signedNumber&gt; | "E&quot; &lt;signedNumber&gt;</p>
+<p>&lt;digit&gt; ::= 0 | 1 | … | 9 &lt;digits&gt; ::= &lt;digit&gt; | &lt;digit&gt;&lt;digits&gt; &lt;number&gt; ::= &lt;digits&gt; | &lt;digits&gt;.&lt;digits&gt; | &lt;digits&gt;. | .&lt;digits&gt; &lt;sign&gt; ::= "+" | "-" &lt;signedNumber&gt; ::= &lt;number&gt; | &lt;sign&gt;&lt;number&gt; &lt;suffix&gt; ::= &lt;binarySI&gt; | &lt;decimalExponent&gt; | &lt;decimalSI&gt; &lt;binarySI&gt; ::= Ki | Mi | Gi | Ti | Pi | Ei</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(International System of units; See: http://physics.nist.gov/cuu/Units/binary.html)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;decimalSI&gt; ::= m | &quot;&quot; | k | M | G | T | P | E</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>(Note that 1024 = 1Ki but 1000 = 1k; I didn't choose the capitalization.)</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>&lt;decimalExponent&gt; ::= "e" &lt;signedNumber&gt; | "E" &lt;signedNumber&gt;</p>
 </div>
 <div class="paragraph">
 <p>No matter which of the three exponent forms is used, no quantity may represent a number greater than 2^63-1 in magnitude, nor may it have more than 3 decimal places. Numbers larger or more precise will be capped or rounded up. (E.g.: 0.1m will rounded up to 1m.) This may be extended in the future if we require larger or smaller quantities.</p>
@@ -2234,16 +2501,27 @@ A constraint is considered "Unsatisfiable" for an incoming pod if and only if ev
 <p>When a Quantity is parsed from a string, it will remember the type of suffix it had, and will use the same type again when it is serialized.</p>
 </div>
 <div class="paragraph">
-<p>Before serializing, Quantity will be put in "canonical form". This means that Exponent/suffix will be adjusted up or down (with a corresponding increase or decrease in Mantissa) such that:
- a. No precision is lost
- b. No fractional digits will be emitted
- c. The exponent (or suffix) is as large as possible.
-The sign will be omitted unless the number is negative.</p>
+<p>Before serializing, Quantity will be put in "canonical form". This means that Exponent/suffix will be adjusted up or down (with a corresponding increase or decrease in Mantissa) such that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>No precision is lost - No fractional digits will be emitted - The exponent (or suffix) is as large as possible.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Examples:
- 1.5 will be serialized as "1500m"
- 1.5Gi will be serialized as "1536Mi"</p>
+<p>The sign will be omitted unless the number is negative.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1.5 will be serialized as "1500m" - 1.5Gi will be serialized as "1536Mi"</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>Note that the quantity will NEVER be internally represented by a floating point number. That is the whole point of this exercise.</p>
@@ -2307,7 +2585,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>name is the name of the group.</p>
+<p>name is the name of the group.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2459,7 +2738,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>kind is the kind for the resource (e.g. 'Foo' is the kind for a resource 'foo')</p>
+<p>kind is the kind for the resource (e.g. 'Foo' is the kind for a resource 'foo')<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2471,7 +2751,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>name is the plural name of the resource.</p>
+<p>name is the plural name of the resource.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2483,7 +2764,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>namespaced indicates if a resource is namespaced or not.</p>
+<p>namespaced indicates if a resource is namespaced or not.<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -2507,7 +2789,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>singularName is the singular name of the resource. This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.</p>
+<p>singularName is the singular name of the resource. This allows clients to handle plural and singular opaquely. The singularName is more correct for reporting status on a single item and both singular and plural are allowed from the kubectl CLI interface.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2589,7 +2872,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>groupVersion is the group and version this APIResourceList is for.</p>
+<p>groupVersion is the group and version this APIResourceList is for.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2777,7 +3061,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>groupVersion specifies the API group and version in the form "group/version"</p>
+<p>groupVersion specifies the API group and version in the form "group/version"<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2789,7 +3074,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>version specifies the version in the form of "version". This is to save the clients the trouble of splitting the GroupVersion.</p>
+<p>version specifies the version in the form of "version". This is to save the clients the trouble of splitting the GroupVersion.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2869,7 +3155,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>key is the label key that the selector applies to.</p>
+<p>key is the label key that the selector applies to.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2881,7 +3168,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>operator represents a key&#8217;s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.</p>
+<p>operator represents a key&#8217;s relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -2963,10 +3251,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>selfLink is a URL representing this object. Populated by the system. Read-only.</p>
-</div>
-<div class="paragraph">
-<p>DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.</p>
+<p>Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3072,7 +3357,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Time is timestamp of when these fields were set. It should always be empty if Operation is 'Apply'</p>
+<p>Time is the timestamp of when the ManagedFields entry was added. The timestamp will also be updated if a field is added, the manager changes any of the owned fields value or removes a field. The timestamp does not update when a field is removed from the entry because another manager took it over.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
@@ -3110,18 +3395,6 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string, string &gt; map</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>clusterName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the cluster which the object belongs to. This is used to distinguish resources with same name and namespace in different clusters. This field is not set anywhere right now and apiserver is going to ignore it if set in create or update request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
 </div></div></td>
 </tr>
 <tr>
@@ -3172,7 +3445,7 @@ The sign will be omitted unless the number is negative.</p>
 <p>GenerateName is an optional prefix, used by the server, to generate a unique name ONLY IF the Name field has not been provided. If this field is used, the name returned to the client will be different than the name passed. This value will also be combined with a unique suffix. The provided value has the same validation rules as the Name field, and may be truncated by the length of the suffix required to make the value unique on the server.</p>
 </div>
 <div class="paragraph">
-<p>If this field is specified and the generated name exists, the server will NOT return a 409 - instead, it will either return 201 Created or 500 with Reason ServerTimeout indicating a unique name could not be found in the time allotted, and the client should retry (optionally after the time indicated in the Retry-After header).</p>
+<p>If this field is specified and the generated name exists, the server will return a 409.</p>
 </div>
 <div class="paragraph">
 <p>Applied only if Name is not specified. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#idempotency</a></p>
@@ -3277,10 +3550,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>SelfLink is a URL representing this object. Populated by the system. Read-only.</p>
-</div>
-<div class="paragraph">
-<p>DEPRECATED Kubernetes will stop propagating this field in 1.20 release and the field is planned to be removed in 1.21 release.</p>
+<p>Deprecated: selfLink is a legacy read-only field that is no longer populated by the system.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3329,7 +3599,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>API version of the referent.</p>
+<p>API version of the referent.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3341,7 +3612,7 @@ The sign will be omitted unless the number is negative.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. Defaults to false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.</p>
+<p>If true, AND if the owner has the "foregroundDeletion" finalizer, then the owner cannot be deleted from the key-value store until this reference is removed. See <a href="https://kubernetes.io/docs/concepts/architecture/garbage-collection/#foreground-deletion" class="bare">https://kubernetes.io/docs/concepts/architecture/garbage-collection/#foreground-deletion</a> for how the garbage collector interacts with this field and enforces the foreground deletion. Defaults to false. To set this field, a user needs "delete" permission of the owner, otherwise 422 (Unprocessable Entity) will be returned.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -3365,7 +3636,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Kind of the referent. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p>
+<p>Kind of the referent. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3377,7 +3649,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the referent. More info: <a href="http://kubernetes.io/docs/user-guide/identifiers#names" class="bare">http://kubernetes.io/docs/user-guide/identifiers#names</a></p>
+<p>Name of the referent. More info: <a href="http://kubernetes.io/docs/user-guide/identifiers#names" class="bare">http://kubernetes.io/docs/user-guide/identifiers#names</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3389,7 +3662,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>UID of the referent. More info: <a href="http://kubernetes.io/docs/user-guide/identifiers#uids" class="bare">http://kubernetes.io/docs/user-guide/identifiers#uids</a></p>
+<p>UID of the referent. More info: <a href="http://kubernetes.io/docs/user-guide/identifiers#uids" class="bare">http://kubernetes.io/docs/user-guide/identifiers#uids</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3512,7 +3786,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The CIDR with which clients can match their IP to figure out the server address that they should use.</p>
+<p>The CIDR with which clients can match their IP to figure out the server address that they should use.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3524,7 +3799,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.</p>
+<p>Address of this server, suitable for a client that matches the above CIDR. This can be a hostname, hostname:port, IP or IP:port.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -3857,7 +4133,9 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>type</strong><br>
 <em>required</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -3873,32 +4151,39 @@ The sign will be omitted unless the number is negative.</p>
 <div class="paragraph">
 <p>To use this, make a field which has RawExtension as its type in your external, versioned struct, and Object in your internal struct. You also need to register your various plugin types.</p>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre> runtime.TypeMeta `json:&amp;quot;,inline&amp;quot;`
- MyPlugin runtime.Object `json:&amp;quot;myPlugin&amp;quot;`
-} type PluginA struct {
- AOption string `json:&amp;quot;aOption&amp;quot;`
+<pre>type MyAPIObject struct {
+    runtime.TypeMeta `json:",inline"`
+    MyPlugin runtime.Object `json:"myPlugin"`
+}
+
+type PluginA struct {
+    AOption string `json:"aOption"`
 }</pre>
 </div>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre> runtime.TypeMeta `json:&amp;quot;,inline&amp;quot;`
- MyPlugin runtime.RawExtension `json:&amp;quot;myPlugin&amp;quot;`
-} type PluginA struct {
- AOption string `json:&amp;quot;aOption&amp;quot;`
+<pre>type MyAPIObject struct {
+    runtime.TypeMeta `json:",inline"`
+    MyPlugin runtime.RawExtension `json:"myPlugin"`
+}
+
+type PluginA struct {
+    AOption string `json:"aOption"`
 }</pre>
 </div>
 </div>
-<div class="literalblock">
+<div class="listingblock">
 <div class="content">
-<pre> "kind":"MyAPIObject",
- "apiVersion":"v1",
- "myPlugin": {
- "kind":"PluginA",
- "aOption":"foo",
- },
+<pre>{
+    "kind":"MyAPIObject",
+    "apiVersion":"v1",
+    "myPlugin": {
+       "kind":"PluginA",
+       "aOption":"foo",
+    },
 }</pre>
 </div>
 </div>
@@ -3986,7 +4271,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>SecretName represents the name of the secret in the VMI&#8217;s namespace</p>
+<p>SecretName represents the name of the secret in the VMI&#8217;s namespace<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4020,7 +4306,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name indicates the logical name of the interface.</p>
+<p>Name indicates the logical name of the interface.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4032,7 +4319,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>NetworkAttachmentDefinitionName references a NetworkAttachmentDefinition CRD object. Format: &lt;networkAttachmentDefinitionName&gt;, &lt;namespace&gt;/&lt;networkAttachmentDefinitionName&gt;. If namespace is not specified, VMI namespace is assumed.</p>
+<p>NetworkAttachmentDefinitionName references a NetworkAttachmentDefinition CRD object. Format: &lt;networkAttachmentDefinitionName&gt;, &lt;namespace&gt;/&lt;networkAttachmentDefinitionName&gt;. If namespace is not specified, VMI namespace is assumed.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4090,7 +4378,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name represents the name that will be used to map the disk to the corresponding volume. This overrides any name set inside the Disk struct itself.</p>
+<p>Name represents the name that will be used to map the disk to the corresponding volume. This overrides any name set inside the Disk struct itself.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -4536,7 +4825,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the CPU feature</p>
+<p>Name of the CPU feature<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5138,7 +5428,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image is the name of the image with the embedded disk.</p>
+<p>Image is the name of the image with the embedded disk.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5151,9 +5442,15 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: <a href="https://kubernetes.io/docs/concepts/containers/images#updating-images" class="bare">https://kubernetes.io/docs/concepts/containers/images#updating-images</a></p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Always&quot;</code> means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
+ - <code>&quot;IfNotPresent&quot;</code> means that kubelet pulls if the image isn&#8217;t present on disk. Container will fail if the image isn&#8217;t present and the pull fails.
+ - <code>&quot;Never&quot;</code> means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn&#8217;t present</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (Always, IfNotPresent, Never)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -5190,12 +5487,14 @@ The sign will be omitted unless the number is negative.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -5206,6 +5505,9 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>0</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
 </div></div></td>
 </tr>
@@ -5213,6 +5515,9 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>physical</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -5301,12 +5606,14 @@ The sign will be omitted unless the number is negative.</p>
 <h3 id="_v1_customizecomponentspatch">v1.CustomizeComponentsPatch</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -5315,6 +5622,9 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>patch</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5326,6 +5636,9 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -5335,6 +5648,9 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -5342,6 +5658,9 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5445,7 +5764,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Option is an Integer value from 224-254 Required.</p>
+<p>Option is an Integer value from 224-254 Required.<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -5457,7 +5777,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Value is a String value for the Option provided Required.</p>
+<p>Value is a String value for the Option provided Required.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5500,7 +5821,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of both the DataVolume and the PVC in the same namespace. After PVC population the DataVolume is garbage collected by default.</p>
+<p>Name of both the DataVolume and the PVC in the same namespace. After PVC population the DataVolume is garbage collected by default.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6119,7 +6441,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name is the device name</p>
+<p>Name is the device name<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7120,7 +7443,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name is the device name</p>
+<p>Name is the device name<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7311,7 +7635,9 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>deviceName</strong><br>
 <em>required</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -7322,7 +7648,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the GPU device as exposed by a device plugin</p>
+<p>Name of the GPU device as exposed by a device plugin<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7378,7 +7705,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>group is the group of the thing you&#8217;re tracking</p>
+<p>group is the group of the thing you&#8217;re tracking<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7402,7 +7730,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>lastGeneration is the last generation of the workload controller involved</p>
+<p>lastGeneration is the last generation of the workload controller involved<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int64)</p>
@@ -7414,7 +7743,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>name is the name of the thing you&#8217;re tracking</p>
+<p>name is the name of the thing you&#8217;re tracking<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7438,7 +7768,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>resource is the resource type of the thing you&#8217;re tracking</p>
+<p>resource is the resource type of the thing you&#8217;re tracking<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7454,12 +7785,14 @@ The sign will be omitted unless the number is negative.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -7469,6 +7802,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>enabled</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
 </div></div></td>
@@ -7477,6 +7811,9 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>name</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7559,7 +7896,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DeviceName is the resource name of the host device exposed by a device plugin</p>
+<p>DeviceName is the resource name of the host device exposed by a device plugin<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7570,7 +7908,9 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>name</strong><br>
 <em>required</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -7627,7 +7967,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The path to HostDisk image located on the cluster</p>
+<p>The path to HostDisk image located on the cluster<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7651,7 +7992,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Contains information if disk.img exists or should be created allowed options are 'Disk' and 'DiskOrCreate'</p>
+<p>Contains information if disk.img exists or should be created allowed options are 'Disk' and 'DiskOrCreate'<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7885,7 +8227,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name is the device name</p>
+<p>Name is the device name<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -7897,7 +8240,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Type indicated the type of input device. Supported values: tablet.</p>
+<p>Type indicated the type of input device. Supported values: tablet.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8088,7 +8432,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Logical name of the interface as well as a reference to the associated networks. Must match the Name of a Network.</p>
+<p>Logical name of the interface as well as a reference to the associated networks. Must match the Name of a Network.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8319,7 +8664,8 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Image that contains initrd / kernel files.</p>
+<p>Image that contains initrd / kernel files.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8332,9 +8678,15 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Image pull policy. One of Always, Never, IfNotPresent. Defaults to Always if :latest tag is specified, or IfNotPresent otherwise. Cannot be updated. More info: <a href="https://kubernetes.io/docs/concepts/containers/images#updating-images" class="bare">https://kubernetes.io/docs/concepts/containers/images#updating-images</a></p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Always&quot;</code> means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
+ - <code>&quot;IfNotPresent&quot;</code> means that kubelet pulls if the image isn&#8217;t present on disk. Container will fail if the image isn&#8217;t present and the pull fails.
+ - <code>&quot;Never&quot;</code> means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn&#8217;t present</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (Always, IfNotPresent, Never)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -8485,12 +8837,14 @@ The sign will be omitted unless the number is negative.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -8500,6 +8854,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>message</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -8509,6 +8864,7 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>reason</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -8519,6 +8875,9 @@ The sign will be omitted unless the number is negative.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -8526,6 +8885,9 @@ The sign will be omitted unless the number is negative.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8672,9 +9034,14 @@ The sign will be omitted unless the number is negative.</p>
 <p><strong>imagePullPolicy</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>Possible enum values:
+ - <code>&quot;Always&quot;</code> means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
+ - <code>&quot;IfNotPresent&quot;</code> means that kubelet pulls if the image isn&#8217;t present on disk. Container will fail if the image isn&#8217;t present and the pull fails.
+ - <code>&quot;Never&quot;</code> means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn&#8217;t present</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>enum (Always, IfNotPresent, Never)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -9066,9 +9433,15 @@ The sign will be omitted unless the number is negative.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The ImagePullPolicy to use.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Always&quot;</code> means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
+ - <code>&quot;IfNotPresent&quot;</code> means that kubelet pulls if the image isn&#8217;t present on disk. Container will fail if the image isn&#8217;t present and the pull fails.
+ - <code>&quot;Never&quot;</code> means that kubelet never pulls an image, but only uses a local image. Container will fail if the image isn&#8217;t present</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (Always, IfNotPresent, Never)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -9646,7 +10019,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>QEMU machine type is the actual chipset of the VirtualMachineInstance.</p>
+<p>QEMU machine type is the actual chipset of the VirtualMachineInstance.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9716,12 +10090,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -9731,6 +10107,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>externalResourceProvider</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
 </div></div></td>
@@ -9741,6 +10118,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -9748,6 +10128,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>resourceName</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9824,7 +10207,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a></p>
+<p>claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9848,7 +10232,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Will force the ReadOnly setting in VolumeMounts. Default false.</p>
+<p>readOnly Will force the ReadOnly setting in VolumeMounts. Default false.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -10106,7 +10490,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>References to a NetworkAttachmentDefinition CRD object. Format: &lt;networkName&gt;, &lt;namespace&gt;/&lt;networkName&gt;. If namespace is not specified, VMI namespace is assumed.</p>
+<p>References to a NetworkAttachmentDefinition CRD object. Format: &lt;networkName&gt;, &lt;namespace&gt;/&lt;networkName&gt;. If namespace is not specified, VMI namespace is assumed.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10190,7 +10575,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Network name. Must be a DNS_LABEL and unique within the vm. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p>
+<p>Network name. Must be a DNS_LABEL and unique within the vm. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10508,7 +10894,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The vendor_id:product_id tuple of the PCI device</p>
+<p>The vendor_id:product_id tuple of the PCI device<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10520,7 +10907,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_nameThe name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_name</p>
+<p>The name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_nameThe name of the resource that is representing the device. Exposed by a device plugin and requested by VMs. Typically of the form vendor.com/product_name<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10653,9 +11041,14 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>VolumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Block&quot;</code> means the volume will not be formatted with a filesystem and will remain a raw block device.
+ - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (Block, Filesystem)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -10686,7 +11079,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ClaimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a></p>
+<p>claimName is the name of a PersistentVolumeClaim in the same namespace as the pod using this volume. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#persistentvolumeclaims</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -10710,7 +11104,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Will force the ReadOnly setting in VolumeMounts. Default false.</p>
+<p>readOnly Will force the ReadOnly setting in VolumeMounts. Default false.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -10802,7 +11196,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Number of port to expose for the virtual machine. This must be a valid port number, 0 &lt; x &lt; 65536.</p>
+<p>Number of port to expose for the virtual machine. This must be a valid port number, 0 &lt; x &lt; 65536.<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -11280,7 +11675,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name represents the name that maps to both the disk and volume that should be removed</p>
+<p>Name represents the name that maps to both the disk and volume that should be removed<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11780,7 +12176,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>User&#8217;s defined name for this sound device</p>
+<p>User&#8217;s defined name for this sound device<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -11936,12 +12333,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -11951,6 +12350,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>resources</strong><br>
 <em>required</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_api_core_v1_resourcerequirements">k8s.io.api.core.v1.ResourceRequirements</a></p>
 </div></div></td>
@@ -11959,6 +12359,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12233,7 +12636,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Maximum burst for throttle. If it&#8217;s zero, the component default will be used</p>
+<p>Maximum burst for throttle. If it&#8217;s zero, the component default will be used<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -12245,7 +12649,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>QPS indicates the maximum QPS to the apiserver from this client. If it&#8217;s zero, the component default will be used</p>
+<p>QPS indicates the maximum QPS to the apiserver from this client. If it&#8217;s zero, the component default will be used<br>
+<strong>Default</strong> : <code>0.0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>number (float)</p>
@@ -12608,12 +13013,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -12623,6 +13030,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>message</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -12632,6 +13040,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>reason</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -12642,6 +13051,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -12649,6 +13061,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12741,12 +13156,14 @@ otherwise we will use the monitoring namespace.</p>
 <h3 id="_v1_virtualmachineinstancecondition">v1.VirtualMachineInstanceCondition</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -12756,6 +13173,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>message</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -12765,6 +13183,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>reason</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -12775,6 +13194,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -12782,6 +13204,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12797,12 +13222,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -12811,6 +13238,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>diskName</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12822,6 +13252,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -12829,6 +13262,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>mountPoint</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12840,6 +13276,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>0</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
 </div></div></td>
 </tr>
@@ -12847,6 +13286,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>usedBytes</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
@@ -13214,12 +13656,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -13229,6 +13673,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>domain</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -13238,6 +13683,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>loginTime</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>number (double)</p>
 </div></div></td>
@@ -13246,6 +13692,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>userName</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -13466,12 +13915,14 @@ otherwise we will use the monitoring namespace.</p>
 <h3 id="_v1_virtualmachineinstancemigrationcondition">v1.VirtualMachineInstanceMigrationCondition</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -13481,6 +13932,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>message</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -13490,6 +13942,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>reason</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -13500,6 +13953,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -13507,6 +13963,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -14427,12 +14886,14 @@ otherwise we will use the monitoring namespace.</p>
 <h3 id="_v1_virtualmachineinstancereplicasetcondition">v1.VirtualMachineInstanceReplicaSetCondition</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -14442,6 +14903,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>message</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -14451,6 +14913,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>reason</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -14461,6 +14924,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -14468,6 +14934,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -14748,9 +15217,16 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Set DNS policy for the pod. Defaults to "ClusterFirst". Valid values are 'ClusterFirstWithHostNet', 'ClusterFirst', 'Default' or 'None'. DNS parameters given in DNSConfig will be merged with the policy selected with DNSPolicy. To have DNS options set along with hostNetwork, you have to specify DNS policy explicitly to 'ClusterFirstWithHostNet'.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;ClusterFirst&quot;</code> indicates that the pod should use cluster DNS first unless hostNetwork is true, if it is available, then fall back on the default (as determined by kubelet) DNS settings.
+ - <code>&quot;ClusterFirstWithHostNet&quot;</code> indicates that the pod should use cluster DNS first, if it is available, then fall back on the default (as determined by kubelet) DNS settings.
+ - <code>&quot;Default&quot;</code> indicates that the pod should use the default (as determined by kubelet) DNS settings.
+ - <code>&quot;None&quot;</code> indicates that the pod should use empty DNS settings. DNS parameters such as nameservers and search paths should be defined via DNSConfig.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (ClusterFirst, ClusterFirstWithHostNet, Default, None)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -15142,9 +15618,15 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>The Quality of Service (QOS) classification assigned to the virtual machine instance based on resource requirements See PodQOSClass type for available QOS classes More info: <a href="https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md" class="bare">https://git.k8s.io/community/contributors/design-proposals/node/resource-qos.md</a></p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;BestEffort&quot;</code> is the BestEffort qos class.
+ - <code>&quot;Burstable&quot;</code> is the Burstable qos class.
+ - <code>&quot;Guaranteed&quot;</code> is the Guaranteed qos class.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (BestEffort, Burstable, Guaranteed)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -15165,7 +15647,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>RuntimeUser is used to determine what user will be used in launcher</p>
+<p>RuntimeUser is used to determine what user will be used in launcher<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int64)</p>
@@ -15383,7 +15866,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ClaimName is the name of the pvc that will contain the memory dump</p>
+<p>ClaimName is the name of the pvc that will contain the memory dump<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -15431,7 +15915,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Phase represents the memory dump phase</p>
+<p>Phase represents the memory dump phase<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -15627,7 +16112,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Indicates the type of action that is requested. e.g. Start or Stop</p>
+<p>Indicates the type of action that is requested. e.g. Start or Stop<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -16050,7 +16536,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Volume&#8217;s name. Must be a DNS_LABEL and unique within the vmi. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p>
+<p>Volume&#8217;s name. Must be a DNS_LABEL and unique within the vmi. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -16129,7 +16616,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>True if the volume supports snapshotting</p>
+<p>True if the volume supports snapshotting<br>
+<strong>Default</strong> : <code>false</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -16141,7 +16629,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Volume name</p>
+<p>Volume name<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -16223,7 +16712,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name is the name of the volume</p>
+<p>Name is the name of the volume<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -16283,7 +16773,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Target is the target name used when adding the volume to the VM, eg: vda</p>
+<p>Target is the target name used when adding the volume to the VM, eg: vda<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -16329,7 +16820,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the watchdog.</p>
+<p>Name of the watchdog.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -16345,12 +16837,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -16360,6 +16854,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>message</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -16369,6 +16864,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>reason</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -16379,6 +16875,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -16386,6 +16885,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17239,7 +17741,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Cert is the public CA certificate base64 encoded</p>
+<p>Cert is the public CA certificate base64 encoded<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17401,7 +17904,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Type is the type of manifest returned</p>
+<p>Type is the type of manifest returned<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17413,7 +17917,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Url is the url of the endpoint that returns the manifest</p>
+<p>Url is the url of the endpoint that returns the manifest<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17613,7 +18118,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name is the name of the exported volume</p>
+<p>Name is the name of the exported volume<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17647,7 +18153,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Format is the format of the image at the specified URL</p>
+<p>Format is the format of the image at the specified URL<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17659,7 +18166,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Url is the url that contains the volume in the format specified</p>
+<p>Url is the url that contains the volume in the format specified<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17748,12 +18256,14 @@ otherwise we will use the monitoring namespace.</p>
 <h3 id="_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -17763,6 +18273,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>message</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -17772,6 +18283,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>reason</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -17782,6 +18294,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -17789,6 +18304,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>type</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -18184,7 +18702,9 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>virtualMachineSnapshotName</strong><br>
 <em>required</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -18847,12 +19367,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -18862,6 +19384,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>persistentVolumeClaim</strong><br>
 <em>required</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1alpha1_persistentvolumeclaim">v1alpha1.PersistentVolumeClaim</a></p>
 </div></div></td>
@@ -18872,6 +19395,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -18880,6 +19406,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>volumeSnapshotName</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -18894,12 +19421,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -18909,6 +19438,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>dataVolumeName</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -18917,6 +19447,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>persistentVolumeClaim</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -18928,6 +19461,9 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
 </tr>
@@ -18935,6 +19471,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>volumeSnapshotName</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -18950,12 +19489,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -18965,6 +19506,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>creationTime</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
 </div></div></td>
@@ -18974,6 +19516,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>error</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1alpha1_error">v1alpha1.Error</a></p>
 </div></div></td>
@@ -18983,6 +19526,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>readyToUse</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
 </div></div></td>
@@ -18991,6 +19535,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>volumeSnapshotName</strong><br>
 <em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -19042,7 +19589,8 @@ otherwise we will use the monitoring namespace.</p>
 <p>Required number of vCPUs to expose to the guest.</p>
 </div>
 <div class="paragraph">
-<p>The resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferCores.</p>
+<p>The resulting CPU topology being derived from the optional PreferredCPUTopology attribute of CPUPreferences that itself defaults to PreferCores.<br>
+<strong>Default</strong> : <code>0</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int64)</p>
@@ -20534,7 +21082,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Current is the identifier of the snapshot created for this checkpoint.</p>
+<p>Current is the identifier of the snapshot created for this checkpoint.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20546,7 +21095,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Previous is the identifier of the snapshot from the previous checkpoint.</p>
+<p>Previous is the identifier of the snapshot from the previous checkpoint.<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20720,7 +21270,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>URL is the URL of the http(s) endpoint</p>
+<p>URL is the URL of the http(s) endpoint<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20766,7 +21317,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DiskID provides id of a disk to be imported</p>
+<p>DiskID provides id of a disk to be imported<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20790,7 +21342,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>URL is the URL of the ovirt-engine</p>
+<p>URL is the URL of the ovirt-engine<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20824,7 +21377,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the source PVC</p>
+<p>The name of the source PVC<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20836,7 +21390,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The namespace of the source PVC</p>
+<p>The namespace of the source PVC<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20870,7 +21425,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The kind of the source reference, currently only "DataSource" is supported</p>
+<p>The kind of the source reference, currently only "DataSource" is supported<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -20882,7 +21438,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The name of the source reference</p>
+<p>The name of the source reference<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -21034,7 +21591,8 @@ otherwise we will use the monitoring namespace.</p>
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>URL is the url of the S3 source</p>
+<p>URL is the url of the S3 source<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -21362,9 +21920,14 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>volumeMode defines what type of volume is required by the claim. Value of Filesystem is implied when not included in claim spec.</p>
+</div>
+<div class="paragraph">
+<p>Possible enum values:
+ - <code>&quot;Block&quot;</code> means the volume will not be formatted with a filesystem and will remain a raw block device.
+ - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
+<p>enum (Block, Filesystem)</p>
 </div></div></td>
 </tr>
 <tr>
