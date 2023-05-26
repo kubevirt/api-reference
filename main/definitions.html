@@ -533,6 +533,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_datavolumetemplatespec">v1.DataVolumeTemplateSpec</a></li>
 <li><a href="#_v1_developerconfiguration">v1.DeveloperConfiguration</a></li>
 <li><a href="#_v1_devices">v1.Devices</a></li>
+<li><a href="#_v1_disablefreepagereporting">v1.DisableFreePageReporting</a></li>
 <li><a href="#_v1_disk">v1.Disk</a></li>
 <li><a href="#_v1_disktarget">v1.DiskTarget</a></li>
 <li><a href="#_v1_diskverification">v1.DiskVerification</a></li>
@@ -687,6 +688,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinterfacerequest">v1.VirtualMachineInterfaceRequest</a></li>
 <li><a href="#_v1_virtualmachinelist">v1.VirtualMachineList</a></li>
 <li><a href="#_v1_virtualmachinememorydumprequest">v1.VirtualMachineMemoryDumpRequest</a></li>
+<li><a href="#_v1_virtualmachineoptions">v1.VirtualMachineOptions</a></li>
 <li><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></li>
 <li><a href="#_v1_virtualmachinestartfailure">v1.VirtualMachineStartFailure</a></li>
 <li><a href="#_v1_virtualmachinestatechangerequest">v1.VirtualMachineStateChangeRequest</a></li>
@@ -6324,6 +6326,12 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_disablefreepagereporting">v1.DisableFreePageReporting</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1_disk">v1.Disk</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -9206,6 +9214,16 @@ type PluginA struct {
 <td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>virtualMachineOptions</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_virtualmachineoptions">v1.VirtualMachineOptions</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -15944,6 +15962,40 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachineoptions">v1.VirtualMachineOptions</h3>
+<div class="paragraph">
+<p>VirtualMachineOptions holds the cluster level information regarding the virtual machine.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>disableFreePageReporting</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DisableFreePageReporting disable the free page reporting of memory balloon device <a href="https://libvirt.org/formatdomain.html#memory-balloon-device" class="bare">https://libvirt.org/formatdomain.html#memory-balloon-device</a>. This will have effect only if AutoattachMemBalloon is not false and the vmi is not requesting any high performance feature (dedicatedCPU/realtime/hugePages), in which free page reporting is always disabled.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_disablefreepagereporting">v1.DisableFreePageReporting</a></p>
 </div></div></td>
 </tr>
 </tbody>
