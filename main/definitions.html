@@ -497,7 +497,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_k8s_io_apimachinery_pkg_util_intstr_intorstring">k8s.io.apimachinery.pkg.util.intstr.IntOrString</a></li>
 <li><a href="#_v1_accesscredential">v1.AccessCredential</a></li>
 <li><a href="#_v1_accesscredentialsecretsource">v1.AccessCredentialSecretSource</a></li>
-<li><a href="#_v1_addinterfaceoptions">v1.AddInterfaceOptions</a></li>
 <li><a href="#_v1_addvolumeoptions">v1.AddVolumeOptions</a></li>
 <li><a href="#_v1_archconfiguration">v1.ArchConfiguration</a></li>
 <li><a href="#_v1_archspecificconfiguration">v1.ArchSpecificConfiguration</a></li>
@@ -625,7 +624,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_ratelimiter">v1.RateLimiter</a></li>
 <li><a href="#_v1_realtime">v1.Realtime</a></li>
 <li><a href="#_v1_reloadablecomponentconfiguration">v1.ReloadableComponentConfiguration</a></li>
-<li><a href="#_v1_removeinterfaceoptions">v1.RemoveInterfaceOptions</a></li>
 <li><a href="#_v1_removevolumeoptions">v1.RemoveVolumeOptions</a></li>
 <li><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></li>
 <li><a href="#_v1_restartoptions">v1.RestartOptions</a></li>
@@ -694,7 +692,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancespec">v1.VirtualMachineInstanceSpec</a></li>
 <li><a href="#_v1_virtualmachineinstancestatus">v1.VirtualMachineInstanceStatus</a></li>
 <li><a href="#_v1_virtualmachineinstancetemplatespec">v1.VirtualMachineInstanceTemplateSpec</a></li>
-<li><a href="#_v1_virtualmachineinterfacerequest">v1.VirtualMachineInterfaceRequest</a></li>
 <li><a href="#_v1_virtualmachinelist">v1.VirtualMachineList</a></li>
 <li><a href="#_v1_virtualmachinememorydumprequest">v1.VirtualMachineMemoryDumpRequest</a></li>
 <li><a href="#_v1_virtualmachineoptions">v1.VirtualMachineOptions</a></li>
@@ -4288,54 +4285,6 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>SecretName represents the name of the secret in the VMI&#8217;s namespace<br>
-<strong>Default</strong> : <code>""</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_v1_addinterfaceoptions">v1.AddInterfaceOptions</h3>
-<div class="paragraph">
-<p>AddInterfaceOptions is provided when dynamically hot plugging a network interface</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name indicates the logical name of the interface.<br>
-<strong>Default</strong> : <code>""</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>networkAttachmentDefinitionName</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>NetworkAttachmentDefinitionName references a NetworkAttachmentDefinition CRD object. Format: &lt;networkAttachmentDefinitionName&gt;, &lt;namespace&gt;/&lt;networkAttachmentDefinitionName&gt;. If namespace is not specified, VMI namespace is assumed.<br>
 <strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
@@ -11928,41 +11877,6 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_removeinterfaceoptions">v1.RemoveInterfaceOptions</h3>
-<div class="paragraph">
-<p>RemoveInterfaceOptions is provided when dynamically hot unplugging a network interface</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name indicates the logical name of the interface.<br>
-<strong>Default</strong> : <code>""</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_removevolumeoptions">v1.RemoveVolumeOptions</h3>
 <div class="paragraph">
 <p>RemoveVolumeOptions is provided when dynamically hot unplugging volume and disk</p>
@@ -16459,49 +16373,6 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_virtualmachineinterfacerequest">v1.VirtualMachineInterfaceRequest</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>addInterfaceOptions</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>AddInterfaceOptions when set indicates a network interface should be added. The details within this field specify how to add the interface</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_addinterfaceoptions">v1.AddInterfaceOptions</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>removeInterfaceOptions</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>RemoveInterfaceOptions when set indicates a network interface should be removed. The details within this field specify how to remove the interface</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_removeinterfaceoptions">v1.RemoveInterfaceOptions</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_virtualmachinelist">v1.VirtualMachineList</h3>
 <div class="paragraph">
 <p>VirtualMachineList is a list of virtualmachines</p>
@@ -16971,18 +16842,6 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int64)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>interfaceRequests</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>InterfaceRequests indicates a list of interfaces added to the VMI template and hot-plugged on an active running VMI.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_v1_virtualmachineinterfacerequest">v1.VirtualMachineInterfaceRequest</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
