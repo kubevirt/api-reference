@@ -589,6 +589,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_kubevirtstatus">v1.KubeVirtStatus</a></li>
 <li><a href="#_v1_kubevirtworkloadupdatestrategy">v1.KubeVirtWorkloadUpdateStrategy</a></li>
 <li><a href="#_v1_launchsecurity">v1.LaunchSecurity</a></li>
+<li><a href="#_v1_liveupdateaffinity">v1.LiveUpdateAffinity</a></li>
 <li><a href="#_v1_liveupdatecpu">v1.LiveUpdateCPU</a></li>
 <li><a href="#_v1_liveupdateconfiguration">v1.LiveUpdateConfiguration</a></li>
 <li><a href="#_v1_liveupdatefeatures">v1.LiveUpdateFeatures</a></li>
@@ -10063,6 +10064,12 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_liveupdateaffinity">v1.LiveUpdateAffinity</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1_liveupdatecpu">v1.LiveUpdateCPU</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -10140,6 +10147,18 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>affinity</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Affinity allows live updating the virtual machines node affinity</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_liveupdateaffinity">v1.LiveUpdateAffinity</a></p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>cpu</strong><br>
