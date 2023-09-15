@@ -537,6 +537,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_domainmemorydumpinfo">v1.DomainMemoryDumpInfo</a></li>
 <li><a href="#_v1_domainspec">v1.DomainSpec</a></li>
 <li><a href="#_v1_downwardapivolumesource">v1.DownwardAPIVolumeSource</a></li>
+<li><a href="#_v1_downwardmetrics">v1.DownwardMetrics</a></li>
 <li><a href="#_v1_downwardmetricsvolumesource">v1.DownwardMetricsVolumeSource</a></li>
 <li><a href="#_v1_efi">v1.EFI</a></li>
 <li><a href="#_v1_emptydisksource">v1.EmptyDiskSource</a></li>
@@ -6228,6 +6229,18 @@ type PluginA struct {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>downwardMetrics</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DownwardMetrics creates a virtio serials for exposing the downward metrics to the vmi.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_downwardmetrics">v1.DownwardMetrics</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>filesystems</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6893,6 +6906,12 @@ type PluginA struct {
 </tr>
 </tbody>
 </table>
+</div>
+<div class="sect2">
+<h3 id="_v1_downwardmetrics">v1.DownwardMetrics</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_v1_downwardmetricsvolumesource">v1.DownwardMetricsVolumeSource</h3>
