@@ -608,6 +608,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_numaguestmappingpassthrough">v1.NUMAGuestMappingPassthrough</a></li>
 <li><a href="#_v1_network">v1.Network</a></li>
 <li><a href="#_v1_networkconfiguration">v1.NetworkConfiguration</a></li>
+<li><a href="#_v1_nocloudsshpublickeyaccesscredentialpropagation">v1.NoCloudSSHPublicKeyAccessCredentialPropagation</a></li>
 <li><a href="#_v1_nodemediateddevicetypesconfig">v1.NodeMediatedDeviceTypesConfig</a></li>
 <li><a href="#_v1_nodeplacement">v1.NodePlacement</a></li>
 <li><a href="#_v1_pittimer">v1.PITTimer</a></li>
@@ -10999,6 +11000,12 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_nocloudsshpublickeyaccesscredentialpropagation">v1.NoCloudSSHPublicKeyAccessCredentialPropagation</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1_nodemediateddevicetypesconfig">v1.NodeMediatedDeviceTypesConfig</h3>
 <div class="paragraph">
 <p>NodeMediatedDeviceTypesConfig holds information about MDEV types to be defined in a specific node that matches the NodeSelector field.</p>
@@ -12731,6 +12738,18 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_configdrivesshpublickeyaccesscredentialpropagation">v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>noCloud</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>NoCloudPropagation means that the ssh public keys are injected into the VM using metadata using the noCloud cloud-init provider</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_nocloudsshpublickeyaccesscredentialpropagation">v1.NoCloudSSHPublicKeyAccessCredentialPropagation</a></p>
 </div></div></td>
 </tr>
 <tr>
