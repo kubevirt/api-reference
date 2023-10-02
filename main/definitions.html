@@ -531,6 +531,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_developerconfiguration">v1.DeveloperConfiguration</a></li>
 <li><a href="#_v1_devices">v1.Devices</a></li>
 <li><a href="#_v1_disablefreepagereporting">v1.DisableFreePageReporting</a></li>
+<li><a href="#_v1_disableserialconsolelog">v1.DisableSerialConsoleLog</a></li>
 <li><a href="#_v1_disk">v1.Disk</a></li>
 <li><a href="#_v1_disktarget">v1.DiskTarget</a></li>
 <li><a href="#_v1_diskverification">v1.DiskVerification</a></li>
@@ -6306,6 +6307,18 @@ type PluginA struct {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>logSerialConsole</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Whether to log the auto-attached default serial console or not. Serial console logs will be collect to a file and then streamed from a named <code>guest-console-log</code>. Not relevant if autoattachSerialConsole is disabled. Defaults to cluster wide setting on VirtualMachineOptions.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>networkInterfaceMultiqueue</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6381,6 +6394,12 @@ type PluginA struct {
 </div>
 <div class="sect2">
 <h3 id="_v1_disablefreepagereporting">v1.DisableFreePageReporting</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1_disableserialconsolelog">v1.DisableSerialConsoleLog</h3>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
@@ -16991,6 +17010,18 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_disablefreepagereporting">v1.DisableFreePageReporting</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>disableSerialConsoleLog</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DisableSerialConsoleLog disables logging the auto-attached default serial console. If not set, serial console logs will be written to a file and then streamed from a container named <code>guest-console-log</code>. The value can be individually overridden for each VM, not relevant if AutoattachSerialConsole is disabled.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_disableserialconsolelog">v1.DisableSerialConsoleLog</a></p>
 </div></div></td>
 </tr>
 </tbody>
