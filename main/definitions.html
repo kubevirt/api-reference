@@ -18583,7 +18583,9 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>annotationFilters</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Example use: "!some/key*". For a detailed description, please refer to <a href="https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters" class="bare">https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters</a>.</p>
+</div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
 </div></div></td>
@@ -18593,7 +18595,9 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>labelFilters</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Example use: "!some/key*". For a detailed description, please refer to <a href="https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters" class="bare">https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters</a>.</p>
+</div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
 </div></div></td>
@@ -18627,7 +18631,9 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>source</strong><br>
 <em>required</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Source is the object that would be cloned. Currently supported source types are: VirtualMachine of kubevirt.io API group, VirtualMachineSnapshot of snapshot.kubevirt.io API group</p>
+</div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_api_core_v1_typedlocalobjectreference">k8s.io.api.core.v1.TypedLocalObjectReference</a></p>
 </div></div></td>
@@ -18638,7 +18644,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>If the target is not provided, a random name would be generated for the target. The target&#8217;s name can be viewed by inspecting status "TargetName" field below.</p>
+<p>Target is the outcome of the cloning process. Currently supported source types are: - VirtualMachine of kubevirt.io API group - Empty (nil). If the target is not provided, the target type would default to VirtualMachine and a random name would be generated for the target. The target&#8217;s name can be viewed by inspecting status "TargetName" field below.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_api_core_v1_typedlocalobjectreference">k8s.io.api.core.v1.TypedLocalObjectReference</a></p>
