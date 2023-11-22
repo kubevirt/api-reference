@@ -729,6 +729,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_virtualmachineclonelist">v1alpha1.VirtualMachineCloneList</a></li>
 <li><a href="#_v1alpha1_virtualmachineclonespec">v1alpha1.VirtualMachineCloneSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachineclonestatus">v1alpha1.VirtualMachineCloneStatus</a></li>
+<li><a href="#_v1alpha1_virtualmachineclonetemplatefilters">v1alpha1.VirtualMachineCloneTemplateFilters</a></li>
 <li><a href="#_v1alpha1_virtualmachineexport">v1alpha1.VirtualMachineExport</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportlink">v1alpha1.VirtualMachineExportLink</a></li>
 <li><a href="#_v1alpha1_virtualmachineexportlinks">v1alpha1.VirtualMachineExportLinks</a></li>
@@ -18698,6 +18699,18 @@ otherwise we will use the monitoring namespace.</p>
 <p><a href="#_k8s_io_api_core_v1_typedlocalobjectreference">k8s.io.api.core.v1.TypedLocalObjectReference</a></p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>template</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>For a detailed description, please refer to <a href="https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters" class="bare">https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters</a>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachineclonetemplatefilters">v1alpha1.VirtualMachineCloneTemplateFilters</a></p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -18767,6 +18780,49 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_virtualmachineclonetemplatefilters">v1alpha1.VirtualMachineCloneTemplateFilters</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>annotationFilters</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Example use: "!some/key*". For a detailed description, please refer to <a href="https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters" class="bare">https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters</a>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>labelFilters</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Example use: "!some/key*". For a detailed description, please refer to <a href="https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters" class="bare">https://kubevirt.io/user-guide/operations/clone_api/#label-annotation-filters</a>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
