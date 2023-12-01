@@ -495,6 +495,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_watchevent">k8s.io.apimachinery.pkg.apis.meta.v1.WatchEvent</a></li>
 <li><a href="#_k8s_io_apimachinery_pkg_runtime_rawextension">k8s.io.apimachinery.pkg.runtime.RawExtension</a></li>
 <li><a href="#_k8s_io_apimachinery_pkg_util_intstr_intorstring">k8s.io.apimachinery.pkg.util.intstr.IntOrString</a></li>
+<li><a href="#_v1_acpi">v1.ACPI</a></li>
 <li><a href="#_v1_accesscredential">v1.AccessCredential</a></li>
 <li><a href="#_v1_accesscredentialsecretsource">v1.AccessCredentialSecretSource</a></li>
 <li><a href="#_v1_addvolumeoptions">v1.AddVolumeOptions</a></li>
@@ -4228,6 +4229,37 @@ type PluginA struct {
 </div>
 </div>
 <div class="sect2">
+<h3 id="_v1_acpi">v1.ACPI</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>slicNameRef</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SlicNameRef should match the volume name of a secret object. The data in the secret should be a binary blob that follows the ACPI SLIC standard, see: <a href="https://learn.microsoft.com/en-us/previous-versions/windows/hardware/design/dn653305(v=vs.85" class="bare">https://learn.microsoft.com/en-us/previous-versions/windows/hardware/design/dn653305(v=vs.85</a>)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_accesscredential">v1.AccessCredential</h3>
 <div class="paragraph">
 <p>AccessCredential represents a credential source that can be used to authorize remote access to the vm guest Only one of its members may be specified.</p>
@@ -7599,6 +7631,18 @@ type PluginA struct {
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>acpi</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Information that can be set in the ACPI table</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_acpi">v1.ACPI</a></p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>bootloader</strong><br>
