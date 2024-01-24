@@ -679,6 +679,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstance">v1.VirtualMachineInstance</a></li>
 <li><a href="#_v1_virtualmachineinstancecondition">v1.VirtualMachineInstanceCondition</a></li>
 <li><a href="#_v1_virtualmachineinstancefilesystem">v1.VirtualMachineInstanceFileSystem</a></li>
+<li><a href="#_v1_virtualmachineinstancefilesystemdisk">v1.VirtualMachineInstanceFileSystemDisk</a></li>
 <li><a href="#_v1_virtualmachineinstancefilesysteminfo">v1.VirtualMachineInstanceFileSystemInfo</a></li>
 <li><a href="#_v1_virtualmachineinstancefilesystemlist">v1.VirtualMachineInstanceFileSystemList</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestagentinfo">v1.VirtualMachineInstanceGuestAgentInfo</a></li>
@@ -14536,6 +14537,16 @@ otherwise we will use the monitoring namespace.</p>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>disk</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1_virtualmachineinstancefilesystemdisk">v1.VirtualMachineInstanceFileSystemDisk</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>diskName</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -14592,6 +14603,52 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachineinstancefilesystemdisk">v1.VirtualMachineInstanceFileSystemDisk</h3>
+<div class="paragraph">
+<p>VirtualMachineInstanceFileSystemDisk represents the guest os FS disks</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>bus-type</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>serial</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
