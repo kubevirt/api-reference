@@ -573,6 +573,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_input">v1.Input</a></li>
 <li><a href="#_v1_instancetypematcher">v1.InstancetypeMatcher</a></li>
 <li><a href="#_v1_interface">v1.Interface</a></li>
+<li><a href="#_v1_interfacebindingmigration">v1.InterfaceBindingMigration</a></li>
 <li><a href="#_v1_interfacebindingplugin">v1.InterfaceBindingPlugin</a></li>
 <li><a href="#_v1_interfacebridge">v1.InterfaceBridge</a></li>
 <li><a href="#_v1_interfacemacvtap">v1.InterfaceMacvtap</a></li>
@@ -8778,6 +8779,37 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_interfacebindingmigration">v1.InterfaceBindingMigration</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>method</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Method defines a pre-defined migration methodology version: 1alphav1</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_interfacebindingplugin">v1.InterfaceBindingPlugin</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -8803,6 +8835,18 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>migration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Migration means the VM using the plugin can be safely migrated version: 1alphav1</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_interfacebindingmigration">v1.InterfaceBindingMigration</a></p>
 </div></div></td>
 </tr>
 <tr>
