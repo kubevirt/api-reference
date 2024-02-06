@@ -597,11 +597,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_kubevirtstatus">v1.KubeVirtStatus</a></li>
 <li><a href="#_v1_kubevirtworkloadupdatestrategy">v1.KubeVirtWorkloadUpdateStrategy</a></li>
 <li><a href="#_v1_launchsecurity">v1.LaunchSecurity</a></li>
-<li><a href="#_v1_liveupdateaffinity">v1.LiveUpdateAffinity</a></li>
-<li><a href="#_v1_liveupdatecpu">v1.LiveUpdateCPU</a></li>
 <li><a href="#_v1_liveupdateconfiguration">v1.LiveUpdateConfiguration</a></li>
-<li><a href="#_v1_liveupdatefeatures">v1.LiveUpdateFeatures</a></li>
-<li><a href="#_v1_liveupdatememory">v1.LiveUpdateMemory</a></li>
 <li><a href="#_v1_logverbosity">v1.LogVerbosity</a></li>
 <li><a href="#_v1_luntarget">v1.LunTarget</a></li>
 <li><a href="#_v1_machine">v1.Machine</a></li>
@@ -9740,6 +9736,18 @@ type PluginA struct {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>vmRolloutStrategy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VMRolloutStrategy defines how changes to a VM object propagate to its VMI</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>vmStateStorageClass</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -10389,43 +10397,6 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_v1_liveupdateaffinity">v1.LiveUpdateAffinity</h3>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_v1_liveupdatecpu">v1.LiveUpdateCPU</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>maxSockets</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The maximum amount of sockets that can be hot-plugged to the Virtual Machine</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>integer (int64)</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_v1_liveupdateconfiguration">v1.LiveUpdateConfiguration</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -10475,92 +10446,6 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int64)</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_v1_liveupdatefeatures">v1.LiveUpdateFeatures</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>affinity</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Affinity allows live updating the virtual machines node affinity</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_liveupdateaffinity">v1.LiveUpdateAffinity</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>cpu</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>LiveUpdateCPU holds hotplug configuration for the CPU resource. Empty struct indicates that default will be used for maxSockets. Default is specified on cluster level. Absence of the struct means opt-out from CPU hotplug functionality.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_liveupdatecpu">v1.LiveUpdateCPU</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>memory</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>MemoryLiveUpdateConfiguration defines the live update memory features for the VirtualMachine</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_liveupdatememory">v1.LiveUpdateMemory</a></p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_v1_liveupdatememory">v1.LiveUpdateMemory</h3>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>maxGuest</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>MaxGuest defines the maximum amount memory that can be allocated for the VM.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -17442,18 +17327,6 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_instancetypematcher">v1.InstancetypeMatcher</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>liveUpdateFeatures</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>LiveUpdateFeatures references a configuration of hotpluggable resources</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_liveupdatefeatures">v1.LiveUpdateFeatures</a></p>
 </div></div></td>
 </tr>
 <tr>
