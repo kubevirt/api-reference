@@ -568,6 +568,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_hotplugvolumesource">v1.HotplugVolumeSource</a></li>
 <li><a href="#_v1_hotplugvolumestatus">v1.HotplugVolumeStatus</a></li>
 <li><a href="#_v1_hugepages">v1.Hugepages</a></li>
+<li><a href="#_v1_hypervpassthrough">v1.HyperVPassthrough</a></li>
 <li><a href="#_v1_hypervtimer">v1.HypervTimer</a></li>
 <li><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></li>
 <li><a href="#_v1_initrdinfo">v1.InitrdInfo</a></li>
@@ -7565,6 +7566,18 @@ type PluginA struct {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hypervPassthrough</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>This enables all supported hyperv flags automatically. Bear in mind that if this enabled hyperV features cannot be enabled explicitly. In addition, a Virtual Machine using it will be non-migratable.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_hypervpassthrough">v1.HyperVPassthrough</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>kvm</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -8316,6 +8329,32 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_hypervpassthrough">v1.HyperVPassthrough</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enabled</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 </tbody>
