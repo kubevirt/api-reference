@@ -531,6 +531,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_datavolumesource">v1.DataVolumeSource</a></li>
 <li><a href="#_v1_datavolumetemplatedummystatus">v1.DataVolumeTemplateDummyStatus</a></li>
 <li><a href="#_v1_datavolumetemplatespec">v1.DataVolumeTemplateSpec</a></li>
+<li><a href="#_v1_deprecatedinterfaceslirp">v1.DeprecatedInterfaceSlirp</a></li>
 <li><a href="#_v1_developerconfiguration">v1.DeveloperConfiguration</a></li>
 <li><a href="#_v1_devices">v1.Devices</a></li>
 <li><a href="#_v1_disablefreepagereporting">v1.DisableFreePageReporting</a></li>
@@ -582,7 +583,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_interfacemasquerade">v1.InterfaceMasquerade</a></li>
 <li><a href="#_v1_interfacepasst">v1.InterfacePasst</a></li>
 <li><a href="#_v1_interfacesriov">v1.InterfaceSRIOV</a></li>
-<li><a href="#_v1_interfaceslirp">v1.InterfaceSlirp</a></li>
 <li><a href="#_v1_ksmconfiguration">v1.KSMConfiguration</a></li>
 <li><a href="#_v1_kvmtimer">v1.KVMTimer</a></li>
 <li><a href="#_v1_kernelboot">v1.KernelBoot</a></li>
@@ -6031,6 +6031,15 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_deprecatedinterfaceslirp">v1.DeprecatedInterfaceSlirp</h3>
+<div class="paragraph">
+<p>DeprecatedInterfaceSlirp is an alias to the deprecated InterfaceSlirp that connects to a given network using QEMU user networking mode. Deprecated: Removed in v1.3</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1_developerconfiguration">v1.DeveloperConfiguration</h3>
 <div class="paragraph">
 <p>DeveloperConfiguration holds developer options</p>
@@ -8772,9 +8781,11 @@ type PluginA struct {
 <p><strong>slirp</strong><br>
 <em>optional</em></p>
 </div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_interfaceslirp">v1.InterfaceSlirp</a></p>
+<p>DeprecatedSlirp is an alias to the deprecated Slirp interface Deprecated: Removed in v1.3</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_deprecatedinterfaceslirp">v1.DeprecatedInterfaceSlirp</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -8964,15 +8975,6 @@ type PluginA struct {
 <h3 id="_v1_interfacesriov">v1.InterfaceSRIOV</h3>
 <div class="paragraph">
 <p>InterfaceSRIOV connects to a given network by passing-through an SR-IOV PCI device via vfio.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_v1_interfaceslirp">v1.InterfaceSlirp</h3>
-<div class="paragraph">
-<p>InterfaceSlirp connects to a given network using QEMU user networking mode.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
@@ -11330,12 +11332,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -11345,6 +11349,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>binding</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string, <a href="#_v1_interfacebindingplugin">v1.InterfaceBindingPlugin</a> &gt; map</p>
 </div></div></td>
@@ -11354,6 +11359,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>defaultNetworkInterface</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -11363,6 +11369,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>permitBridgeInterfaceOnPodNetwork</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
 </div></div></td>
@@ -11371,6 +11378,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>permitSlirpInterface</strong><br>
 <em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DeprecatedPermitSlirpInterface is an alias for the deprecated PermitSlirpInterface. Deprecated: Removed in v1.3.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
