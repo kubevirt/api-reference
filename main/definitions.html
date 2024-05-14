@@ -790,6 +790,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1beta1_memoryinstancetype">v1beta1.MemoryInstancetype</a></li>
 <li><a href="#_v1beta1_memorypreferencerequirement">v1beta1.MemoryPreferenceRequirement</a></li>
 <li><a href="#_v1beta1_preferencerequirements">v1beta1.PreferenceRequirements</a></li>
+<li><a href="#_v1beta1_spreadoptions">v1beta1.SpreadOptions</a></li>
 <li><a href="#_v1beta1_storagespec">v1beta1.StorageSpec</a></li>
 <li><a href="#_v1beta1_virtualmachineclusterinstancetype">v1beta1.VirtualMachineClusterInstancetype</a></li>
 <li><a href="#_v1beta1_virtualmachineclusterinstancetypelist">v1beta1.VirtualMachineClusterInstancetypeList</a></li>
@@ -21218,6 +21219,16 @@ otherwise we will use the monitoring namespace.</p>
 <p>string</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>spreadOptions</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1beta1_spreadoptions">v1beta1.SpreadOptions</a></p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -22810,6 +22821,55 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1beta1_memorypreferencerequirement">v1beta1.MemoryPreferenceRequirement</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1beta1_spreadoptions">v1beta1.SpreadOptions</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>across</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Across optionally defines how to spread vCPUs across the guest visible topology. Default: SocketsCores</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>ratio</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Ratio optionally defines the ratio to spread vCPUs across the guest visible topology:</p>
+</div>
+<div class="paragraph">
+<p>CoresThreads - 1:2 - Controls the ratio of cores to threads. Only a ratio of 2 is currently accepted. SocketsCores - 1:N - Controls the ratio of socket to cores. SocketsCoresThreads - 1:N:2 - Controls the ratio of socket to cores. Each core providing 2 threads.</p>
+</div>
+<div class="paragraph">
+<p>Default: 2</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
 </div></div></td>
 </tr>
 </tbody>
