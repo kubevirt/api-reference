@@ -531,6 +531,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_datavolumesource">v1.DataVolumeSource</a></li>
 <li><a href="#_v1_datavolumetemplatedummystatus">v1.DataVolumeTemplateDummyStatus</a></li>
 <li><a href="#_v1_datavolumetemplatespec">v1.DataVolumeTemplateSpec</a></li>
+<li><a href="#_v1_deprecatedinterfacemacvtap">v1.DeprecatedInterfaceMacvtap</a></li>
 <li><a href="#_v1_deprecatedinterfaceslirp">v1.DeprecatedInterfaceSlirp</a></li>
 <li><a href="#_v1_developerconfiguration">v1.DeveloperConfiguration</a></li>
 <li><a href="#_v1_devices">v1.Devices</a></li>
@@ -579,7 +580,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_interfacebindingmigration">v1.InterfaceBindingMigration</a></li>
 <li><a href="#_v1_interfacebindingplugin">v1.InterfaceBindingPlugin</a></li>
 <li><a href="#_v1_interfacebridge">v1.InterfaceBridge</a></li>
-<li><a href="#_v1_interfacemacvtap">v1.InterfaceMacvtap</a></li>
 <li><a href="#_v1_interfacemasquerade">v1.InterfaceMasquerade</a></li>
 <li><a href="#_v1_interfacepasst">v1.InterfacePasst</a></li>
 <li><a href="#_v1_interfacesriov">v1.InterfaceSRIOV</a></li>
@@ -6032,6 +6032,15 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_deprecatedinterfacemacvtap">v1.DeprecatedInterfaceMacvtap</h3>
+<div class="paragraph">
+<p>DeprecatedInterfaceMacvtap is an alias to the deprecated InterfaceMacvtap that connects to a given network by extending the Kubernetes node&#8217;s L2 networks via a macvtap interface. Deprecated: Removed in v1.3</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1_deprecatedinterfaceslirp">v1.DeprecatedInterfaceSlirp</h3>
 <div class="paragraph">
 <p>DeprecatedInterfaceSlirp is an alias to the deprecated InterfaceSlirp that connects to a given network using QEMU user networking mode. Deprecated: Removed in v1.3</p>
@@ -8700,10 +8709,10 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Deprecated, please refer to Kubevirt user guide for alternatives.</p>
+<p>DeprecatedMacvtap is an alias to the deprecated Macvtap interface, please refer to Kubevirt user guide for alternatives. Deprecated: Removed in v1.3</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_interfacemacvtap">v1.InterfaceMacvtap</a></p>
+<p><a href="#_v1_deprecatedinterfacemacvtap">v1.DeprecatedInterfaceMacvtap</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -8940,15 +8949,6 @@ type PluginA struct {
 <h3 id="_v1_interfacebridge">v1.InterfaceBridge</h3>
 <div class="paragraph">
 <p>InterfaceBridge connects to a given network via a linux bridge.</p>
-</div>
-<div class="paragraph">
-<p><em>Type</em> : object</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_v1_interfacemacvtap">v1.InterfaceMacvtap</h3>
-<div class="paragraph">
-<p>InterfaceMacvtap connects to a given network by extending the Kubernetes node&#8217;s L2 networks via a macvtap interface.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
