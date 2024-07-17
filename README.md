@@ -6,6 +6,7 @@ Content of this repository is generated from OpenAPI specification of
 ## KubeVirt API References
 
 * [main](https://kubevirt.github.io/api-reference/main/index.html)
+* [v1.3.0](https://kubevirt.github.io/api-reference/v1.3.0/index.html)
 * [v1.2.2](https://kubevirt.github.io/api-reference/v1.2.2/index.html)
 * [v1.2.1](https://kubevirt.github.io/api-reference/v1.2.1/index.html)
 * [v1.2.0](https://kubevirt.github.io/api-reference/v1.2.0/index.html)
