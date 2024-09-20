@@ -718,8 +718,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachinestatus">v1.VirtualMachineStatus</a></li>
 <li><a href="#_v1_virtualmachinevolumerequest">v1.VirtualMachineVolumeRequest</a></li>
 <li><a href="#_v1_volume">v1.Volume</a></li>
+<li><a href="#_v1_volumemigrationstate">v1.VolumeMigrationState</a></li>
 <li><a href="#_v1_volumesnapshotstatus">v1.VolumeSnapshotStatus</a></li>
 <li><a href="#_v1_volumestatus">v1.VolumeStatus</a></li>
+<li><a href="#_v1_volumeupdatestate">v1.VolumeUpdateState</a></li>
 <li><a href="#_v1_watchdog">v1.Watchdog</a></li>
 <li><a href="#_v1alpha1_condition">v1alpha1.Condition</a></li>
 <li><a href="#_v1alpha1_migrationpolicy">v1alpha1.MigrationPolicy</a></li>
@@ -17949,6 +17951,18 @@ otherwise we will use the monitoring namespace.</p>
 <p>&lt; <a href="#_v1_volumesnapshotstatus">v1.VolumeSnapshotStatus</a> &gt; array</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeUpdateState</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VolumeUpdateState contains the information about the volumes set updates related to the volumeUpdateStrategy</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_volumeupdatestate">v1.VolumeUpdateState</a></p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -18211,6 +18225,49 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_volumemigrationstate">v1.VolumeMigrationState</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>manualRecoveryRequired</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ManualRecoveryRequired indicates if the update due to the migration failed and the volumes set needs to be manually restored</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>migratedVolumes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>MigratedVolumes lists the source and destination volumes during the volume migration</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1_storagemigratedvolumeinfo">v1.StorageMigratedVolumeInfo</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_volumesnapshotstatus">v1.VolumeSnapshotStatus</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -18406,6 +18463,37 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_volumeupdatestate">v1.VolumeUpdateState</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeMigrationState</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VolumeMigrationState tracks the information related to the volume migration</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_volumemigrationstate">v1.VolumeMigrationState</a></p>
 </div></div></td>
 </tr>
 </tbody>
