@@ -518,6 +518,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_clockoffsetutc">v1.ClockOffsetUTC</a></li>
 <li><a href="#_v1_cloudinitconfigdrivesource">v1.CloudInitConfigDriveSource</a></li>
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
+<li><a href="#_v1_commoninstancetypesdeployment">v1.CommonInstancetypesDeployment</a></li>
 <li><a href="#_v1_componentconfig">v1.ComponentConfig</a></li>
 <li><a href="#_v1_configdrivesshpublickeyaccesscredentialpropagation">v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation</a></li>
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
@@ -5467,6 +5468,37 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_commoninstancetypesdeployment">v1.CommonInstancetypesDeployment</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enabled</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Enabled controls the deployment of common-instancetypes resources, defaults to True.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_componentconfig">v1.ComponentConfig</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -9589,6 +9621,18 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_labelselector">k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>commonInstancetypesDeployment</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CommonInstancetypesDeployment controls the deployment of common-instancetypes resources</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_commoninstancetypesdeployment">v1.CommonInstancetypesDeployment</a></p>
 </div></div></td>
 </tr>
 <tr>
