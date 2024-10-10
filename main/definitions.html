@@ -640,6 +640,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_reloadablecomponentconfiguration">v1.ReloadableComponentConfiguration</a></li>
 <li><a href="#_v1_removevolumeoptions">v1.RemoveVolumeOptions</a></li>
 <li><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></li>
+<li><a href="#_v1_resourcerequirementswithoutclaims">v1.ResourceRequirementsWithoutClaims</a></li>
 <li><a href="#_v1_restartoptions">v1.RestartOptions</a></li>
 <li><a href="#_v1_rng">v1.Rng</a></li>
 <li><a href="#_v1_sev">v1.SEV</a></li>
@@ -1141,7 +1142,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the referent. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p>
+<p>Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1420,7 +1422,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>accessModes contains the desired access modes the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
+<p>&lt; enum (ReadOnlyMany, ReadWriteMany, ReadWriteOnce, ReadWriteOncePod) &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1496,7 +1498,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it&#8217;s not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: <a href="https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/" class="bare">https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/</a> (Alpha) Using this field requires the VolumeAttributesClass feature gate to be enabled.</p>
+<p>volumeAttributesClassName may be used to set the VolumeAttributesClass used by this claim. If specified, the CSI driver will create or update the volume with the attributes defined in the corresponding VolumeAttributesClass. This has a different purpose than storageClassName, it can be changed after the claim is created. An empty string value means that no VolumeAttributesClass will be applied to the claim but it&#8217;s not allowed to reset this field to empty string once it is set. If unspecified and the PersistentVolumeClaim is unbound, the default VolumeAttributesClass will be set by the persistentvolume controller if it exists. If the resource referred to by volumeAttributesClass does not exist, this PersistentVolumeClaim will be set to a Pending state, as reflected by the modifyVolumeStatus field, until such as a resource exists. More info: <a href="https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/" class="bare">https://kubernetes.io/docs/concepts/storage/volume-attributes-classes/</a> (Beta) Using this field requires the VolumeAttributesClass feature gate to be enabled (off by default).</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -1664,7 +1666,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with <code>labelSelector</code> as <code>key in (value)</code> to select the group of existing pods which pods will be taken into consideration for the incoming pod&#8217;s pod (anti) affinity. Keys that don&#8217;t exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn&#8217;t set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.</p>
+<p>MatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with <code>labelSelector</code> as <code>key in (value)</code> to select the group of existing pods which pods will be taken into consideration for the incoming pod&#8217;s pod (anti) affinity. Keys that don&#8217;t exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both matchLabelKeys and labelSelector. Also, matchLabelKeys cannot be set when labelSelector isn&#8217;t set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -1676,7 +1678,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with <code>labelSelector</code> as <code>key notin (value)</code> to select the group of existing pods which pods will be taken into consideration for the incoming pod&#8217;s pod (anti) affinity. Keys that don&#8217;t exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn&#8217;t set. This is an alpha field and requires enabling MatchLabelKeysInPodAffinity feature gate.</p>
+<p>MismatchLabelKeys is a set of pod label keys to select which pods will be taken into consideration. The keys are used to lookup values from the incoming pod labels, those key-value labels are merged with <code>labelSelector</code> as <code>key notin (value)</code> to select the group of existing pods which pods will be taken into consideration for the incoming pod&#8217;s pod (anti) affinity. Keys that don&#8217;t exist in the incoming pod labels will be ignored. The default value is empty. The same key is forbidden to exist in both mismatchLabelKeys and labelSelector. Also, mismatchLabelKeys cannot be set when labelSelector isn&#8217;t set. This is a beta field and requires enabling MatchLabelKeysInPodAffinity feature gate (enabled by default).</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
@@ -1944,6 +1946,18 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.<br>
 <strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>request</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -5572,7 +5586,8 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name of the referent. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a></p>
+<p>Name of the referent. This field is effectively required, but due to backwards compatibility is allowed to be empty. Instances of this type with an empty value here are almost certainly wrong. More info: <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names" class="bare">https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names</a><br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -9019,7 +9034,7 @@ type PluginA struct {
 <p>ComputeResourceOverhead specifies the resource overhead that should be added to the compute container when using the binding. version: v1alphav1</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_k8s_io_api_core_v1_resourcerequirements">k8s.io.api.core.v1.ResourceRequirements</a></p>
+<p><a href="#_v1_resourcerequirementswithoutclaims">v1.ResourceRequirementsWithoutClaims</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -11889,7 +11904,7 @@ otherwise we will use the monitoring namespace.</p>
 <p>AccessModes contains the desired access modes the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
+<p>&lt; enum (ReadOnlyMany, ReadWriteMany, ReadWriteOnce, ReadWriteOncePod) &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -12700,6 +12715,52 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>object</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_resourcerequirementswithoutclaims">v1.ResourceRequirementsWithoutClaims</h3>
+<div class="paragraph">
+<p>ResourceRequirementsWithoutClaims describes the compute resource requirements. This struct was taken from the k8s.ResourceRequirements and cleaned up the <code>Claims</code> field.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>limits</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Limits describes the maximum amount of compute resources allowed. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, <a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a> &gt; map</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>requests</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, <a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a> &gt; map</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -13766,7 +13827,7 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_k8s_io_api_core_v1_resourcerequirements">k8s.io.api.core.v1.ResourceRequirements</a></p>
+<p><a href="#_v1_resourcerequirementswithoutclaims">v1.ResourceRequirementsWithoutClaims</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -21744,7 +21805,7 @@ otherwise we will use the monitoring namespace.</p>
 <p>AccessModes contains the desired access modes the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#access-modes-1</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string &gt; array</p>
+<p>&lt; enum (ReadOnlyMany, ReadWriteMany, ReadWriteOnce, ReadWriteOncePod) &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
