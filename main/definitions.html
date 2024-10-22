@@ -578,6 +578,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_i6300esbwatchdog">v1.I6300ESBWatchdog</a></li>
 <li><a href="#_v1_initrdinfo">v1.InitrdInfo</a></li>
 <li><a href="#_v1_input">v1.Input</a></li>
+<li><a href="#_v1_instancetypeconfiguration">v1.InstancetypeConfiguration</a></li>
 <li><a href="#_v1_instancetypematcher">v1.InstancetypeMatcher</a></li>
 <li><a href="#_v1_interface">v1.Interface</a></li>
 <li><a href="#_v1_interfacebindingmigration">v1.InterfaceBindingMigration</a></li>
@@ -8679,6 +8680,37 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_instancetypeconfiguration">v1.InstancetypeConfiguration</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>referencePolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ReferencePolicy defines how an instance type or preference should be referenced by the VM after submission, supported values are: reference (default) - Where a copy of the original object is stashed in a ControllerRevision and referenced by the VM. expand - Where the instance type or preference are expanded into the VM if no revisionNames have been populated. expandAll - Where the instance type or preference are expanded into the VM regardless of revisionNames previously being populated.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_instancetypematcher">v1.InstancetypeMatcher</h3>
 <div class="paragraph">
 <p>InstancetypeMatcher references a instancetype that is used to fill fields in the VMI template.</p>
@@ -9747,6 +9779,18 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>enum (Always, IfNotPresent, Never)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instancetype</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Instancetype configuration</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_instancetypeconfiguration">v1.InstancetypeConfiguration</a></p>
 </div></div></td>
 </tr>
 <tr>
