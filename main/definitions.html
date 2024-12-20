@@ -461,9 +461,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_k8s_io_api_core_v1_poddnsconfig">k8s.io.api.core.v1.PodDNSConfig</a></li>
 <li><a href="#_k8s_io_api_core_v1_poddnsconfigoption">k8s.io.api.core.v1.PodDNSConfigOption</a></li>
 <li><a href="#_k8s_io_api_core_v1_preferredschedulingterm">k8s.io.api.core.v1.PreferredSchedulingTerm</a></li>
-<li><a href="#_k8s_io_api_core_v1_resourceclaim">k8s.io.api.core.v1.ResourceClaim</a></li>
 <li><a href="#_k8s_io_api_core_v1_resourcefieldselector">k8s.io.api.core.v1.ResourceFieldSelector</a></li>
-<li><a href="#_k8s_io_api_core_v1_resourcerequirements">k8s.io.api.core.v1.ResourceRequirements</a></li>
 <li><a href="#_k8s_io_api_core_v1_tcpsocketaction">k8s.io.api.core.v1.TCPSocketAction</a></li>
 <li><a href="#_k8s_io_api_core_v1_toleration">k8s.io.api.core.v1.Toleration</a></li>
 <li><a href="#_k8s_io_api_core_v1_topologyspreadconstraint">k8s.io.api.core.v1.TopologySpreadConstraint</a></li>
@@ -1516,10 +1514,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="paragraph">
 <p>Possible enum values:
  - <code>&quot;Block&quot;</code> means the volume will not be formatted with a filesystem and will remain a raw block device.
- - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.</p>
+ - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.
+ - <code>&quot;FromStorageProfile&quot;</code> means the volume mode will be auto selected by CDI according to a matching StorageProfile</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (Block, Filesystem)</p>
+<p>enum (Block, Filesystem, FromStorageProfile)</p>
 </div></div></td>
 </tr>
 <tr>
@@ -1921,53 +1920,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_k8s_io_api_core_v1_resourceclaim">k8s.io.api.core.v1.ResourceClaim</h3>
-<div class="paragraph">
-<p>ResourceClaim references one entry in PodSpec.ResourceClaims.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name must match the name of one entry in pod.spec.resourceClaims of the Pod where this field is used. It makes that resource available inside a container.<br>
-<strong>Default</strong> : <code>""</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>request</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Request is the name chosen for a request in the referenced claim. If empty, everything from the claim is made available, otherwise only the result of this request.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
 <h3 id="_k8s_io_api_core_v1_resourcefieldselector">k8s.io.api.core.v1.ResourceFieldSelector</h3>
 <div class="paragraph">
 <p>ResourceFieldSelector represents container resources (cpu, memory) and their output format</p>
@@ -2021,70 +1973,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_k8s_io_api_core_v1_resourcerequirements">k8s.io.api.core.v1.ResourceRequirements</h3>
-<div class="paragraph">
-<p>ResourceRequirements describes the compute resource requirements.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>claims</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Claims lists the names of resources, defined in spec.resourceClaims, that are used by this container.</p>
-</div>
-<div class="paragraph">
-<p>This is an alpha field and requires enabling the DynamicResourceAllocation feature gate.</p>
-</div>
-<div class="paragraph">
-<p>This field is immutable. It can only be set for containers.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_k8s_io_api_core_v1_resourceclaim">k8s.io.api.core.v1.ResourceClaim</a> &gt; array</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>limits</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Limits describes the maximum amount of compute resources allowed. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string, <a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a> &gt; map</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>requests</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Requests describes the minimum amount of compute resources required. If Requests is omitted for a container, it defaults to Limits if that is explicitly specified, otherwise to an implementation-defined value. Requests cannot exceed Limits. More info: <a href="https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/" class="bare">https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/</a></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; string, <a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a> &gt; map</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -12034,10 +11922,11 @@ otherwise we will use the monitoring namespace.</p>
 <div class="paragraph">
 <p>Possible enum values:
  - <code>&quot;Block&quot;</code> means the volume will not be formatted with a filesystem and will remain a raw block device.
- - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.</p>
+ - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.
+ - <code>&quot;FromStorageProfile&quot;</code> means the volume mode will be auto selected by CDI according to a matching StorageProfile</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (Block, Filesystem)</p>
+<p>enum (Block, Filesystem, FromStorageProfile)</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -21936,7 +21825,7 @@ otherwise we will use the monitoring namespace.</p>
 <p>Resources represents the minimum resources the volume should have. More info: <a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources" class="bare">https://kubernetes.io/docs/concepts/storage/persistent-volumes#resources</a></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_k8s_io_api_core_v1_resourcerequirements">k8s.io.api.core.v1.ResourceRequirements</a></p>
+<p><a href="#_k8s_io_api_core_v1_volumeresourcerequirements">k8s.io.api.core.v1.VolumeResourceRequirements</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -21974,10 +21863,11 @@ otherwise we will use the monitoring namespace.</p>
 <div class="paragraph">
 <p>Possible enum values:
  - <code>&quot;Block&quot;</code> means the volume will not be formatted with a filesystem and will remain a raw block device.
- - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.</p>
+ - <code>&quot;Filesystem&quot;</code> means the volume will be or is formatted with a filesystem.
+ - <code>&quot;FromStorageProfile&quot;</code> means the volume mode will be auto selected by CDI according to a matching StorageProfile</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>enum (Block, Filesystem)</p>
+<p>enum (Block, Filesystem, FromStorageProfile)</p>
 </div></div></td>
 </tr>
 <tr>
