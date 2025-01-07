@@ -539,6 +539,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_disablefreepagereporting">v1.DisableFreePageReporting</a></li>
 <li><a href="#_v1_disableserialconsolelog">v1.DisableSerialConsoleLog</a></li>
 <li><a href="#_v1_disk">v1.Disk</a></li>
+<li><a href="#_v1_diskiothreads">v1.DiskIOThreads</a></li>
 <li><a href="#_v1_disktarget">v1.DiskTarget</a></li>
 <li><a href="#_v1_diskverification">v1.DiskVerification</a></li>
 <li><a href="#_v1_domainmemorydumpinfo">v1.DomainMemoryDumpInfo</a></li>
@@ -6703,6 +6704,37 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_diskiothreads">v1.DiskIOThreads</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>supplementalPoolThreadCount</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SupplementalPoolThreadCount specifies how many iothreads are allocated for the supplementalPool policy.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_disktarget">v1.DiskTarget</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -6942,6 +6974,18 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_firmware">v1.Firmware</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>ioThreads</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>IOThreads specifies the IOThreads options.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_diskiothreads">v1.DiskIOThreads</a></p>
 </div></div></td>
 </tr>
 <tr>
