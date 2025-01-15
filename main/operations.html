@@ -444,15 +444,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_getrootpaths">GET /</a></li>
 <li><a href="#_getapigrouplist">GET /apis</a></li>
 <li><a href="#_getapigroup-clone_kubevirt_io">GET /apis/clone.kubevirt.io/</a></li>
-<li><a href="#_getapiresources-clone_kubevirt_io-v1alpha1">GET /apis/clone.kubevirt.io/v1alpha1/</a></li>
-<li><a href="#_createvirtualmachineclone">POST /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones</a></li>
-<li><a href="#_listvirtualmachineclone">GET /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones</a></li>
-<li><a href="#_deletecollectionvirtualmachineclone">DELETE /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones</a></li>
-<li><a href="#_readvirtualmachineclone">GET /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}</a></li>
-<li><a href="#_replacevirtualmachineclone">PUT /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}</a></li>
-<li><a href="#_deletevirtualmachineclone">DELETE /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}</a></li>
-<li><a href="#_patchvirtualmachineclone">PATCH /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}</a></li>
-<li><a href="#_watchvirtualmachineclonelistforallnamespaces">GET /apis/clone.kubevirt.io/v1alpha1/watch/virtualmachineclones</a></li>
+<li><a href="#_getapiresources-clone_kubevirt_io-v1beta1">GET /apis/clone.kubevirt.io/v1beta1/</a></li>
+<li><a href="#_createvirtualmachineclone">POST /apis/clone.kubevirt.io/v1beta1/virtualmachineclones</a></li>
+<li><a href="#_listvirtualmachineclone">GET /apis/clone.kubevirt.io/v1beta1/virtualmachineclones</a></li>
+<li><a href="#_deletecollectionvirtualmachineclone">DELETE /apis/clone.kubevirt.io/v1beta1/virtualmachineclones</a></li>
+<li><a href="#_readvirtualmachineclone">GET /apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}</a></li>
+<li><a href="#_replacevirtualmachineclone">PUT /apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}</a></li>
+<li><a href="#_deletevirtualmachineclone">DELETE /apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}</a></li>
+<li><a href="#_patchvirtualmachineclone">PATCH /apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}</a></li>
+<li><a href="#_watchvirtualmachineclonelistforallnamespaces">GET /apis/clone.kubevirt.io/v1beta1/watch/virtualmachineclones</a></li>
 <li><a href="#_getapigroup-export_kubevirt_io">GET /apis/export.kubevirt.io/</a></li>
 <li><a href="#_getapiresources-export_kubevirt_io-v1beta1">GET /apis/export.kubevirt.io/v1beta1/</a></li>
 <li><a href="#_createnamespacedvirtualmachineexport">POST /apis/export.kubevirt.io/v1beta1/namespaces/{namespace}/virtualmachineexports</a></li>
@@ -928,7 +928,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_getapiresources-clone_kubevirt_io-v1alpha1">GET /apis/clone.kubevirt.io/v1alpha1/</h3>
+<h3 id="_getapiresources-clone_kubevirt_io-v1beta1">GET /apis/clone.kubevirt.io/v1beta1/</h3>
 <div class="sect3">
 <h4 id="_description_4">Description</h4>
 <div class="paragraph">
@@ -999,7 +999,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_createvirtualmachineclone">POST /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones</h3>
+<h3 id="_createvirtualmachineclone">POST /apis/clone.kubevirt.io/v1beta1/virtualmachineclones</h3>
 <div class="sect3">
 <h4 id="_description_5">Description</h4>
 <div class="paragraph">
@@ -1031,7 +1031,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1061,7 +1061,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1072,7 +1072,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Created</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1083,7 +1083,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Accepted</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1128,7 +1128,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_listvirtualmachineclone">GET /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones</h3>
+<h3 id="_listvirtualmachineclone">GET /apis/clone.kubevirt.io/v1beta1/virtualmachineclones</h3>
 <div class="sect3">
 <h4 id="_description_6">Description</h4>
 <div class="paragraph">
@@ -1303,7 +1303,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclonelist">v1alpha1.VirtualMachineCloneList</a></p>
+<p><a href="#_v1beta1_virtualmachineclonelist">v1beta1.VirtualMachineCloneList</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1338,7 +1338,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletecollectionvirtualmachineclone">DELETE /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones</h3>
+<h3 id="_deletecollectionvirtualmachineclone">DELETE /apis/clone.kubevirt.io/v1beta1/virtualmachineclones</h3>
 <div class="sect3">
 <h4 id="_description_7">Description</h4>
 <div class="paragraph">
@@ -1545,7 +1545,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_readvirtualmachineclone">GET /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}</h3>
+<h3 id="_readvirtualmachineclone">GET /apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}</h3>
 <div class="sect3">
 <h4 id="_description_8">Description</h4>
 <div class="paragraph">
@@ -1642,7 +1642,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1677,7 +1677,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_replacevirtualmachineclone">PUT /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}</h3>
+<h3 id="_replacevirtualmachineclone">PUT /apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}</h3>
 <div class="sect3">
 <h4 id="_description_9">Description</h4>
 <div class="paragraph">
@@ -1727,7 +1727,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -1757,7 +1757,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1768,7 +1768,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>Create</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -1813,7 +1813,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_deletevirtualmachineclone">DELETE /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}</h3>
+<h3 id="_deletevirtualmachineclone">DELETE /apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}</h3>
 <div class="sect3">
 <h4 id="_description_10">Description</h4>
 <div class="paragraph">
@@ -1983,7 +1983,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_patchvirtualmachineclone">PATCH /apis/clone.kubevirt.io/v1alpha1/virtualmachineclones/{name}</h3>
+<h3 id="_patchvirtualmachineclone">PATCH /apis/clone.kubevirt.io/v1beta1/virtualmachineclones/{name}</h3>
 <div class="sect3">
 <h4 id="_description_11">Description</h4>
 <div class="paragraph">
@@ -2063,7 +2063,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>OK</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1alpha1_virtualmachineclone">v1alpha1.VirtualMachineClone</a></p>
+<p><a href="#_v1beta1_virtualmachineclone">v1beta1.VirtualMachineClone</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -2105,7 +2105,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_watchvirtualmachineclonelistforallnamespaces">GET /apis/clone.kubevirt.io/v1alpha1/watch/virtualmachineclones</h3>
+<h3 id="_watchvirtualmachineclonelistforallnamespaces">GET /apis/clone.kubevirt.io/v1beta1/watch/virtualmachineclones</h3>
 <div class="sect3">
 <h4 id="_description_12">Description</h4>
 <div class="paragraph">
