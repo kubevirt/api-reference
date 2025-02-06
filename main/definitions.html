@@ -733,6 +733,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_virtualmachinepool">v1alpha1.VirtualMachinePool</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoollist">v1alpha1.VirtualMachinePoolList</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolnamegeneration">v1alpha1.VirtualMachinePoolNameGeneration</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolspec">v1alpha1.VirtualMachinePoolSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolstatus">v1alpha1.VirtualMachinePoolStatus</a></li>
 <li><a href="#_v1alpha1_virtualmachinetemplatespec">v1alpha1.VirtualMachineTemplateSpec</a></li>
@@ -19135,6 +19136,41 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolnamegeneration">v1alpha1.VirtualMachinePoolNameGeneration</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>appendIndexToConfigMapRefs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>appendIndexToSecretRefs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_virtualmachinepoolspec">v1alpha1.VirtualMachinePoolSpec</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -19150,6 +19186,18 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>nameGeneration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Options for the name generation in a pool.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolnamegeneration">v1alpha1.VirtualMachinePoolNameGeneration</a></p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>paused</strong><br>
