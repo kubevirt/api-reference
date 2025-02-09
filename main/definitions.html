@@ -8921,7 +8921,7 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>State represents the requested operational state of the interface. The (only) value supported is <code>absent</code>, expressing a request to remove the interface.</p>
+<p>State represents the requested operational state of the interface. The supported values are: <code>absent</code>, expressing a request to remove the interface. <code>down</code>, expressing a request to set the link down. <code>up</code>, expressing a request to set the link up. Empty value functions as <code>up</code>.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
