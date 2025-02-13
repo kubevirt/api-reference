@@ -522,6 +522,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
 <li><a href="#_v1_containerdiskinfo">v1.ContainerDiskInfo</a></li>
 <li><a href="#_v1_containerdisksource">v1.ContainerDiskSource</a></li>
+<li><a href="#_v1_controllerrevisionref">v1.ControllerRevisionRef</a></li>
 <li><a href="#_v1_customblocksize">v1.CustomBlockSize</a></li>
 <li><a href="#_v1_customprofile">v1.CustomProfile</a></li>
 <li><a href="#_v1_customizecomponents">v1.CustomizeComponents</a></li>
@@ -579,6 +580,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_input">v1.Input</a></li>
 <li><a href="#_v1_instancetypeconfiguration">v1.InstancetypeConfiguration</a></li>
 <li><a href="#_v1_instancetypematcher">v1.InstancetypeMatcher</a></li>
+<li><a href="#_v1_instancetypestatusref">v1.InstancetypeStatusRef</a></li>
 <li><a href="#_v1_interface">v1.Interface</a></li>
 <li><a href="#_v1_interfacebindingmigration">v1.InterfaceBindingMigration</a></li>
 <li><a href="#_v1_interfacebindingplugin">v1.InterfaceBindingPlugin</a></li>
@@ -5619,6 +5621,37 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_controllerrevisionref">v1.ControllerRevisionRef</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the ControllerRevision</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_customblocksize">v1.CustomBlockSize</h3>
 <div class="paragraph">
 <p>CustomBlockSize represents the desired logical and physical block size for a VM disk.</p>
@@ -8725,6 +8758,85 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>RevisionName specifies a ControllerRevision containing a specific copy of the VirtualMachineInstancetype or VirtualMachineClusterInstancetype to be used. This is initially captured the first time the instancetype is applied to the VirtualMachineInstance.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_instancetypestatusref">v1.InstancetypeStatusRef</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>controllerRevisionRef</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ControllerRef specifies the ControllerRevision storing a copy of the object captured when it is first seen by the VirtualMachine controller</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_controllerrevisionref">v1.ControllerRevisionRef</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>inferFromVolume</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>InferFromVolume lists the name of a volume that should be used to infer or discover the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>inferFromVolumeFailurePolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>InferFromVolumeFailurePolicy controls what should happen on failure when inferring the resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>kind</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Kind specifies the kind of resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name is the name of resource</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17972,6 +18084,18 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>instancetypeRef</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>InstancetypeRef captures the state of any referenced instance type from the VirtualMachine</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_instancetypestatusref">v1.InstancetypeStatusRef</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>memoryDumpRequest</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -17992,6 +18116,18 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>preferenceRef</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>PreferenceRef captures the state of any referenced preference from the VirtualMachine</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_instancetypestatusref">v1.InstancetypeStatusRef</a></p>
 </div></div></td>
 </tr>
 <tr>
