@@ -2554,9 +2554,6 @@ A constraint is considered "Unsatisfiable" for an incoming pod if and only if ev
 <div class="paragraph">
 <p>This format is intended to make it difficult to use these numbers without writing some sort of special handling code in the hopes that that will cause implementors to also use a fixed point implementation.</p>
 </div>
-<div class="paragraph">
-<p><em>Type</em> : string</p>
-</div>
 </div>
 <div class="sect2">
 <h3 id="_k8s_io_apimachinery_pkg_apis_meta_v1_apigroup">k8s.io.apimachinery.pkg.apis.meta.v1.APIGroup</h3>
@@ -6101,6 +6098,18 @@ type PluginA struct {
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>clusterProfiler</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Enable the ability to pprof profile KubeVirt control plane</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>cpuAllocationRatio</strong><br>
@@ -12679,7 +12688,7 @@ otherwise we will use the monitoring namespace.</p>
 <p>Limits describes the maximum amount of compute resources allowed. Valid resource keys are "memory" and "cpu".</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>object</p>
+<p>&lt; string, <a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a> &gt; map</p>
 </div></div></td>
 </tr>
 <tr>
@@ -12703,7 +12712,7 @@ otherwise we will use the monitoring namespace.</p>
 <p>Requests is a description of the initial vmi resources. Valid resource keys are "memory" and "cpu".</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>object</p>
+<p>&lt; string, <a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a> &gt; map</p>
 </div></div></td>
 </tr>
 </tbody>
