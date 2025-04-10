@@ -537,6 +537,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_deprecatedinterfaceslirp">v1.DeprecatedInterfaceSlirp</a></li>
 <li><a href="#_v1_developerconfiguration">v1.DeveloperConfiguration</a></li>
 <li><a href="#_v1_devices">v1.Devices</a></li>
+<li><a href="#_v1_diag288watchdog">v1.Diag288Watchdog</a></li>
 <li><a href="#_v1_disablefreepagereporting">v1.DisableFreePageReporting</a></li>
 <li><a href="#_v1_disableserialconsolelog">v1.DisableSerialConsoleLog</a></li>
 <li><a href="#_v1_disk">v1.Disk</a></li>
@@ -6552,6 +6553,40 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_watchdog">v1.Watchdog</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_diag288watchdog">v1.Diag288Watchdog</h3>
+<div class="paragraph">
+<p>diag288 watchdog device.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>action</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The action to take. Valid values are poweroff, reset, shutdown. Defaults to reset.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -18829,6 +18864,18 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>diag288</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>diag288 watchdog device (specific to s390x architecture).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_diag288watchdog">v1.Diag288Watchdog</a></p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>i6300esb</strong><br>
