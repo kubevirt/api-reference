@@ -623,6 +623,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_nocloudsshpublickeyaccesscredentialpropagation">v1.NoCloudSSHPublicKeyAccessCredentialPropagation</a></li>
 <li><a href="#_v1_nodemediateddevicetypesconfig">v1.NodeMediatedDeviceTypesConfig</a></li>
 <li><a href="#_v1_nodeplacement">v1.NodePlacement</a></li>
+<li><a href="#_v1_objectgraphnode">v1.ObjectGraphNode</a></li>
+<li><a href="#_v1_objectgraphoptions">v1.ObjectGraphOptions</a></li>
 <li><a href="#_v1_pittimer">v1.PITTimer</a></li>
 <li><a href="#_v1_pauseoptions">v1.PauseOptions</a></li>
 <li><a href="#_v1_pcihostdevice">v1.PciHostDevice</a></li>
@@ -11862,6 +11864,138 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_k8s_io_api_core_v1_toleration">k8s.io.api.core.v1.Toleration</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_objectgraphnode">v1.ObjectGraphNode</h3>
+<div class="paragraph">
+<p>ObjectGraphNode represents an individual node in the graph.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>apiVersion</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>APIVersion defines the versioned schema of this representation of an object. Servers should convert recognized schemas to the latest internal value, and may reject unrecognized values. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>children</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1_objectgraphnode">v1.ObjectGraphNode</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>kind</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Kind is a string value representing the REST resource this object represents. Servers may infer this from the endpoint the client submits requests to. Cannot be updated. In CamelCase. More info: <a href="https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds" class="bare">https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds</a></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>labels</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>objectReference</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_api_core_v1_typedobjectreference">k8s.io.api.core.v1.TypedObjectReference</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>optional</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_objectgraphoptions">v1.ObjectGraphOptions</h3>
+<div class="paragraph">
+<p>ObjectGraphOptions holds options for the object graph.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>includeOptionalNodes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>IncludeOptionalNodes indicates whether to include optional nodes in the graph. True by default.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>LabelSelector is used to filter nodes in the graph based on their labels.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_labelselector">k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector</a></p>
 </div></div></td>
 </tr>
 </tbody>
