@@ -682,6 +682,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_userpasswordaccesscredentialsource">v1.UserPasswordAccessCredentialSource</a></li>
 <li><a href="#_v1_vgpudisplayoptions">v1.VGPUDisplayOptions</a></li>
 <li><a href="#_v1_vgpuoptions">v1.VGPUOptions</a></li>
+<li><a href="#_v1_videodevice">v1.VideoDevice</a></li>
 <li><a href="#_v1_virtualmachine">v1.VirtualMachine</a></li>
 <li><a href="#_v1_virtualmachinecondition">v1.VirtualMachineCondition</a></li>
 <li><a href="#_v1_virtualmachineinstance">v1.VirtualMachineInstance</a></li>
@@ -6577,6 +6578,18 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>video</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Video describes the video device configuration for the vmi.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_videodevice">v1.VideoDevice</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14852,6 +14865,37 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_vgpudisplayoptions">v1.VGPUDisplayOptions</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_videodevice">v1.VideoDevice</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>type</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Type specifies the video device type (e.g., virtio, vga, bochs, ramfb). If not specified, the default is architecture-dependent (VGA for BIOS-based VMs, Bochs for EFI-based VMs on AMD64; virtio for Arm and s390x).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
