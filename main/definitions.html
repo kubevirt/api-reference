@@ -818,6 +818,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1beta1_volumebackup">v1beta1.VolumeBackup</a></li>
 <li><a href="#_v1beta1_volumepreferences">v1beta1.VolumePreferences</a></li>
 <li><a href="#_v1beta1_volumerestore">v1beta1.VolumeRestore</a></li>
+<li><a href="#_v1beta1_volumerestoreoverride">v1beta1.VolumeRestoreOverride</a></li>
 <li><a href="#_v1beta1_volumesnapshotstatus">v1beta1.VolumeSnapshotStatus</a></li>
 </ul>
 </li>
@@ -24365,7 +24366,7 @@ otherwise we will use the monitoring namespace.</p>
 <div class="sect2">
 <h3 id="_v1beta1_virtualmachinerestorespec">v1beta1.VirtualMachineRestoreSpec</h3>
 <div class="paragraph">
-<p>VirtualMachineRestoreSpec is the spec for a VirtualMachineRestoreresource</p>
+<p>VirtualMachineRestoreSpec is the spec for a VirtualMachineRestore resource</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -24430,13 +24431,35 @@ otherwise we will use the monitoring namespace.</p>
 <p>string</p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeRestoreOverrides</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VolumeRestoreOverrides gives the option to change properties of each restored volume For example, specifying the name of the restored volume, or adding labels/annotations to it</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1beta1_volumerestoreoverride">v1beta1.VolumeRestoreOverride</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeRestorePolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
 <div class="sect2">
 <h3 id="_v1beta1_virtualmachinerestorestatus">v1beta1.VirtualMachineRestoreStatus</h3>
 <div class="paragraph">
-<p>VirtualMachineRestoreStatus is the spec for a VirtualMachineRestoreresource</p>
+<p>VirtualMachineRestoreStatus is the status for a VirtualMachineRestore resource</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -25128,7 +25151,7 @@ otherwise we will use the monitoring namespace.</p>
 <div class="sect2">
 <h3 id="_v1beta1_volumerestore">v1beta1.VolumeRestore</h3>
 <div class="paragraph">
-<p>VolumeRestore contains the data neeed to restore a PVC</p>
+<p>VolumeRestore contains the data needed to restore a PVC</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -25185,6 +25208,62 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1beta1_volumerestoreoverride">v1beta1.VolumeRestoreOverride</h3>
+<div class="paragraph">
+<p>VolumeRestoreOverride specifies how a volume should be restored from a VirtualMachineSnapshot</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>annotations</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>labels</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string, string &gt; map</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>restoreName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeName</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
