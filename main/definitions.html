@@ -744,6 +744,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoollist">v1alpha1.VirtualMachinePoolList</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolnamegeneration">v1alpha1.VirtualMachinePoolNameGeneration</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolproactivescaleinstrategy">v1alpha1.VirtualMachinePoolProactiveScaleInStrategy</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolscaleinstrategy">v1alpha1.VirtualMachinePoolScaleInStrategy</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolselectionpolicy">v1alpha1.VirtualMachinePoolSelectionPolicy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolspec">v1alpha1.VirtualMachinePoolSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolstatus">v1alpha1.VirtualMachinePoolStatus</a></li>
 <li><a href="#_v1alpha1_virtualmachinetemplatespec">v1alpha1.VirtualMachineTemplateSpec</a></li>
@@ -20072,6 +20075,108 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolproactivescaleinstrategy">v1alpha1.VirtualMachinePoolProactiveScaleInStrategy</h3>
+<div class="paragraph">
+<p>VirtualMachinePoolProactiveScaleInStrategy represents proactive scale-in strategy</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>selectionPolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SelectionPolicy defines the priority in which VM instances are selected for proactive scale-in Defaults to "Random" base policy when no SelectionPolicy is configured</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolselectionpolicy">v1alpha1.VirtualMachinePoolSelectionPolicy</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolscaleinstrategy">v1alpha1.VirtualMachinePoolScaleInStrategy</h3>
+<div class="paragraph">
+<p>VirtualMachinePoolScaleInStrategy specifies how the VMPool controller manages scaling in VMs within a VMPool</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>proactive</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Proactive scale-in by forcing VMs to shutdown during scale-in (Default)</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolproactivescaleinstrategy">v1alpha1.VirtualMachinePoolProactiveScaleInStrategy</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolselectionpolicy">v1alpha1.VirtualMachinePoolSelectionPolicy</h3>
+<div class="paragraph">
+<p>VirtualMachinePoolSelectionPolicy defines the priority in which VM instances are selected for scale-in</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>basePolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>BasePolicy is a catch-all policy [Random|DescendingOrder]</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_virtualmachinepoolspec">v1alpha1.VirtualMachinePoolSpec</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -20133,6 +20238,18 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>scaleInStrategy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ScaleInStrategy specifies how the VMPool controller manages scaling in VMs within a VMPool</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolscaleinstrategy">v1alpha1.VirtualMachinePoolScaleInStrategy</a></p>
 </div></div></td>
 </tr>
 <tr>
