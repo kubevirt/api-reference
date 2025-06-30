@@ -460,6 +460,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_k8s_io_api_core_v1_podantiaffinity">k8s.io.api.core.v1.PodAntiAffinity</a></li>
 <li><a href="#_k8s_io_api_core_v1_poddnsconfig">k8s.io.api.core.v1.PodDNSConfig</a></li>
 <li><a href="#_k8s_io_api_core_v1_poddnsconfigoption">k8s.io.api.core.v1.PodDNSConfigOption</a></li>
+<li><a href="#_k8s_io_api_core_v1_podresourceclaim">k8s.io.api.core.v1.PodResourceClaim</a></li>
 <li><a href="#_k8s_io_api_core_v1_preferredschedulingterm">k8s.io.api.core.v1.PreferredSchedulingTerm</a></li>
 <li><a href="#_k8s_io_api_core_v1_resourcefieldselector">k8s.io.api.core.v1.ResourceFieldSelector</a></li>
 <li><a href="#_k8s_io_api_core_v1_tcpsocketaction">k8s.io.api.core.v1.TCPSocketAction</a></li>
@@ -536,6 +537,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_deprecatedinterfacepasst">v1.DeprecatedInterfacePasst</a></li>
 <li><a href="#_v1_deprecatedinterfaceslirp">v1.DeprecatedInterfaceSlirp</a></li>
 <li><a href="#_v1_developerconfiguration">v1.DeveloperConfiguration</a></li>
+<li><a href="#_v1_deviceattribute">v1.DeviceAttribute</a></li>
+<li><a href="#_v1_deviceresourceclaimstatus">v1.DeviceResourceClaimStatus</a></li>
+<li><a href="#_v1_devicestatus">v1.DeviceStatus</a></li>
+<li><a href="#_v1_devicestatusinfo">v1.DeviceStatusInfo</a></li>
 <li><a href="#_v1_devices">v1.Devices</a></li>
 <li><a href="#_v1_diag288watchdog">v1.Diag288Watchdog</a></li>
 <li><a href="#_v1_disablefreepagereporting">v1.DisableFreePageReporting</a></li>
@@ -1882,6 +1887,80 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Value is this DNS resolver option&#8217;s value.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_k8s_io_api_core_v1_podresourceclaim">k8s.io.api.core.v1.PodResourceClaim</h3>
+<div class="paragraph">
+<p>PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.</p>
+</div>
+<div class="paragraph">
+<p>It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name uniquely identifies this resource claim inside the pod. This must be a DNS_LABEL.<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceClaimName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.</p>
+</div>
+<div class="paragraph">
+<p>Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceClaimTemplateName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.</p>
+</div>
+<div class="paragraph">
+<p>The template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.</p>
+</div>
+<div class="paragraph">
+<p>This field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.</p>
+</div>
+<div class="paragraph">
+<p>Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -6305,6 +6384,200 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_deviceattribute">v1.DeviceAttribute</h3>
+<div class="paragraph">
+<p>DeviceAttribute must have exactly one field set.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>mDevUUID</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>MDevUUID is the mediated device uuid of the allocated device</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>pciAddress</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>PCIAddress is the PCIe bus address of the allocated device</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_deviceresourceclaimstatus">v1.DeviceResourceClaimStatus</h3>
+<div class="paragraph">
+<p>DeviceResourceClaimStatus has to be before SyncVMI call from virt-handler to virt-launcher</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>attributes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Attributes are properties of the device that could be used by kubevirt and other copmonents to learn more about the device, like pciAddress or mdevUUID</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_deviceattribute">v1.DeviceAttribute</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name is the name of actual device on the host provisioned by the driver as reflected in resourceclaim.status</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceClaimName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ResourceClaimName is the name of the resource claims object used to provision this resource</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_devicestatus">v1.DeviceStatus</h3>
+<div class="paragraph">
+<p>DeviceStatus has the information of all devices allocated spec.domain.devices</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>gpuStatuses</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>GPUStatuses reflects the state of GPUs requested in spec.domain.devices.gpus</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1_devicestatusinfo">v1.DeviceStatusInfo</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>hostDeviceStatuses</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>HostDeviceStatuses reflects the state of GPUs requested in spec.domain.devices.hostDevices DRA</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1_devicestatusinfo">v1.DeviceStatusInfo</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_devicestatusinfo">v1.DeviceStatusInfo</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>deviceResourceClaimStatus</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DeviceResourceClaimStatus reflects the DRA related information for the device</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_deviceresourceclaimstatus">v1.DeviceResourceClaimStatus</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the device as specified in spec.domain.devices.gpus.name or spec.domain.devices.hostDevices.name<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_devices">v1.Devices</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -8075,11 +8348,23 @@ type PluginA struct {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>deviceName</strong><br>
-<em>required</em></p>
+<p><strong>claimName</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>Default</strong> : <code>""</code></p>
+<p>ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>deviceName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DeviceName is the name of the device provisioned by device-plugins</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8093,6 +8378,18 @@ type PluginA struct {
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Name of the GPU device as exposed by a device plugin<br>
 <strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>requestName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8335,12 +8632,23 @@ type PluginA struct {
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>deviceName</strong><br>
-<em>required</em></p>
+<p><strong>claimName</strong><br>
+<em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DeviceName is the resource name of the host device exposed by a device plugin<br>
-<strong>Default</strong> : <code>""</code></p>
+<p>ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>deviceName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DeviceName is the name of the device provisioned by device-plugins</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8353,6 +8661,18 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>requestName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -17981,6 +18301,23 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceClaims</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ResourceClaims define which ResourceClaims must be allocated and reserved before the VMI, hence virt-launcher pod is allowed to start. The resources will be made available to the domain which consumes them by name.</p>
+</div>
+<div class="paragraph">
+<p>This is an alpha field and requires enabling the DynamicResourceAllocation feature gate in kubernetes
+ <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/" class="bare">https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/</a>
+This field should only be configured if one of the feature-gates GPUsWithDRA or HostDevicesWithDRA is enabled. This feature is in alpha.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_k8s_io_api_core_v1_podresourceclaim">k8s.io.api.core.v1.PodResourceClaim</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>schedulerName</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -18131,6 +18468,18 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_cputopology">v1.CPUTopology</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>deviceStatus</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DeviceStatus reflects the state of devices requested in spec.domain.devices. This is an optional field available only when DRA feature gate is enabled This field will only be populated if one of the feature-gates GPUsWithDRA or HostDevicesWithDRA is enabled. This feature is in alpha.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_devicestatus">v1.DeviceStatus</a></p>
 </div></div></td>
 </tr>
 <tr>
