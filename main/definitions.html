@@ -786,6 +786,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1beta1_memoryinstancetype">v1beta1.MemoryInstancetype</a></li>
 <li><a href="#_v1beta1_memorypreferencerequirement">v1beta1.MemoryPreferenceRequirement</a></li>
 <li><a href="#_v1beta1_persistentvolumeclaim">v1beta1.PersistentVolumeClaim</a></li>
+<li><a href="#_v1beta1_platformoptions">v1beta1.PlatformOptions</a></li>
 <li><a href="#_v1beta1_preferencerequirements">v1beta1.PreferenceRequirements</a></li>
 <li><a href="#_v1beta1_snapshotvolumeslists">v1beta1.SnapshotVolumesLists</a></li>
 <li><a href="#_v1beta1_sourcespec">v1beta1.SourceSpec</a></li>
@@ -21933,6 +21934,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>platform</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Platform describes the minimum runtime requirements of the image</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1beta1_platformoptions">v1beta1.PlatformOptions</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>pullMethod</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -22112,6 +22125,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>BackingFile is the path to the virtual hard disk to migrate from vCenter/ESXi</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>extraArgs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ExtraArgs is a reference to a ConfigMap containing extra arguments to pass directly to the VDDK library</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -23034,6 +23059,37 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_api_core_v1_persistentvolumeclaimspec">k8s.io.api.core.v1.PersistentVolumeClaimSpec</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1beta1_platformoptions">v1beta1.PlatformOptions</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>architecture</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Architecture specifies the image target CPU architecture</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
