@@ -750,15 +750,20 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_migrationpolicyspec">v1alpha1.MigrationPolicySpec</a></li>
 <li><a href="#_v1alpha1_migrationpolicystatus">v1alpha1.MigrationPolicyStatus</a></li>
 <li><a href="#_v1alpha1_selectors">v1alpha1.Selectors</a></li>
+<li><a href="#_v1alpha1_virtualmachineopportunisticupdatestrategy">v1alpha1.VirtualMachineOpportunisticUpdateStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepool">v1alpha1.VirtualMachinePool</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoollist">v1alpha1.VirtualMachinePoolList</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolnamegeneration">v1alpha1.VirtualMachinePoolNameGeneration</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolproactivescaleinstrategy">v1alpha1.VirtualMachinePoolProactiveScaleInStrategy</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolproactiveupdatestrategy">v1alpha1.VirtualMachinePoolProactiveUpdateStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolscaleinstrategy">v1alpha1.VirtualMachinePoolScaleInStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolselectionpolicy">v1alpha1.VirtualMachinePoolSelectionPolicy</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolselectors">v1alpha1.VirtualMachinePoolSelectors</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolspec">v1alpha1.VirtualMachinePoolSpec</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolstatus">v1alpha1.VirtualMachinePoolStatus</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolunmanagedstrategy">v1alpha1.VirtualMachinePoolUnmanagedStrategy</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolupdatestrategy">v1alpha1.VirtualMachinePoolUpdateStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinetemplatespec">v1alpha1.VirtualMachineTemplateSpec</a></li>
 <li><a href="#_v1beta1_cpuinstancetype">v1beta1.CPUInstancetype</a></li>
 <li><a href="#_v1beta1_cpupreferencerequirement">v1beta1.CPUPreferenceRequirement</a></li>
@@ -20573,6 +20578,12 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_virtualmachineopportunisticupdatestrategy">v1alpha1.VirtualMachineOpportunisticUpdateStrategy</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_virtualmachinepool">v1alpha1.VirtualMachinePool</h3>
 <div class="paragraph">
 <p>VirtualMachinePool resource contains a VirtualMachine configuration that can be used to replicate multiple VirtualMachine resources.</p>
@@ -20847,6 +20858,40 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolproactiveupdatestrategy">v1alpha1.VirtualMachinePoolProactiveUpdateStrategy</h3>
+<div class="paragraph">
+<p>VirtualMachinePoolProactiveUpdateStrategy represents proactive update strategy</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>selectionPolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SelectionPolicy defines the priority in which VM instances are selected for proactive update Defaults to "Random" base policy when no SelectionPolicy is configured</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolselectionpolicy">v1alpha1.VirtualMachinePoolSelectionPolicy</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_virtualmachinepoolscaleinstrategy">v1alpha1.VirtualMachinePoolScaleInStrategy</h3>
 <div class="paragraph">
 <p>VirtualMachinePoolScaleInStrategy specifies how the VMPool controller manages scaling in VMs within a VMPool</p>
@@ -20883,7 +20928,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <div class="sect2">
 <h3 id="_v1alpha1_virtualmachinepoolselectionpolicy">v1alpha1.VirtualMachinePoolSelectionPolicy</h3>
 <div class="paragraph">
-<p>VirtualMachinePoolSelectionPolicy defines the priority in which VM instances are selected for scale-in</p>
+<p>VirtualMachinePoolSelectionPolicy defines the priority in which VM instances are selected for proactive scale-in or update</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -20901,14 +20946,72 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>basePolicy</strong><br>
+<p><strong>selectors</strong><br>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>BasePolicy is a catch-all policy [Random|DescendingOrder]</p>
+<p>Selectors is a list of selection policies.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolselectors">v1alpha1.VirtualMachinePoolSelectors</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sortPolicy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SortPolicy is a catch-all policy [AscendingOrder|DescendingOrder|Newest|Oldest|Random]</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolselectors">v1alpha1.VirtualMachinePoolSelectors</h3>
+<div class="paragraph">
+<p>VirtualMachinePoolSelectors specifies filtering criteria for VM selection. If both are specified, both must match for a VM to be selected. If only one is specified, only that one must match for a VM to be selected.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>labelSelector</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>LabelSelector is a list of label selector for VMs.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_labelselector">k8s.io.apimachinery.pkg.apis.meta.v1.LabelSelector</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>nodeSelectorRequirementMatcher</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>NodeSelectorRequirementMatcher is a list of node selector requirement for VMs.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_k8s_io_api_core_v1_nodeselectorrequirement">k8s.io.api.core.v1.NodeSelectorRequirement</a> &gt; array</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -21004,6 +21107,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>updateStrategy</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>UpdateStrategy specifies how the VMPool controller manages updating VMs within a VMPool</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolupdatestrategy">v1alpha1.VirtualMachinePoolUpdateStrategy</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>virtualMachineTemplate</strong><br>
 <em>required</em></p>
 </div></div></td>
@@ -21073,6 +21188,70 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>integer (int32)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolunmanagedstrategy">v1alpha1.VirtualMachinePoolUnmanagedStrategy</h3>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolupdatestrategy">v1alpha1.VirtualMachinePoolUpdateStrategy</h3>
+<div class="paragraph">
+<p>VirtualMachinePoolUpdateStrategy specifies how the VMPool controller manages updating VMs within a VMPool, by default it is proactive update.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>opportunistic</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Opportunistic update only gets applied to the VM, VMI is updated naturally upon the restart. Whereas proactive it applies both the VM and VMI right away.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachineopportunisticupdatestrategy">v1alpha1.VirtualMachineOpportunisticUpdateStrategy</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>proactive</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Proactive update by forcing the VMs to restart during update</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolproactiveupdatestrategy">v1alpha1.VirtualMachinePoolProactiveUpdateStrategy</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>unmanaged</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Unmanaged indicates that no automatic update of VMs within a VMPool is performed. When this is set, the VMPool controller will not update the VMs within the pool.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolunmanagedstrategy">v1alpha1.VirtualMachinePoolUnmanagedStrategy</a></p>
 </div></div></td>
 </tr>
 </tbody>
