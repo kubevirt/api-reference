@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 2.0.25">
+<meta name="generator" content="Asciidoctor 2.0.26">
 <title>Top Level API Objects</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
@@ -756,6 +756,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoollist">v1alpha1.VirtualMachinePoolList</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolnamegeneration">v1alpha1.VirtualMachinePoolNameGeneration</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolopportunisticscaleinstrategy">v1alpha1.VirtualMachinePoolOpportunisticScaleInStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolproactivescaleinstrategy">v1alpha1.VirtualMachinePoolProactiveScaleInStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolproactiveupdatestrategy">v1alpha1.VirtualMachinePoolProactiveUpdateStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolscaleinstrategy">v1alpha1.VirtualMachinePoolScaleInStrategy</a></li>
@@ -20855,6 +20856,40 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolopportunisticscaleinstrategy">v1alpha1.VirtualMachinePoolOpportunisticScaleInStrategy</h3>
+<div class="paragraph">
+<p>VirtualMachinePoolOpportunisticScaleInStrategy represents opportunistic scale-in strategy</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>statePreservation</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Specifies if and how to preserve the state of the VMs selected during scale-in. Disabled - (Default) all state for VMs selected for scale-in will be deleted. Offline - PVCs for VMs selected for scale-in will be preserved and reused on scale-out (decreases provisioning time during scale out). Online - PVCs and memory for VMs selected for scale-in will be preserved and reused on scale-out (decreases provisioning and boot time during scale out).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_virtualmachinepoolproactivescaleinstrategy">v1alpha1.VirtualMachinePoolProactiveScaleInStrategy</h3>
 <div class="paragraph">
 <p>VirtualMachinePoolProactiveScaleInStrategy represents proactive scale-in strategy</p>
@@ -20883,6 +20918,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1alpha1_virtualmachinepoolselectionpolicy">v1alpha1.VirtualMachinePoolSelectionPolicy</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>statePreservation</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Specifies if and how to preserve the state of the VMs selected during scale-in. Disabled - (Default) all state for VMs selected for scale-in will be deleted. Offline - PVCs for VMs selected for scale-in will be preserved and reused on scale-out (decreases provisioning time during scale out). Online - PVCs and memory for VMs selected for scale-in will be preserved and reused on scale-out (decreases provisioning and boot time during scale out).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 </tbody>
@@ -20943,6 +20990,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>opportunistic</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Opportunistic scale-in is a strategy when vms are deleted by some other means than the scale-in action. For example, when the VM is deleted by the user or when the VM is deleted by the node that is hosting the VM.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolopportunisticscaleinstrategy">v1alpha1.VirtualMachinePoolOpportunisticScaleInStrategy</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>proactive</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -20951,6 +21010,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1alpha1_virtualmachinepoolproactivescaleinstrategy">v1alpha1.VirtualMachinePoolProactiveScaleInStrategy</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>unmanaged</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The VM is never touched after creation. Users are responsible for scaling in the pool manually.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolunmanagedstrategy">v1alpha1.VirtualMachinePoolUnmanagedStrategy</a></p>
 </div></div></td>
 </tr>
 </tbody>
