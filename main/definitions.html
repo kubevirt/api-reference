@@ -753,6 +753,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha1_selectors">v1alpha1.Selectors</a></li>
 <li><a href="#_v1alpha1_virtualmachineopportunisticupdatestrategy">v1alpha1.VirtualMachineOpportunisticUpdateStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepool">v1alpha1.VirtualMachinePool</a></li>
+<li><a href="#_v1alpha1_virtualmachinepoolautohealingstrategy">v1alpha1.VirtualMachinePoolAutohealingStrategy</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoollist">v1alpha1.VirtualMachinePoolList</a></li>
 <li><a href="#_v1alpha1_virtualmachinepoolnamegeneration">v1alpha1.VirtualMachinePoolNameGeneration</a></li>
@@ -20694,6 +20695,49 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_virtualmachinepoolautohealingstrategy">v1alpha1.VirtualMachinePoolAutohealingStrategy</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>minFailingToStartDuration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>MinFailingToStartDuration is the minimum time a VM must be in a failing status (applies to status conditions like CrashLoopBackOff, Unschedulable) before being replaced. It measures the duration since the VM&#8217;s Ready condition transitioned to False. Defaults to 5 minutes</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_duration">k8s.io.apimachinery.pkg.apis.meta.v1.Duration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>startUpFailureThreshold</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>StartUpFailureThreshold is the number of consecutive VMI start failures (it tracks the value of Status.StartFailure.ConsecutiveFailCount field) before replacing the VM. Defaults to 3</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_virtualmachinepoolcondition">v1alpha1.VirtualMachinePoolCondition</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -21137,6 +21181,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>autohealing</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Autohealing specifies when a VMpool should replace a failing VM with a reprovisioned instance</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_virtualmachinepoolautohealingstrategy">v1alpha1.VirtualMachinePoolAutohealingStrategy</a></p>
+</div></div></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>maxUnavailable</strong><br>
