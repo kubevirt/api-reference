@@ -703,7 +703,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancefilesystemlist">v1.VirtualMachineInstanceFileSystemList</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestagentinfo">v1.VirtualMachineInstanceGuestAgentInfo</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestosinfo">v1.VirtualMachineInstanceGuestOSInfo</a></li>
-<li><a href="#_v1_virtualmachineinstanceguestosload">v1.VirtualMachineInstanceGuestOSLoad</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestosuser">v1.VirtualMachineInstanceGuestOSUser</a></li>
 <li><a href="#_v1_virtualmachineinstanceguestosuserlist">v1.VirtualMachineInstanceGuestOSUserList</a></li>
 <li><a href="#_v1_virtualmachineinstancelist">v1.VirtualMachineInstanceList</a></li>
@@ -16063,18 +16062,6 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>load</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Load contains the system load averages (1M, 5M, 15M) from the guest agent</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_virtualmachineinstanceguestosload">v1.VirtualMachineInstanceGuestOSLoad</a></p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>os</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -16234,100 +16221,6 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_v1_virtualmachineinstanceguestosload">v1.VirtualMachineInstanceGuestOSLoad</h3>
-<div class="paragraph">
-<p>VirtualMachineInstanceGuestOSLoad represents the system load averages from the guest agent</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>load15m</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Load average over 15 minutes</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>number (double)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>load15mSet</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Load15mSet indicates whether the 15 minute load average is set</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>load1m</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Load average over 1 minute</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>number (double)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>load1mSet</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Load1mSet indicates whether the 1 minute load average is set</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>load5m</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Load average over 5 minutes</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>number (double)</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>load5mSet</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Load5mSet indicates whether the 5 minute load average is set</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>boolean</p>
 </div></div></td>
 </tr>
 </tbody>
