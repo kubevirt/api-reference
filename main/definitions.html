@@ -798,6 +798,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1beta1_platformoptions">v1beta1.PlatformOptions</a></li>
 <li><a href="#_v1beta1_preferencerequirements">v1beta1.PreferenceRequirements</a></li>
 <li><a href="#_v1beta1_snapshotvolumeslists">v1beta1.SnapshotVolumesLists</a></li>
+<li><a href="#_v1beta1_sourceindication">v1beta1.SourceIndication</a></li>
 <li><a href="#_v1beta1_sourcespec">v1beta1.SourceSpec</a></li>
 <li><a href="#_v1beta1_spreadoptions">v1beta1.SpreadOptions</a></li>
 <li><a href="#_v1beta1_storagespec">v1beta1.StorageSpec</a></li>
@@ -23548,6 +23549,54 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1beta1_sourceindication">v1beta1.SourceIndication</h3>
+<div class="paragraph">
+<p>SourceIndication provides an indication of the source VM with its description message</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>indication</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Indication is the indication type<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>message</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Message provides a description message of the indication<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1beta1_sourcespec">v1beta1.SourceSpec</h3>
 <div class="paragraph">
 <p>SourceSpec contains the appropriate spec for the resource being snapshotted</p>
@@ -26332,12 +26381,14 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -26347,6 +26398,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <p><strong>conditions</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1beta1_condition">v1beta1.Condition</a> &gt; array</p>
 </div></div></td>
@@ -26356,6 +26408,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <p><strong>creationTime</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_k8s_io_apimachinery_pkg_apis_meta_v1_time">k8s.io.apimachinery.pkg.apis.meta.v1.Time</a></p>
 </div></div></td>
@@ -26365,6 +26418,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <p><strong>error</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1beta1_error">v1beta1.Error</a></p>
 </div></div></td>
@@ -26375,6 +26429,9 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Deprecated: Use SourceIndications instead. This field will be removed in a future version.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
 </div></div></td>
 </tr>
@@ -26383,6 +26440,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <p><strong>phase</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -26392,6 +26450,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <p><strong>readyToUse</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
 </div></div></td>
@@ -26401,8 +26460,19 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <p><strong>snapshotVolumes</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1beta1_snapshotvolumeslists">v1beta1.SnapshotVolumesLists</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>sourceIndications</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1beta1_sourceindication">v1beta1.SourceIndication</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
@@ -26410,6 +26480,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <p><strong>sourceUID</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -26419,6 +26490,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA or 
 <p><strong>virtualMachineSnapshotContentName</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
