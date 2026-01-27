@@ -681,6 +681,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_synictimer">v1.SyNICTimer</a></li>
 <li><a href="#_v1_sysprepsource">v1.SysprepSource</a></li>
 <li><a href="#_v1_tdx">v1.TDX</a></li>
+<li><a href="#_v1_tlbflush">v1.TLBFlush</a></li>
 <li><a href="#_v1_tlsconfiguration">v1.TLSConfiguration</a></li>
 <li><a href="#_v1_tpmdevice">v1.TPMDevice</a></li>
 <li><a href="#_v1_timer">v1.Timer</a></li>
@@ -8043,7 +8044,7 @@ type PluginA struct {
 <p>TLBFlush improves performances in overcommited environments. Requires vpindex. Defaults to the machine type setting.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><a href="#_v1_featurestate">v1.FeatureState</a></p>
+<p><a href="#_v1_tlbflush">v1.TLBFlush</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -14913,12 +14914,14 @@ otherwise we will use the monitoring namespace.</p>
 <h3 id="_v1_synictimer">v1.SyNICTimer</h3>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -14928,6 +14931,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>direct</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_featurestate">v1.FeatureState</a></p>
 </div></div></td>
@@ -14936,6 +14940,9 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>enabled</strong><br>
 <em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
@@ -14995,6 +15002,61 @@ otherwise we will use the monitoring namespace.</p>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_v1_tlbflush">v1.TLBFlush</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>direct</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Direct allows sending the TLB flush command directly to the hypervisor. It can be useful to optimize performance in nested virtualization cases, such as Windows VBS.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_featurestate">v1.FeatureState</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enabled</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Enabled determines if the feature should be enabled or disabled on the guest. Defaults to true.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>extended</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Extended allows the guest to execute partial TLB flushes. It can be helpful for general purpose workloads.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_featurestate">v1.FeatureState</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_v1_tlsconfiguration">v1.TLSConfiguration</h3>
