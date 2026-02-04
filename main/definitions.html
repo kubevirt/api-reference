@@ -6411,6 +6411,18 @@ type PluginA struct {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>disabledFeatureGates</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DisabledFeatureGates specifies a list of experimental feature gates to disable. A feature gate must not appear in both FeatureGates and DisabledFeatureGates.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>diskVerification</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -6425,7 +6437,7 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>FeatureGates is the list of experimental features to enable. Defaults to none</p>
+<p>FeatureGates specifies a list of experimental feature gates to enable. Defaults to none. A feature gate must not appear in both FeatureGates and DisabledFeatureGates.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; string &gt; array</p>
