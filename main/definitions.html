@@ -596,6 +596,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_interfacebindingplugin">v1.InterfaceBindingPlugin</a></li>
 <li><a href="#_v1_interfacebridge">v1.InterfaceBridge</a></li>
 <li><a href="#_v1_interfacemasquerade">v1.InterfaceMasquerade</a></li>
+<li><a href="#_v1_interfacepasstbinding">v1.InterfacePasstBinding</a></li>
 <li><a href="#_v1_interfacesriov">v1.InterfaceSRIOV</a></li>
 <li><a href="#_v1_ksmconfiguration">v1.KSMConfiguration</a></li>
 <li><a href="#_v1_kvmtimer">v1.KVMTimer</a></li>
@@ -9687,6 +9688,16 @@ type PluginA struct {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>passtBinding</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_interfacepasstbinding">v1.InterfacePasstBinding</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>pciAddress</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -9893,6 +9904,15 @@ type PluginA struct {
 <h3 id="_v1_interfacemasquerade">v1.InterfaceMasquerade</h3>
 <div class="paragraph">
 <p>InterfaceMasquerade connects to a given network using netfilter rules to nat the traffic.</p>
+</div>
+<div class="paragraph">
+<p><em>Type</em> : object</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_v1_interfacepasstbinding">v1.InterfacePasstBinding</h3>
+<div class="paragraph">
+<p>InterfacePasstBinding connects to a given network using passt usermode networking.</p>
 </div>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
