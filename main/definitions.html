@@ -656,6 +656,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_realtime">v1.Realtime</a></li>
 <li><a href="#_v1_reloadablecomponentconfiguration">v1.ReloadableComponentConfiguration</a></li>
 <li><a href="#_v1_removevolumeoptions">v1.RemoveVolumeOptions</a></li>
+<li><a href="#_v1_reservedoverhead">v1.ReservedOverhead</a></li>
 <li><a href="#_v1_resourcerequirements">v1.ResourceRequirements</a></li>
 <li><a href="#_v1_resourcerequirementswithoutclaims">v1.ResourceRequirementsWithoutClaims</a></li>
 <li><a href="#_v1_restartoptions">v1.RestartOptions</a></li>
@@ -11970,6 +11971,18 @@ otherwise we will use the monitoring namespace.</p>
 <p><a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a></p>
 </div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>reservedOverhead</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ReservedOverhead configures the memory overhead applied to a VM and its characteristics.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_reservedoverhead">v1.ReservedOverhead</a></p>
+</div></div></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -13823,6 +13836,50 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Name represents the name that maps to both the disk and volume that should be removed<br>
 <strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_reservedoverhead">v1.ReservedOverhead</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>addedOverhead</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>AddedOverhead determines the memory overhead that will be reserved for the VM. It increases the virt-launcher pod memory limit.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_k8s_io_apimachinery_pkg_api_resource_quantity">k8s.io.apimachinery.pkg.api.resource.Quantity</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>memLock</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>RequiresLock determines whether the VM&#8217;s and its overhead memory need to be locked or not. It is a common practice to enable this if vDPA, VFIO or any other specialized hardware that depends on DMA is being used by the VM. False - (Default) memory lock RLimits are not modified. True - Memory lock RLimits will be updated to consider VM memory
+ size and memory overhead</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
