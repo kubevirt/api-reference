@@ -521,6 +521,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_cloudinitnocloudsource">v1.CloudInitNoCloudSource</a></li>
 <li><a href="#_v1_commoninstancetypesdeployment">v1.CommonInstancetypesDeployment</a></li>
 <li><a href="#_v1_componentconfig">v1.ComponentConfig</a></li>
+<li><a href="#_v1_confidentialcomputeconfiguration">v1.ConfidentialComputeConfiguration</a></li>
 <li><a href="#_v1_configdrivesshpublickeyaccesscredentialpropagation">v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation</a></li>
 <li><a href="#_v1_configmapvolumesource">v1.ConfigMapVolumeSource</a></li>
 <li><a href="#_v1_containerdiskinfo">v1.ContainerDiskInfo</a></li>
@@ -684,6 +685,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_synictimer">v1.SyNICTimer</a></li>
 <li><a href="#_v1_sysprepsource">v1.SysprepSource</a></li>
 <li><a href="#_v1_tdx">v1.TDX</a></li>
+<li><a href="#_v1_tdxattestationconfiguration">v1.TDXAttestationConfiguration</a></li>
+<li><a href="#_v1_tdxconfiguration">v1.TDXConfiguration</a></li>
 <li><a href="#_v1_tlbflush">v1.TLBFlush</a></li>
 <li><a href="#_v1_tlsconfiguration">v1.TLSConfiguration</a></li>
 <li><a href="#_v1_tpmdevice">v1.TPMDevice</a></li>
@@ -5704,6 +5707,37 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_confidentialcomputeconfiguration">v1.ConfidentialComputeConfiguration</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>tdx</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>TDX configuration for attestation on the Intel TDX Platform</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_tdxconfiguration">v1.TDXConfiguration</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_configdrivesshpublickeyaccesscredentialpropagation">v1.ConfigDriveSSHPublicKeyAccessCredentialPropagation</h3>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
@@ -10514,6 +10548,18 @@ type PluginA struct {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>confidentialCompute</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>QGS configuration for attestation on the Intel TDX Platform</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_confidentialcomputeconfiguration">v1.ConfidentialComputeConfiguration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>controllerConfiguration</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -15166,6 +15212,78 @@ otherwise we will use the monitoring namespace.</p>
 <div class="paragraph">
 <p><em>Type</em> : object</p>
 </div>
+</div>
+<div class="sect2">
+<h3 id="_v1_tdxattestationconfiguration">v1.TDXAttestationConfiguration</h3>
+<div class="paragraph">
+<p>QGSConfiguration holds QGS configuration</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enforced</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Indicates whether TDX VM should enforce the existence of QGS (required for attestation) to be scheduled</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>qgsSocketPath</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Socket path pointing to the Quote Generation Service</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_tdxconfiguration">v1.TDXConfiguration</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 42.8571%;">
+<col style="width: 57.1429%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>attestation</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_tdxattestationconfiguration">v1.TDXAttestationConfiguration</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect2">
 <h3 id="_v1_tlbflush">v1.TLBFlush</h3>
