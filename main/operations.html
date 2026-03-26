@@ -727,8 +727,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1alpha3stop-cluster-profiler">GET /apis/subresources.kubevirt.io/v1alpha3/stop-cluster-profiler</a></li>
 <li><a href="#_v1alpha3version">GET /apis/subresources.kubevirt.io/v1alpha3/version</a></li>
 <li><a href="#_handledumpprofiler">GET /dump-profiler</a></li>
-<li><a href="#_func15">GET /healthz</a></li>
+<li><a href="#_func17">GET /healthz</a></li>
 <li><a href="#_func6">GET /openapi/v2</a></li>
+<li><a href="#_getopenapiv3discovery">GET /openapi/v3</a></li>
+<li><a href="#_getopenapiv3spec_subresources_kubevirt_io_v1">GET /openapi/v3/apis/subresources.kubevirt.io/v1</a></li>
+<li><a href="#_getopenapiv3spec_subresources_kubevirt_io_v1alpha3">GET /openapi/v3/apis/subresources.kubevirt.io/v1alpha3</a></li>
 <li><a href="#_handlestartprofiler">GET /start-profiler</a></li>
 <li><a href="#_handlestopprofiler">GET /stop-profiler</a></li>
 </ul>
@@ -44003,7 +44006,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_func15">GET /healthz</h3>
+<h3 id="_func17">GET /healthz</h3>
 <div class="sect3">
 <h4 id="_description_277">Description</h4>
 <div class="paragraph">
@@ -44095,11 +44098,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_handlestartprofiler">GET /start-profiler</h3>
+<h3 id="_getopenapiv3discovery">GET /openapi/v3</h3>
 <div class="sect3">
 <h4 id="_description_278">Description</h4>
 <div class="paragraph">
-<p>start profiler endpoint</p>
+<p>Get OpenAPI v3 discovery</p>
 </div>
 </div>
 <div class="sect3">
@@ -44132,17 +44135,208 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </tbody>
 </table>
 </div>
+<div class="sect3">
+<h4 id="_produces_225">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getopenapiv3spec_subresources_kubevirt_io_v1">GET /openapi/v3/apis/subresources.kubevirt.io/v1</h3>
+<div class="sect3">
+<h4 id="_description_279">Description</h4>
+<div class="paragraph">
+<p>Get OpenAPI v3 specification for subresources.kubevirt.io/v1</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_responses_290">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>No Content</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>500</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Internal Server Error</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_226">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_getopenapiv3spec_subresources_kubevirt_io_v1alpha3">GET /openapi/v3/apis/subresources.kubevirt.io/v1alpha3</h3>
+<div class="sect3">
+<h4 id="_description_280">Description</h4>
+<div class="paragraph">
+<p>Get OpenAPI v3 specification for subresources.kubevirt.io/v1alpha3</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_responses_291">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>200</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>OK</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>No Content</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>500</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Internal Server Error</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="_produces_227">Produces</h4>
+<div class="ulist">
+<ul>
+<li>
+<p><code>application/json</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_handlestartprofiler">GET /start-profiler</h3>
+<div class="sect3">
+<h4 id="_description_281">Description</h4>
+<div class="paragraph">
+<p>start profiler endpoint</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_responses_292">Responses</h4>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 70%;">
+<col style="width: 20%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">HTTP Code</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>401</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Unauthorized</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>No Content</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="_handlestopprofiler">GET /stop-profiler</h3>
 <div class="sect3">
-<h4 id="_description_279">Description</h4>
+<h4 id="_description_282">Description</h4>
 <div class="paragraph">
 <p>stop profiler endpoint</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_responses_290">Responses</h4>
+<h4 id="_responses_293">Responses</h4>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 10%;">
