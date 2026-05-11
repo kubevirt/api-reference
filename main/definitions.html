@@ -8635,7 +8635,7 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated</p>
+<p>ClaimName references the name of an entry in the VMI&#8217;s spec.resourceClaims[] array. The referenced entry may use either resourceClaimName or resourceClaimTemplateName.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8672,7 +8672,7 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested</p>
+<p>RequestName specifies which request from the ResourceClaim/ResourceClaimTemplate spec.devices.requests array this claim request corresponds to.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8919,7 +8919,7 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ClaimName needs to be provided from the list vmi.spec.resourceClaims[].name where this device is allocated</p>
+<p>ClaimName references the name of an entry in the VMI&#8217;s spec.resourceClaims[] array. The referenced entry may use either resourceClaimName or resourceClaimTemplateName.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -8955,7 +8955,7 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>RequestName needs to be provided from resourceClaim.spec.devices.requests[].name where this device is requested</p>
+<p>RequestName specifies which request from the ResourceClaim/ResourceClaimTemplate spec.devices.requests array this claim request corresponds to.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
