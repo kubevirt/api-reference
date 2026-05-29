@@ -640,6 +640,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_pauseoptions">v1.PauseOptions</a></li>
 <li><a href="#_v1_pcihostdevice">v1.PciHostDevice</a></li>
 <li><a href="#_v1_permittedhostdevices">v1.PermittedHostDevices</a></li>
+<li><a href="#_v1_persistentreservationconfiguration">v1.PersistentReservationConfiguration</a></li>
 <li><a href="#_v1_persistentvolumeclaiminfo">v1.PersistentVolumeClaimInfo</a></li>
 <li><a href="#_v1_persistentvolumeclaimvolumesource">v1.PersistentVolumeClaimVolumeSource</a></li>
 <li><a href="#_v1_pluginbinding">v1.PluginBinding</a></li>
@@ -10760,6 +10761,18 @@ type PluginA struct {
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>persistentReservationConfiguration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>PersistentReservationConfiguration controls the deployment of additional resources required for using SCSI persistent reservation in VMs</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_persistentreservationconfiguration">v1.PersistentReservationConfiguration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>roleAggregationStrategy</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -13076,6 +13089,37 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1_usbhostdevice">v1.USBHostDevice</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_persistentreservationconfiguration">v1.PersistentReservationConfiguration</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>enabled</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Enabled controls the deployment of additional resources like the pr-helper container for enabling the use of the SCSI persistent reservation VMs, defaults to False.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
 </div></div></td>
 </tr>
 </tbody>
