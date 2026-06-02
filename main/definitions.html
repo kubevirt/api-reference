@@ -514,6 +514,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_changedblocktrackingselectors">v1.ChangedBlockTrackingSelectors</a></li>
 <li><a href="#_v1_changedblocktrackingstatus">v1.ChangedBlockTrackingStatus</a></li>
 <li><a href="#_v1_chassis">v1.Chassis</a></li>
+<li><a href="#_v1_claimrequest">v1.ClaimRequest</a></li>
 <li><a href="#_v1_clientpassthroughdevices">v1.ClientPassthroughDevices</a></li>
 <li><a href="#_v1_clock">v1.Clock</a></li>
 <li><a href="#_v1_clockoffset">v1.ClockOffset</a></li>
@@ -5372,6 +5373,49 @@ type PluginA struct {
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>version</strong><br>
 <em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_claimrequest">v1.ClaimRequest</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>claimName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ClaimName references the name of an entry in the VMI&#8217;s spec.resourceClaims[] array. The referenced entry may use either resourceClaimName or resourceClaimTemplateName.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>requestName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>RequestName specifies which request from the ResourceClaim/ResourceClaimTemplate spec.devices.requests array this claim request corresponds to.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -12534,6 +12578,18 @@ otherwise we will use the monitoring namespace.</p>
 <td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_podnetwork">v1.PodNetwork</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceClaim</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ResourceClaim represents a network resource requested via a VMI spec.resourceClaims[] entry, backed by either a Kubernetes ResourceClaim or ResourceClaimTemplate. This field should only be configured if the NetworkDevicesWithDRA feature-gate is enabled. This feature is in alpha.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_claimrequest">v1.ClaimRequest</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -19910,7 +19966,7 @@ otherwise we will use the monitoring namespace.</p>
 <div class="paragraph">
 <p>This is an alpha field and requires enabling the DynamicResourceAllocation feature gate in kubernetes
  <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/" class="bare">https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/</a>
-This field should only be configured if one of the feature-gates GPUsWithDRA or HostDevicesWithDRA is enabled. This feature is in alpha.</p>
+This field should only be configured if one of the feature-gates GPUsWithDRA, HostDevicesWithDRA, or NetworkDevicesWithDRA is enabled. This feature is in alpha.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_k8s_io_api_core_v1_podresourceclaim">k8s.io.api.core.v1.PodResourceClaim</a> &gt; array</p>
