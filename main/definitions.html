@@ -460,7 +460,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_k8s_io_api_core_v1_podantiaffinity">k8s.io.api.core.v1.PodAntiAffinity</a></li>
 <li><a href="#_k8s_io_api_core_v1_poddnsconfig">k8s.io.api.core.v1.PodDNSConfig</a></li>
 <li><a href="#_k8s_io_api_core_v1_poddnsconfigoption">k8s.io.api.core.v1.PodDNSConfigOption</a></li>
-<li><a href="#_k8s_io_api_core_v1_podresourceclaim">k8s.io.api.core.v1.PodResourceClaim</a></li>
 <li><a href="#_k8s_io_api_core_v1_preferredschedulingterm">k8s.io.api.core.v1.PreferredSchedulingTerm</a></li>
 <li><a href="#_k8s_io_api_core_v1_resourcefieldselector">k8s.io.api.core.v1.ResourceFieldSelector</a></li>
 <li><a href="#_k8s_io_api_core_v1_tcpsocketaction">k8s.io.api.core.v1.TCPSocketAction</a></li>
@@ -751,6 +750,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachineinstancereplicasetlist">v1.VirtualMachineInstanceReplicaSetList</a></li>
 <li><a href="#_v1_virtualmachineinstancereplicasetspec">v1.VirtualMachineInstanceReplicaSetSpec</a></li>
 <li><a href="#_v1_virtualmachineinstancereplicasetstatus">v1.VirtualMachineInstanceReplicaSetStatus</a></li>
+<li><a href="#_v1_virtualmachineinstanceresourceclaim">v1.VirtualMachineInstanceResourceClaim</a></li>
 <li><a href="#_v1_virtualmachineinstancespec">v1.VirtualMachineInstanceSpec</a></li>
 <li><a href="#_v1_virtualmachineinstancestatus">v1.VirtualMachineInstanceStatus</a></li>
 <li><a href="#_v1_virtualmachineinstancetemplatespec">v1.VirtualMachineInstanceTemplateSpec</a></li>
@@ -1921,80 +1921,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>Value is this DNS resolver option&#8217;s value.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="sect2">
-<h3 id="_k8s_io_api_core_v1_podresourceclaim">k8s.io.api.core.v1.PodResourceClaim</h3>
-<div class="paragraph">
-<p>PodResourceClaim references exactly one ResourceClaim, either directly or by naming a ResourceClaimTemplate which is then turned into a ResourceClaim for the pod.</p>
-</div>
-<div class="paragraph">
-<p>It adds a name to it that uniquely identifies the ResourceClaim inside the Pod. Containers that need access to the ResourceClaim reference it with this name.</p>
-</div>
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 16.6666%;">
-<col style="width: 61.1111%;">
-<col style="width: 22.2223%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-middle">Name</th>
-<th class="tableblock halign-left valign-middle">Description</th>
-<th class="tableblock halign-left valign-middle">Schema</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>name</strong><br>
-<em>required</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Name uniquely identifies this resource claim inside the pod. This must be a DNS_LABEL.<br>
-<strong>Default</strong> : <code>""</code></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>resourceClaimName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ResourceClaimName is the name of a ResourceClaim object in the same namespace as this pod.</p>
-</div>
-<div class="paragraph">
-<p>Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>resourceClaimTemplateName</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this pod.</p>
-</div>
-<div class="paragraph">
-<p>The template will be used to create a new ResourceClaim, which will be bound to this pod. When this pod is deleted, the ResourceClaim will also be deleted. The pod name and resource name, along with a generated component, will be used to form a unique name for the ResourceClaim, which will be recorded in pod.status.resourceClaimStatuses.</p>
-</div>
-<div class="paragraph">
-<p>This field is immutable and no changes will be made to the corresponding ResourceClaim by the control plane after creating the ResourceClaim.</p>
-</div>
-<div class="paragraph">
-<p>Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -19774,6 +19700,71 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachineinstanceresourceclaim">v1.VirtualMachineInstanceResourceClaim</h3>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name uniquely identifies this resource claim inside the VMI. This field is required and must be a DNS_LABEL.<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceClaimName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ResourceClaimName is the name of a ResourceClaim object in the same namespace as this VMI.</p>
+</div>
+<div class="paragraph">
+<p>Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>resourceClaimTemplateName</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>ResourceClaimTemplateName is the name of a ResourceClaimTemplate object in the same namespace as this VMI.</p>
+</div>
+<div class="paragraph">
+<p>The template name is passed through to the generated virt-launcher Pod spec. From the Pod spec, the template is used to create a new ResourceClaim, which is bound to the virt-launcher Pod. When the virt-launcher Pod is deleted, the ResourceClaim is also deleted. The generated ResourceClaim name is unique and is recorded in pod.status.resourceClaimStatuses.</p>
+</div>
+<div class="paragraph">
+<p>Exactly one of ResourceClaimName and ResourceClaimTemplateName must be set.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachineinstancespec">v1.VirtualMachineInstanceSpec</h3>
 <div class="paragraph">
 <p>VirtualMachineInstanceSpec is a description of a VirtualMachineInstance.</p>
@@ -19969,7 +19960,7 @@ otherwise we will use the monitoring namespace.</p>
 This field should only be configured if one of the feature-gates GPUsWithDRA, HostDevicesWithDRA, or NetworkDevicesWithDRA is enabled. This feature is in alpha.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>&lt; <a href="#_k8s_io_api_core_v1_podresourceclaim">k8s.io.api.core.v1.PodResourceClaim</a> &gt; array</p>
+<p>&lt; <a href="#_v1_virtualmachineinstanceresourceclaim">v1.VirtualMachineInstanceResourceClaim</a> &gt; array</p>
 </div></div></td>
 </tr>
 <tr>
