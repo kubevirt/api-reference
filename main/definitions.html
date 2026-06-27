@@ -10599,6 +10599,9 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The ImagePullPolicy to use for user workload pods and their containers (launcher pods, exporter pods, etc.). For KubeVirt infrastructure images, use spec.imagePullPolicy instead.</p>
+</div>
+<div class="paragraph">
 <p>Possible enum values:
  - <code>&quot;Always&quot;</code> means that kubelet always attempts to pull the latest image. Container will fail If the pull fails.
  - <code>&quot;IfNotPresent&quot;</code> means that kubelet pulls if the image isn&#8217;t present on disk. Container will fail if the image isn&#8217;t present and the pull fails.
@@ -11096,7 +11099,7 @@ type PluginA struct {
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>The ImagePullPolicy to use.</p>
+<p>The ImagePullPolicy to use for KubeVirt operator-managed infrastructure images (virt-api, virt-controller, virt-handler, virt-exportproxy, etc.). For pull policy of user workload pods, see spec.configuration.imagePullPolicy.</p>
 </div>
 <div class="paragraph">
 <p>Possible enum values:
