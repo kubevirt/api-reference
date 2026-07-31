@@ -553,6 +553,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_diskverification">v1.DiskVerification</a></li>
 <li><a href="#_v1_domainmemorydumpinfo">v1.DomainMemoryDumpInfo</a></li>
 <li><a href="#_v1_domainspec">v1.DomainSpec</a></li>
+<li><a href="#_v1_downtimetuningoptions">v1.DowntimeTuningOptions</a></li>
 <li><a href="#_v1_downwardapivolumesource">v1.DownwardAPIVolumeSource</a></li>
 <li><a href="#_v1_downwardmetrics">v1.DownwardMetrics</a></li>
 <li><a href="#_v1_downwardmetricsvolumesource">v1.DownwardMetricsVolumeSource</a></li>
@@ -7656,6 +7657,76 @@ type PluginA struct {
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_downtimetuningoptions">v1.DowntimeTuningOptions</h3>
+<div class="paragraph">
+<p>DowntimeTuningOptions controls how virt-launcher gradually increases max_downtime during live migration to help convergence.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cooldownSeconds</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CooldownSeconds is the minimum interval in seconds between successive downtime increases. Defaults to 10.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>initialMs</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>InitialMs is the initial max_downtime value in milliseconds set at the start of migration. Tuning steps increase from this value. Defaults to 150.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>startAfterIteration</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>StartAfterIteration is the memory copy iteration after which downtime tuning begins. Defaults to 3.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int64)</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>steps</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Steps is the number of equal increments used to ramp from InitialMs to the cluster-level MaxDowntimeMs. Defaults to 7.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>integer (int32)</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_downwardapivolumesource">v1.DownwardAPIVolumeSource</h3>
 <div class="paragraph">
 <p>DownwardAPIVolumeSource represents a volume containing downward API info.</p>
@@ -7926,6 +7997,18 @@ type PluginA struct {
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>downtimeTuning</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DowntimeTuning configures iteration-aware downtime ramping for live migration convergence.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_downtimetuningoptions">v1.DowntimeTuningOptions</a></p>
 </div></div></td>
 </tr>
 <tr>
