@@ -11421,6 +11421,18 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>synchronizationPlacement</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SynchronizationPlacement allows customization of node placement for synchronization controllers. This can be used to schedule sync controllers on specific nodes (e.g., nodes with access to the cross-cluster migration network). By default, sync controllers use control-plane placement.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_componentconfig">v1.ComponentConfig</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>synchronizationPort</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -12470,6 +12482,30 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>crossClusterNetwork</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>CrossClusterNetwork is the name of the CNI network used for synchronization-controller peer traffic when decentralizedLiveMigrationDatapath is Proxy. When set, sync controllers attach to this network as crosscluster0 and bind the sync gRPC port only there. When omitted with Proxy, peer traffic uses the pod network. Must not be set when decentralizedLiveMigrationDatapath is Direct (or unset).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>decentralizedLiveMigrationDatapath</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DecentralizedLiveMigrationDatapath selects how live-migration traffic moves for decentralized live migrations (cross-namespace or cross-cluster). Direct (default when unset): no synchronization-controller migration-data proxy. Proxy: sync controllers proxy migration traffic on a single gRPC port. Requires the CrossClusterMigrationProxy feature gate while Alpha.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>disableTLS</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -12510,7 +12546,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Network is the name of the CNI network to use for live migrations. By default, migrations go through the pod network.</p>
+<p>Network is the name of the CNI network to use for live migrations. By default, migrations go through the pod network. When decentralizedLiveMigrationDatapath is Proxy, this network is also used for virt-handler ↔ synchronization-controller migration listeners (omit = pod IP). If set with Proxy, synchronization controllers require the migration0 interface at startup and will fail to start if it is missing.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
