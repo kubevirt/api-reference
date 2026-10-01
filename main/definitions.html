@@ -776,8 +776,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_volumeupdatestate">v1.VolumeUpdateState</a></li>
 <li><a href="#_v1_watchdog">v1.Watchdog</a></li>
 <li><a href="#_v1alpha1_backupcheckpoint">v1alpha1.BackupCheckpoint</a></li>
+<li><a href="#_v1alpha1_backuplink">v1alpha1.BackupLink</a></li>
+<li><a href="#_v1alpha1_backuplinks">v1alpha1.BackupLinks</a></li>
 <li><a href="#_v1alpha1_backupoptions">v1alpha1.BackupOptions</a></li>
 <li><a href="#_v1alpha1_backupvolumeinfo">v1alpha1.BackupVolumeInfo</a></li>
+<li><a href="#_v1alpha1_backupvolumelink">v1alpha1.BackupVolumeLink</a></li>
 <li><a href="#_v1alpha1_migrationpolicy">v1alpha1.MigrationPolicy</a></li>
 <li><a href="#_v1alpha1_migrationpolicylist">v1alpha1.MigrationPolicyList</a></li>
 <li><a href="#_v1alpha1_migrationpolicyspec">v1alpha1.MigrationPolicySpec</a></li>
@@ -22474,6 +22477,99 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1alpha1_backuplink">v1alpha1.BackupLink</h3>
+<div class="paragraph">
+<p>BackupLink contains a CA certificate and per-volume endpoints for one network path</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>cert</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Cert is the CA certificate bundle for TLS verification. It may be empty for external links.<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Volumes lists the data and map endpoints for each backed-up volume</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; <a href="#_v1alpha1_backupvolumelink">v1alpha1.BackupVolumeLink</a> &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_backuplinks">v1alpha1.BackupLinks</h3>
+<div class="paragraph">
+<p>BackupLinks contains internal and external links for accessing backup data in pull mode Internal links use in-cluster service DNS (ClusterIP), while external links use a Route or Ingress hostname via virt-exportproxy</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>external</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>External contains endpoints reachable from outside the cluster</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_backuplink">v1alpha1.BackupLink</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>internal</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Internal contains endpoints reachable from within the cluster</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_backuplink">v1alpha1.BackupLink</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1alpha1_backupoptions">v1alpha1.BackupOptions</h3>
 <div class="paragraph">
 <p>BackupOptions are options used to configure virtual machine backup job</p>
@@ -22622,11 +22718,47 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>dataEndpoint</strong><br>
-<em>optional</em></p>
+<p><strong>volumeName</strong><br>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>DataEndpoint is the URL of the endpoint for read for pull mode</p>
+<p>VolumeName is the volume name from VMI spec<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1alpha1_backupvolumelink">v1alpha1.BackupVolumeLink</h3>
+<div class="paragraph">
+<p>BackupVolumeLink contains the data and map endpoint URLs for a single volume</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>dataEndpoint</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>DataEndpoint is the URL for reading backup data<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -22635,10 +22767,11 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>mapEndpoint</strong><br>
-<em>optional</em></p>
+<em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>MapEndpoint is the URL of the endpoint for map for pull mode</p>
+<p>MapEndpoint is the URL for reading the changed block map<br>
+<strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -22650,7 +22783,7 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 <em>required</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>VolumeName is the volume name from VMI spec<br>
+<p>VolumeName identifies the volume these endpoints belong to<br>
 <strong>Default</strong> : <code>""</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
@@ -23235,18 +23368,6 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p><strong>endpointCert</strong><br>
-<em>optional</em></p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>EndpointCert is the raw CACert that is to be used when connecting to an exported backup endpoint in pull mode.</p>
-</div></div></td>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>string</p>
-</div></div></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>exportUID</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -23267,6 +23388,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1alpha1_backupvolumeinfo">v1alpha1.BackupVolumeInfo</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>links</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Links exposes internal (in-cluster) and external (Ingress/Route) endpoints for pull-mode backups, each with a CA certificate and per-volume URLs. Contains per-volume data and map endpoint URLs for each network path.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1alpha1_backuplinks">v1alpha1.BackupLinks</a></p>
 </div></div></td>
 </tr>
 <tr>
