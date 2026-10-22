@@ -454,6 +454,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_io_k8s_api_core_v1_nodeselectorterm">io.k8s.api.core.v1.NodeSelectorTerm</a></li>
 <li><a href="#_io_k8s_api_core_v1_objectfieldselector">io.k8s.api.core.v1.ObjectFieldSelector</a></li>
 <li><a href="#_io_k8s_api_core_v1_persistentvolumeclaimspec">io.k8s.api.core.v1.PersistentVolumeClaimSpec</a></li>
+<li><a href="#_io_k8s_api_core_v1_persistentvolumeclaimtemplate">io.k8s.api.core.v1.PersistentVolumeClaimTemplate</a></li>
 <li><a href="#_io_k8s_api_core_v1_persistentvolumeclaimvolumesource">io.k8s.api.core.v1.PersistentVolumeClaimVolumeSource</a></li>
 <li><a href="#_io_k8s_api_core_v1_podaffinity">io.k8s.api.core.v1.PodAffinity</a></li>
 <li><a href="#_io_k8s_api_core_v1_podaffinityterm">io.k8s.api.core.v1.PodAffinityTerm</a></li>
@@ -768,6 +769,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_virtualmachinespec">v1.VirtualMachineSpec</a></li>
 <li><a href="#_v1_virtualmachinestartfailure">v1.VirtualMachineStartFailure</a></li>
 <li><a href="#_v1_virtualmachinestatechangerequest">v1.VirtualMachineStateChangeRequest</a></li>
+<li><a href="#_v1_virtualmachinestatesource">v1.VirtualMachineStateSource</a></li>
+<li><a href="#_v1_virtualmachinestatespec">v1.VirtualMachineStateSpec</a></li>
 <li><a href="#_v1_virtualmachinestatus">v1.VirtualMachineStatus</a></li>
 <li><a href="#_v1_virtualmachinevolumerequest">v1.VirtualMachineVolumeRequest</a></li>
 <li><a href="#_v1_volume">v1.Volume</a></li>
@@ -1597,6 +1600,52 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_io_k8s_api_core_v1_persistentvolumeclaimtemplate">io.k8s.api.core.v1.PersistentVolumeClaimTemplate</h3>
+<div class="paragraph">
+<p>PersistentVolumeClaimTemplate is used to produce PersistentVolumeClaim objects as part of an EphemeralVolumeSource.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>metadata</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>May contain labels and annotations that will be copied into the PVC when creating it. No other fields are allowed and will be rejected during validation.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_io_k8s_apimachinery_pkg_apis_meta_v1_objectmeta">io.k8s.apimachinery.pkg.apis.meta.v1.ObjectMeta</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>spec</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>The specification for the PersistentVolumeClaim. The entire content is copied unchanged into the PVC that gets created from this template. The same fields as in a PersistentVolumeClaim are also valid here.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_io_k8s_api_core_v1_persistentvolumeclaimspec">io.k8s.api.core.v1.PersistentVolumeClaimSpec</a></p>
 </div></div></td>
 </tr>
 </tbody>
@@ -20853,6 +20902,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>virtualMachineState</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VirtualMachineState references or templates the PVC that backs the VirtualMachineState (persistent UEFI, TPM and CBT state). When set, it takes precedence over the implicit VirtualMachineState PVC creation that happens when persistent TPM/EFI or CBT is enabled, and any enabled TPM or EFI feature is treated as persistent unless explicitly opted out via Persistent: false.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_virtualmachinestatespec">v1.VirtualMachineStateSpec</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>volumes</strong><br>
 <em>optional</em></p>
 </div></div></td>
@@ -21200,6 +21261,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>virtualMachineStateVolume</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VirtualMachineStateVolume tracks the live VirtualMachineState PVC (persistent UEFI, TPM and CBT state). It is the source of truth for the PVC name, which may differ from the referenced source after a migration. It is populated for both the declarative and the implicit paths.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_volumestatus">v1.VolumeStatus</a></p>
 </div></div></td>
 </tr>
 <tr>
@@ -21688,6 +21761,87 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_virtualmachinestatesource">v1.VirtualMachineStateSource</h3>
+<div class="paragraph">
+<p>VirtualMachineStateSource references an existing PVC to adopt as the starting VirtualMachineState.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>name</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Name of the source PVC.<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_v1_virtualmachinestatespec">v1.VirtualMachineStateSpec</h3>
+<div class="paragraph">
+<p>VirtualMachineStateSpec references or templates the PVC that backs the VirtualMachineState (persistent UEFI, TPM and CBT state). At least one of VolumeClaimTemplate or Source must be set.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>source</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Source is an existing PVC to adopt as the starting VirtualMachineState. The controller does not take ownership of a PVC referenced this way.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_virtualmachinestatesource">v1.VirtualMachineStateSource</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeClaimTemplate</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VolumeClaimTemplate is the template the controller uses to create PVCs it owns. It is used for the initial PVC when Source is unset, and for every new PVC the controller creates later for operations like live migration. The controller owns the PVC name via GenerateName, so volumeClaimTemplate.metadata.name must not be set. The referenced volume mode must be Filesystem.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_io_k8s_api_core_v1_persistentvolumeclaimtemplate">io.k8s.api.core.v1.PersistentVolumeClaimTemplate</a></p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_virtualmachinestatus">v1.VirtualMachineStatus</h3>
 <div class="paragraph">
 <p>VirtualMachineStatus represents the status returned by the controller to describe how the VirtualMachine is doing</p>
@@ -21884,6 +22038,18 @@ This field should only be configured if one of the feature-gates GPUsWithDRA, Ho
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1_virtualmachinestatechangerequest">v1.VirtualMachineStateChangeRequest</a> &gt; array</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>virtualMachineStateVolume</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VirtualMachineStateVolume tracks the live VirtualMachineState PVC (persistent UEFI, TPM and CBT state). It is the source of truth for the PVC name, which may differ from the referenced source after a migration. It is populated for both the declarative and the implicit paths.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_v1_volumestatus">v1.VolumeStatus</a></p>
 </div></div></td>
 </tr>
 <tr>
