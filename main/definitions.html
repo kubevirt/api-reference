@@ -12810,7 +12810,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>GuestMappingPassthrough will create an efficient guest topology based on host CPUs exclusively assigned to a pod. The created topology ensures that memory and CPUs on the virtual numa nodes never cross boundaries of host numa nodes.</p>
+<p>GuestMappingPassthrough will create an efficient guest topology based on host CPUs exclusively assigned to a pod. The created topology ensures that memory and CPUs on the virtual numa nodes never cross boundaries of host numa nodes. It is not supported on a VMI with dedicatedCPUPlacement while the CPUsWithDRA feature gate is enabled, because the host CPUs are then assigned by the DRA driver instead of by kubelet&#8217;s CPU manager.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1_numaguestmappingpassthrough">v1.NUMAGuestMappingPassthrough</a></p>
