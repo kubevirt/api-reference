@@ -20796,9 +20796,7 @@ otherwise we will use the monitoring namespace.</p>
 <p>ResourceClaims define which ResourceClaims must be allocated and reserved before the VMI, hence virt-launcher pod is allowed to start. The resources will be made available to the domain which consumes them by name.</p>
 </div>
 <div class="paragraph">
-<p>This is an alpha field and requires enabling the DynamicResourceAllocation feature gate in kubernetes
- <a href="https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/" class="bare">https://kubernetes.io/docs/concepts/scheduling-eviction/dynamic-resource-allocation/</a>
-This field should only be configured if one of the feature-gates GPUsWithDRA, HostDevicesWithDRA, or NetworkDevicesWithDRA is enabled. This feature is in alpha.</p>
+<p>This field should only be configured if one of the feature-gates GPUsWithDRA, HostDevicesWithDRA, or NetworkDevicesWithDRA is enabled.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1_virtualmachineinstanceresourceclaim">v1.VirtualMachineInstanceResourceClaim</a> &gt; array</p>
