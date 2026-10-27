@@ -682,6 +682,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_v1_seccompconfiguration">v1.SeccompConfiguration</a></li>
 <li><a href="#_v1_secretvolumesource">v1.SecretVolumeSource</a></li>
 <li><a href="#_v1_serviceaccountvolumesource">v1.ServiceAccountVolumeSource</a></li>
+<li><a href="#_v1_snapshotoverlayoptions">v1.SnapshotOverlayOptions</a></li>
 <li><a href="#_v1_sounddevice">v1.SoundDevice</a></li>
 <li><a href="#_v1_stalldetectoroptions">v1.StallDetectorOptions</a></li>
 <li><a href="#_v1_startoptions">v1.StartOptions</a></li>
@@ -15275,6 +15276,53 @@ otherwise we will use the monitoring namespace.</p>
 </table>
 </div>
 <div class="sect2">
+<h3 id="_v1_snapshotoverlayoptions">v1.SnapshotOverlayOptions</h3>
+<div class="paragraph">
+<p>SnapshotOverlayOptions names the utility volume the copy-on-write overlays of an External mode VirtualMachineSnapshot are written to</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
+<th class="tableblock halign-left valign-middle">Schema</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumeName</strong><br>
+<em>required</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>VolumeName is the utility volume attached to the VirtualMachineInstance<br>
+<strong>Default</strong> : <code>""</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>volumes</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>Volumes are the volumes the snapshot captures, the only ones put on overlays. Not used to commit the overlays.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>&lt; string &gt; array</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
 <h3 id="_v1_sounddevice">v1.SoundDevice</h3>
 <div class="paragraph">
 <p>Represents the user&#8217;s configuration to emulate sound cards in the VMI.</p>
@@ -21248,6 +21296,18 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>SELinuxContext is the actual SELinux context of the virt-launcher pod</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>snapshotOverlayPVCUID</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SnapshotOverlayPVCUID identifies the scratch PVC verified for the OverlaySnapshotActive condition. Updated together with that condition.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -28666,12 +28726,14 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
@@ -28681,6 +28743,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>creationTime</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_io_k8s_apimachinery_pkg_apis_meta_v1_time">io.k8s.apimachinery.pkg.apis.meta.v1.Time</a></p>
 </div></div></td>
@@ -28690,6 +28753,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>error</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_v1beta1_error">v1beta1.Error</a></p>
 </div></div></td>
@@ -28699,8 +28763,21 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>readyToUse</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>snapshotMode</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SnapshotMode is the actual mode the snapshot is taken with</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
@@ -28708,6 +28785,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>volumeSnapshotStatus</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>&lt; <a href="#_v1beta1_volumesnapshotstatus">v1beta1.VolumeSnapshotStatus</a> &gt; array</p>
 </div></div></td>
@@ -28820,6 +28898,30 @@ otherwise we will use the monitoring namespace.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_io_k8s_apimachinery_pkg_apis_meta_v1_duration">io.k8s.apimachinery.pkg.apis.meta.v1.Duration</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>overlayScratchSize</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>OverlayScratchSize overrides the size of the scratch volume holding the copy-on-write overlays for the duration of an External mode snapshot. When not set, the size is derived from FailureDeadline, capped by the size of the snapshotted disks. This field can only be set when SnapshotMode is External</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><a href="#_io_k8s_apimachinery_pkg_api_resource_quantity">io.k8s.apimachinery.pkg.api.resource.Quantity</a></p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>snapshotMode</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>SnapshotMode selects the flow used to snapshot a running VM. Only meaningful for online snapshots; offline snapshots are unaffected. External requires the ExternalVMSnapshot feature gate. Defaults to Direct</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
 </div></div></td>
 </tr>
 <tr>
