@@ -23151,21 +23151,36 @@ otherwise we will use the monitoring namespace.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
-<col style="width: 42.8571%;">
-<col style="width: 57.1429%;">
+<col style="width: 16.6666%;">
+<col style="width: 61.1111%;">
+<col style="width: 22.2223%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-middle">Name</th>
+<th class="tableblock halign-left valign-middle">Description</th>
 <th class="tableblock halign-left valign-middle">Schema</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>abortReason</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>AbortReason is set when Cmd is Abort. Cancel marks the backup Failed (TTL expiry, or deleting a push-mode backup). Finalize marks a pull-mode backup Complete after the client finished pulling.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>string</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>backupName</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -23175,6 +23190,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>backupStartTime</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_io_k8s_apimachinery_pkg_apis_meta_v1_time">io.k8s.apimachinery.pkg.apis.meta.v1.Time</a></p>
 </div></div></td>
@@ -23184,6 +23200,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>cmd</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -23193,6 +23210,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>incremental</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -23202,6 +23220,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>incrementalCreationTime</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_io_k8s_apimachinery_pkg_apis_meta_v1_time">io.k8s.apimachinery.pkg.apis.meta.v1.Time</a></p>
 </div></div></td>
@@ -23211,6 +23230,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>mode</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -23220,6 +23240,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>skipQuiesce</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>boolean</p>
 </div></div></td>
@@ -23229,6 +23250,7 @@ otherwise we will use the monitoring namespace.</p>
 <p><strong>targetPath</strong><br>
 <em>optional</em></p>
 </div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
 </div></div></td>
@@ -25939,7 +25961,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>Mode specifies the way the backup output will be recieved</p>
+<p>Mode specifies the way the backup output will be received. Deleting an in-progress Pull backup finalizes it as Complete (client finished pulling). TTL expiry, or deleting an in-progress Push backup, cancels the job and marks the backup Failed.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p>string</p>
@@ -25999,7 +26021,7 @@ otherwise we will use the monitoring namespace.</p>
 <em>optional</em></p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
-<p>TtlDuration limits the lifetime of a pull mode backup and its export If this field is set, after this duration has passed from counting from CreationTimestamp, the backup is eligible to be automatically considered as complete. If this field is omitted, a reasonable default is applied.</p>
+<p>TTLDuration limits the lifetime of a pull mode backup and its export. When set, an in-progress backup past this duration (counting from CreationTimestamp) is cancelled and marked as Failed. Deleting the VirtualMachineBackup after a successful client pull still finalizes the backup as Complete. When omitted, a reasonable default is applied.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><a href="#_io_k8s_apimachinery_pkg_apis_meta_v1_duration">io.k8s.apimachinery.pkg.apis.meta.v1.Duration</a></p>
