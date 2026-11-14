@@ -12520,6 +12520,18 @@ otherwise we will use the monitoring namespace.</p>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p><strong>allowMigrationNetworkFallback</strong><br>
+<em>optional</em></p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>AllowMigrationNetworkFallback specifies whether to fall back to the pod network when the configured migration network (Network) does not provide a usable IP. When false or unset, virt-handler and the synchronization controllers fail to start in that case. When true, they use the pod network instead. The value is read once at startup, so changing it rolls the virt-handler and synchronization-controller pods. Defaults to false.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
+<p>boolean</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-middle"><div class="content"><div class="paragraph">
 <p><strong>allowPostCopy</strong><br>
 <em>optional</em></p>
 </div></div></td>
